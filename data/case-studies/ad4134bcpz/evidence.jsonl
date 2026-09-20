@@ -1,0 +1,7 @@
+{"fact_id":"ad4134.package","subject":"AD4134BCPZ","field":"package","value":"56-lead LFCSP, 8 mm x 8 mm with exposed pad","status":"verified","source_id":"adi-ad4134-ds","locator":"p. 1 and ordering guide p. 92"}
+{"fact_id":"ad4134.channels","subject":"AD4134BCPZ","field":"differential_channels","value":["AIN0+ / AIN0-","AIN1+ / AIN1-","AIN2+ / AIN2-","AIN3+ / AIN3-"],"status":"verified","source_id":"adi-ad4134-ds","locator":"Table 8 pp. 15-16, pins 29-33 and 38-42"}
+{"fact_id":"ad4134.reference","subject":"REFIN/REFCAP","field":"reference","value":{"REFIN":"AI","REFCAP":"AO","REFGND":"GND"},"status":"verified","source_id":"adi-ad4134-ds","locator":"Table 8 p. 16, pins 35-37"}
+{"fact_id":"ad4134.supplies","subject":"AD4134BCPZ","field":"supplies","value":["AVDD5","DVDD5","AVDD1V8","DVDD1V8","CLKVDD","IOVDD","LDOIN"],"status":"verified","source_id":"adi-ad4134-ds","locator":"Table 8 pp. 14-16 and specifications p. 4"}
+{"fact_id":"ad4134.clock","subject":"XTAL1/XTAL2","field":"clock","value":"crystal or external CMOS clock of 48 MHz","status":"verified","source_id":"adi-ad4134-ds","locator":"p. 1 and Table 8 p. 16, pins 45-46"}
+{"fact_id":"ad4134.interface","subject":"AD4134BCPZ","field":"interfaces","value":["SPI control","pin-control mode","parallel or serialized DOUT data interface"],"status":"verified","source_id":"adi-ad4134-ds","locator":"pp. 1, 52-53, 62-64"}
+{"fact_id":"ad4134.dnc","subject":"DNC","field":"no_connect","value":true,"status":"verified","source_id":"adi-ad4134-ds","locator":"Table 8 p. 15, pin 28"}

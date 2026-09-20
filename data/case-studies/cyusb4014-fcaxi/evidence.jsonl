@@ -1,0 +1,7 @@
+{"fact_id":"fx10.package","subject":"CYUSB4014-FCAXI","field":"package","value":"169-ball FBGA","status":"verified","source_id":"infineon-fx10-ds","locator":"p. 2, Package information"}
+{"fact_id":"fx10.features","subject":"CYUSB4014-FCAXI","field":"modes","value":["LVDS","LVCMOS"],"status":"verified","source_id":"infineon-fx10-ds","locator":"p. 1-2, high-bandwidth data subsystem; Table 9"}
+{"fact_id":"fx10.p0d7","subject":"P0D7/P0D7N","field":"differential_pair","value":{"positive":"P0D7","negative":"P0D7N","supply":"VDDIO_P0"},"status":"verified","source_id":"infineon-fx10-ds","locator":"Table 9 p. 31, B2"}
+{"fact_id":"fx10.p0d6","subject":"P0D6/P0D6N","field":"differential_pair","value":{"positive":"P0D6","negative":"P0D6N","supply":"VDDIO_P0"},"status":"verified","source_id":"infineon-fx10-ds","locator":"Table 9 p. 31, C2"}
+{"fact_id":"fx10.gpio","subject":"P4.3","field":"signals","value":["GPIO1","UART-RX0","I2C-SCL0 (SCB5)","SPICLK (SCB5)"],"status":"verified","source_id":"infineon-fx10-ds","locator":"Table 11 p. 35, G11"}
+{"fact_id":"fx10.usb","subject":"CYUSB4014-FCAXI","field":"usb","value":"USB 3.2 Gen 2 and USB 2.0 high-speed device interfaces","status":"verified","source_id":"infineon-fx10-ds","locator":"pp. 1, 7-8"}
+{"fact_id":"fx10.orderable","subject":"CYUSB4014-FCAXI","field":"feature_variant","value":"LVDS, LVCMOS, QSPI and high-bandwidth data subsystem enabled","status":"verified","source_id":"infineon-fx10-ds","locator":"ordering information table, p. 82"}

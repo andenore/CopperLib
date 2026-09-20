@@ -3,12 +3,13 @@ import json
 
 from .core import check, coverage, generate, validate
 from .cubemx import ingest, packet, reconcile
+from .compatibility import write_reports
 from pathlib import Path
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("command", choices=["validate", "generate", "check", "coverage", "cubemx-ingest", "cubemx-reconcile", "cubemx-packet"])
+    parser.add_argument("command", choices=["validate", "generate", "check", "coverage", "cubemx-ingest", "cubemx-reconcile", "cubemx-packet", "compatibility"])
     parser.add_argument("--cubemx-root")
     parser.add_argument("--cubemx-identity", default="STM32G0B1CBTx")
     parser.add_argument("--output")
@@ -35,5 +36,8 @@ def main() -> None:
     elif args.command == "cubemx-packet":
         artifact = ingest(args.cubemx_root, args.cubemx_identity)
         print(json.dumps(packet(artifact, args.pin), indent=2, sort_keys=True))
+    elif args.command == "compatibility":
+        report = write_reports()
+        print(json.dumps({"cases": len(report["cases"]), "json": "reports/compatibility.json", "markdown": "reports/compatibility.md"}, indent=2))
     else:
         print(json.dumps(coverage(), indent=2))

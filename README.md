@@ -1,6 +1,6 @@
-# CopperScript STM32G0 library
+# CopperScript device-model compatibility lab
 
-Deterministic, provenance-first device data for CopperScript, starting with a bounded proof of concept for `STM32G0B1CBT6`.
+Deterministic, provenance-first device data and compatibility fixtures for CopperScript. The repository retains a bounded `STM32G0B1CBT6` proof and adds four cross-vendor model-gap case studies.
 
 This repository is intentionally separate from the CopperScript compiler. It records a compatible compiler revision (`ee63d69`) and feeds the upstream `pcbir.devicegen` implementation. The proof currently covers four verified LQFP48 GPIO pins (`PA0`–`PA1`, `PC0`–`PC1`) and their package bonds. It is incomplete and cannot be published as a production package.
 
@@ -12,6 +12,7 @@ python -m copperscript_stm32g0 validate
 python -m copperscript_stm32g0 generate
 python -m copperscript_stm32g0 coverage
 python -m pytest
+python -m copperscript_stm32g0 compatibility
 ```
 
 The normalized bundle is in `data/bundles/stm32g0b1/`. The generated `.copper` files are written under `generated/` by upstream `pcbir.devicegen`. A production package is refused unless the request declares complete coverage and contains no unresolved or illustrative facts. Network acquisition is opt-in and writes only to the ignored `cache/` directory.
@@ -45,3 +46,9 @@ Typical locations are `C:\Program Files\STMicroelectronics\...\STM32CubeMX\db\mc
 - CopperScript compatibility target: https://github.com/andenore/CopperScript/tree/ee63d69
 
 No remote is configured by this repository. See `AGENTS.md` for contribution rules.
+
+## Cross-vendor compatibility lab
+
+`python -m copperscript_stm32g0 compatibility` writes deterministic JSON and Markdown reports under `reports/`. The case studies are intentionally bounded and non-publishable: Nordic `nRF52840-QIAA`, Infineon `CYUSB4014-FCAXI`, Analog Devices `AD4134BCPZ`, and Texas Instruments `OPA2197ID`. Their source facts and locators are kept in `data/case-studies/`; the reports classify current CopperScript support as represented, lossy, unrepresentable, or expansion-risk.
+
+The lab currently exposes gaps around closed part kinds, analog direction semantics, differential grouping/polarity, repeated functional units, shared supplies, wildcard/parametric routing, high-speed interface semantics, no-connect/exposed-pad rules, voltage/current/range metadata, and interface kinds beyond I2C. It does not change the CopperScript language or model.

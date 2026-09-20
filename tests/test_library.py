@@ -6,6 +6,7 @@ import pytest
 from copperscript_stm32g0 import core
 from pcbir.devicegen import check_generated, load_bundle, render_bundle, validate_bundle
 from copperscript_stm32g0.cubemx import CubeMXError, ingest, packet, reconcile
+from copperscript_stm32g0.compatibility import build_report, markdown
 
 FIXTURE_CUBEMX = Path(__file__).parent / "fixtures" / "cubemx"
 
@@ -131,6 +132,27 @@ def test_cubemx_bounded_packet_contains_only_requested_pins():
     assert [pin["name"] for pin in bounded["pins"]] == ["PC0"]
     assert "PA0" not in json.dumps(bounded)
     assert "I2C3_SCL" in json.dumps(bounded)
+
+
+def test_cross_vendor_report_is_deterministic_and_source_backed():
+    first = build_report()
+    second = build_report()
+    assert first == second
+    assert [case["orderable_part"] for case in first["cases"]] == [
+        "nRF52840-QIAA", "CYUSB4014-FCAXI", "AD4134BCPZ", "OPA2197ID"
+    ]
+    assert all(case["validation_errors"] == [] for case in first["cases"])
+    assert all(case["production_publishable"] is False for case in first["cases"])
+    assert "unrepresentable" in markdown(first)
+
+
+def test_cross_vendor_report_detects_required_model_gaps():
+    report = build_report()
+    gaps = {(concept["id"], concept["classification"]) for case in report["cases"] for concept in case["concepts"]}
+    assert ("closed_part_kind", "unrepresentable") in gaps
+    assert ("differential_pair_grouping", "unrepresentable") in gaps
+    assert ("wildcard_pin_routing", "expansion-risk") in gaps
+    assert ("repeated_functional_units", "unrepresentable") in gaps
 
 
 def test_cubemx_rejects_reference_outside_database(tmp_path):
