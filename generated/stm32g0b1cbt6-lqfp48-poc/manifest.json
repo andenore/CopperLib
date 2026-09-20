@@ -1,6 +1,0 @@
-{
-  "generator": "copperscript-stm32g0-library",
-  "copperscript_revision": "ee63d69",
-  "evidence_sha256": "b2d8c515cf35914c9b75b3ee85af9aca03ae0c1ed8dcdf10f64a50f802500e5c",
-  "files": ["device.json", "manifest.json", "mux.csv", "pads.csv", "peripherals.csv", "pins.csv"]
-}

@@ -1,7 +1,0 @@
-{
-  "name": "STM32G0B1CBT6",
-  "family": "STM32G0B1",
-  "package": "LQFP48",
-  "scope": "proof-of-concept",
-  "production_publishable": true
-}

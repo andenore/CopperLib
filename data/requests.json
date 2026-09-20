@@ -8,6 +8,7 @@
       "family": "STM32G0B1",
       "package": "LQFP48",
       "scope": "proof-of-concept",
+      "complete_coverage": false,
       "work_packets": ["stm32g0b1cbt6-lqfp48-gpio-core"]
     }
   ]

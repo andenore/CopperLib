@@ -1,0 +1,5 @@
+name,number,bond,capabilities,role,voltage_min,voltage_max
+PA0,25,PA0,,io,,
+PA1,26,PA1,,io,,
+PC0,21,PC0,,io,,
+PC1,22,PC1,,io,,

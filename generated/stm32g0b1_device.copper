@@ -1,0 +1,35 @@
+// Generated from device-data/stm32g0b1; do not edit by hand.
+// Regenerate with: python tools/devicegen.py generate <bundle> --out-dir <package>
+// Bounded proof of concept: four verified LQFP48 GPIO pads.
+// This bundle is incomplete and is not production publishable.
+
+device STM32G0B1 {
+    vendor = "STMicroelectronics";
+    family = "STM32G0";
+    coverage = "PA0, PA1, PC0, PC1 only";
+    source_document = "STM32G0B1xB/xC/xE datasheet";
+    source_revision = "DS13560 Rev 1";
+    source_location = "Table 12";
+    source_url = "https://www.st.com/resource/en/datasheet/stm32g0b1cc.pdf";
+
+    pad PA0 {
+        capabilities = "digital_input,push_pull_output";
+        role = io;
+    }
+
+    pad PA1 {
+        capabilities = "digital_input,push_pull_output";
+        role = io;
+    }
+
+    pad PC0 {
+        capabilities = "digital_input,push_pull_output";
+        role = io;
+    }
+
+    pad PC1 {
+        capabilities = "digital_input,push_pull_output";
+        role = io;
+    }
+
+}

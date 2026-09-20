@@ -12,9 +12,13 @@ dependencies = []
 
 [project.optional-dependencies]
 test = ["pytest>=7.4"]
+upstream = ["copperscript @ git+https://github.com/andenore/CopperScript.git@ee63d69"]
 
 [project.scripts]
 copperscript-stm32g0 = "copperscript_stm32g0.cli:main"
+
+[tool.setuptools]
+packages = ["copperscript_stm32g0"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
