@@ -5,7 +5,7 @@ import pytest
 
 from copperscript_stm32g0 import core
 from pcbir.devicegen import check_generated, load_bundle, render_bundle, validate_bundle
-from copperscript_stm32g0.cubemx import ingest, packet, reconcile
+from copperscript_stm32g0.cubemx import CubeMXError, ingest, packet, reconcile
 
 FIXTURE_CUBEMX = Path(__file__).parent / "fixtures" / "cubemx"
 
@@ -89,7 +89,10 @@ def test_cubemx_referenced_ip_files_are_hashed_and_reconcile_exactly():
     assert report["exact_agreement"] is True
     assert report["errors"] == []
     assert {entry["path"] for entry in artifact["source_manifest"]["files"]} == {
-        "db/mcu/families.xml", "db/mcu/IP/GPIO.xml", "db/mcu/IP/GPIO_Config.xml", "db/mcu/STM32G0B1CBTx.xml"
+        "db/mcu/families.xml",
+        "db/mcu/IP/GPIO-gpiog0_v1_0_Cube_Modes.xml",
+        "db/mcu/IP/GPIO-gpiog0_v1_0_Cube_Parameters.xml",
+        "db/mcu/STM32G0B1CBTx.xml",
     }
 
 
@@ -128,3 +131,18 @@ def test_cubemx_bounded_packet_contains_only_requested_pins():
     assert [pin["name"] for pin in bounded["pins"]] == ["PC0"]
     assert "PA0" not in json.dumps(bounded)
     assert "I2C3_SCL" in json.dumps(bounded)
+
+
+def test_cubemx_rejects_reference_outside_database(tmp_path):
+    fixture = tmp_path / "cubemx"
+    shutil.copytree(FIXTURE_CUBEMX, fixture)
+    mcu = fixture / "db" / "mcu" / "STM32G0B1CBTx.xml"
+    mcu.write_text(
+        mcu.read_text(encoding="utf-8").replace(
+            "</Mcu>", '<IP Ref="../../outside.xml" /></Mcu>'
+        ),
+        encoding="utf-8",
+    )
+    (fixture / "outside.xml").write_text("<outside />", encoding="utf-8")
+    with pytest.raises(CubeMXError, match="escapes CubeMX db/mcu"):
+        ingest(fixture, "STM32G0B1CBTx")

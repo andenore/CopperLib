@@ -28,7 +28,7 @@ Evidence lives in `data/evidence.jsonl`; the generated bundle is intentionally c
 
 ## STM32CubeMX ingestion
 
-The optional CubeMX importer accepts either an installation root or its `db/mcu` directory. It reads the requested MCU XML plus referenced IP/config XML, extracts identity/package/pins/signals, and writes only a compact JSON artifact plus adjacent SHA-256 source manifest under ignored output:
+The optional CubeMX importer accepts either an installation root or its `db/mcu` directory. It reads the requested MCU XML plus referenced IP/config XML, including CubeMX's `Name` + `Version` file convention such as `<IP>-<version>_Modes.xml`. It extracts identity/package/pins/signals and writes only a compact JSON artifact plus adjacent SHA-256 source manifest under ignored output:
 
 ```powershell
 python -m copperscript_stm32g0 cubemx-ingest --cubemx-root C:\Path\To\STM32CubeMX --cubemx-identity STM32G0B1CBTx --output cache\cubemx\stm32g0b1.json

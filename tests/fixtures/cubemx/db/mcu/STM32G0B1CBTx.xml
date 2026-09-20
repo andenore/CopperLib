@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Mcu xmlns="urn:synthetic:cubemx" name="STM32G0B1CBTx" family="STM32G0B1" package="LQFP48">
-  <IP Name="GPIO" Ref="IP/GPIO.xml" />
+  <IP InstanceName="GPIO" Name="GPIO" Version="gpiog0_v1_0_Cube" ConfigFile="GPIO-gpiog0_v1_0_Cube" />
   <Pin Name="PA0" Position="25" Type="I/O">
     <Signal Name="SPI2_SCK/I2S2_CK" IOModes="Alternate" />
     <Signal Name="USART2_CTS" IOModes="Alternate" />

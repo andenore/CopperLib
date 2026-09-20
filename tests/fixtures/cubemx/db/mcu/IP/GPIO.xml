@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<IP xmlns="urn:synthetic:cubemx" name="GPIO" version="1.0">
-  <ConfigFile file="GPIO_Config.xml" />
-</IP>

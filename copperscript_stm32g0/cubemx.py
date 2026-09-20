@@ -64,16 +64,36 @@ def _source_ref(value: str, base: Path, mcu_dir: Path) -> Path | None:
     normalized = value.replace("\\", "/").lstrip("/")
     for candidate in (base / normalized, mcu_dir / normalized, mcu_dir / "IP" / Path(normalized).name):
         if candidate.is_file():
-            return candidate.resolve()
+            resolved = candidate.resolve()
+            if not resolved.is_relative_to(mcu_dir.resolve()):
+                raise CubeMXError(f"XML reference escapes CubeMX db/mcu: {value!r}")
+            return resolved
     return None
+
+
+def _ip_xml(element: ET.Element, mcu_dir: Path) -> list[Path]:
+    if _local(element.tag) != "ip":
+        return []
+    name = _attr(element, "name")
+    version = _attr(element, "version")
+    config = _attr(element, "configFile")
+    stems = [stem for stem in (config, f"{name}-{version}" if name and version else "") if stem]
+    ip_dir = mcu_dir / "IP"
+    matches: set[Path] = set()
+    for stem in stems:
+        basename = Path(stem.replace("\\", "/")).name
+        for path in ip_dir.glob(f"{basename}*.xml"):
+            matches.add(path.resolve())
+    return sorted(matches)
 
 
 def _referenced_xml(root: ET.Element, base: Path, mcu_dir: Path) -> list[Path]:
     result: set[Path] = set()
     for element in root.iter():
+        result.update(_ip_xml(element, mcu_dir))
         for key, value in element.attrib.items():
             local_key = key.rsplit("}", 1)[-1].casefold()
-            if local_key in {"ref", "file", "path", "source", "config", "ip", "filename"}:
+            if local_key in {"ref", "file", "path", "source", "config", "configfile", "ip", "filename"}:
                 resolved = _source_ref(value, base, mcu_dir)
                 if resolved:
                     result.add(resolved)
