@@ -9,6 +9,20 @@ def test_exact_upstream_validation_and_cross_references():
     assert validate_bundle(bundle) == ()
     assert [row["name"] for row in bundle.pads] == ["PA0", "PA1", "PC0", "PC1"]
     assert [row["bond"] for row in bundle.parts[0].pins] == ["PA0", "PA1", "PC0", "PC1"]
+    assert core.evidence_errors() == []
+
+
+def test_evidence_mismatch_is_rejected(tmp_path, monkeypatch):
+    evidence = tmp_path / "evidence.jsonl"
+    evidence.write_text(
+        core.EVIDENCE.read_text(encoding="utf-8").replace(
+            '"fact_id":"pin.pa0.number","subject":"PA0","field":"package_pin","value":25',
+            '"fact_id":"pin.pa0.number","subject":"PA0","field":"package_pin","value":99',
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(core, "EVIDENCE", evidence)
+    assert "PA0.package_pin does not match pins.csv" in core.evidence_errors()
 
 
 def test_deterministic_upstream_copper_output():

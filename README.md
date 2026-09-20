@@ -29,7 +29,7 @@ Evidence lives in `data/evidence.jsonl`; the generated bundle is intentionally c
 ## Sources
 
 - ST product page: https://www.st.com/en/microcontrollers-microprocessors/stm32g0b1cb.html
-- ST datasheet `DS13560`, `STM32G0B1xB/xC/xE`, PDF: https://www.st.com/resource/en/datasheet/stm32g0b1cc.pdf
+- ST datasheet `DS13560 Rev 6` (February 2026), `STM32G0B1xB/xC/xE`, PDF: https://www.st.com/resource/en/datasheet/stm32g0b1cc.pdf
 - CopperScript compatibility target: https://github.com/andenore/CopperScript/tree/ee63d69
 
 No remote is configured by this repository. See `AGENTS.md` for contribution rules.

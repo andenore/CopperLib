@@ -8,7 +8,7 @@ part STM32G0B1CBT6 {
     footprint = "LQFP-48";
     device = STM32G0B1;
     source_document = "STM32G0B1xB/xC/xE datasheet";
-    source_revision = "DS13560 Rev 1";
+    source_revision = "DS13560 Rev 6 (February 2026)";
     source_location = "Table 12";
     source_url = "https://www.st.com/resource/en/datasheet/stm32g0b1cc.pdf";
 
