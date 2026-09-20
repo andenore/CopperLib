@@ -26,6 +26,18 @@ The normalized bundle is in `data/bundles/stm32g0b1/`. The generated `.copper` f
 
 Evidence lives in `data/evidence.jsonl`; the generated bundle is intentionally concise. Facts are labelled `verified`, `inferred`, `unresolved`, or `illustrative`. `?` is reserved for unresolved cells and is rejected by upstream validation.
 
+## STM32CubeMX ingestion
+
+The optional CubeMX importer accepts either an installation root or its `db/mcu` directory. It reads the requested MCU XML plus referenced IP/config XML, extracts identity/package/pins/signals, and writes only a compact JSON artifact plus adjacent SHA-256 source manifest under ignored output:
+
+```powershell
+python -m copperscript_stm32g0 cubemx-ingest --cubemx-root C:\Path\To\STM32CubeMX --cubemx-identity STM32G0B1CBTx --output cache\cubemx\stm32g0b1.json
+python -m copperscript_stm32g0 cubemx-reconcile --cubemx-root C:\Path\To\STM32CubeMX --cubemx-identity STM32G0B1CBTx
+python -m copperscript_stm32g0 cubemx-packet --cubemx-root C:\Path\To\STM32CubeMX --cubemx-identity STM32G0B1CBTx --pin PC0
+```
+
+Typical locations are `C:\Program Files\STMicroelectronics\...\STM32CubeMX\db\mcu` on Windows, `/usr/local/STMicroelectronics/STM32CubeMX/db/mcu` on Linux, and `/Applications/STMicroelectronics/STM32CubeMX.app/Contents/Resources/db/mcu` on macOS, but the importer does not assume these paths. The host used for this proof had no CubeMX installation at the standard Windows paths, so no real local import was performed. CI uses the clearly synthetic fixtures in `tests/fixtures/cubemx/`. Raw ST XML is intentionally never committed or redistributed.
+
 ## Sources
 
 - ST product page: https://www.st.com/en/microcontrollers-microprocessors/stm32g0b1cb.html

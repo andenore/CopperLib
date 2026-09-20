@@ -7,6 +7,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from .cubemx import CubeMXError, ingest as cubemx_ingest, reconcile as cubemx_reconcile
+
 ROOT = Path(__file__).resolve().parent.parent
 BUNDLE = ROOT / "data" / "bundles" / "stm32g0b1"
 OUTPUT = ROOT / "generated"
@@ -87,17 +89,22 @@ def evidence_errors() -> list[str]:
     return errors
 
 
-def validate() -> None:
+def validate(cubemx_root: str | Path | None = None, cubemx_identity: str = "STM32G0B1CBTx") -> None:
     errors = evidence_errors()
     if errors:
         raise RuntimeError("\n".join(errors))
+    if cubemx_root:
+        artifact = cubemx_ingest(cubemx_root, cubemx_identity)
+        report = cubemx_reconcile(artifact, BUNDLE, EVIDENCE, [row["name"] for row in _rows(BUNDLE / "parts" / "stm32g0b1cbt6" / "pins.csv")])
+        if report["errors"]:
+            raise RuntimeError("\n".join(report["errors"]))
     result = devicegen("validate", str(BUNDLE), capture=True)
     if result.returncode:
         raise RuntimeError(result.stdout + result.stderr)
 
 
-def generate() -> None:
-    validate()
+def generate(cubemx_root: str | Path | None = None, cubemx_identity: str = "STM32G0B1CBTx") -> None:
+    validate(cubemx_root, cubemx_identity)
     result = devicegen("generate", str(BUNDLE), "--out-dir", str(OUTPUT), capture=True)
     if result.returncode:
         raise RuntimeError(result.stdout + result.stderr)

@@ -1,7 +1,13 @@
 import shutil
+import json
+from pathlib import Path
+import pytest
 
 from copperscript_stm32g0 import core
 from pcbir.devicegen import check_generated, load_bundle, render_bundle, validate_bundle
+from copperscript_stm32g0.cubemx import ingest, packet, reconcile
+
+FIXTURE_CUBEMX = Path(__file__).parent / "fixtures" / "cubemx"
 
 
 def test_exact_upstream_validation_and_cross_references():
@@ -62,3 +68,63 @@ def test_coverage_is_conspicuous():
         "unresolved_facts": 0,
         "illustrative_facts": 0,
     }
+
+
+def test_cubemx_namespace_agnostic_pin_and_signal_extraction(tmp_path):
+    first = ingest(FIXTURE_CUBEMX, "STM32G0B1CBTx", tmp_path / "extract.json")
+    assert first["package"] == "LQFP48"
+    assert [pin["name"] for pin in first["pins"] if pin["name"].startswith(("PA", "PC"))] == ["PC0", "PC1", "PA0", "PA1"]
+    assert first["pins"][-1]["signals"][0]["name"] == "SPI1_SCK/I2S1_CK"
+    assert first["cube_mx_version"] == "6.12.0"
+    assert len(first["source_manifest"]["files"]) == 4
+    assert (tmp_path / "extract.json").exists()
+    manifest = json.loads((tmp_path / "extract.manifest.json").read_text(encoding="utf-8"))
+    assert manifest["database_version"] == "6.1.0"
+    assert manifest["files"] == first["source_manifest"]["files"]
+
+
+def test_cubemx_referenced_ip_files_are_hashed_and_reconcile_exactly():
+    artifact = ingest(FIXTURE_CUBEMX, "STM32G0B1CBTx")
+    report = reconcile(artifact, core.BUNDLE, core.EVIDENCE, ["PA0", "PA1", "PC0", "PC1"])
+    assert report["exact_agreement"] is True
+    assert report["errors"] == []
+    assert {entry["path"] for entry in artifact["source_manifest"]["files"]} == {
+        "db/mcu/families.xml", "db/mcu/IP/GPIO.xml", "db/mcu/IP/GPIO_Config.xml", "db/mcu/STM32G0B1CBTx.xml"
+    }
+
+
+def test_cubemx_extraction_is_deterministic(tmp_path):
+    left = ingest(FIXTURE_CUBEMX, "STM32G0B1CBTx", tmp_path / "left.json")
+    right = ingest(FIXTURE_CUBEMX, "STM32G0B1CBTx", tmp_path / "right.json")
+    assert left == right
+    assert (tmp_path / "left.json").read_text(encoding="utf-8") == (tmp_path / "right.json").read_text(encoding="utf-8")
+
+
+def test_cubemx_mismatch_blocks_reconciliation():
+    artifact = ingest(FIXTURE_CUBEMX, "STM32G0B1CBTx")
+    next(pin for pin in artifact["pins"] if pin["name"] == "PA0")["position"] = "99"
+    report = reconcile(artifact, core.BUNDLE, core.EVIDENCE, ["PA0"])
+    assert report["exact_agreement"] is False
+    assert any("conflict" in error for error in report["errors"])
+    assert report["conflicts"]
+
+
+def test_core_validation_wires_cubemx_gate(monkeypatch):
+    original = core.cubemx_ingest
+
+    def mismatching_ingest(*args, **kwargs):
+        artifact = original(*args, **kwargs)
+        artifact["pins"][0]["position"] = "99"
+        return artifact
+
+    monkeypatch.setattr(core, "cubemx_ingest", mismatching_ingest)
+    with pytest.raises(RuntimeError, match="conflict"):
+        core.validate(FIXTURE_CUBEMX, "STM32G0B1CBTx")
+
+
+def test_cubemx_bounded_packet_contains_only_requested_pins():
+    artifact = ingest(FIXTURE_CUBEMX, "STM32G0B1CBTx")
+    bounded = packet(artifact, ["PC0"])
+    assert [pin["name"] for pin in bounded["pins"]] == ["PC0"]
+    assert "PA0" not in json.dumps(bounded)
+    assert "I2C3_SCL" in json.dumps(bounded)

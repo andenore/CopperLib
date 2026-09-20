@@ -12,6 +12,9 @@ jobs:
       - run: python -m pytest
       - run: python -m copperscript_stm32g0 generate
       - run: python -m copperscript_stm32g0 check
+      - run: python -m copperscript_stm32g0 cubemx-ingest --cubemx-root tests/fixtures/cubemx --cubemx-identity STM32G0B1CBTx --output work/cubemx/stm32g0b1.json
+      - run: python -m copperscript_stm32g0 cubemx-reconcile --cubemx-root tests/fixtures/cubemx --cubemx-identity STM32G0B1CBTx
+      - run: python -m copperscript_stm32g0 cubemx-packet --cubemx-root tests/fixtures/cubemx --cubemx-identity STM32G0B1CBTx --pin PC0
       - run: copper check tests/fixtures/compiler_smoke.copper
       - run: copper compile tests/fixtures/compiler_smoke.copper --no-check -o work/compiler-smoke.json
       - run: git diff --exit-code
