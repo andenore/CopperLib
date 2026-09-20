@@ -29,7 +29,7 @@ Source: [nRF52840 Product Specification revision history](https://docs.nordicsem
 
 ## CYUSB4014-FCAXI (Infineon/Cypress)
 
-Package: 169-ball FBGA; scope: P0D7/P0D7N and P0D6/P0D6N plus P4.3, USB and VDDIO_P0 concepts
+Package: 169-ball FBGA; scope: P0D7P/P0D7N and P0D6P/P0D6N LVDS pairs with LVCMOS aliases, plus P4.3, USB and VDDIO_P0 concepts
 
 | Concept | Classification | Finding |
 |---|---|---|
@@ -65,7 +65,7 @@ Package: 56-lead LFCSP with EP; scope: AIN0-3 differential pairs, reference pins
 | `voltage_current_range_metadata` | **lossy** | Multiple exact rail ranges are documented, but bundle metadata has no complete per-device supply/range schema. |
 | `multi_interface_kinds` | **unrepresentable** | SPI, pin-control, DOUT and clock/control interfaces exceed the current I2C-centered interface model. |
 
-Evidence facts: 7; sources: 1; production publishable: `false`.
+Evidence facts: 8; sources: 1; production publishable: `false`.
 
 Source: [AD4134 datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/ad4134.pdf) — Rev. 0, 2021; Table 8, Pin Function Descriptions, pp. 14-16; ordering guide p. 92; SPI/data interface pp. 52, 62-64
 

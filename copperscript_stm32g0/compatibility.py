@@ -8,6 +8,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 CASES = ROOT / "data" / "case-studies"
 REPORTS = ROOT / "reports"
+FACT_FIELDS = {"fact_id", "subject", "field", "value", "status", "source_id", "locator"}
+FACT_STATUSES = {"verified", "inferred", "unresolved", "illustrative"}
+CLASSIFICATIONS = {"represented", "lossy", "unrepresentable", "expansion-risk"}
 
 
 def _read(path: Path) -> object:
@@ -28,11 +31,26 @@ def build_report() -> dict[str, object]:
         source_ids = {source["id"] for source in sources}
         facts = _facts(CASES / case_id / "evidence.jsonl")
         errors = []
+        seen_fact_ids = set()
+        for source in sources:
+            missing = {"id", "document", "revision", "locator", "url"} - set(source)
+            if missing:
+                errors.append(f"{case_id}: source missing {', '.join(sorted(missing))}")
         for fact in facts:
+            missing = FACT_FIELDS - set(fact)
+            if missing:
+                errors.append(f"{fact.get('fact_id', '<unknown>')}: missing {', '.join(sorted(missing))}")
+            if fact.get("fact_id") in seen_fact_ids:
+                errors.append(f"{case_id}: duplicate fact_id {fact.get('fact_id')}")
+            seen_fact_ids.add(fact.get("fact_id"))
             if fact.get("source_id") not in source_ids:
                 errors.append(f"{fact.get('fact_id')}: unknown source {fact.get('source_id')}")
+            if fact.get("status") not in FACT_STATUSES:
+                errors.append(f"{fact.get('fact_id')}: invalid status {fact.get('status')}")
+            if (fact.get("status") == "unresolved") != (fact.get("value") == "?"):
+                errors.append(f"{fact.get('fact_id')}: unresolved evidence must use ?")
         for concept in case["concepts"]:
-            if concept["classification"] not in {"represented", "lossy", "unrepresentable", "expansion-risk"}:
+            if concept["classification"] not in CLASSIFICATIONS:
                 errors.append(f"{case_id}: invalid classification {concept['classification']}")
         result_cases.append({
             "id": case_id,

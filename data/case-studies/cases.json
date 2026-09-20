@@ -26,7 +26,7 @@
       "orderable_part": "CYUSB4014-FCAXI",
       "package": "169-ball FBGA",
       "fixture": "explicit-non-representable",
-      "scope": "P0D7/P0D7N and P0D6/P0D6N plus P4.3, USB and VDDIO_P0 concepts",
+      "scope": "P0D7P/P0D7N and P0D6P/P0D6N LVDS pairs with LVCMOS aliases, plus P4.3, USB and VDDIO_P0 concepts",
       "concepts": [
         {"id":"closed_part_kind","classification":"lossy","note":"MCU is the nearest kind, but FX10 is a USB/high-bandwidth controller with distinct semantics."},
         {"id":"analog_direction_semantics","classification":"represented","note":"No analog pin is selected in this bounded slice."},

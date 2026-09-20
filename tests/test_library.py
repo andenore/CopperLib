@@ -155,6 +155,19 @@ def test_cross_vendor_report_detects_required_model_gaps():
     assert ("repeated_functional_units", "unrepresentable") in gaps
 
 
+def test_cross_vendor_evidence_preserves_mode_aliases_and_package_rules():
+    report = build_report()
+    cases = {case["id"]: case for case in report["cases"]}
+    assert cases["cyusb4014-fcaxi"]["fact_count"] == 7
+    assert cases["ad4134bcpz"]["fact_count"] == 8
+    fx10 = (core.ROOT / "data/case-studies/cyusb4014-fcaxi/evidence.jsonl").read_text(encoding="utf-8")
+    adc = (core.ROOT / "data/case-studies/ad4134bcpz/evidence.jsonl").read_text(encoding="utf-8")
+    assert '"ball":"B1","signal":"P0D7P"' in fx10
+    assert '"B1":"P0D15"' in fx10
+    assert '"field":"required_connection","value":"AGND5"' in adc
+    assert '"field":"supply_ranges"' in adc
+
+
 def test_cubemx_rejects_reference_outside_database(tmp_path):
     fixture = tmp_path / "cubemx"
     shutil.copytree(FIXTURE_CUBEMX, fixture)

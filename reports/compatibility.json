@@ -148,7 +148,7 @@
       "orderable_part": "CYUSB4014-FCAXI",
       "package": "169-ball FBGA",
       "production_publishable": false,
-      "scope": "P0D7/P0D7N and P0D6/P0D6N plus P4.3, USB and VDDIO_P0 concepts",
+      "scope": "P0D7P/P0D7N and P0D6P/P0D6N LVDS pairs with LVCMOS aliases, plus P4.3, USB and VDDIO_P0 concepts",
       "source_count": 1,
       "sources": [
         {
@@ -216,7 +216,7 @@
           "note": "SPI, pin-control, DOUT and clock/control interfaces exceed the current I2C-centered interface model."
         }
       ],
-      "fact_count": 7,
+      "fact_count": 8,
       "fixture": "explicit-non-representable",
       "id": "ad4134bcpz",
       "orderable_part": "AD4134BCPZ",
