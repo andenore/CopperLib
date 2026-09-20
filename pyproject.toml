@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "copperscript-stm32g0-library"
+version = "0.1.0"
+description = "Provenance-first STM32G0 device data for CopperScript"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7.4"]
+
+[project.scripts]
+copperscript-stm32g0 = "copperscript_stm32g0.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

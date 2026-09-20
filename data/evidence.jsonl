@@ -1,0 +1,11 @@
+{"fact_id":"dev.orderable","subject":"STM32G0B1CBT6","field":"orderable_part","value":"STM32G0B1CBT6","status":"verified","source_id":"st-product-stm32g0b1cb","locator":"product family/orderable device listing"}
+{"fact_id":"pkg.lqfp48","subject":"STM32G0B1CBT6","field":"package","value":"LQFP48","status":"verified","source_id":"st-ds13560-rev1","locator":"Table 12, Pinouts, pin description and alternate functions"}
+{"fact_id":"pin.pa0.number","subject":"PA0","field":"package_pin","value":25,"status":"verified","source_id":"st-ds13560-rev1","locator":"Table 12, LQFP48 column"}
+{"fact_id":"pin.pa0.af","subject":"PA0","field":"alternate_functions","value":["SPI2_SCK/I2S2_CK","USART2_CTS","TIM2_CH1_ETR","USART4_TX","LPTIM1_OUT","UCPD2_FRSTX","COMP1_OUT"],"status":"verified","source_id":"st-ds13560-rev1","locator":"Table 12, PA0 row"}
+{"fact_id":"pin.pa1.number","subject":"PA1","field":"package_pin","value":26,"status":"verified","source_id":"st-ds13560-rev1","locator":"Table 12, LQFP48 column"}
+{"fact_id":"pin.pa1.af","subject":"PA1","field":"alternate_functions","value":["SPI1_SCK/I2S1_CK","USART2_RTS_DE_CK","TIM2_CH2","USART4_RX","TIM15_CH1N","I2C1_SMBA","EVENTOUT"],"status":"verified","source_id":"st-ds13560-rev1","locator":"Table 12, PA1 row"}
+{"fact_id":"pin.pc0.number","subject":"PC0","field":"package_pin","value":21,"status":"verified","source_id":"st-ds13560-rev1","locator":"Table 12, LQFP48 column"}
+{"fact_id":"pin.pc0.af","subject":"PC0","field":"alternate_functions","value":["LPTIM1_IN1","LPUART1_RX","LPTIM2_IN1","LPUART2_TX","USART6_TX","I2C3_SCL","COMP3_OUT"],"status":"verified","source_id":"st-ds13560-rev1","locator":"Table 12, PC0 row"}
+{"fact_id":"pin.pc1.number","subject":"PC1","field":"package_pin","value":22,"status":"verified","source_id":"st-ds13560-rev1","locator":"Table 12, LQFP48 column"}
+{"fact_id":"pin.pc1.af","subject":"PC1","field":"alternate_functions","value":["LPTIM1_OUT","LPUART1_TX","TIM15_CH1","LPUART2_RX","USART6_RX","I2C3_SDA"],"status":"verified","source_id":"st-ds13560-rev1","locator":"Table 12, PC1 row"}
+{"fact_id":"poc.boundary","subject":"STM32G0B1CBT6","field":"coverage_note","value":"Only PA0, PA1, PC0, PC1 are covered; remaining pins/peripherals are unresolved for this request.","status":"illustrative","source_id":"copperscript-ee63d69","locator":"repository scope"}
