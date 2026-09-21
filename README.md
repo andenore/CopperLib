@@ -45,10 +45,24 @@ Typical locations are `C:\Program Files\STMicroelectronics\...\STM32CubeMX\db\mc
 - ST datasheet `DS13560 Rev 6` (February 2026), `STM32G0B1xB/xC/xE`, PDF: https://www.st.com/resource/en/datasheet/stm32g0b1cc.pdf
 - CopperScript compatibility target: https://github.com/andenore/CopperScript/tree/ee63d69
 
-No remote is configured by this repository. See `AGENTS.md` for contribution rules.
+See `AGENTS.md` for contribution rules.
 
 ## Cross-vendor compatibility lab
 
 `python -m copperscript_stm32g0 compatibility` writes deterministic JSON and Markdown reports under `reports/`. The case studies are intentionally bounded and non-publishable: Nordic `nRF52840-QIAA`, Infineon `CYUSB4014-FCAXI`, Analog Devices `AD4134BCPZ`, and Texas Instruments `OPA2197ID`. Their source facts and locators are kept in `data/case-studies/`; the reports classify current CopperScript support as represented, lossy, unrepresentable, or expansion-risk.
 
 The lab currently exposes gaps around closed part kinds, analog direction semantics, differential grouping/polarity, repeated functional units, shared supplies, wildcard/parametric routing, high-speed interface semantics, no-connect/exposed-pad rules, voltage/current/range metadata, and interface kinds beyond I2C. It does not change the CopperScript language or model.
+
+## Consumable CopperScript packages
+
+CopperLib is also the canonical repository for reusable `.copper` part,
+device, and circuit-module definitions. The repository declares the module
+path `github.com/andenore/CopperLib`; packages live below `packages/` and are
+imported using stable URL-like paths.
+
+The first package is
+`github.com/andenore/CopperLib/packages/full_vertical`, used by CopperScript's
+full-vertical tracker acceptance design. It is explicitly a non-production
+package while its bounded device models and prototype support parts are being
+replaced by complete, evidence-backed definitions. See
+`packages/full_vertical/README.md` for its publication blockers.
