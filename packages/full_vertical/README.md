@@ -23,6 +23,12 @@ Rev 5, Table 12. The board connects its VBAT and VREF+ supply pins, but the
 MCU reference circuit, crystal/clock choice, and all vendor decoupling remain
 to be completed and reviewed before production.
 
+The nano-SIM connector is now the orderable GCT SIM8060-6-0-14-00-A (without
+card detect), with I/O correctly on C7 and all four shell pads grounded. Its
+installed KiCad 10 footprint includes embedded copper keepouts; CopperScript's
+footprint importer must represent those keepouts before this asset can pass
+the physical audit.
+
 Import path:
 
 ```copper
