@@ -47,7 +47,7 @@ def test_unresolved_blocks_upstream_validation(tmp_path):
     bundle_dir = tmp_path / "bundle"
     shutil.copytree(core.BUNDLE, bundle_dir)
     pads = bundle_dir / "pads.csv"
-    pads.write_text(pads.read_text(encoding="utf-8").replace("PA0,digital_input", "PA0,?"), encoding="utf-8")
+    pads.write_text(pads.read_text(encoding="utf-8").replace("PA0,digital", "PA0,?"), encoding="utf-8")
     assert validate_bundle(load_bundle(bundle_dir))
 
 

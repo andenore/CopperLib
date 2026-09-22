@@ -1,5 +1,5 @@
-name,capabilities,role,power_domain,unpowered,voltage_min,voltage_max
-PA0,digital_input|push_pull_output,io,,,,
-PA1,digital_input|push_pull_output,io,,,,
-PC0,digital_input|push_pull_output,io,,,,
-PC1,digital_input|push_pull_output,io,,,,
+name,domains,directions,drive_modes,traits,power_domain,unpowered,voltage_min,voltage_max
+PA0,digital,input|output,push_pull,,,,,
+PA1,digital,input|output,push_pull,,,,,
+PC0,digital,input|output,push_pull,,,,,
+PC1,digital,input|output,push_pull,,,,,

@@ -3,7 +3,7 @@
 // Bounded proof of concept: four verified LQFP48 package bonds.
 
 part STM32G0B1CBT6 {
-    kind = mcu;
+    category = "semiconductor.mcu";
     manufacturer = "STMicroelectronics";
     footprint = "LQFP-48";
     device = STM32G0B1;
@@ -15,24 +15,32 @@ part STM32G0B1CBT6 {
     pin PA0 {
         number = "25";
         bond = PA0;
-        role = io;
+        domains = "digital";
+        directions = "bidirectional";
+        connection = required;
     }
 
     pin PA1 {
         number = "26";
         bond = PA1;
-        role = io;
+        domains = "digital";
+        directions = "bidirectional";
+        connection = required;
     }
 
     pin PC0 {
         number = "21";
         bond = PC0;
-        role = io;
+        domains = "digital";
+        directions = "bidirectional";
+        connection = required;
     }
 
     pin PC1 {
         number = "22";
         bond = PC1;
-        role = io;
+        domains = "digital";
+        directions = "bidirectional";
+        connection = required;
     }
 }

@@ -13,23 +13,27 @@ device STM32G0B1 {
     source_url = "https://www.st.com/resource/en/datasheet/stm32g0b1cc.pdf";
 
     pad PA0 {
-        capabilities = "digital_input,push_pull_output";
-        role = io;
+        domains = "digital";
+        directions = "input,output";
+        drive_modes = "push_pull";
     }
 
     pad PA1 {
-        capabilities = "digital_input,push_pull_output";
-        role = io;
+        domains = "digital";
+        directions = "input,output";
+        drive_modes = "push_pull";
     }
 
     pad PC0 {
-        capabilities = "digital_input,push_pull_output";
-        role = io;
+        domains = "digital";
+        directions = "input,output";
+        drive_modes = "push_pull";
     }
 
     pad PC1 {
-        capabilities = "digital_input,push_pull_output";
-        role = io;
+        domains = "digital";
+        directions = "input,output";
+        drive_modes = "push_pull";
     }
 
 }

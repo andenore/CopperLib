@@ -9,9 +9,9 @@ module FullVerticalPowerTree {
 
     component U_LOGIC: REGULATOR_3V3 { footprint = "Package_TO_SOT_SMD:SOT-23"; }
     component U_MODEM: REGULATOR_3V8_2A;
-    component C_5V: CAPACITOR { value = 100uF; footprint = "0603"; }
-    component C_3V3: CAPACITOR { value = 22uF; footprint = "0603"; }
-    component C_3V8: CAPACITOR { value = 100uF; footprint = "0603"; }
+    component C_5V: CAPACITOR { value = 100uF; footprint = "Capacitor_SMD:C_0603_1608Metric"; }
+    component C_3V3: CAPACITOR { value = 22uF; footprint = "Capacitor_SMD:C_0603_1608Metric"; }
+    component C_3V8: CAPACITOR { value = 100uF; footprint = "Capacitor_SMD:C_0603_1608Metric"; }
 
     net VIN5 { port.VIN5; U_LOGIC.IN; U_MODEM.VIN; U_MODEM.EN; C_5V.1; }
     net GND { port.GND; U_LOGIC.GND; U_MODEM.GND; C_5V.2; C_3V3.2; C_3V8.2; }

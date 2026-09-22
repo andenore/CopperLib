@@ -82,7 +82,7 @@ def evidence_errors() -> list[str]:
             if fact is None or str(fact.get("value")) != pin[column]:
                 errors.append(f"{pin['name']}.{field} does not match pins.csv")
     for pad in _rows(BUNDLE / "pads.csv"):
-        for field in ("capabilities", "role"):
+        for field in ("domains", "directions", "drive_modes"):
             fact = by_field.get((pad["name"], field))
             if fact is None or str(fact.get("value")) != pad[field]:
                 errors.append(f"{pad['name']}.{field} does not match pads.csv")

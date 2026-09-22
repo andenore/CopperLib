@@ -2,7 +2,7 @@
   "name": "STM32G0B1CBT6",
   "output": "stm32g0b1cbt6.copper",
   "header": ["Bounded proof of concept: four verified LQFP48 package bonds."],
-  "kind": "mcu",
+  "category": "semiconductor.mcu",
   "manufacturer": "STMicroelectronics",
   "footprint": "LQFP-48",
   "device": "STM32G0B1",
