@@ -1,17 +1,54 @@
-// Non-production capability subset used by the full-vertical acceptance design.
+// QFN48 pad identities from nRF52832 Product Specification v1.9,
+// "Pin assignments", Table 1. Peripheral/mux coverage remains a subset.
 device NRF52832 {
     vendor = "Nordic Semiconductor";
     family = "nRF52";
     source_document = "nRF52832 Product Specification";
     source_revision = "v1.9";
-    source_url = "https://docs.nordicsemi.com/r/bundle/ps_nrf52832";
+    source_url = "https://docs.nordicsemi.com/r/bundle/ps_nrf52832/page/pin.html";
 
     power_domain VDDIO { supply_pads = "VDD"; voltage_min = 1.7V; voltage_max = 3.6V; }
     pad VDD { domains = "power"; directions = "input"; voltage_min = 1.7V; voltage_max = 3.6V; }
     pad VSS { domains = "ground"; directions = "input"; }
+    pad DEC1 { domains = "power"; directions = "passive"; }
+    pad DEC2 { domains = "power"; directions = "passive"; }
+    pad DEC3 { domains = "power"; directions = "passive"; }
+    pad DEC4 { domains = "power"; directions = "passive"; }
+    pad DCC { domains = "power"; directions = "passive"; }
+    pad XC1 { domains = "analog"; directions = "input"; }
+    pad XC2 { domains = "analog"; directions = "input"; }
+    pad P0_00 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_01 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_02 { domains = "digital,analog"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_03 { domains = "digital,analog"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_04 { domains = "digital,analog"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_05 { domains = "digital,analog"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
     pad P0_06 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO; voltage_max = 3.6V; }
+    pad P0_07 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
     pad P0_08 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO; voltage_max = 3.6V; }
+    pad P0_09 { domains = "digital"; directions = "bidirectional"; traits = "gpio,nfc"; power_domain = VDDIO; }
+    pad P0_10 { domains = "digital"; directions = "bidirectional"; traits = "gpio,nfc"; power_domain = VDDIO; }
+    pad P0_11 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_12 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_13 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_14 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_15 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_16 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_17 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_18 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_19 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_20 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
     pad P0_21 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio,reset"; power_domain = VDDIO; voltage_max = 3.6V; }
+    pad P0_22 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_23 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_24 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_25 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_26 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_27 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_28 { domains = "digital,analog"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_29 { domains = "digital,analog"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_30 { domains = "digital,analog"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_31 { domains = "digital,analog"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
     pad SWDCLK { domains = "digital,clock"; directions = "input"; traits = "swdclk"; power_domain = VDDIO; voltage_max = 3.6V; }
     pad SWDIO { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull"; traits = "swdio"; power_domain = VDDIO; voltage_max = 3.6V; }
     pad ANT { domains = "rf"; directions = "passive"; traits = "antenna"; }

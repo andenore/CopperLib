@@ -1,4 +1,5 @@
-// Non-production package subset used by the full-vertical acceptance design.
+// Complete QFN48 package bond map from nRF52832 Product Specification v1.9,
+// "Pin assignments", Table 1. Board-level support circuit is not complete.
 part NRF52832_QFAA {
     category = "semiconductor.mcu.wireless";
     manufacturer = "Nordic Semiconductor";
@@ -6,17 +7,54 @@ part NRF52832_QFAA {
     device = NRF52832;
     source_document = "nRF52832 Product Specification";
     source_revision = "v1.9";
-    source_url = "https://docs.nordicsemi.com/r/bundle/ps_nrf52832";
-    pin VDD_1 { number = "13"; bond = VDD; }
-    pin VDD_2 { number = "36"; bond = VDD; }
-    pin VDD_3 { number = "48"; bond = VDD; }
-    pin VSS_1 { number = "31"; bond = VSS; }
-    pin VSS_2 { number = "45"; bond = VSS; }
-    pin VSS_EP { number = "49"; bond = VSS; }
+    source_url = "https://docs.nordicsemi.com/r/bundle/ps_nrf52832/page/pin.html";
+    pin DEC1 { number = "1"; bond = DEC1; }
+    pin P0_00 { number = "2"; bond = P0_00; }
+    pin P0_01 { number = "3"; bond = P0_01; }
+    pin P0_02 { number = "4"; bond = P0_02; }
+    pin P0_03 { number = "5"; bond = P0_03; }
+    pin P0_04 { number = "6"; bond = P0_04; }
+    pin P0_05 { number = "7"; bond = P0_05; }
     pin P0_06 { number = "8"; bond = P0_06; }
+    pin P0_07 { number = "9"; bond = P0_07; }
     pin P0_08 { number = "10"; bond = P0_08; }
+    pin P0_09_NFC1 { number = "11"; bond = P0_09; }
+    pin P0_10_NFC2 { number = "12"; bond = P0_10; }
+    pin VDD_1 { number = "13"; bond = VDD; }
+    pin P0_11 { number = "14"; bond = P0_11; }
+    pin P0_12 { number = "15"; bond = P0_12; }
+    pin P0_13 { number = "16"; bond = P0_13; }
+    pin P0_14 { number = "17"; bond = P0_14; }
+    pin P0_15 { number = "18"; bond = P0_15; }
+    pin P0_16 { number = "19"; bond = P0_16; }
+    pin P0_17 { number = "20"; bond = P0_17; }
+    pin P0_18 { number = "21"; bond = P0_18; }
+    pin P0_19 { number = "22"; bond = P0_19; }
+    pin P0_20 { number = "23"; bond = P0_20; }
     pin P0_21_NRESET { number = "24"; bond = P0_21; }
     pin SWDCLK { number = "25"; bond = SWDCLK; }
     pin SWDIO { number = "26"; bond = SWDIO; }
+    pin P0_22 { number = "27"; bond = P0_22; }
+    pin P0_23 { number = "28"; bond = P0_23; }
+    pin P0_24 { number = "29"; bond = P0_24; }
     pin ANT { number = "30"; bond = ANT; }
+    pin VSS_1 { number = "31"; bond = VSS; }
+    pin DEC2 { number = "32"; bond = DEC2; }
+    pin DEC3 { number = "33"; bond = DEC3; }
+    pin XC1 { number = "34"; bond = XC1; }
+    pin XC2 { number = "35"; bond = XC2; }
+    pin VDD_2 { number = "36"; bond = VDD; }
+    pin P0_25 { number = "37"; bond = P0_25; }
+    pin P0_26 { number = "38"; bond = P0_26; }
+    pin P0_27 { number = "39"; bond = P0_27; }
+    pin P0_28 { number = "40"; bond = P0_28; }
+    pin P0_29 { number = "41"; bond = P0_29; }
+    pin P0_30 { number = "42"; bond = P0_30; }
+    pin P0_31 { number = "43"; bond = P0_31; }
+    pin NC_44 { number = "44"; domains = "digital"; directions = "passive"; connection = do_not_connect; }
+    pin VSS_2 { number = "45"; bond = VSS; }
+    pin DEC4 { number = "46"; bond = DEC4; }
+    pin DCC { number = "47"; bond = DCC; }
+    pin VDD_3 { number = "48"; bond = VDD; }
+    pin VSS_EP { number = "49"; bond = VSS; }
 }

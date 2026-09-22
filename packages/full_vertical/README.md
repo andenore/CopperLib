@@ -12,6 +12,12 @@ part selections and evidence-backed footprints. Every such file is labelled as
 a prototype. Moving it here avoids duplicate models; it does not promote an
 illustrative definition to verified status.
 
+The nRF52832-QFAA now has all 48 numbered QFN pins plus the exposed ground
+pad bonded from the Nordic Product Specification v1.9 pin-assignment table.
+This resolves its package-to-footprint number audit only; the board still lacks
+the complete crystal/decoupling/reference circuit, so this is not a production
+approval of the Bluetooth subsystem.
+
 Import path:
 
 ```copper
