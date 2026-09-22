@@ -1,7 +1,7 @@
 // GCT SIM8060-6-0-14-00-A hinged nano-SIM, no card-detect switch.
 // Contacts C1/C2/C3/C5/C6/C7 and shell pads follow the GCT SIM8060 drawing:
 // https://gct.co/files/drawings/sim8060.pdf (drawing A2, sheet 1/4).
-part NANO_SIM_SOCKET {
+part SIM8060_6_0_14_00_A {
     category = "connector.card.sim";
     manufacturer = "GCT";
     footprint = "Connector_Card:nanoSIM_GCT_SIM8060-6-0-14-00";

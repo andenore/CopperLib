@@ -1,7 +1,11 @@
-// Prototype functional placeholder; select an evidence-backed orderable choke.
-part USB_COMMON_MODE_CHOKE {
+// Coilcraft 0603USB-601MLC (reel packaging), USB data-line common-mode choke.
+// Winding pairs 1-4 and 2-3, from Coilcraft Document 406-1 Rev 09/10/24,
+// page 1, schematic and land pattern:
+// https://www.coilcraft.com/getmedia/4e4ea8c1-6d24-4c0b-815c-9af87a76485b/0603usb.pdf
+part COILCRAFT_0603USB_601MLC {
     category = "filter.common_mode";
-    footprint = "Package_SON:Texas_DQA0004A_WSON-4_1x1mm_P0.5mm";
+    manufacturer = "Coilcraft";
+    footprint = "Inductor_SMD:L_CommonModeChoke_Coilcraft_0603USB";
     pin DP_IN { number = "1"; domains = "digital"; directions = "passive"; traits = "usb_dp"; }
     pin DM_IN { number = "2"; domains = "digital"; directions = "passive"; traits = "usb_dm"; }
     pin DM_OUT { number = "3"; domains = "digital"; directions = "passive"; traits = "usb_dm"; }

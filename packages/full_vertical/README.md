@@ -7,7 +7,7 @@ its stable CopperLib import path.
 
 The package is **not production-publishable**. Several definitions are bounded
 electrical subsets, and generic support entries such as the regulator, UART
-translator, choke, connectors, LED and button still require exact orderable
+translator, several connectors, LED and button still require exact orderable
 part selections and evidence-backed footprints. Every such file is labelled as
 a prototype. Moving it here avoids duplicate models; it does not promote an
 illustrative definition to verified status.
@@ -28,6 +28,11 @@ card detect), with I/O correctly on C7 and all four shell pads grounded. Its
 installed KiCad 10 footprint includes embedded copper keepouts; CopperScript's
 footprint importer must represent those keepouts before this asset can pass
 the physical audit.
+
+The USB data-line choke is now the Coilcraft 0603USB-601MLC, matched to the
+installed KiCad 0603USB land pattern and its 1-4 / 2-3 winding pairs. This
+resolves its footprint mismatch; SI/EMC performance still needs board-level
+measurement or qualified analysis.
 
 Import path:
 
