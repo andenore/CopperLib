@@ -18,6 +18,11 @@ This resolves its package-to-footprint number audit only; the board still lacks
 the complete crystal/decoupling/reference circuit, so this is not a production
 approval of the Bluetooth subsystem.
 
+The STM32G0C1RET6 now has all 64 standard LQFP64-GP bonds from DS13564
+Rev 5, Table 12. The board connects its VBAT and VREF+ supply pins, but the
+MCU reference circuit, crystal/clock choice, and all vendor decoupling remain
+to be completed and reviewed before production.
+
 Import path:
 
 ```copper
