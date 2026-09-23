@@ -26,8 +26,9 @@ to be completed and reviewed before production.
 The nano-SIM connector is now the orderable GCT SIM8060-6-0-14-00-A (without
 card detect), with I/O correctly on C7 and all four shell pads grounded. Its
 installed KiCad 10 footprint includes embedded copper keepouts; CopperScript's
-footprint importer must represent those keepouts before this asset can pass
-the physical audit.
+footprint importer now preserves those keepouts through routing, DRC, and
+KiCad export. The asset passes the physical pad/footprint audit; SIM ESD and
+modem reference-circuit checks remain outstanding.
 
 The USB data-line choke is now the Coilcraft 0603USB-601MLC, matched to the
 installed KiCad 0603USB land pattern and its 1-4 / 2-3 winding pairs. This
