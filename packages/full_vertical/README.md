@@ -51,6 +51,23 @@ recreate it byte-for-byte. The expanded courtyard includes the stencil; this
 is a conservative assembly choice, not a vendor dimension. RF layout and the
 fabricator's stencil process still need review before release.
 
+The EG800G-EU land pattern at
+`footprints/RF_Module.pretty/Quectel_EG800G.kicad_mod` is transcribed from the
+[JLCPCB C9900097440 listing](https://jlcpcb.com/partdetail/JLCPCBAssembly-EG800GEU/C9900097440)
+and its EasyEDA LCC-109 geometry by
+`scripts/generate_eg800g_footprint.py`. The generator pins the EasyEDA shape
+digest and refuses changed upstream data; the checked-in result has numbered
+pads 1–109 and passes a KiCad 10 export test. This is a third-party footprint,
+not a Quectel-approved production land pattern. The EasyEDA *symbol* is not
+used as electrical evidence: it labels some pads reserved that Quectel's
+[QuecOpen Reference Design V1.1](https://developer.quectel.com/wp-content/uploads/2025/01/Quectel_EG800G_Series_QuecOpen_Reference_Design_V1.1.pdf)
+uses for functions (for example pad 44 VRTC and pads 49–58). The part definition
+therefore declares all physical pads, connects the Quectel-identified ground
+lands, and leaves the other not-yet-reconciled pads as unmodeled placeholders.
+Those placeholders cannot be connected without an electrical profile. The
+complete EG800G-EU pinout and Quectel mechanical/stencil review still block
+production release.
+
 Import path:
 
 ```copper

@@ -1,5 +1,8 @@
-// Non-production electrical subset for the board architecture. The production footprint must
-// include every ground/reserved pad from the official land-pattern document.
+// Non-production electrical subset for the board architecture. All 109 physical
+// lands are represented, but UNMODELED_* entries intentionally have no claimed
+// electrical profile. Ground lands follow Quectel's QuecOpen Reference Design
+// V1.1, page 3 (PDF page 8); JLCPCB/EasyEDA supplies geometry only. Its symbol
+// disagrees with the Quectel reference on several multifunction lands.
 part EG800G_EU {
     category = "module.cellular.lte_cat1bis";
     manufacturer = "Quectel";
@@ -25,4 +28,97 @@ part EG800G_EU {
     pin USB_DP { number = "59"; domains = "digital"; directions = "bidirectional"; traits = "usb_dp"; }
     pin USB_DM { number = "60"; domains = "digital"; directions = "bidirectional"; traits = "usb_dm"; }
     pin USB_VBUS { number = "61"; domains = "power"; directions = "input"; voltage_min = 4.4V; voltage_max = 5.25V; }
+    // Unused functional lands remain optional until the full EG800G-EU device
+    // model is reconciled. Unsupported GNSS/reserved lands must stay open.
+    pin GND_1 { number = "1"; domains = "ground"; directions = "input"; }
+    pin UNMODELED_2 { number = "2"; connection = do_not_connect; }
+    pin UNMODELED_3 { number = "3"; connection = do_not_connect; }
+    pin UNMODELED_4 { number = "4"; connection = do_not_connect; }
+    pin UNMODELED_5 { number = "5"; connection = optional; }
+    pin UNMODELED_6 { number = "6"; connection = optional; }
+    pin UNMODELED_8 { number = "8"; connection = optional; }
+    pin UNMODELED_9 { number = "9"; connection = optional; }
+    pin UNMODELED_19 { number = "19"; connection = optional; }
+    pin UNMODELED_20 { number = "20"; connection = optional; }
+    pin UNMODELED_21 { number = "21"; connection = optional; }
+    pin UNMODELED_22 { number = "22"; connection = optional; }
+    pin UNMODELED_23 { number = "23"; connection = optional; }
+    pin UNMODELED_26 { number = "26"; connection = optional; }
+    pin GND_27 { number = "27"; domains = "ground"; directions = "input"; }
+    pin UNMODELED_28 { number = "28"; connection = optional; }
+    pin UNMODELED_29 { number = "29"; connection = optional; }
+    pin UNMODELED_30 { number = "30"; connection = optional; }
+    pin UNMODELED_31 { number = "31"; connection = optional; }
+    pin UNMODELED_32 { number = "32"; connection = optional; }
+    pin UNMODELED_33 { number = "33"; connection = optional; }
+    pin GND_34 { number = "34"; domains = "ground"; directions = "input"; }
+    pin GND_36 { number = "36"; domains = "ground"; directions = "input"; }
+    pin GND_37 { number = "37"; domains = "ground"; directions = "input"; }
+    pin UNMODELED_38 { number = "38"; connection = optional; }
+    pin UNMODELED_39 { number = "39"; connection = optional; }
+    pin GND_40 { number = "40"; domains = "ground"; directions = "input"; }
+    pin GND_41 { number = "41"; domains = "ground"; directions = "input"; }
+    pin UNMODELED_44 { number = "44"; connection = optional; }
+    pin GND_45 { number = "45"; domains = "ground"; directions = "input"; }
+    pin GND_46 { number = "46"; domains = "ground"; directions = "input"; }
+    pin GND_47 { number = "47"; domains = "ground"; directions = "input"; }
+    pin GND_48 { number = "48"; domains = "ground"; directions = "input"; }
+    pin UNMODELED_49 { number = "49"; connection = optional; }
+    pin UNMODELED_50 { number = "50"; connection = optional; }
+    pin UNMODELED_51 { number = "51"; connection = optional; }
+    pin UNMODELED_52 { number = "52"; connection = optional; }
+    pin UNMODELED_53 { number = "53"; connection = optional; }
+    pin UNMODELED_54 { number = "54"; connection = optional; }
+    pin UNMODELED_55 { number = "55"; connection = optional; }
+    pin UNMODELED_56 { number = "56"; connection = optional; }
+    pin UNMODELED_57 { number = "57"; connection = optional; }
+    pin UNMODELED_58 { number = "58"; connection = optional; }
+    pin UNMODELED_62 { number = "62"; connection = optional; }
+    pin UNMODELED_63 { number = "63"; connection = optional; }
+    pin UNMODELED_64 { number = "64"; connection = optional; }
+    pin UNMODELED_65 { number = "65"; connection = optional; }
+    pin UNMODELED_66 { number = "66"; connection = optional; }
+    pin UNMODELED_67 { number = "67"; connection = optional; }
+    pin UNMODELED_68 { number = "68"; connection = optional; }
+    pin UNMODELED_69 { number = "69"; connection = optional; }
+    pin GND_70 { number = "70"; domains = "ground"; directions = "input"; }
+    pin GND_71 { number = "71"; domains = "ground"; directions = "input"; }
+    pin GND_72 { number = "72"; domains = "ground"; directions = "input"; }
+    pin GND_73 { number = "73"; domains = "ground"; directions = "input"; }
+    pin UNMODELED_74 { number = "74"; connection = optional; }
+    pin UNMODELED_75 { number = "75"; connection = optional; }
+    pin UNMODELED_76 { number = "76"; connection = optional; }
+    pin UNMODELED_77 { number = "77"; connection = optional; }
+    pin UNMODELED_78 { number = "78"; connection = optional; }
+    pin UNMODELED_79 { number = "79"; connection = optional; }
+    pin UNMODELED_80 { number = "80"; connection = optional; }
+    pin UNMODELED_81 { number = "81"; connection = optional; }
+    pin UNMODELED_82 { number = "82"; connection = optional; }
+    pin UNMODELED_83 { number = "83"; connection = optional; }
+    pin UNMODELED_84 { number = "84"; connection = optional; }
+    pin UNMODELED_85 { number = "85"; connection = optional; }
+    pin UNMODELED_86 { number = "86"; connection = optional; }
+    pin UNMODELED_87 { number = "87"; connection = optional; }
+    pin GND_88 { number = "88"; domains = "ground"; directions = "input"; }
+    pin GND_89 { number = "89"; domains = "ground"; directions = "input"; }
+    pin GND_90 { number = "90"; domains = "ground"; directions = "input"; }
+    pin GND_91 { number = "91"; domains = "ground"; directions = "input"; }
+    pin GND_92 { number = "92"; domains = "ground"; directions = "input"; }
+    pin GND_93 { number = "93"; domains = "ground"; directions = "input"; }
+    pin GND_94 { number = "94"; domains = "ground"; directions = "input"; }
+    pin GND_95 { number = "95"; domains = "ground"; directions = "input"; }
+    pin UNMODELED_96 { number = "96"; connection = optional; }
+    pin UNMODELED_97 { number = "97"; connection = do_not_connect; }
+    pin UNMODELED_98 { number = "98"; connection = optional; }
+    pin UNMODELED_99 { number = "99"; connection = do_not_connect; }
+    pin UNMODELED_100 { number = "100"; connection = optional; }
+    pin UNMODELED_101 { number = "101"; connection = optional; }
+    pin UNMODELED_102 { number = "102"; connection = optional; }
+    pin UNMODELED_103 { number = "103"; connection = optional; }
+    pin UNMODELED_104 { number = "104"; connection = optional; }
+    pin UNMODELED_105 { number = "105"; connection = optional; }
+    pin UNMODELED_106 { number = "106"; connection = optional; }
+    pin UNMODELED_107 { number = "107"; connection = optional; }
+    pin UNMODELED_108 { number = "108"; connection = optional; }
+    pin UNMODELED_109 { number = "109"; connection = optional; }
 }
