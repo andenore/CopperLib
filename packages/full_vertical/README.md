@@ -6,7 +6,7 @@ home for those definitions; the compiler repository consumes the package by
 its stable CopperLib import path.
 
 The package is **not production-publishable**. Several definitions are bounded
-electrical subsets, and generic support entries such as the regulator, UART
+electrical subsets, and generic support entries such as the 3.3 V regulator, UART
 translator, several connectors, LED and button still require exact orderable
 part selections and evidence-backed footprints. Every such file is labelled as
 a prototype. Moving it here avoids duplicate models; it does not promote an
@@ -35,17 +35,26 @@ installed KiCad 0603USB land pattern and its 1-4 / 2-3 winding pairs. This
 resolves its footprint mismatch; SI/EMC performance still needs board-level
 measurement or qualified analysis.
 
-The 5 V input now uses the orderable GCT USB4135-GF-A power-only USB-C
-receptacle. Both VBUS/GND contacts and the shield are modelled, with separate
-board-level 5.1 kOhm CC1/CC2 pull-downs. Its connector rating is 3 A, but
-source-current detection, overvoltage/inrush protection, and power-tree
-qualification remain necessary before production release.
+The 5 V input uses the orderable GCT USB4135-GF-A power-only USB-C
+receptacle. Both VBUS/GND contacts and the shield are modelled. A TUSB320LAI
+sink CC controller provides the dead-battery CC pull-downs and source-current
+classification; separate 5.1 kOhm CC resistors are **not** fitted. Its OUT1
+and OUT2 open-drain status signals go to the MCU with 10 kOhm pull-ups.
+Only the attached 3 A source code (OUT1/OUT2 both low) may permit modem power.
+The connector's 3 A contact rating is not permission for the board to draw
+3 A. Firmware implementing this gate and 2 A input budget, along with
+overvoltage/inrush protection, remain necessary before production release.
 The board-level input target is 5 V at no more than 2 A. That is distinct from
-Quectel's requirement that the modem *3.8 V rail* supply 2 A; the present
-prototype 3.8 V regulator and capacitor values do not establish that the
-complete board fits inside a 10 W input budget. USB-C current advertisement
-does not have a 2 A class, so source compatibility and load gating remain to
-be decided before this package can be production-publishable.
+Quectel's requirement that the modem *3.8 V rail* supply 2 A. The modem rail
+now uses a TI TPS62130ARGTR 3 A synchronous buck and a Coilcraft
+XAL4020-222MEC 2.2 uH inductor; a 750 kOhm / 200 kOhm divider programs
+3.8 V from the regulator's 0.8 V reference. A 100 kOhm pull-down holds its
+enable low until firmware authorizes the modem. The regulator selection does
+not establish that the complete board fits inside a 10 W input budget;
+efficiency, thermal behavior, 2 A load transients, input losses and other
+loads require measurement. The user's successful TLV76701DRV-family modem
+implementation remains a useful prototype comparison, but TI rates that LDO
+for only 1 A and it cannot substantiate the 2 A rail target.
 
 The MAX-M10S-00B footprint is generated at
 `footprints/RF_Module.pretty/u-blox_MAX-M10S.kicad_mod` from the official

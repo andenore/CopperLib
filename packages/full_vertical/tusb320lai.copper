@@ -1,0 +1,24 @@
+// TI TUSB320LAI (RWB 12-pin X2QFN), fixed UFP/sink in GPIO mode.
+// SLLSEQ8D Rev D, pp. 3, 11-13: PORT low selects UFP; ADDR floating selects
+// GPIO; OUT1/OUT2 = low/low only for an attached 3-A-advertising source.
+// Internal dead-battery Rd means no separate 5.1-kOhm CC pull-downs are used.
+part TUSB320LAI {
+    category = "interface.usb_c.cc_controller";
+    manufacturer = "Texas Instruments";
+    footprint = "Package_DFN_QFN:Texas_X2QFN-12_1.6x1.6mm_P0.4mm";
+    source_document = "TUSB320LAI, TUSB320HAI USB Type-C Configuration Channel Logic and Port Control";
+    source_revision = "SLLSEQ8D Rev D";
+    source_url = "https://www.ti.com/lit/ds/symlink/tusb320lai.pdf";
+    pin CC1 { number = "1"; domains = "analog"; directions = "bidirectional"; traits = "usb_cc"; }
+    pin CC2 { number = "2"; domains = "analog"; directions = "bidirectional"; traits = "usb_cc"; }
+    pin PORT { number = "3"; domains = "digital"; directions = "input"; }
+    pin VBUS_DET { number = "4"; domains = "analog"; directions = "input"; }
+    pin ADDR { number = "5"; connection = do_not_connect; }
+    pin OUT3 { number = "6"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; connection = optional; }
+    pin OUT1 { number = "7"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; }
+    pin OUT2 { number = "8"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; }
+    pin ID { number = "9"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; connection = optional; }
+    pin GND { number = "10"; domains = "ground"; directions = "input"; }
+    pin EN_N { number = "11"; domains = "digital"; directions = "input"; }
+    pin VDD { number = "12"; domains = "power"; directions = "input"; voltage_min = 2.7V; voltage_max = 5V; }
+}

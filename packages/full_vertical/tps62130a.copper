@@ -1,0 +1,28 @@
+// TI TPS62130ARGTR, adjustable 3-A synchronous buck in RGT0016C VQFN.
+// TI SLVSAG7F Rev F, Table 6-1 and package drawing (RGT0016C).
+// The exposed pad is electrically bonded to ground and must be soldered.
+part TPS62130ARGTR {
+    category = "power.regulator.buck";
+    manufacturer = "Texas Instruments";
+    footprint = "Package_DFN_QFN:VQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm";
+    source_document = "TPS6213x 3-V to 17-V, 3-A Step-Down Converter";
+    source_revision = "SLVSAG7F Rev F";
+    source_url = "https://www.ti.com/lit/ds/symlink/tps62130.pdf";
+    pin SW_1 { number = "1"; domains = "power"; directions = "output"; }
+    pin SW_2 { number = "2"; domains = "power"; directions = "passive"; }
+    pin SW_3 { number = "3"; domains = "power"; directions = "passive"; }
+    pin PG { number = "4"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; connection = optional; }
+    pin FB { number = "5"; domains = "analog"; directions = "input"; voltage_max = 7V; }
+    pin AGND { number = "6"; domains = "ground"; directions = "input"; }
+    pin FSW { number = "7"; domains = "digital"; directions = "input"; }
+    pin DEF { number = "8"; domains = "digital"; directions = "input"; }
+    pin SS_TR { number = "9"; domains = "analog"; directions = "input"; }
+    pin AVIN { number = "10"; domains = "power"; directions = "input"; voltage_min = 3V; voltage_max = 17V; }
+    pin PVIN_1 { number = "11"; domains = "power"; directions = "input"; voltage_min = 3V; voltage_max = 17V; }
+    pin PVIN_2 { number = "12"; domains = "power"; directions = "input"; voltage_min = 3V; voltage_max = 17V; }
+    pin EN { number = "13"; domains = "digital"; directions = "input"; }
+    pin VOS { number = "14"; domains = "analog"; directions = "input"; voltage_max = 7V; }
+    pin PGND_1 { number = "15"; domains = "ground"; directions = "input"; }
+    pin PGND_2 { number = "16"; domains = "ground"; directions = "input"; }
+    pin EP { number = "17"; domains = "ground"; directions = "input"; }
+}

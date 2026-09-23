@@ -1,0 +1,11 @@
+// Coilcraft XAL4020-222MEC, 2.2-uH shielded 4x4-mm power inductor.
+// Coilcraft lists 5.6 A saturation and 5.5 A Irms (40-C rise) at 25 C.
+part XAL4020_222MEC {
+    category = "passive.inductor.power";
+    manufacturer = "Coilcraft";
+    footprint = "Inductor_SMD:L_Coilcraft_XAL4020-XXX";
+    source_document = "XAL40xx Series Shielded Power Inductors";
+    source_url = "https://www.coilcraft.com/en-us/products/power/shielded-inductors/molded-inductor/xal/xal40xx/xal4020-222/";
+    pin A { number = "1"; domains = "power"; directions = "passive"; }
+    pin B { number = "2"; domains = "power"; directions = "passive"; }
+}
