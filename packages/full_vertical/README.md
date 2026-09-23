@@ -40,6 +40,12 @@ receptacle. Both VBUS/GND contacts and the shield are modelled, with separate
 board-level 5.1 kOhm CC1/CC2 pull-downs. Its connector rating is 3 A, but
 source-current detection, overvoltage/inrush protection, and power-tree
 qualification remain necessary before production release.
+The board-level input target is 5 V at no more than 2 A. That is distinct from
+Quectel's requirement that the modem *3.8 V rail* supply 2 A; the present
+prototype 3.8 V regulator and capacitor values do not establish that the
+complete board fits inside a 10 W input budget. USB-C current advertisement
+does not have a 2 A class, so source compatibility and load gating remain to
+be decided before this package can be production-publishable.
 
 The MAX-M10S-00B footprint is generated at
 `footprints/RF_Module.pretty/u-blox_MAX-M10S.kicad_mod` from the official
