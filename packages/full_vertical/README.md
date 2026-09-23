@@ -41,6 +41,16 @@ board-level 5.1 kOhm CC1/CC2 pull-downs. Its connector rating is 3 A, but
 source-current detection, overvoltage/inrush protection, and power-tree
 qualification remain necessary before production release.
 
+The MAX-M10S-00B footprint is generated at
+`footprints/RF_Module.pretty/u-blox_MAX-M10S.kicad_mod` from the official
+[u-blox MAX-M10S integration manual](https://content.u-blox.com/sites/default/files/MAX-M10S_IntegrationManual_UBX-20053088.pdf),
+UBX-20053088 R05 Figures 30-31 / Tables 44-45 (pages 82-83). It has all 18
+numbered copper/mask lands and the separate recommended T-shaped 150-um
+stencil apertures. Run `python scripts/generate_max_m10s_footprint.py` to
+recreate it byte-for-byte. The expanded courtyard includes the stencil; this
+is a conservative assembly choice, not a vendor dimension. RF layout and the
+fabricator's stencil process still need review before release.
+
 Import path:
 
 ```copper
