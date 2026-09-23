@@ -35,6 +35,12 @@ installed KiCad 0603USB land pattern and its 1-4 / 2-3 winding pairs. This
 resolves its footprint mismatch; SI/EMC performance still needs board-level
 measurement or qualified analysis.
 
+The 5 V input now uses the orderable GCT USB4135-GF-A power-only USB-C
+receptacle. Both VBUS/GND contacts and the shield are modelled, with separate
+board-level 5.1 kOhm CC1/CC2 pull-downs. Its connector rating is 3 A, but
+source-current detection, overvoltage/inrush protection, and power-tree
+qualification remain necessary before production release.
+
 Import path:
 
 ```copper

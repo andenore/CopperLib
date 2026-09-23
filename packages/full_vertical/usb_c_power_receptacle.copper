@@ -1,0 +1,15 @@
+// GCT USB4135-GF-A, power-only USB Type-C receptacle, 3 A VBUS contacts.
+// Pin assignment: GCT USB4135 product drawing A1 (22 Nov 2022), sheet 1/2:
+// https://gct.co/files/drawings/usb4135.pdf
+part GCT_USB4135_GF_A {
+    category = "connector.usb_c.power_sink";
+    manufacturer = "GCT";
+    footprint = "Connector_USB:USB_C_Receptacle_GCT_USB4135-GF-A_6P_TopMnt_Horizontal";
+    pin CC1 { number = "A5"; domains = "analog"; directions = "passive"; }
+    pin VBUS_A { number = "A9"; domains = "power"; directions = "passive"; }
+    pin GND_A { number = "A12"; domains = "ground"; directions = "passive"; }
+    pin CC2 { number = "B5"; domains = "analog"; directions = "passive"; }
+    pin VBUS_B { number = "B9"; domains = "power"; directions = "passive"; }
+    pin GND_B { number = "B12"; domains = "ground"; directions = "passive"; }
+    pin SHIELD { number = "SH"; domains = "ground"; directions = "passive"; }
+}
