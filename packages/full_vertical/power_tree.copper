@@ -44,7 +44,7 @@ module FullVerticalPowerTree {
     supply MODEM { voltage = 3.8V; net = V3V8; source = port.V3V8; }
     supply GROUND { voltage = 0V; net = GND; external = true; }
 
-    constraint max_distance(C_5V, U_MODEM.PVIN_1) { distance = 3mm; }
-    constraint max_distance(C_MODEM_AVIN, U_MODEM.AVIN) { distance = 3mm; }
+    constraint max_distance(C_5V.1, U_MODEM.PVIN_1) { distance = 4mm; }
+    constraint max_distance(C_MODEM_AVIN.1, U_MODEM.AVIN) { distance = 2mm; }
     constraint max_distance(C_3V8, L_MODEM.B) { distance = 3mm; }
 }
