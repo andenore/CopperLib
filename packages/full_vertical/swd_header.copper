@@ -1,20 +1,18 @@
-// Bare PCB target for the TC2050-IDC(-NL) Plug-of-Nails cable and
-// TC2050-ARM2010 adapter. Not an assembled/BOM connector.
+// Samtec FTSH-105-01-L-DV-007-K, assembled 1.27 mm SMT Cortex Debug header.
+// Position 7 is the absent key.
 part SWD_HEADER {
     category = "connector.debug.swd";
-    manufacturer = "Tag-Connect";
-    assembled = false;
-    footprint = "Connector:Tag-Connect_TC2050-IDC-FP_2x05_P1.27mm_Vertical";
-    source_document = "TC2050-ARM2010 ARM 20-pin to TC2050 Adapter";
-    source_url = "https://www.tag-connect.com/wp-content/uploads/bsk-pdf-manager/2021/02/TC2050-ARM2010-2021.pdf";
+    manufacturer = "Samtec";
+    footprint = "Connector_Debug:FTSH-105-01-L-DV-007-K";
+    source_document = "FTSH vertical surface-mount recommended PCB layout, rev H; Arm Cortex-M Debug Connectors";
+    source_url = "https://www.samtec.com/products/ftsh-105-01-l-dv-007-k";
     pin VREF { number = "1"; domains = "power"; directions = "input"; }
     pin SWDIO { number = "2"; domains = "digital"; directions = "passive"; }
     pin GND { number = "3"; domains = "ground"; directions = "input"; }
     pin SWDCLK { number = "4"; domains = "digital,clock"; directions = "passive"; }
     pin GND_5 { number = "5"; domains = "ground"; directions = "input"; }
     pin SWO { number = "6"; domains = "digital"; directions = "passive"; connection = optional; }
-    pin NC_7 { number = "7"; domains = "digital"; directions = "passive"; connection = do_not_connect; }
     pin NC_8 { number = "8"; domains = "digital"; directions = "passive"; connection = do_not_connect; }
-    pin NC_9 { number = "9"; domains = "digital"; directions = "passive"; connection = do_not_connect; }
+    pin GND_DETECT { number = "9"; domains = "ground"; directions = "input"; }
     pin RESET { number = "10"; domains = "digital"; directions = "passive"; }
 }
