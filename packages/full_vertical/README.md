@@ -31,9 +31,16 @@ KiCad export. The asset passes the physical pad/footprint audit; SIM ESD and
 modem reference-circuit checks remain outstanding.
 
 The USB data-line choke is now the Coilcraft 0603USB-601MLC, matched to the
-installed KiCad 0603USB land pattern and its 1-4 / 2-3 winding pairs. This
-resolves its footprint mismatch; SI/EMC performance still needs board-level
-measurement or qualified analysis.
+installed KiCad 0603USB land pattern. Coilcraft Document 406-1, revised
+09/10/24, page 1 specifies **1-2 / 4-3** winding pairs, with dotted ends
+1 and 4. DP passes 1 to 2 and DM passes 4 to 3; inputs share the dotted
+side. `data/full-vertical/usb-choke-audit.json` records the visual source
+check and PDF hash. The earlier 1-4 / 2-3 mapping was wrong: it connected
+each USB differential pair across one winding rather than passing each
+signal through its own winding. Earlier routed boards using that definition
+must be regenerated; footprint and copper DRC cannot detect this internal
+component-wiring error. SI/EMC performance still needs board-level measurement
+or qualified analysis.
 
 The 5 V input uses the orderable GCT USB4135-GF-A power-only USB-C
 receptacle. Both VBUS/GND contacts and the shield are modelled. A TUSB320LAI

@@ -1,13 +1,19 @@
 // Coilcraft 0603USB-601MLC (reel packaging), USB data-line common-mode choke.
-// Winding pairs 1-4 and 2-3, from Coilcraft Document 406-1 Rev 09/10/24,
+// Winding pairs 1-2 and 4-3, with dotted ends 1 and 4,
+// from Coilcraft Document 406-1 Rev 09/10/24,
 // page 1, schematic and land pattern:
 // https://www.coilcraft.com/getmedia/4e4ea8c1-6d24-4c0b-815c-9af87a76485b/0603usb.pdf
 part COILCRAFT_0603USB_601MLC {
     category = "filter.common_mode";
     manufacturer = "Coilcraft";
     footprint = "Inductor_SMD:L_CommonModeChoke_Coilcraft_0603USB";
+    source_document = "USB 3.0 Common Mode Choke 0603 (Document 406-1)";
+    source_revision = "Revised 09/10/24";
+    source_location = "Page 1: schematic and recommended land pattern";
+    source_url = "https://www.coilcraft.com/getmedia/4e4ea8c1-6d24-4c0b-815c-9af87a76485b/0603usb.pdf";
+    source_checksum = "sha256:a515a5af63a3098746b375c726cd5873390da8606ec9a9abbae982bb59b21c09";
     pin DP_IN { number = "1"; domains = "digital"; directions = "passive"; traits = "usb_dp"; }
-    pin DM_IN { number = "2"; domains = "digital"; directions = "passive"; traits = "usb_dm"; }
+    pin DM_IN { number = "4"; domains = "digital"; directions = "passive"; traits = "usb_dm"; }
     pin DM_OUT { number = "3"; domains = "digital"; directions = "passive"; traits = "usb_dm"; }
-    pin DP_OUT { number = "4"; domains = "digital"; directions = "passive"; traits = "usb_dp"; }
+    pin DP_OUT { number = "2"; domains = "digital"; directions = "passive"; traits = "usb_dp"; }
 }

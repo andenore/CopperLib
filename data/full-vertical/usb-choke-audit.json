@@ -1,0 +1,20 @@
+{
+  "scope": "source-backed terminal and winding audit, not USB SI/EMC qualification",
+  "part": "COILCRAFT_0603USB_601MLC",
+  "production_publishable": false,
+  "source": {
+    "document": "USB 3.0 Common Mode Choke 0603, Document 406-1",
+    "revision": "Revised 09/10/24",
+    "locator": "page 1, schematic and recommended land pattern",
+    "url": "https://www.coilcraft.com/getmedia/4e4ea8c1-6d24-4c0b-815c-9af87a76485b/0603usb.pdf",
+    "sha256": "a515a5af63a3098746b375c726cd5873390da8606ec9a9abbae982bb59b21c09",
+    "cache_path": "cache/usb-choke/0603usb.pdf",
+    "verification": "visually inspected rendered page; PDF text order is not pin topology"
+  },
+  "windings": [["1", "2"], ["4", "3"]],
+  "dotted_ends": ["1", "4"],
+  "semantic_pins": {"DP_IN": "1", "DP_OUT": "2", "DM_IN": "4", "DM_OUT": "3"},
+  "footprint": "Inductor_SMD:L_CommonModeChoke_Coilcraft_0603USB",
+  "superseded_mapping": {"DP_IN": "1", "DP_OUT": "4", "DM_IN": "2", "DM_OUT": "3"},
+  "remaining_gates": ["board-level USB signal integrity", "board-level EMC", "complete reference-circuit and fabrication review"]
+}
