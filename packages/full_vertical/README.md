@@ -97,6 +97,23 @@ The same audit records Nordic QFAA reference v1.1, sheet 1: C3 0.8 pF
 shunts the chip-side ANT node before L1 3.9 nH. The tracker example is corrected
 upstream; this does not complete its crystal/decoupling/reference-ground circuit.
 
+The bounded RF placement packet at
+`data/full-vertical/nrf52832-qfaa-rf-reference.json` is generated from the pinned
+official QFAA **LDO** pick-and-place entry (U1/C3/L1 only). Reproduce with:
+
+```powershell
+python scripts/extract_nrf52832_rf_reference.py cache/rf-reference/nrf52832qfaxreflayoutv11.zip
+```
+
+The script validates both archive and entry hashes, converts mil XY to integer
+nanometres with reflected Y, and retains raw first-pad coordinates/population
+evidence. The schematic plus page-1 top copper identifies physical C3 pad 1 as
+GND and pad 2 as ANT. Its centers/rotations can guide a rigid macro, but installed
+KiCad lands differ from the vendor reference and need explicit adaptation.
+No Altium code is executed, no raw vendor archive is redistributed, and no
+matching-ground copper, crystal/support circuit, stackup or antenna performance
+is claimed by the packet. `production_publishable` remains false.
+
 Import path:
 
 ```copper

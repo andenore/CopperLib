@@ -1,0 +1,100 @@
+{
+  "anchor": {
+    "pad": "30",
+    "reference": "U1"
+  },
+  "coordinate_transform": "Altium top XY in mil -> integer nm, reflect Y; preserve top rotation modulo 360",
+  "members": [
+    {
+      "center_nm": [
+        4191000,
+        0
+      ],
+      "population": "0.8pF",
+      "reference": "C3",
+      "rotation_degrees": "270.00",
+      "source_footprint": "CAPC1005X04L",
+      "source_pad1_nm": [
+        4191000,
+        -499999
+      ]
+    },
+    {
+      "center_nm": [
+        5613400,
+        508000
+      ],
+      "population": "3.9nH",
+      "reference": "L1",
+      "rotation_degrees": "0.00",
+      "source_footprint": "INDC1005X04L",
+      "source_pad1_nm": [
+        5138395,
+        508000
+      ]
+    },
+    {
+      "center_nm": [
+        0,
+        0
+      ],
+      "population": "nRF52832-QFAA",
+      "reference": "U1",
+      "rotation_degrees": "0.00",
+      "source_footprint": "QFN40P600X600X90-48N",
+      "source_pad1_nm": [
+        -3024988,
+        -2199996
+      ]
+    }
+  ],
+  "pad_net_evidence": "QFAA LDO schematic sheet 1 and PCB PDF page 1 top copper; C3 upper land/first-pad coordinate is GND, lower land is ANT",
+  "pad_nets": [
+    [
+      "U1",
+      "30",
+      "raw"
+    ],
+    [
+      "U1",
+      "31",
+      "ground"
+    ],
+    [
+      "C3",
+      "1",
+      "ground"
+    ],
+    [
+      "C3",
+      "2",
+      "raw"
+    ],
+    [
+      "L1",
+      "1",
+      "raw"
+    ],
+    [
+      "L1",
+      "2",
+      "feed"
+    ]
+  ],
+  "production_publishable": false,
+  "quantization": "nearest integer nanometre, Decimal ROUND_HALF_UP; source row precision is not exact land-pattern accuracy",
+  "schema": "copperlib-rigid-reference/v0.1",
+  "source": {
+    "archive_sha256": "21e37dcdd8e63d80825bb9e06462efdebe55b642f4e19c5f25c2d9a131e6e334",
+    "entry": "nRF52832-QFAx Reference Layout 1_1/Production files/nRF52832-QFAA/nrf52832_qfaa_pick_and_place.txt",
+    "entry_sha256": "3f0d7860f9bf2156a40210e9991017a0cbfb7bf51422411aead01212772e0ad2",
+    "revision": "QFAA LDO v1.1, 30 November 2016",
+    "url": "https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/reference-layouts/nrf52832qfaxreflayoutv11.zip"
+  },
+  "unresolved": [
+    "resolved footprint adaptation",
+    "matching ground copper/vias",
+    "complete support/crystal circuit",
+    "six-layer stackup/antenna matching"
+  ]
+}
