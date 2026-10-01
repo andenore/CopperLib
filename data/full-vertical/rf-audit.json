@@ -1,0 +1,30 @@
+{
+  "scope": "terminal audit, not reference-layout qualification",
+  "nordic_matching_source": {
+    "document": "nRF52832-QFAA Reference Layout, internal LDO schematic",
+    "revision": "1.1 (30 November 2016)",
+    "url": "https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/reference-layouts/nrf52832qfaxreflayoutv11.zip",
+    "archive_sha256": "21e37dcdd8e63d80825bb9e06462efdebe55b642f4e19c5f25c2d9a131e6e334",
+    "schematic_sha256": "b726bc4cd2abad965ea8e33a4a7180ebdbba5903cc610c3a0dcbcef6cb00b0f93",
+    "locator": "QFAA nrf52832_qfaa_schematic.pdf, sheet 1, ANT pin 30 / L1 / C3",
+    "fact": "C3 0.8 pF shunts ANT to ground before series L1 3.9 nH; RF output is after L1",
+    "status": "verified",
+    "layout_qualified": false
+  },
+  "production_publishable": false,
+  "part": "JOHANSON_2450AT18A0100001E",
+  "source": {
+    "document": "2450AT18A0100001E Datasheet, Doc# 36S0021A",
+    "revision": "4.0 (2024)",
+    "url": "https://www.johansontechnology.com/docs/3827/Antenna-2450AT18A0100001E-Rev4.0.pdf",
+    "sha256": "c11a1866c9fd04bad6dcbbd40cfdfbec067c731e47ba83f4e58b56c0e4c9dfa0",
+    "cache_path": "cache/rf-reference/Antenna-2450AT18A0100001E-Rev4.0.pdf"
+  },
+  "facts": [
+    {"field": "pin.1.function", "value": "feed", "status": "verified", "locator": "page 2, Terminal Configuration"},
+    {"field": "pin.2.function", "value": "NC mechanical anchor, soldered but not connected to a net", "status": "verified", "locator": "page 2, Terminal Configuration and asterisk footnote"},
+    {"field": "mounting", "value": "corner mounting with ground-clearance region and board-specific matching", "status": "verified", "locator": "pages 1 and 3, mounting drawings and footnote 4"},
+    {"field": "qualified_multilayer_keepout", "value": "?", "status": "unresolved", "locator": "page 3 is not a qualified six-layer implementation"},
+    {"field": "board_specific_matching_values", "value": "?", "status": "unresolved", "locator": "page 3, footnote 4: evaluation-board values are not portable qualification"}
+  ]
+}

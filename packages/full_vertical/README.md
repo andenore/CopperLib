@@ -83,6 +83,20 @@ Those placeholders cannot be connected without an electrical profile. The
 complete EG800G-EU pinout and Quectel mechanical/stencil review still block
 production release.
 
+The Bluetooth antenna is now the explicit Johanson
+`JOHANSON_2450AT18A0100001E` (legacy 2450AT18A100), not a generic grounded
+two-pin antenna. [Doc# 36S0021A Revision 4.0](https://www.johansontechnology.com/docs/3827/Antenna-2450AT18A0100001E-Rev4.0.pdf),
+page 2, identifies terminal 1 as feed and terminal 2 as an NC mechanical
+anchor. Keep its second solder land isolated; ERC rejects any net on it.
+The source hash and bounded facts are in `data/full-vertical/rf-audit.json`.
+Page 3's corner mounting, ground-clearance and board-specific matching must
+still be implemented and reviewed. Matching values from the vendor evaluation
+board are not qualified values for this six-layer tracker. The Nordic support
+circuit/reference layout and antenna qualification remain production blockers.
+The same audit records Nordic QFAA reference v1.1, sheet 1: C3 0.8 pF
+shunts the chip-side ANT node before L1 3.9 nH. The tracker example is corrected
+upstream; this does not complete its crystal/decoupling/reference-ground circuit.
+
 Import path:
 
 ```copper

@@ -1,7 +1,15 @@
-// Prototype antenna selection; RF matching and footprint require vendor validation.
-part RF_ANTENNA {
+// Terminal identities from Johanson Doc# 36S0021A, Revision 4.0, page 2.
+// The isolated NC land must still be soldered for mechanical anchoring.
+// Placement, ground clearance and board-specific tuning remain unqualified.
+part JOHANSON_2450AT18A0100001E {
     category = "rf.antenna";
+    manufacturer = "Johanson Technology";
     footprint = "RF_Antenna:Johanson_2450AT18x100";
+    source_document = "2450AT18A0100001E Datasheet (Doc# 36S0021A)";
+    source_revision = "Revision 4.0 (2024)";
+    source_location = "Page 2: Terminal Configuration; page 3: mounting configuration";
+    source_url = "https://www.johansontechnology.com/docs/3827/Antenna-2450AT18A0100001E-Rev4.0.pdf";
+    source_checksum = "sha256:c11a1866c9fd04bad6dcbbd40cfdfbec067c731e47ba83f4e58b56c0e4c9dfa0";
     pin FEED { number = "1"; domains = "rf"; directions = "passive"; traits = "antenna"; }
-    pin GND { number = "2"; domains = "ground"; directions = "input"; }
+    pin NC { number = "2"; connection = do_not_connect; }
 }
