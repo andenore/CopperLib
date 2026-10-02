@@ -299,7 +299,7 @@
   ],
   "ports": [
     {
-      "layer": "F.Cu",
+      "layer": "B.Cu",
       "name": "ground",
       "net": "ground",
       "pads": [
@@ -324,12 +324,10 @@
           "1"
         ]
       ],
-      "point": {
-        "pad": [
-          "U1",
-          "49"
-        ]
-      }
+      "point": [
+        -1000000,
+        -4300000
+      ]
     }
   ],
   "production_publishable": false,

@@ -123,7 +123,7 @@ def generate(archive):
                   ["LB","1","tee"],["LB","2","antenna"],["ANT","1","antenna"]],
         isolated_pads=[["ANT","2"]],
         tracks=tracks, vias=[via([-1000000,-4300000]),via([11500000,-3000000])],
-        ports=[dict(name="ground", net="ground", point=pad("U1","49"), layer="F.Cu",
+        ports=[dict(name="ground", net="ground", point=[-1000000,-4300000], layer="B.Cu",
                     pads=[["U1","49"],["U1","31"],["U1","45"],["C3","1"],["LA","1"]])],
         protected_regions=[region("nordic-private", [3300000,-1000000,6200000,1200000], ["F.Cu"], zones=False),
                            region("antenna-private", [12000000,-11700000,15500000,100000], ["F.Cu"], zones=False)],
