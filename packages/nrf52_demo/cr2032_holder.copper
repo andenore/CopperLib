@@ -1,0 +1,11 @@
+// Holder only: the board declares an installed, non-rechargeable cell as an
+// external supply. Pad numbering follows KiCad's Keystone 3034 footprint.
+part KEYSTONE_3034 {
+    category = "connector.battery.coin_cell";
+    manufacturer = "Keystone Electronics";
+    footprint = "Battery:BatteryHolder_Keystone_3034_1x20mm";
+    source_document = "Keystone 3034 SMT holder for 20 mm cells; KiCad footprint pad numbering";
+    source_url = "https://www.keyelco.com/product.cfm/product_id/798";
+    pin POS { number = "1"; domains = "power"; directions = "passive"; }
+    pin NEG { number = "2"; domains = "ground"; directions = "passive"; }
+}

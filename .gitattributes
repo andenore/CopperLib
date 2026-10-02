@@ -1,3 +1,5 @@
 # This compact reference is bound by raw SHA-256 in physical template scenes.
 data/full-vertical/nrf52832-qfaa-rf-reference.json text eol=lf
 data/full-vertical/nrf-antenna-hard-macro.json text eol=lf
+# New demo sources are pinned by raw bytes in CopperScript's copper.lock.
+packages/nrf52_demo/*.copper text eol=lf

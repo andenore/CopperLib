@@ -1,0 +1,26 @@
+from pathlib import Path
+
+from pcbir import check, compile_source
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_demo_support_part_contracts(tmp_path):
+    (tmp_path / "copper.mod").write_text(
+        "module demo-test\nrequire github.com/andenore/CopperLib v0.1.0\n"
+        f"replace github.com/andenore/CopperLib => {ROOT.as_posix()}\n", encoding="utf-8")
+    board = compile_source('''board SupportContract {
+        import demo "github.com/andenore/CopperLib/packages/nrf52_demo";
+        component BT: demo.KEYSTONE_3034;
+        component X: demo.REFERENCE_XTAL_2016;
+        component D: demo.REFERENCE_LED_0603;
+        net V { BT.POS; }
+        net GND { BT.NEG; X.CASE_2; X.CASE_4; D.K; }
+        supply GND { voltage = 0V; external = true; }
+    }''', str(tmp_path / "board.copper"), offline=True)
+    assert check(board) == []
+    def pins(name):
+        return {p.name: p.number for p in board.library["demo." + name].pins.values()}
+    assert pins("KEYSTONE_3034") == {"POS": "1", "NEG": "2"}
+    assert pins("REFERENCE_XTAL_2016") == {"X1": "1", "X2": "3", "CASE_2": "2", "CASE_4": "4"}
+    assert pins("REFERENCE_LED_0603") == {"K": "1", "A": "2"}
