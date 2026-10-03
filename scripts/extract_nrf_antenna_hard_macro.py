@@ -125,7 +125,12 @@ def generate(archive):
         tracks=tracks, vias=[via([-1000000,-4300000]),via([11500000,-3000000])],
         ports=[dict(name="ground", net="ground", point=[-1000000,-4300000], layer="B.Cu",
                     pads=[["U1","49"],["U1","31"],["U1","45"],["C3","1"],["LA","1"]])],
-        protected_regions=[region("nordic-private", [3300000,-1000000,6200000,1200000], ["F.Cu"], zones=False),
+        # This is a router ownership envelope, not a vendor keepout. Its upper
+        # edge leaves the DEC3 pad (-1 mm) an outward surface access corridor.
+        # Source RF strokes and the separate no-pour/inner/via keepouts below
+        # retain their original geometry. The nearest RF ground stroke remains
+        # inside the envelope with >0.28 mm margin at the upper edge.
+        protected_regions=[region("nordic-private", [3300000,-600000,6200000,1200000], ["F.Cu"], zones=False),
                            region("antenna-private", [12000000,-11700000,15500000,100000], ["F.Cu"], zones=False)],
         keepouts=[region("nordic-no-pour",[3300000,-1000000,6200000,1200000], ["F.Cu"], tracks=False),
                   region("nordic-inner-clear",[3300000,-1000000,6200000,1200000], LAYERS[1:]),

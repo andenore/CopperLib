@@ -32,6 +32,18 @@ def test_generator_reproduces_exact_asset_bytes(monkeypatch):
     assert expected == ASSET.read_bytes()
 
 
+def test_dec3_access_envelope_does_not_relax_rf_fabrication_keepouts():
+    data = json.loads(ASSET.read_bytes())
+    private = next(r for r in data["protected_regions"] if r["id"] == "nordic-private")
+    assert private["vertices"] == [[3300000,-600000],[6200000,-600000],
+                                  [6200000,1200000],[3300000,1200000]]
+    for name in ("nordic-no-pour", "nordic-inner-clear"):
+        keepout = next(k for k in data["keepouts"] if k["id"] == name)
+        assert keepout["vertices"] == [[3300000,-1000000],[6200000,-1000000],
+                                      [6200000,1200000],[3300000,1200000]]
+        assert keepout["block_vias"] and keepout["block_zones"]
+
+
 def test_generator_rejects_changed_archive_before_reading_geometry(tmp_path,monkeypatch):
     monkeypatch.syspath_prepend(str(ROOT / "scripts"))
     extractor = importlib.import_module("extract_nrf_antenna_hard_macro")
