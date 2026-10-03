@@ -2,7 +2,11 @@
 
 Deterministic, provenance-first device data and compatibility fixtures for CopperScript. The repository retains a bounded `STM32G0B1CBT6` proof and adds four cross-vendor model-gap case studies.
 
-This repository is intentionally separate from the CopperScript compiler. It records a compatible compiler revision (`ee63d69`) and feeds the upstream `pcbir.devicegen` implementation. The proof currently covers four verified LQFP48 GPIO pins (`PA0`–`PA1`, `PC0`–`PC1`) and their package bonds. It is incomplete and cannot be published as a production package.
+This repository is intentionally separate from the CopperScript compiler. It records a compatible compiler revision (`d856f2b`) and feeds the upstream `pcbir.devicegen` implementation. The proof currently covers four verified LQFP48 GPIO pins (`PA0`–`PA1`, `PC0`–`PC1`) and their package bonds. It is incomplete and cannot be published as a production package.
+
+Part-generation agents must follow the [internal pad connectivity checklist](internal-pad-connectivity.md).
+The pinned compiler supports permanent battery/switch contact groups and KiCad 10 exports.
+Publish the compiler revision before publishing this library revision so CI can fetch the pin.
 
 ## Quick start
 

@@ -2,6 +2,7 @@
 
 - Do not copy CopperScript compiler code into this repository.
 - Do not invent package pins, electrical limits, or mux facts. Use `?` and mark evidence `unresolved` when a source does not establish a value.
+- Check every multi-land contact for manufacturer-established internal connections. Follow [internal pad connectivity guidance](internal-pad-connectivity.md). Duplicate footprint numbers alone are NOT proof. Use `internal_pad_groups` only for permanently common contacts where one external connection is sufficient; never for switch actuation, every-required power contacts, thermal pads, or current-sharing assumptions. Test the package mapping and keep independent groups separate.
 - Downloaded source documents belong in ignored `cache/`; commit only manifests, hashes, evidence, and concise generated bundles.
 - Never execute downloaded source-provided code.
 - Keep generated files deterministic and run `python -m pytest` before committing.

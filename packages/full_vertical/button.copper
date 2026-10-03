@@ -1,7 +1,16 @@
-// Prototype support part for the full-vertical acceptance design.
+// TL3342 footprint: each repeated KiCad number is one permanent contact pair.
+// Manufacturer terminals 1/2 and 3/4 are common within their respective pairs;
+// actuation bridges the pairs. Do NOT declare a group containing both 1 and 2.
 part BUTTON {
     category = "switch.momentary";
+    manufacturer = "E-Switch";
     footprint = "Button_Switch_SMD:SW_SPST_TL3342";
+    internal_pad_groups = "1; 2";
+    source_document = "TL3342F160QG drawing P010632";
+    source_revision = "J, 2021-02-09";
+    source_location = "Sheet 1, CIRCUIT: SPST; KiCad TL3342 repeated-pad mapping";
+    source_url = "https://configured-product-images.s3.amazonaws.com/2D/specs/TL3342F160QG.pdf";
+    source_checksum = "sha256:24633cbf6a2f784611d0986a0ca86333039d6dcf532db465342a1e659ab9ad6e";
     pin A { number = "1"; domains = "digital"; directions = "passive"; }
     pin B { number = "2"; domains = "digital"; directions = "passive"; }
 }

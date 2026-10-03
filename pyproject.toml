@@ -12,7 +12,7 @@ dependencies = []
 
 [project.optional-dependencies]
 test = ["pytest>=7.4"]
-upstream = ["copperscript @ git+https://github.com/andenore/CopperScript.git@ee63d69"]
+upstream = ["copperscript @ git+https://github.com/andenore/CopperScript.git@d856f2bc6c6aa86d5b2a95d79cc1883336a01081"]
 
 [project.scripts]
 copperscript-stm32g0 = "copperscript_stm32g0.cli:main"

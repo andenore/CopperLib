@@ -5,6 +5,10 @@ The holder is [Keystone 3034](https://www.keyelco.com/product.cfm/product_id/798
 which accepts a CR2032. Its KiCad footprint has two positive lands numbered 1
 and a negative contact numbered 2. The holder is passive; an installed cell,
 not the empty holder, supplies energy.
+The positive tabs are explicitly internally connected (`internal_pad_groups =
+"1"`); solder both for mechanical retention, but no PCB bridge is required.
+The negative contact still needs an external connection. See the repository's
+[internal-contact generation checklist](../../internal-pad-connectivity.md).
 
 The crystal and LED are explicit **reference placeholders**, not orderable
 parts. Crystal oscillator terminals follow KiCad's Crystal_GND24 convention
