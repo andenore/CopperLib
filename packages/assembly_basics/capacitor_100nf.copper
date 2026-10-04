@@ -1,0 +1,12 @@
+// 100 nF, 10%, 16 V, X7R; 1.0x0.5 mm. Nonpolarized.
+part SAMSUNG_CL05B104KO5NNNC {
+    category = "passive.capacitor";
+    traits = "capacitor";
+    manufacturer = "Samsung Electro-Mechanics";
+    footprint = "Capacitor_SMD:C_0402_1005Metric";
+    source_document = "Samsung MLCC Component Center exact product specification";
+    source_url = "https://product.samsungsem.com/mlcc/CL05B104KO5NNN.do";
+    source_location = "Size, Characteristics and C packaging-code list";
+    pin 1 { number = "1"; domains = "analog"; directions = "passive"; }
+    pin 2 { number = "2"; domains = "analog"; directions = "passive"; }
+}

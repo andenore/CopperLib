@@ -1,0 +1,15 @@
+// Manufacturer-authored drawing supplied by JLCPCB C2286, page 2:
+// terminal 1 is positive/anode, terminal 2 is negative/cathode.
+// Do NOT pair this part with KiCad's generic LED footprint (K=1, A=2).
+part KENTO_KT0603R {
+    category = "optoelectronics.led";
+    manufacturer = "Hubei KENTO Elec";
+    footprint = "LED_SMD:KENTO_KT0603R";
+    source_document = "KENTO 0603-0.6 red LED specification supplied for KT-0603R / C2286";
+    source_revision = "A.0, 2018-12-06";
+    source_url = "https://jlcpcb.com/partdetail/C2286";
+    source_location = "PDF page 2 package/polarity drawing; page 3 ratings";
+    source_checksum = "sha256:a3bac1cc9c59cb306ad03512945cce12c87bb54252abc223b796e1d20d41d4a1";
+    pin A { number = "1"; domains = "analog"; directions = "passive"; }
+    pin K { number = "2"; domains = "analog"; directions = "passive"; }
+}

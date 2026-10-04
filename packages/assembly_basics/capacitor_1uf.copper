@@ -1,0 +1,12 @@
+// 1 uF, 10%, 50 V, X5R; nominal 1.6x0.8 mm. Nonpolarized.
+part SAMSUNG_CL10A105KB8NNNC {
+    category = "passive.capacitor";
+    traits = "capacitor";
+    manufacturer = "Samsung Electro-Mechanics";
+    footprint = "Capacitor_SMD:C_0603_1608Metric";
+    source_document = "Samsung MLCC Component Center exact product specification";
+    source_url = "https://product.samsungsem.com/mlcc/CL10A105KB8NNN.do";
+    source_location = "Size, Characteristics and C packaging-code list";
+    pin 1 { number = "1"; domains = "analog"; directions = "passive"; }
+    pin 2 { number = "2"; domains = "analog"; directions = "passive"; }
+}

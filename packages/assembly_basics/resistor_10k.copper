@@ -1,0 +1,14 @@
+// 10 kohm, 1%, 0.1 W, 75 V; nominal 1.6x0.8 mm. Nonpolarized.
+part UNIROYAL_0603WAF1002T5E {
+    category = "passive.resistor";
+    traits = "resistor";
+    manufacturer = "UNI-ROYAL(Uniroyal Elec)";
+    footprint = "Resistor_SMD:R_0603_1608Metric";
+    source_document = "UNI-ROYAL thick film chip resistor datasheet";
+    source_revision = "V.3, 2019-02-12";
+    source_url = "https://jlcpcb.com/partdetail/C25804";
+    source_location = "PDF pages 2 (ordering code), 4 (dimensions), 5 (ratings)";
+    source_checksum = "sha256:11cd644d5d8a34a6d12775afb80bf58d8fc11f0c3b700dbd0f7a59942ceaa5ef";
+    pin 1 { number = "1"; domains = "analog"; directions = "passive"; }
+    pin 2 { number = "2"; domains = "analog"; directions = "passive"; }
+}

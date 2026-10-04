@@ -1,0 +1,13 @@
+// 100 pF, 5%, 50 V, C0G; nominal 1.0x0.5 mm. Nonpolarized.
+part FENGHUA_0402CG101J500NT {
+    category = "passive.capacitor";
+    traits = "capacitor";
+    manufacturer = "FH (Guangdong Fenghua Advanced Tech)";
+    footprint = "Capacitor_SMD:C_0402_1005Metric";
+    source_document = "Fenghua General Series MLCC specification and exact JLCPCB catalogue selection C1546";
+    source_url = "https://fhcomp.com/en/product_info/?prod_code=0402CG101J500NT";
+    source_location = "1005 package dimensions and 0402CG101J500NT ordering code";
+    source_checksum = "sha256:705023d3be0454148a96fc2715d249a32d8ff442e70b64d1116d3490ed1d8136";
+    pin 1 { number = "1"; domains = "analog"; directions = "passive"; }
+    pin 2 { number = "2"; domains = "analog"; directions = "passive"; }
+}
