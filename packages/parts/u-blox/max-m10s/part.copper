@@ -2,7 +2,7 @@
 part MAX_M10S_00B {
     category = "module.gnss";
     manufacturer = "u-blox";
-    footprint = "RF_Module:u-blox_MAX-M10S";
+    footprint = "MAX_M10S:u-blox_MAX-M10S";
     source_document = "MAX-M10S Data Sheet";
     source_revision = "UBX-20035208 R05";
     source_url = "https://content.u-blox.com/sites/default/files/MAX-M10S_DataSheet_UBX-20035208.pdf";

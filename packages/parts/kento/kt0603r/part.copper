@@ -4,7 +4,7 @@
 part KENTO_KT0603R {
     category = "optoelectronics.led";
     manufacturer = "Hubei KENTO Elec";
-    footprint = "LED_SMD:KENTO_KT0603R";
+    footprint = "KENTO:KENTO_KT0603R";
     source_document = "KENTO 0603-0.6 red LED specification supplied for KT-0603R / C2286";
     source_revision = "A.0, 2018-12-06";
     source_url = "https://jlcpcb.com/partdetail/C2286";

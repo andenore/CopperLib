@@ -6,7 +6,7 @@
 part EG800G_EU {
     category = "module.cellular.lte_cat1bis";
     manufacturer = "Quectel";
-    footprint = "RF_Module:Quectel_EG800G";
+    footprint = "EG800G:Quectel_EG800G";
     source_document = "EG800G Series Hardware Design";
     source_revision = "V1.2";
     source_url = "https://developer.quectel.com/modules-cat/eg800g-series";
