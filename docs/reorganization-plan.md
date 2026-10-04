@@ -212,59 +212,64 @@ complete operational radio or a production-qualified module.
 
 ## 6. Implementation phases
 
+Implementation status: the package, consumer, footprint and research-lab
+migrations below are complete in the local CopperLib and CopperScript
+checkouts. Publishing the CopperLib commits and running remote CI remain a
+release step.
+
 ### Phase A — Inventory and freeze the migration contract
 
-- [ ] List every public export, consumer, footprint and hashed physical asset.
-- [ ] Record one destination per definition and identify actual duplicates.
-- [ ] Capture baseline electrical connectivity, pin/bond maps, internal contact
+- [x] List every public export, consumer, footprint and hashed physical asset.
+- [x] Record one destination per definition and identify actual duplicates.
+- [x] Capture baseline electrical connectivity, pin/bond maps, internal contact
       groups, pad geometry and RF trial outputs.
-- [ ] Record compatible compiler/library revisions and all provider pins.
-- [ ] Define catalog coverage/status fields and the public package naming rules.
+- [x] Record compatible compiler/library revisions and all provider pins.
+- [x] Define catalog coverage/status fields and the public package naming rules.
 
 ### Phase B — Establish canonical components
 
-- [ ] Move manufacturer parts and shared device definitions into family packages.
-- [ ] Relocate concise evidence, custom footprints and component generators.
-- [ ] Update declaring-file-relative paths and generator output destinations.
-- [ ] Separate genuine generic templates from illustrative example fixtures.
-- [ ] Populate and validate the catalog; add part-level import/geometry tests.
+- [x] Move manufacturer parts and shared device definitions into family packages.
+- [x] Relocate concise evidence, custom footprints and component generators.
+- [x] Update declaring-file-relative paths and generator output destinations.
+- [x] Separate genuine generic templates from illustrative example fixtures.
+- [x] Populate and validate the catalog; add part-level import/geometry tests.
 
 ### Phase C — Retain reusable circuits, including the antenna
 
-- [ ] Publish the Nordic/Johanson circuit package with both reference and trial
+- [x] Publish the Nordic/Johanson circuit package with both reference and trial
       assets, documented electrical/physical roles and explicit variant limits.
-- [ ] Move its generator and RF checks; preserve deterministic retained geometry.
-- [ ] Keep the standalone antenna and chip importable independently.
-- [ ] Separate reusable TPS62130 reference circuitry from tracker power policy.
-- [ ] Organize SWD and CM4 standard contracts and their shared component facts.
-- [ ] Verify antenna-containing consumers instantiate one chip and one antenna
+- [x] Move its generator and RF checks; preserve deterministic retained geometry.
+- [x] Keep the standalone antenna and chip importable independently.
+- [x] Separate reusable TPS62130 reference circuitry from tracker power policy.
+- [x] Organize SWD and CM4 standard contracts and their shared component facts.
+- [x] Verify antenna-containing consumers instantiate one chip and one antenna
       and preserve their original electrical and macro bindings.
 
 ### Phase D — Migrate consumers and research tooling
 
-- [ ] Update full-vertical tracker, nRF antenna probe, nRF coin-cell, LED ring,
+- [x] Update full-vertical tracker, nRF antenna probe, nRF coin-cell, LED ring,
       mechanical-profile and CM4 examples to canonical imports/assets.
-- [ ] Keep project modules, example placeholders and use-site scenes with their
+- [x] Keep project modules, example placeholders and use-site scenes with their
       boards. Adopt library circuit exports where their supported API suffices.
-- [ ] Update generator scripts, tests, Make configuration and current guides.
-- [ ] Move compatibility research/proofs into CopperScript development tooling;
+- [x] Update generator scripts, tests, Make configuration and current guides.
+- [x] Move compatibility research/proofs into CopperScript development tooling;
       run the old compatibility checks until the replacement reproduces them.
-- [ ] Update CopperLib CI around catalog, component, circuit/profile and
+- [x] Update CopperLib CI around catalog, component, circuit/profile and
       deterministic generation checks, using a compatible pinned compiler.
 
 ### Phase E — Validate, publish and remove obsolete paths
 
-- [ ] Run the complete CopperLib suite and deterministic generators.
-- [ ] Verify representative library imports and physical exports in fresh
+- [x] Run the complete CopperLib suite and deterministic generators.
+- [x] Verify representative library imports and physical exports in fresh
       consumer projects, including managed footprint dependencies.
-- [ ] Confirm cache preparation, `--locked` and `--locked --offline` behavior.
+- [x] Confirm cache preparation, `--locked` and `--locked --offline` behavior.
 - [ ] Publish the new CopperLib revision before pinning it in CopperScript.
-- [ ] Regenerate both the root CopperScript lock and the independent CM4 lock;
+- [x] Regenerate both the root CopperScript lock and the independent CM4 lock;
       update affected scene/asset digests deliberately.
-- [ ] Run affected CopperScript checks and its full suite against the new pin.
-- [ ] Inspect native KiCad RF exports for retained copper/keepouts and isolated
+- [x] Run affected CopperScript checks and its full suite against the new pin.
+- [x] Inspect native KiCad RF exports for retained copper/keepouts and isolated
       antenna land, without treating DRC as RF qualification.
-- [ ] Remove old `full_vertical`, `nrf52_demo` and `assembly_basics` bundles after
+- [x] Remove old `full_vertical`, `nrf52_demo` and `assembly_basics` bundles after
       all active consumers have migrated; rewrite the library README.
 
 Use incremental commits: canonical components, retained circuits/profiles,
@@ -283,19 +288,19 @@ and avoid independently maintained duplicate models.
 
 Cleanup is complete when:
 
-- [ ] Each reusable part has one canonical home independent of its first board.
-- [ ] No public component package is named after the tracker or demo project.
-- [ ] The Johanson antenna and the antenna-inclusive nRF52832 RF circuit are
+- [x] Each reusable part has one canonical home independent of its first board.
+- [x] No public component package is named after the tracker or demo project.
+- [x] The Johanson antenna and the antenna-inclusive nRF52832 RF circuit are
       both available, with clear dependencies and preserved evidence/geometry.
-- [ ] Manufacturer facts, generic templates and experimental circuit variants
+- [x] Manufacturer facts, generic templates and experimental circuit variants
       have explicit, accurate coverage/status descriptions.
-- [ ] Custom footprints resolve from their owning packages; external geometry
+- [x] Custom footprints resolve from their owning packages; external geometry
       uses documented pinned providers and fresh consumers need no sibling repo.
-- [ ] Project-specific policy/outputs and compiler research fixtures have their
+- [x] Project-specific policy/outputs and compiler research fixtures have their
       intended owners; generators and tests remain deterministic.
-- [ ] Current consumers pass electrical, footprint, macro and applicable native
+- [x] Current consumers pass electrical, footprint, macro and applicable native
       checks against the published library revision.
-- [ ] README/catalog/docs describe the generic library and its public imports.
+- [x] README/catalog/docs describe the generic library and its public imports.
 
 **RF tuning and production qualification remain separate from cleanup
 completion.** Preserve the existing unresolved work rather than deleting it or
