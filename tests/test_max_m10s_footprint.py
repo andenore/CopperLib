@@ -1,4 +1,5 @@
 from pathlib import Path
+import importlib.util
 import shutil
 import subprocess
 
@@ -8,7 +9,12 @@ from pcbir import (
     BoardOutline, KiCadPcbBackend, PadKind, PhysicalBoard, Placement, Point,
     load_kicad_mod,
 )
-from scripts.generate_max_m10s_footprint import DESTINATION, render
+_spec = importlib.util.spec_from_file_location(
+    "max_m10s_generator", Path(__file__).resolve().parents[1] / "packages/parts/u-blox/max-m10s/generate_footprint.py"
+)
+_generator = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_generator)
+DESTINATION, render = _generator.DESTINATION, _generator.render
 
 
 def test_source_backed_max_m10s_pattern_is_deterministic_and_complete():

@@ -1,0 +1,112 @@
+// Generated from evidence/pinout.json by generate.py.
+// Carrier socket, not an active CM4 device model; signal contacts are passive.
+// MPN: Hirose DF40C-100DS-0.4V(51). Local socket numbers always run 1..100.
+part CM4_GPIO_SOCKET {
+    category = "connector.compute_module.cm4";
+    manufacturer = "Hirose Electric";
+    footprint = "Connector_Hirose_DF40:Hirose_DF40C-100DS-0.4V_2x50_P0.4mm";
+    source_document = "Raspberry Pi Compute Module 4 datasheet";
+    source_location = "Table 6, printed pages 16-22; CM4IO v5 PCB establishes socket orientation";
+    source_url = "https://datasheets.raspberrypi.com/cm4/cm4-datasheet.pdf";
+    source_checksum = "sha256:d6946f8bb3e0276defa95b99b9d402a01a4805d3de02d53f835e93044ea7af97";
+    pin GND_1 { number = "1"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin GND_2 { number = "2"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin Ethernet_Pair3_P { number = "3"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin Ethernet_Pair1_P { number = "4"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin Ethernet_Pair3_N { number = "5"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin Ethernet_Pair1_N { number = "6"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GND_7 { number = "7"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin GND_8 { number = "8"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin Ethernet_Pair2_N { number = "9"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin Ethernet_Pair0_N { number = "10"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin Ethernet_Pair2_P { number = "11"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin Ethernet_Pair0_P { number = "12"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GND_13 { number = "13"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin GND_14 { number = "14"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin Ethernet_nLED3 { number = "15"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin Ethernet_SYNC_IN { number = "16"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin Ethernet_nLED2 { number = "17"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin Ethernet_SYNC_OUT { number = "18"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin Ethernet_nLED1 { number = "19"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin EEPROM_nWP { number = "20"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin Pi_nLED_Activity { number = "21"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GND_22 { number = "22"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin GND_23 { number = "23"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin GPIO26 { number = "24"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO21 { number = "25"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO19 { number = "26"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO20 { number = "27"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO13 { number = "28"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO16 { number = "29"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO6 { number = "30"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO12 { number = "31"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GND_32 { number = "32"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin GND_33 { number = "33"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin GPIO5 { number = "34"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin ID_SC { number = "35"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin ID_SD { number = "36"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO7 { number = "37"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO11 { number = "38"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO8 { number = "39"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO9 { number = "40"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO25 { number = "41"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GND_42 { number = "42"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin GND_43 { number = "43"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin GPIO10 { number = "44"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO24 { number = "45"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO22 { number = "46"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO23 { number = "47"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO27 { number = "48"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO18 { number = "49"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO17 { number = "50"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO15 { number = "51"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GND_52 { number = "52"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin GND_53 { number = "53"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin GPIO4 { number = "54"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO14 { number = "55"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO3 { number = "56"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin SD_CLK { number = "57"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GPIO2 { number = "58"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GND_59 { number = "59"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin GND_60 { number = "60"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin SD_DAT3 { number = "61"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin SD_CMD { number = "62"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin SD_DAT0 { number = "63"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin SD_DAT5 { number = "64"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GND_65 { number = "65"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin GND_66 { number = "66"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin SD_DAT1 { number = "67"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin SD_DAT4 { number = "68"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin SD_DAT2 { number = "69"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin SD_DAT7 { number = "70"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GND_71 { number = "71"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin SD_DAT6 { number = "72"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin SD_VDD_OVERRIDE { number = "73"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GND_74 { number = "74"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin SD_PWR_ON { number = "75"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin RESERVED_76 { number = "76"; domains = "digital"; directions = "passive"; connection = "do_not_connect"; }
+    pin V5_77 { number = "77"; domains = "power"; directions = "input"; connection = "required"; voltage_min = 4.75V; voltage_max = 5.25V; }
+    pin GPIO_VREF { number = "78"; domains = "power"; directions = "input"; connection = "required"; }
+    pin V5_79 { number = "79"; domains = "power"; directions = "input"; connection = "required"; voltage_min = 4.75V; voltage_max = 5.25V; }
+    pin SCL0 { number = "80"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin V5_81 { number = "81"; domains = "power"; directions = "input"; connection = "required"; voltage_min = 4.75V; voltage_max = 5.25V; }
+    pin SDA0 { number = "82"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin V5_83 { number = "83"; domains = "power"; directions = "input"; connection = "required"; voltage_min = 4.75V; voltage_max = 5.25V; }
+    pin V3V3_84 { number = "84"; domains = "power"; directions = "passive"; connection = "optional"; }
+    pin V5_85 { number = "85"; domains = "power"; directions = "input"; connection = "required"; voltage_min = 4.75V; voltage_max = 5.25V; }
+    pin V3V3_86 { number = "86"; domains = "power"; directions = "passive"; connection = "optional"; }
+    pin V5_87 { number = "87"; domains = "power"; directions = "input"; connection = "required"; voltage_min = 4.75V; voltage_max = 5.25V; }
+    pin V1V8_88 { number = "88"; domains = "power"; directions = "passive"; connection = "optional"; }
+    pin WL_nDisable { number = "89"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin V1V8_90 { number = "90"; domains = "power"; directions = "passive"; connection = "optional"; }
+    pin BT_nDisable { number = "91"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin RUN_PG { number = "92"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin nRPIBOOT { number = "93"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin AnalogIP1 { number = "94"; domains = "analog"; directions = "passive"; connection = "optional"; }
+    pin PI_LED_nPWR { number = "95"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin AnalogIP0 { number = "96"; domains = "analog"; directions = "passive"; connection = "optional"; }
+    pin Camera_GPIO { number = "97"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GND_98 { number = "98"; domains = "ground"; directions = "passive"; connection = "required"; }
+    pin GLOBAL_EN { number = "99"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin nEXTRST { number = "100"; domains = "digital"; directions = "passive"; connection = "optional"; }
+}

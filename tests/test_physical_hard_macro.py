@@ -6,7 +6,7 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSET = ROOT / "data/full-vertical/nrf-antenna-hard-macro.json"
+ASSET = ROOT / "packages/circuits/nordic/nrf52832-johanson-reference/assets/nrf52832-johanson-six-layer-trial.json"
 
 
 def test_rf_macro_is_explicitly_bounded_and_unqualified():
@@ -26,8 +26,8 @@ def test_rf_macro_is_explicitly_bounded_and_unqualified():
 def test_generator_reproduces_exact_asset_bytes(monkeypatch):
     archive = ROOT / "cache/rf-reference/nrf52832qfaxreflayoutv11.zip"
     if not archive.is_file(): pytest.skip("optional cached Nordic source")
-    monkeypatch.syspath_prepend(str(ROOT / "scripts"))
-    extractor = importlib.import_module("extract_nrf_antenna_hard_macro")
+    monkeypatch.syspath_prepend(str(ROOT / "packages/circuits/nordic/nrf52832-johanson-reference"))
+    extractor = importlib.import_module("generate_trial")
     expected = (json.dumps(extractor.generate(archive),indent=2,sort_keys=True)+"\n").encode()
     assert expected == ASSET.read_bytes()
 
@@ -45,8 +45,8 @@ def test_dec3_access_envelope_does_not_relax_rf_fabrication_keepouts():
 
 
 def test_generator_rejects_changed_archive_before_reading_geometry(tmp_path,monkeypatch):
-    monkeypatch.syspath_prepend(str(ROOT / "scripts"))
-    extractor = importlib.import_module("extract_nrf_antenna_hard_macro")
+    monkeypatch.syspath_prepend(str(ROOT / "packages/circuits/nordic/nrf52832-johanson-reference"))
+    extractor = importlib.import_module("generate_trial")
     source = tmp_path / "changed.zip"
     source.write_bytes(b"not the pinned archive")
     with pytest.raises(ValueError,match="archive identity changed"):

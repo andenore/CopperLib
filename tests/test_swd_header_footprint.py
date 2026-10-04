@@ -7,7 +7,7 @@ from pcbir import load_kicad_mod
 
 FOOTPRINT = (
     Path(__file__).resolve().parents[1]
-    / "footprints/Connector_Debug.pretty/FTSH-105-01-L-DV-007-K.kicad_mod"
+    / "packages/parts/samtec/ftsh-105-01-l-dv-007-k/footprints/FTSH-105-01-L-DV-007-K.kicad_mod"
 )
 
 

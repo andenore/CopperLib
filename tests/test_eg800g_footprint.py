@@ -1,13 +1,19 @@
 """Offline geometry checks for the pinned JLCPCB/EasyEDA EG800G-EU asset."""
 
 from pathlib import Path
+import importlib.util
 import shutil
 import subprocess
 
 import pytest
 
 from pcbir import BoardOutline, KiCadPcbBackend, PhysicalBoard, Placement, Point, load_kicad_mod
-from scripts.generate_eg800g_footprint import DESTINATION, PART_URL, SHAPE_SHA256
+_spec = importlib.util.spec_from_file_location(
+    "eg800g_generator", Path(__file__).resolve().parents[1] / "packages/parts/quectel/eg800g-eu/generate_footprint.py"
+)
+_generator = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_generator)
+DESTINATION, PART_URL, SHAPE_SHA256 = _generator.DESTINATION, _generator.PART_URL, _generator.SHAPE_SHA256
 
 
 def test_eg800g_eu_footprint_has_all_109_distinct_lands():

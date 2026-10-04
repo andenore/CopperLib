@@ -1,0 +1,41 @@
+// Reusable nRF52832 QFAA RF front end with the Johanson 2.4 GHz antenna.
+//
+// This is an electrical assembly module. The six-layer physical trial and
+// source-backed geometry remain separate assets in assets/ and are explicitly
+// unqualified for production use.
+module Nrf52832JohansonRf {
+    import nordic "github.com/andenore/CopperLib/packages/parts/nordic/nrf52832";
+    import johanson "github.com/andenore/CopperLib/packages/parts/johanson/2450at18a0100001e";
+    import passives "github.com/andenore/CopperLib/packages/generic/passives";
+
+    port VDD: power_in;
+    port GND: power_in;
+    port SWDIO: input;
+    port SWDCLK: input;
+    port RESET: input;
+    port RF_OUT: output;
+
+    component U_NRF: nordic.NRF52832_QFAA;
+    component ANT_BT: johanson.JOHANSON_2450AT18A0100001E;
+    component C_MATCH: passives.CAPACITOR { value = 0.8pF; footprint = "Capacitor_SMD:C_0402_1005Metric"; }
+    component L_MATCH: passives.INDUCTOR { value = 3.9nH; footprint = "Inductor_SMD:L_0402_1005Metric"; }
+    component C_ANT_SERIES: passives.CAPACITOR { value = 1pF; footprint = "Capacitor_SMD:C_0402_1005Metric"; }
+    component L_ANT_SHUNT: passives.INDUCTOR { value = 2.7nH; footprint = "Inductor_SMD:L_0402_1005Metric"; }
+    component L_ANT_SERIES: passives.INDUCTOR { value = 3.9nH; footprint = "Inductor_SMD:L_0402_1005Metric"; }
+
+    net VDD { port.VDD; U_NRF.VDD_1; U_NRF.VDD_2; U_NRF.VDD_3; }
+    net GND {
+        port.GND; U_NRF.VSS_1; U_NRF.VSS_2; U_NRF.VSS_EP;
+        C_MATCH.P1; L_ANT_SHUNT.P1;
+    }
+    net SWDIO { port.SWDIO; U_NRF.SWDIO; }
+    net SWDCLK { port.SWDCLK; U_NRF.SWDCLK; }
+    net RESET { port.RESET; U_NRF.P0_21_NRESET; }
+    net NRF_RF_RAW { U_NRF.ANT; C_MATCH.P2; L_MATCH.P1; }
+    net NRF_RF_ANT { L_MATCH.P2; C_ANT_SERIES.P1; }
+    net ANT_TEE { C_ANT_SERIES.P2; L_ANT_SHUNT.P2; L_ANT_SERIES.P1; }
+    net RF_OUT { port.RF_OUT; L_ANT_SERIES.P2; ANT_BT.FEED; }
+
+    supply VDD_RAIL { voltage = 1.7V; net = VDD; external = true; }
+    supply GROUND_RAIL { voltage = 0V; net = GND; external = true; }
+}

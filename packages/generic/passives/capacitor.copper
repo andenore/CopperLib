@@ -1,0 +1,6 @@
+// Electrical abstraction for a two-terminal capacitor.
+part CAPACITOR {
+    category = "passive.capacitor";
+    pin P1 { number = "1"; domains = "analog,power"; directions = "passive"; }
+    pin P2 { number = "2"; domains = "analog,power"; directions = "passive"; }
+}

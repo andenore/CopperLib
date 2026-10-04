@@ -10,7 +10,7 @@ from pcbir.compiler import compile_design_source
 from pcbir.model import ConnectionPolicy, Direction, SignalDomain
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = json.loads((ROOT / "data/cm4/pinout.json").read_text())
+DATA = json.loads((ROOT / "packages/profiles/raspberry_pi/cm4/evidence/pinout.json").read_text())
 
 
 def source(tmp_path):
@@ -23,7 +23,7 @@ def source(tmp_path):
             ref = "J1" if row["cm4_pin"] <= 100 else "J2"
             grounds.append(f'{ref}.GND_{row["cm4_pin"]};')
     return '''board Carrier {
-        import cm4 "github.com/andenore/CopperLib/packages/raspberry_pi_cm4";
+        import cm4 "github.com/andenore/CopperLib/packages/profiles/raspberry_pi/cm4";
         component J1: cm4.CM4_GPIO_SOCKET;
         component J2: cm4.CM4_HS_SOCKET;
         net GND { ''' + " ".join(grounds) + ''' }
@@ -77,7 +77,7 @@ def test_required_and_reserved_contacts_are_not_silently_waived(tmp_path, edit, 
 def test_profile_fragment_has_two_explicit_bindings_and_four_holes(tmp_path):
     design = compile_design_source(source(tmp_path), str(tmp_path / "board.copper"), offline=True)
     from pcbir.parser import parse
-    profile = parse((ROOT / "packages/raspberry_pi_cm4/mounting.copper").read_text())
+    profile = parse((ROOT / "packages/profiles/raspberry_pi/cm4/mounting.copper").read_text())
     assert not any(getattr(d, "kind", None) == "outline" for d in profile.declarations)
     assert len(design.mechanical.connectors) == 2
     assert len(design.mechanical.holes) == 4
@@ -88,4 +88,4 @@ def test_profile_fragment_has_two_explicit_bindings_and_four_holes(tmp_path):
 
 
 def test_cm4_generator_is_current():
-    subprocess.run([sys.executable, str(ROOT / "scripts/generate_cm4.py"), "--check"], check=True)
+    subprocess.run([sys.executable, str(ROOT / "packages/profiles/raspberry_pi/cm4/generate.py"), "--check"], check=True)

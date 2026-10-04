@@ -7,7 +7,7 @@ from zipfile import ZipFile
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location("rf_extract", ROOT / "scripts/extract_nrf52832_rf_reference.py")
+spec = importlib.util.spec_from_file_location("rf_extract", ROOT / "packages/circuits/nordic/nrf52832-johanson-reference/extract_reference.py")
 extractor = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(extractor)
 

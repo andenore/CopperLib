@@ -13,7 +13,7 @@ def _board(tmp_path, connect_anchor=False):
         f'replace github.com/andenore/CopperLib => {ROOT.as_posix()}\n')
     return compile_source('''
         board AntennaAudit {
-            import rf "github.com/andenore/CopperLib/packages/full_vertical";
+            import rf "github.com/andenore/CopperLib/packages/parts/johanson/2450at18a0100001e";
             component ANT: rf.JOHANSON_2450AT18A0100001E;
             net FEED { ANT.FEED; }
     ''' + ('net WRONG { ANT.NC; }' if connect_anchor else '') + '}',
@@ -27,7 +27,7 @@ def test_antenna_anchor_is_nc_with_source_evidence(tmp_path):
     assert part.pins['NC'].connection_policy is ConnectionPolicy.DO_NOT_CONNECT
     assert part.pins['NC'].profile is None
     assert part.footprints == ('RF_Antenna:Johanson_2450AT18x100',)
-    evidence = json.loads((ROOT / 'data/full-vertical/rf-audit.json').read_text())
+    evidence = json.loads((ROOT / 'packages/parts/johanson/2450at18a0100001e/evidence/rf-audit.json').read_text())
     assert part.source.checksum == 'sha256:' + evidence['source']['sha256']
     assert evidence['production_publishable'] is False
     assert check(board) == []
