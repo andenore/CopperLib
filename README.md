@@ -2,7 +2,7 @@
 
 Deterministic, provenance-first device data and compatibility fixtures for CopperScript. The repository retains a bounded `STM32G0B1CBT6` proof and adds four cross-vendor model-gap case studies.
 
-This repository is intentionally separate from the CopperScript compiler. It records a compatible compiler revision (`d856f2b`) and feeds the upstream `pcbir.devicegen` implementation. The proof currently covers four verified LQFP48 GPIO pins (`PA0`–`PA1`, `PC0`–`PC1`) and their package bonds. It is incomplete and cannot be published as a production package.
+This repository is intentionally separate from the CopperScript compiler. It records a compatible compiler revision (`8706292`, including mechanical profiles) and feeds the upstream `pcbir.devicegen` implementation. The proof currently covers four verified LQFP48 GPIO pins (`PA0`–`PA1`, `PC0`–`PC1`) and their package bonds. It is incomplete and cannot be published as a production package.
 
 Part-generation agents must follow the [internal pad connectivity checklist](internal-pad-connectivity.md).
 The pinned compiler supports permanent battery/switch contact groups and KiCad 10 exports.
@@ -27,7 +27,7 @@ The normalized bundle is in `data/bundles/stm32g0b1/`. The generated `.copper` f
 2. `scripts/acquire_sources.py` records source URLs and SHA-256 files without executing downloaded content.
 3. A low-cost Codex agent processes one packet at a time, using the instructions in `work-packets/README.md`, and writes JSONL evidence.
 4. `generate` calls the pinned upstream `pcbir.devicegen` validator and renderer.
-5. CI installs CopperScript at `ee63d69`, validates the bundle, regenerates `.copper` files, and fails on a dirty diff.
+5. CI installs the exact CopperScript revision in `pyproject.toml`, validates the bundle, regenerates `.copper` files, and fails on a dirty diff. The older bounded case-study reports retain their original revision/evidence rather than being silently relabelled.
 
 Evidence lives in `data/evidence.jsonl`; the generated bundle is intentionally concise. Facts are labelled `verified`, `inferred`, `unresolved`, or `illustrative`. `?` is reserved for unresolved cells and is rejected by upstream validation.
 
@@ -47,7 +47,7 @@ Typical locations are `C:\Program Files\STMicroelectronics\...\STM32CubeMX\db\mc
 
 - ST product page: https://www.st.com/en/microcontrollers-microprocessors/stm32g0b1cb.html
 - ST datasheet `DS13560 Rev 6` (February 2026), `STM32G0B1xB/xC/xE`, PDF: https://www.st.com/resource/en/datasheet/stm32g0b1cc.pdf
-- CopperScript compatibility target: https://github.com/andenore/CopperScript/tree/ee63d69
+- Current CopperScript dependency: https://github.com/andenore/CopperScript/tree/87062923657a1f1aef4b9ba87146d8119318f8ea
 
 See `AGENTS.md` for contribution rules.
 
@@ -70,3 +70,10 @@ full-vertical tracker acceptance design. It is explicitly a non-production
 package while its bounded device models and prototype support parts are being
 replaced by complete, evidence-backed definitions. See
 `packages/full_vertical/README.md` for its publication blockers.
+
+The [CM4 package](packages/raspberry_pi_cm4/README.md) adds two real Hirose
+100-contact carrier sockets with complete CM4 signal numbering, four mounting
+holes and a reusable zero-height module-body reservation. The CopperScript
+carrier example composes the profile with its own outline and antenna keepout.
+These are carrier interfaces, not an active CM4 model or an order-ready bundle;
+generic reference headers still need exact assembly selections.

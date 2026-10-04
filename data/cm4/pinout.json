@@ -1,0 +1,810 @@
+{
+  "source": {
+    "url": "https://datasheets.raspberrypi.com/cm4/cm4-datasheet.pdf",
+    "sha256": "d6946f8bb3e0276defa95b99b9d402a01a4805d3de02d53f835e93044ea7af97",
+    "location": "Table 6, printed pages 16-22 (PDF pages 17-23)",
+    "retrieved": "2026-10-04"
+  },
+  "pins": [
+    {
+      "cm4_pin": 1,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 2,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 3,
+      "signal": "Ethernet_Pair3_P"
+    },
+    {
+      "cm4_pin": 4,
+      "signal": "Ethernet_Pair1_P"
+    },
+    {
+      "cm4_pin": 5,
+      "signal": "Ethernet_Pair3_N"
+    },
+    {
+      "cm4_pin": 6,
+      "signal": "Ethernet_Pair1_N"
+    },
+    {
+      "cm4_pin": 7,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 8,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 9,
+      "signal": "Ethernet_Pair2_N"
+    },
+    {
+      "cm4_pin": 10,
+      "signal": "Ethernet_Pair0_N"
+    },
+    {
+      "cm4_pin": 11,
+      "signal": "Ethernet_Pair2_P"
+    },
+    {
+      "cm4_pin": 12,
+      "signal": "Ethernet_Pair0_P"
+    },
+    {
+      "cm4_pin": 13,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 14,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 15,
+      "signal": "Ethernet_nLED3"
+    },
+    {
+      "cm4_pin": 16,
+      "signal": "Ethernet_SYNC_IN"
+    },
+    {
+      "cm4_pin": 17,
+      "signal": "Ethernet_nLED2"
+    },
+    {
+      "cm4_pin": 18,
+      "signal": "Ethernet_SYNC_OUT"
+    },
+    {
+      "cm4_pin": 19,
+      "signal": "Ethernet_nLED1"
+    },
+    {
+      "cm4_pin": 20,
+      "signal": "EEPROM_nWP"
+    },
+    {
+      "cm4_pin": 21,
+      "signal": "Pi_nLED_Activity"
+    },
+    {
+      "cm4_pin": 22,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 23,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 24,
+      "signal": "GPIO26"
+    },
+    {
+      "cm4_pin": 25,
+      "signal": "GPIO21"
+    },
+    {
+      "cm4_pin": 26,
+      "signal": "GPIO19"
+    },
+    {
+      "cm4_pin": 27,
+      "signal": "GPIO20"
+    },
+    {
+      "cm4_pin": 28,
+      "signal": "GPIO13"
+    },
+    {
+      "cm4_pin": 29,
+      "signal": "GPIO16"
+    },
+    {
+      "cm4_pin": 30,
+      "signal": "GPIO6"
+    },
+    {
+      "cm4_pin": 31,
+      "signal": "GPIO12"
+    },
+    {
+      "cm4_pin": 32,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 33,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 34,
+      "signal": "GPIO5"
+    },
+    {
+      "cm4_pin": 35,
+      "signal": "ID_SC"
+    },
+    {
+      "cm4_pin": 36,
+      "signal": "ID_SD"
+    },
+    {
+      "cm4_pin": 37,
+      "signal": "GPIO7"
+    },
+    {
+      "cm4_pin": 38,
+      "signal": "GPIO11"
+    },
+    {
+      "cm4_pin": 39,
+      "signal": "GPIO8"
+    },
+    {
+      "cm4_pin": 40,
+      "signal": "GPIO9"
+    },
+    {
+      "cm4_pin": 41,
+      "signal": "GPIO25"
+    },
+    {
+      "cm4_pin": 42,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 43,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 44,
+      "signal": "GPIO10"
+    },
+    {
+      "cm4_pin": 45,
+      "signal": "GPIO24"
+    },
+    {
+      "cm4_pin": 46,
+      "signal": "GPIO22"
+    },
+    {
+      "cm4_pin": 47,
+      "signal": "GPIO23"
+    },
+    {
+      "cm4_pin": 48,
+      "signal": "GPIO27"
+    },
+    {
+      "cm4_pin": 49,
+      "signal": "GPIO18"
+    },
+    {
+      "cm4_pin": 50,
+      "signal": "GPIO17"
+    },
+    {
+      "cm4_pin": 51,
+      "signal": "GPIO15"
+    },
+    {
+      "cm4_pin": 52,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 53,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 54,
+      "signal": "GPIO4"
+    },
+    {
+      "cm4_pin": 55,
+      "signal": "GPIO14"
+    },
+    {
+      "cm4_pin": 56,
+      "signal": "GPIO3"
+    },
+    {
+      "cm4_pin": 57,
+      "signal": "SD_CLK"
+    },
+    {
+      "cm4_pin": 58,
+      "signal": "GPIO2"
+    },
+    {
+      "cm4_pin": 59,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 60,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 61,
+      "signal": "SD_DAT3"
+    },
+    {
+      "cm4_pin": 62,
+      "signal": "SD_CMD"
+    },
+    {
+      "cm4_pin": 63,
+      "signal": "SD_DAT0"
+    },
+    {
+      "cm4_pin": 64,
+      "signal": "SD_DAT5"
+    },
+    {
+      "cm4_pin": 65,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 66,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 67,
+      "signal": "SD_DAT1"
+    },
+    {
+      "cm4_pin": 68,
+      "signal": "SD_DAT4"
+    },
+    {
+      "cm4_pin": 69,
+      "signal": "SD_DAT2"
+    },
+    {
+      "cm4_pin": 70,
+      "signal": "SD_DAT7"
+    },
+    {
+      "cm4_pin": 71,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 72,
+      "signal": "SD_DAT6"
+    },
+    {
+      "cm4_pin": 73,
+      "signal": "SD_VDD_OVERRIDE"
+    },
+    {
+      "cm4_pin": 74,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 75,
+      "signal": "SD_PWR_ON"
+    },
+    {
+      "cm4_pin": 76,
+      "signal": "Reserved"
+    },
+    {
+      "cm4_pin": 77,
+      "signal": "+5V"
+    },
+    {
+      "cm4_pin": 78,
+      "signal": "GPIO_VREF"
+    },
+    {
+      "cm4_pin": 79,
+      "signal": "+5V"
+    },
+    {
+      "cm4_pin": 80,
+      "signal": "SCL0"
+    },
+    {
+      "cm4_pin": 81,
+      "signal": "+5V"
+    },
+    {
+      "cm4_pin": 82,
+      "signal": "SDA0"
+    },
+    {
+      "cm4_pin": 83,
+      "signal": "+5V"
+    },
+    {
+      "cm4_pin": 84,
+      "signal": "CM4_3.3V"
+    },
+    {
+      "cm4_pin": 85,
+      "signal": "+5V"
+    },
+    {
+      "cm4_pin": 86,
+      "signal": "CM4_3.3V"
+    },
+    {
+      "cm4_pin": 87,
+      "signal": "+5V"
+    },
+    {
+      "cm4_pin": 88,
+      "signal": "CM4_1.8V"
+    },
+    {
+      "cm4_pin": 89,
+      "signal": "WL_nDisable"
+    },
+    {
+      "cm4_pin": 90,
+      "signal": "CM4_1.8V"
+    },
+    {
+      "cm4_pin": 91,
+      "signal": "BT_nDisable"
+    },
+    {
+      "cm4_pin": 92,
+      "signal": "RUN_PG"
+    },
+    {
+      "cm4_pin": 93,
+      "signal": "nRPIBOOT"
+    },
+    {
+      "cm4_pin": 94,
+      "signal": "AnalogIP1"
+    },
+    {
+      "cm4_pin": 95,
+      "signal": "PI_LED_nPWR"
+    },
+    {
+      "cm4_pin": 96,
+      "signal": "AnalogIP0"
+    },
+    {
+      "cm4_pin": 97,
+      "signal": "Camera_GPIO"
+    },
+    {
+      "cm4_pin": 98,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 99,
+      "signal": "GLOBAL_EN"
+    },
+    {
+      "cm4_pin": 100,
+      "signal": "nEXTRST"
+    },
+    {
+      "cm4_pin": 101,
+      "signal": "USB_OTG_ID"
+    },
+    {
+      "cm4_pin": 102,
+      "signal": "PCIe_CLK_nREQ"
+    },
+    {
+      "cm4_pin": 103,
+      "signal": "USB_N"
+    },
+    {
+      "cm4_pin": 104,
+      "signal": "Reserved"
+    },
+    {
+      "cm4_pin": 105,
+      "signal": "USB_P"
+    },
+    {
+      "cm4_pin": 106,
+      "signal": "Reserved"
+    },
+    {
+      "cm4_pin": 107,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 108,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 109,
+      "signal": "PCIe_nRST"
+    },
+    {
+      "cm4_pin": 110,
+      "signal": "PCIe_CLK_P"
+    },
+    {
+      "cm4_pin": 111,
+      "signal": "VDAC_COMP"
+    },
+    {
+      "cm4_pin": 112,
+      "signal": "PCIe_CLK_N"
+    },
+    {
+      "cm4_pin": 113,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 114,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 115,
+      "signal": "CAM1_D0_N"
+    },
+    {
+      "cm4_pin": 116,
+      "signal": "PCIe_RX_P"
+    },
+    {
+      "cm4_pin": 117,
+      "signal": "CAM1_D0_P"
+    },
+    {
+      "cm4_pin": 118,
+      "signal": "PCIe_RX_N"
+    },
+    {
+      "cm4_pin": 119,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 120,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 121,
+      "signal": "CAM1_D1_N"
+    },
+    {
+      "cm4_pin": 122,
+      "signal": "PCIe_TX_P"
+    },
+    {
+      "cm4_pin": 123,
+      "signal": "CAM1_D1_P"
+    },
+    {
+      "cm4_pin": 124,
+      "signal": "PCIe_TX_N"
+    },
+    {
+      "cm4_pin": 125,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 126,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 127,
+      "signal": "CAM1_C_N"
+    },
+    {
+      "cm4_pin": 128,
+      "signal": "CAM0_D0_N"
+    },
+    {
+      "cm4_pin": 129,
+      "signal": "CAM1_C_P"
+    },
+    {
+      "cm4_pin": 130,
+      "signal": "CAM0_D0_P"
+    },
+    {
+      "cm4_pin": 131,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 132,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 133,
+      "signal": "CAM1_D2_N"
+    },
+    {
+      "cm4_pin": 134,
+      "signal": "CAM0_D1_N"
+    },
+    {
+      "cm4_pin": 135,
+      "signal": "CAM1_D2_P"
+    },
+    {
+      "cm4_pin": 136,
+      "signal": "CAM0_D1_P"
+    },
+    {
+      "cm4_pin": 137,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 138,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 139,
+      "signal": "CAM1_D3_N"
+    },
+    {
+      "cm4_pin": 140,
+      "signal": "CAM0_C_N"
+    },
+    {
+      "cm4_pin": 141,
+      "signal": "CAM1_D3_P"
+    },
+    {
+      "cm4_pin": 142,
+      "signal": "CAM0_C_P"
+    },
+    {
+      "cm4_pin": 143,
+      "signal": "HDMI1_HOTPLUG"
+    },
+    {
+      "cm4_pin": 144,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 145,
+      "signal": "HDMI1_SDA"
+    },
+    {
+      "cm4_pin": 146,
+      "signal": "HDMI1_TX2_P"
+    },
+    {
+      "cm4_pin": 147,
+      "signal": "HDMI1_SCL"
+    },
+    {
+      "cm4_pin": 148,
+      "signal": "HDMI1_TX2_N"
+    },
+    {
+      "cm4_pin": 149,
+      "signal": "HDMI1_CEC"
+    },
+    {
+      "cm4_pin": 150,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 151,
+      "signal": "HDMI0_CEC"
+    },
+    {
+      "cm4_pin": 152,
+      "signal": "HDMI1_TX1_P"
+    },
+    {
+      "cm4_pin": 153,
+      "signal": "HDMI0_HOTPLUG"
+    },
+    {
+      "cm4_pin": 154,
+      "signal": "HDMI1_TX1_N"
+    },
+    {
+      "cm4_pin": 155,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 156,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 157,
+      "signal": "DSI0_D0_N"
+    },
+    {
+      "cm4_pin": 158,
+      "signal": "HDMI1_TX0_P"
+    },
+    {
+      "cm4_pin": 159,
+      "signal": "DSI0_D0_P"
+    },
+    {
+      "cm4_pin": 160,
+      "signal": "HDMI1_TX0_N"
+    },
+    {
+      "cm4_pin": 161,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 162,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 163,
+      "signal": "DSI0_D1_N"
+    },
+    {
+      "cm4_pin": 164,
+      "signal": "HDMI1_CLK_P"
+    },
+    {
+      "cm4_pin": 165,
+      "signal": "DSI0_D1_P"
+    },
+    {
+      "cm4_pin": 166,
+      "signal": "HDMI1_CLK_N"
+    },
+    {
+      "cm4_pin": 167,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 168,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 169,
+      "signal": "DSI0_C_N"
+    },
+    {
+      "cm4_pin": 170,
+      "signal": "HDMI0_TX2_P"
+    },
+    {
+      "cm4_pin": 171,
+      "signal": "DSI0_C_P"
+    },
+    {
+      "cm4_pin": 172,
+      "signal": "HDMI0_TX2_N"
+    },
+    {
+      "cm4_pin": 173,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 174,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 175,
+      "signal": "DSI1_D0_N"
+    },
+    {
+      "cm4_pin": 176,
+      "signal": "HDMI0_TX1_P"
+    },
+    {
+      "cm4_pin": 177,
+      "signal": "DSI1_D0_P"
+    },
+    {
+      "cm4_pin": 178,
+      "signal": "HDMI0_TX1_N"
+    },
+    {
+      "cm4_pin": 179,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 180,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 181,
+      "signal": "DSI1_D1_N"
+    },
+    {
+      "cm4_pin": 182,
+      "signal": "HDMI0_TX0_P"
+    },
+    {
+      "cm4_pin": 183,
+      "signal": "DSI1_D1_P"
+    },
+    {
+      "cm4_pin": 184,
+      "signal": "HDMI0_TX0_N"
+    },
+    {
+      "cm4_pin": 185,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 186,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 187,
+      "signal": "DSI1_C_N"
+    },
+    {
+      "cm4_pin": 188,
+      "signal": "HDMI0_CLK_P"
+    },
+    {
+      "cm4_pin": 189,
+      "signal": "DSI1_C_P"
+    },
+    {
+      "cm4_pin": 190,
+      "signal": "HDMI0_CLK_N"
+    },
+    {
+      "cm4_pin": 191,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 192,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 193,
+      "signal": "DSI1_D2_N"
+    },
+    {
+      "cm4_pin": 194,
+      "signal": "DSI1_D3_N"
+    },
+    {
+      "cm4_pin": 195,
+      "signal": "DSI1_D2_P"
+    },
+    {
+      "cm4_pin": 196,
+      "signal": "DSI1_D3_P"
+    },
+    {
+      "cm4_pin": 197,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 198,
+      "signal": "GND"
+    },
+    {
+      "cm4_pin": 199,
+      "signal": "HDMI0_SDA"
+    },
+    {
+      "cm4_pin": 200,
+      "signal": "HDMI0_SCL"
+    }
+  ]
+}

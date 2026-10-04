@@ -1,0 +1,31 @@
+{
+  "datum": "carrier top view; official CM4IO v5 combined footprint coordinates + (13.5,61.5) mm",
+  "reference": {
+    "url": "https://pip-assets.raspberrypi.com/categories/1210-design-files/documents/RP-008173-DS-1-CM4IO-KiCAD.zip",
+    "sha256": "5ea867e17968cb9c117fbce7a982ea395d66a6ee605253a9a0879483bbfcb0aa",
+    "member": "CM4IO.pretty/Raspberry-Pi-4-Compute-Module.kicad_mod",
+    "member_sha256": "6ffd8121b216859594e847692611250e2ed0441936fd9a5e81c949ffaccf412f"
+  },
+  "module_envelope_mm": [10,10,50,65],
+  "mounting_holes_mm": [[13.5,13.5],[46.5,13.5],[13.5,61.5],[46.5,61.5]],
+  "hole_diameter_mm": 2.7,
+  "head_clearance_radius_mm": 3,
+  "head_clearance_note": "carrier design choice, not a Raspberry Pi specified screw-head dimension",
+  "socket_rotation_degrees": 270,
+  "socket_1_pad_1_mm": [11.5,30.2],
+  "socket_2_pad_1_mm": [45.42,30.2],
+  "socket_row_pitch_mm": 0.4,
+  "socket_pad_column_spacing_mm": 3.08,
+  "socket_center_spacing_mm": 33.92,
+  "mating_height_mm": 1.5,
+  "free_component_height_below_module_mm": 0,
+  "manufacturer": {
+    "mpn": "DF40C-100DS-0.4V(51)",
+    "url": "https://www.hirose.com/en/product/p/CL0684-4033-4-51",
+    "drawing": "EDC3-311352-00, sheet 1 PCB mounting pattern (change entry 2 DIS-H-006409)",
+    "drawing_sha256": "ffcb189da41061fd7eb017ff8a0153883782d89ffa9b5d8bafc2f37e7d8a6423",
+    "specification": "ELC-311352-51-51 rev 3 (2024-02-28), sheet 1",
+    "specification_sha256": "73035da5baa49cbefcd2e1c04aa07adc1a6a0c3bf6da04564e189d764eb1ce35",
+    "maximum_current_per_contact_A": 0.3
+  }
+}

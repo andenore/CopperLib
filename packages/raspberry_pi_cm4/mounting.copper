@@ -1,0 +1,25 @@
+// Carrier top view, mm. Module envelope: x=10..50, y=10..65.
+// Datum = official CM4IO v5 combined footprint + (13.5,61.5).
+// Fragment only: carrier outline and antenna copper clearance are project-owned.
+board_profile CM4Mounting {
+    hole H1 { position = (13.5mm, 13.5mm); diameter = 2.7mm; head_clearance_radius = 3mm; }
+    hole H2 { position = (46.5mm, 13.5mm); diameter = 2.7mm; head_clearance_radius = 3mm; }
+    hole H3 { position = (13.5mm, 61.5mm); diameter = 2.7mm; head_clearance_radius = 3mm; }
+    hole H4 { position = (46.5mm, 61.5mm); diameter = 2.7mm; head_clearance_radius = 3mm; }
+    connector gpio {
+        anchor_pad = "1"; position = (11.5mm, 30.2mm); rotation = 270; side = front;
+        footprint = "Connector_Hirose_DF40:Hirose_DF40C-100DS-0.4V_2x50_P0.4mm";
+    }
+    connector high_speed {
+        anchor_pad = "1"; position = (45.42mm, 30.2mm); rotation = 270; side = front;
+        footprint = "Connector_Hirose_DF40:Hirose_DF40C-100DS-0.4V_2x50_P0.4mm";
+    }
+    // 1.5 mm stacking has zero free height under the CM4. Socket corridors
+    // include their courtyards plus 0.3 mm placement tolerance; they are not
+    // permission to add other components there. PCB tracks remain allowed.
+    keepout module_top rectangle { origin = (10mm, 10mm); width = 40mm; height = 17.9mm; side = front; }
+    keepout module_bottom rectangle { origin = (10mm, 52.1mm); width = 40mm; height = 12.9mm; side = front; }
+    keepout module_middle rectangle { origin = (15.73mm, 27.9mm); width = 28.54mm; height = 24.2mm; side = front; }
+    keepout module_left rectangle { origin = (10mm, 27.9mm); width = 0.35mm; height = 24.2mm; side = front; }
+    keepout module_right rectangle { origin = (49.65mm, 27.9mm); width = 0.35mm; height = 24.2mm; side = front; }
+}

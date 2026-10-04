@@ -1,0 +1,7 @@
+// Reference geometry only; select an orderable header before assembly ordering.
+part HEADER_1X02 {
+    category = "connector.header";
+    footprint = "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical";
+    pin 1 { number = "1"; domains = "digital"; directions = "passive"; }
+    pin 2 { number = "2"; domains = "digital"; directions = "passive"; }
+}

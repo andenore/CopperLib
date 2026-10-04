@@ -10,6 +10,7 @@ jobs:
       - run: python -m pip install -e '.[test,upstream]'
       - run: python -m copperscript_stm32g0 validate
       - run: python -m pytest
+      - run: python scripts/generate_cm4.py --check
       - run: python -m copperscript_stm32g0 generate
       - run: python -m copperscript_stm32g0 check
       - run: python -m copperscript_stm32g0 cubemx-ingest --cubemx-root tests/fixtures/cubemx --cubemx-identity STM32G0B1CBTx --output work/cubemx/stm32g0b1.json
