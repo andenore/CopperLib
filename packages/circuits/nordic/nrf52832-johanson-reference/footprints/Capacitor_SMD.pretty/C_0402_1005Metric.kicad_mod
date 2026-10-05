@@ -1,66 +1,112 @@
-  (footprint "C_0402_1005Metric"
-    (version 20240108)
-    (generator "copperscript")
-    (layer "F.Cu")
-    (uuid "1d8605b4-f478-44a9-a9ac-a5494b53e90f")
-    (property "Reference" "REF"
-      (at 0 -1.96 0)
-      (layer "F.Fab")
-      (uuid "0c93cd37-4638-4ddb-b9cc-e4d6f5430558")
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (property "Value" "C_0402_1005Metric"
-      (at 0 1.96 0)
-      (layer "F.Fab")
-      (hide yes)
-      (uuid "13fc508d-1f7e-436d-bcfc-36c87dd7411d")
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (attr smd)
-    (fp_line
-      (start -0.107836 -0.36)
-      (end 0.107836 -0.36)
-      (stroke (width 0.12) (type default))
-      (layer "F.SilkS")
-      (uuid "a2615814-2f96-4bf9-88ac-daaa8d21fedb")
-    )
-    (fp_line
-      (start -0.107836 0.36)
-      (end 0.107836 0.36)
-      (stroke (width 0.12) (type default))
-      (layer "F.SilkS")
-      (uuid "122fd053-19e6-4a10-a78a-f51a92e76784")
-    )
-    (fp_rect
-      (start -0.91 -0.46)
-      (end 0.91 0.46)
-      (stroke (width 0.05) (type default))
-      (fill none)
-      (layer "F.CrtYd")
-      (uuid "3e4383a3-c114-4635-ab61-58173bd670d8")
-    )
-    (fp_rect
-      (start -0.5 -0.25)
-      (end 0.5 0.25)
-      (stroke (width 0.1) (type default))
-      (fill none)
-      (layer "F.Fab")
-      (uuid "43d5bddf-694a-4117-b5fb-27ed0aaeda0b")
-    )
-    (pad "1" smd roundrect
-      (at -0.48 0 0)
-      (size 0.56 0.62)
-      (layers "F.Cu" "F.Paste" "F.Mask")
-      (roundrect_rratio 0.25)
-      (pintype "passive")
-      (uuid "95a1f930-9d91-405a-82ad-90717ab2fe62")
-    )
-    (pad "2" smd roundrect
-      (at 0.48 0 0)
-      (size 0.56 0.62)
-      (layers "F.Cu" "F.Paste" "F.Mask")
-      (roundrect_rratio 0.25)
-      (pintype "passive")
-      (uuid "cffb6fcc-b3d0-4ede-b9ca-9ba246b31632")
-    )
-  )
+(footprint "C_0402_1005Metric"
+	(version 20260206)
+	(generator "kicad-footprint-generator")
+	(layer "F.Cu")
+	(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
+	(tags "capacitor")
+	(property "Reference" "REF**"
+		(at 0 -1.16 0)
+		(layer "F.SilkS")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "C_0402_1005Metric"
+		(at 0 1.16 0)
+		(layer "F.Fab")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -0.107836 -0.36)
+		(end 0.107836 -0.36)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -0.107836 0.36)
+		(end 0.107836 0.36)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_rect
+		(start -0.91 -0.46)
+		(end 0.91 0.46)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+	)
+	(fp_rect
+		(start -0.5 -0.25)
+		(end 0.5 0.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(effects
+			(font
+				(size 0.25 0.25)
+				(thickness 0.04)
+			)
+		)
+	)
+	(pad "1" smd roundrect
+		(at -0.48 0)
+		(size 0.56 0.62)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+	)
+	(pad "2" smd roundrect
+		(at 0.48 0)
+		(size 0.56 0.62)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+	)
+	(embedded_fonts no)
+	(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0402_1005Metric.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

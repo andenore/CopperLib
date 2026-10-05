@@ -149,7 +149,7 @@
       ],
       "edge_clearance_nm": 250000,
       "footprint": "RF_Antenna:Johanson_2450AT18x100",
-      "footprint_digest": "75af7637664284175ab59931a8ee60da88f9a34bedd40f84361e06c6604ccb62",
+      "footprint_digest": "75cfce55c5064f250f1d902d4c5d05fb7f882c6cac1657f03155eed0cb2879f9",
       "reference": "ANT",
       "rotation_degrees": "90"
     },
@@ -160,7 +160,7 @@
       ],
       "edge_clearance_nm": 250000,
       "footprint": "Capacitor_SMD:C_0402_1005Metric",
-      "footprint_digest": "6626461e823efd255bfbdef7bdf64c8feb10fc410b0cacfd6353137e29252eda",
+      "footprint_digest": "d66f0fda3d34cc9b84681f499327d03a0411d4be23015e4f632557966e59325c",
       "reference": "C3",
       "rotation_degrees": "270.00"
     },
@@ -171,7 +171,7 @@
       ],
       "edge_clearance_nm": 250000,
       "footprint": "Capacitor_SMD:C_0402_1005Metric",
-      "footprint_digest": "6626461e823efd255bfbdef7bdf64c8feb10fc410b0cacfd6353137e29252eda",
+      "footprint_digest": "d66f0fda3d34cc9b84681f499327d03a0411d4be23015e4f632557966e59325c",
       "reference": "CA",
       "rotation_degrees": "90"
     },
@@ -182,7 +182,7 @@
       ],
       "edge_clearance_nm": 250000,
       "footprint": "Inductor_SMD:L_0402_1005Metric",
-      "footprint_digest": "5562c5cb01e540b6441fb2b3587074acffff71760023c276b03b69c374da1580",
+      "footprint_digest": "9bdcec94ff6daac600c3128dc3e395501aeed0d3f0af2648338c40537f1e58a3",
       "reference": "L1",
       "rotation_degrees": "0.00"
     },
@@ -193,7 +193,7 @@
       ],
       "edge_clearance_nm": 250000,
       "footprint": "Inductor_SMD:L_0402_1005Metric",
-      "footprint_digest": "5562c5cb01e540b6441fb2b3587074acffff71760023c276b03b69c374da1580",
+      "footprint_digest": "9bdcec94ff6daac600c3128dc3e395501aeed0d3f0af2648338c40537f1e58a3",
       "reference": "LA",
       "rotation_degrees": "0"
     },
@@ -204,7 +204,7 @@
       ],
       "edge_clearance_nm": 250000,
       "footprint": "Inductor_SMD:L_0402_1005Metric",
-      "footprint_digest": "5562c5cb01e540b6441fb2b3587074acffff71760023c276b03b69c374da1580",
+      "footprint_digest": "9bdcec94ff6daac600c3128dc3e395501aeed0d3f0af2648338c40537f1e58a3",
       "reference": "LB",
       "rotation_degrees": "90"
     },
@@ -215,7 +215,7 @@
       ],
       "edge_clearance_nm": 250000,
       "footprint": "Package_DFN_QFN:QFN-48-1EP_6x6mm_P0.4mm_EP4.2x4.2mm",
-      "footprint_digest": "cb810b0416966534962bcc4220c4f39bb8a6b22d45da13753297f20bf77ce078",
+      "footprint_digest": "69f22c042f8db28cc191675dd0ad43014fa964e032b1a07b1932b2c2bb88bd87",
       "reference": "U1",
       "rotation_degrees": "0.00"
     }
