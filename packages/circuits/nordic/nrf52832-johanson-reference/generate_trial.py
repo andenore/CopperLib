@@ -17,13 +17,13 @@ from extract_reference import ARCHIVE_SHA256, URL, extract
 ROOT = Path(__file__).resolve().parent
 ENTRY = "nRF52832-QFAx Reference Layout 1_1/Production files/nRF52832-QFAA/nrf52832_qfaa.GTL"
 FOOTPRINTS = {
-    "U1": ("Package_DFN_QFN:QFN-48-1EP_6x6mm_P0.4mm_EP4.2x4.2mm", "5573f44f5a1df036d8bc6e48b156fa3b5fac13152ce7c628de3e7e295eadd4a1"),
-    "C3": ("Capacitor_SMD:C_0402_1005Metric", "5a62c537e80dd0b467c6efe692e82724875ef7a68fa53b55dee5cbe53ff99723"),
-    "L1": ("Inductor_SMD:L_0402_1005Metric", "1d3e892648d297f14d5f985b99ea1bbfcd1b7bda9fd3968879c06537ef1055ac"),
-    "CA": ("Capacitor_SMD:C_0402_1005Metric", "5a62c537e80dd0b467c6efe692e82724875ef7a68fa53b55dee5cbe53ff99723"),
-    "LA": ("Inductor_SMD:L_0402_1005Metric", "1d3e892648d297f14d5f985b99ea1bbfcd1b7bda9fd3968879c06537ef1055ac"),
-    "LB": ("Inductor_SMD:L_0402_1005Metric", "1d3e892648d297f14d5f985b99ea1bbfcd1b7bda9fd3968879c06537ef1055ac"),
-    "ANT": ("RF_Antenna:Johanson_2450AT18x100", "692bb32af5db072b179dadda2fa09a7b6ad481aeca5dd8d6241f76e28ead5e1a"),
+    "U1": ("Package_DFN_QFN:QFN-48-1EP_6x6mm_P0.4mm_EP4.2x4.2mm", "cb810b0416966534962bcc4220c4f39bb8a6b22d45da13753297f20bf77ce078"),
+    "C3": ("Capacitor_SMD:C_0402_1005Metric", "6626461e823efd255bfbdef7bdf64c8feb10fc410b0cacfd6353137e29252eda"),
+    "L1": ("Inductor_SMD:L_0402_1005Metric", "5562c5cb01e540b6441fb2b3587074acffff71760023c276b03b69c374da1580"),
+    "CA": ("Capacitor_SMD:C_0402_1005Metric", "6626461e823efd255bfbdef7bdf64c8feb10fc410b0cacfd6353137e29252eda"),
+    "LA": ("Inductor_SMD:L_0402_1005Metric", "5562c5cb01e540b6441fb2b3587074acffff71760023c276b03b69c374da1580"),
+    "LB": ("Inductor_SMD:L_0402_1005Metric", "5562c5cb01e540b6441fb2b3587074acffff71760023c276b03b69c374da1580"),
+    "ANT": ("RF_Antenna:Johanson_2450AT18x100", "75af7637664284175ab59931a8ee60da88f9a34bedd40f84361e06c6604ccb62"),
 }
 LAYERS = ["F.Cu", "In1.Cu", "In2.Cu", "In3.Cu", "In4.Cu", "B.Cu"]
 
