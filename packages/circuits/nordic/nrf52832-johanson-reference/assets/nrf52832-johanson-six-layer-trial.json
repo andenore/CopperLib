@@ -160,7 +160,7 @@
       ],
       "edge_clearance_nm": 250000,
       "footprint": "Capacitor_SMD:C_0402_1005Metric",
-      "footprint_digest": "fd8b7599468ceab9afa8aa39fd6462c2c9a364b5df7f6abb6beffa82d153167c",
+      "footprint_digest": "6626461e823efd255bfbdef7bdf64c8feb10fc410b0cacfd6353137e29252eda",
       "reference": "C3",
       "rotation_degrees": "270.00"
     },
@@ -171,7 +171,7 @@
       ],
       "edge_clearance_nm": 250000,
       "footprint": "Capacitor_SMD:C_0402_1005Metric",
-      "footprint_digest": "fd8b7599468ceab9afa8aa39fd6462c2c9a364b5df7f6abb6beffa82d153167c",
+      "footprint_digest": "6626461e823efd255bfbdef7bdf64c8feb10fc410b0cacfd6353137e29252eda",
       "reference": "CA",
       "rotation_degrees": "90"
     },
@@ -182,7 +182,7 @@
       ],
       "edge_clearance_nm": 250000,
       "footprint": "Inductor_SMD:L_0402_1005Metric",
-      "footprint_digest": "fde9cad7fbf91467e168122eac9304cf478f26d04a881f73000688e860948147",
+      "footprint_digest": "5562c5cb01e540b6441fb2b3587074acffff71760023c276b03b69c374da1580",
       "reference": "L1",
       "rotation_degrees": "0.00"
     },
@@ -193,7 +193,7 @@
       ],
       "edge_clearance_nm": 250000,
       "footprint": "Inductor_SMD:L_0402_1005Metric",
-      "footprint_digest": "fde9cad7fbf91467e168122eac9304cf478f26d04a881f73000688e860948147",
+      "footprint_digest": "5562c5cb01e540b6441fb2b3587074acffff71760023c276b03b69c374da1580",
       "reference": "LA",
       "rotation_degrees": "0"
     },
@@ -204,7 +204,7 @@
       ],
       "edge_clearance_nm": 250000,
       "footprint": "Inductor_SMD:L_0402_1005Metric",
-      "footprint_digest": "fde9cad7fbf91467e168122eac9304cf478f26d04a881f73000688e860948147",
+      "footprint_digest": "5562c5cb01e540b6441fb2b3587074acffff71760023c276b03b69c374da1580",
       "reference": "LB",
       "rotation_degrees": "90"
     },
