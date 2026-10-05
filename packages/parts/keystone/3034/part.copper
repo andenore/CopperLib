@@ -3,7 +3,7 @@
 part KEYSTONE_3034 {
     category = "connector.battery.coin_cell";
     manufacturer = "Keystone Electronics";
-    footprint = "Battery:BatteryHolder_Keystone_3034_1x20mm";
+    footprint = "footprints/Battery.pretty/BatteryHolder_Keystone_3034_1x20mm.kicad_mod";
     // Both solder tabs are the same conductive positive retainer. Keep the
     // centre negative PCB contact separate; its external connection is required.
     internal_pad_groups = "1";
