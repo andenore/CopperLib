@@ -8,11 +8,11 @@ board_profile CM4Mounting {
     hole H4 { position = (46.5mm, 61.5mm); diameter = 2.7mm; head_clearance_radius = 3mm; }
     connector gpio {
         anchor_pad = "1"; position = (11.5mm, 30.2mm); rotation = 270; side = front;
-        footprint = "Connector_Hirose_DF40:Hirose_DF40C-100DS-0.4V_2x50_P0.4mm";
+        footprint = "footprints/Connector_Hirose_DF40.pretty/Hirose_DF40C-100DS-0.4V_2x50_P0.4mm.kicad_mod";
     }
     connector high_speed {
         anchor_pad = "1"; position = (45.42mm, 30.2mm); rotation = 270; side = front;
-        footprint = "Connector_Hirose_DF40:Hirose_DF40C-100DS-0.4V_2x50_P0.4mm";
+        footprint = "footprints/Connector_Hirose_DF40.pretty/Hirose_DF40C-100DS-0.4V_2x50_P0.4mm.kicad_mod";
     }
     // 1.5 mm stacking has zero free height under the CM4. Socket corridors
     // include their courtyards plus 0.3 mm placement tolerance; they are not
