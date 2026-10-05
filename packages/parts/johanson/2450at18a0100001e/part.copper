@@ -4,7 +4,7 @@
 part JOHANSON_2450AT18A0100001E {
     category = "rf.antenna";
     manufacturer = "Johanson Technology";
-    footprint = "footprints/RF_Antenna.pretty/Johanson_2450AT18x100.kicad_mod";
+    footprint = "RF_Antenna:Johanson_2450AT18x100";
     source_document = "2450AT18A0100001E Datasheet (Doc# 36S0021A)";
     source_revision = "Revision 4.0 (2024)";
     source_location = "Page 2: Terminal Configuration; page 3: mounting configuration";
