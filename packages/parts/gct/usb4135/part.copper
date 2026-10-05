@@ -4,7 +4,7 @@
 part GCT_USB4135_GF_A {
     category = "connector.usb_c.power_sink";
     manufacturer = "GCT";
-    footprint = "Connector_USB:USB_C_Receptacle_GCT_USB4135-GF-A_6P_TopMnt_Horizontal";
+    footprint = "footprints/Connector_USB.pretty/USB_C_Receptacle_GCT_USB4135-GF-A_6P_TopMnt_Horizontal.kicad_mod";
     pin CC1 { number = "A5"; domains = "analog"; directions = "passive"; }
     pin VBUS_A { number = "A9"; domains = "power"; directions = "passive"; }
     pin GND_A { number = "A12"; domains = "ground"; directions = "passive"; }

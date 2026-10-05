@@ -4,7 +4,7 @@
 part SIM8060_6_0_14_00_A {
     category = "connector.card.sim";
     manufacturer = "GCT";
-    footprint = "Connector_Card:nanoSIM_GCT_SIM8060-6-0-14-00";
+    footprint = "footprints/Connector_Card.pretty/nanoSIM_GCT_SIM8060-6-0-14-00.kicad_mod";
     pin VCC { number = "1"; domains = "power"; directions = "input"; }
     pin RST { number = "2"; domains = "digital"; directions = "input"; }
     pin CLK { number = "3"; domains = "digital,clock"; directions = "input"; }

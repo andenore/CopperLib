@@ -9,7 +9,7 @@ import argparse
 import json
 
 ROOT = Path(__file__).resolve().parent
-FOOTPRINT = "Connector_Hirose_DF40:Hirose_DF40C-100DS-0.4V_2x50_P0.4mm"
+FOOTPRINT = "footprints/Connector_Hirose_DF40.pretty/Hirose_DF40C-100DS-0.4V_2x50_P0.4mm.kicad_mod"
 
 
 def render(data, offset, name):

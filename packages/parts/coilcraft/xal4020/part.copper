@@ -3,7 +3,7 @@
 part XAL4020_222MEC {
     category = "passive.inductor.power";
     manufacturer = "Coilcraft";
-    footprint = "Inductor_SMD:L_Coilcraft_XAL4020-XXX";
+    footprint = "footprints/Inductor_SMD.pretty/L_Coilcraft_XAL4020-XXX.kicad_mod";
     source_document = "XAL40xx Series Shielded Power Inductors";
     source_url = "https://www.coilcraft.com/en-us/products/power/shielded-inductors/molded-inductor/xal/xal40xx/xal4020-222/";
     pin A { number = "1"; domains = "power"; directions = "passive"; }
