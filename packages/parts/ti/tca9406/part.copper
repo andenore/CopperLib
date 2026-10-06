@@ -1,0 +1,34 @@
+// TI TCA9406DCUR, 2-bit bidirectional I2C/SMBus level translator, DCU0008A
+// 8-pin VSSOP (US8). SCPS221G Rev G (Nov 2018): pin functions p. 5, ROC 6.3
+// p. 7, EC 6.5 p. 8, Sections 8.3-8.4 pp. 18-20, Section 10 p. 23,
+// DCU0008A drawing 4225266/A pp. 32-34.
+// VCCA 1.65-3.6 V, VCCB 2.3-5.5 V, and VCCA <= VCCB at all times except
+// during power-on transients (ROC note 1, Section 10).
+// A-port I/Os are referenced to VCCA, B-port I/Os to VCCB. Each I/O has an
+// internal 10-kOhm pull-up to its own VCC; pull-ups are disabled when OE is
+// low (Section 8.3.5). Drive mode: N-channel pass gate plus pull-ups and a
+// ~30-ns rising-edge one-shot (Section 8.3.1); no static push-pull high drive,
+// so the I/Os are modelled open_drain for I2C/SMBus use.
+// OE is active high, referenced to VCCA, 5.5-V tolerant (VIH VCCA*0.65 to
+// 5.5 V, VIL <= VCCA*0.35). OE low = all I/Os Hi-Z. Section 10: hold OE low
+// (pull-down to GND) until VCCA and VCCB are stable.
+// Footprint body/pitch/numbering match DCU0008A (MO-187 CA); KiCad lands are
+// 1.25 x 0.35 mm at x=+-1.4 vs TI example 0.85 x 0.3 mm at x=+-1.55.
+part TCA9406DCUR {
+    category = "interface.level_translator.i2c";
+    manufacturer = "Texas Instruments";
+    footprint = "Package_SO:VSSOP-8_2.3x2mm_P0.5mm";
+    source_document = "TCA9406 2-Bit Bidirectional 1-MHz, I2C Bus and SMBus Voltage-Level Translator With 8-kV HBM ESD";
+    source_revision = "SCPS221G Rev G";
+    source_location = "Pin Functions p. 5; ROC 6.3 p. 7; Sections 8.3.1, 8.3.5, 10; DCU0008A pp. 32-34";
+    source_url = "https://www.ti.com/lit/ds/symlink/tca9406.pdf";
+    source_checksum = "sha256:fdb80d682fbacd5ef18cbafc57e4d9375a295daa38da33721af6e055f8a7da61";
+    pin SDA_B { number = "1"; domains = "digital"; directions = "bidirectional"; drive_modes = "open_drain"; }
+    pin GND { number = "2"; domains = "ground"; directions = "input"; }
+    pin VCCA { number = "3"; domains = "power"; directions = "input"; voltage_min = 1.65V; voltage_max = 3.6V; }
+    pin SDA_A { number = "4"; domains = "digital"; directions = "bidirectional"; drive_modes = "open_drain"; }
+    pin SCL_A { number = "5"; domains = "digital"; directions = "bidirectional"; drive_modes = "open_drain"; }
+    pin OE { number = "6"; domains = "digital"; directions = "input"; voltage_max = 5.5V; }
+    pin VCCB { number = "7"; domains = "power"; directions = "input"; voltage_min = 2.3V; voltage_max = 5.5V; }
+    pin SCL_B { number = "8"; domains = "digital"; directions = "bidirectional"; drive_modes = "open_drain"; }
+}

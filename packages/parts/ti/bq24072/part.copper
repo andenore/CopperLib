@@ -1,0 +1,67 @@
+// TI BQ24072RGTR, 1-cell Li-ion linear charger with power path, 16-pin VQFN.
+// SLUS810N Rev N (Oct 2021): Table 7-1 pin functions pp. 8-9 ('72 column),
+// Table 7-2 EN1/EN2 p. 9, ROC 8.3 p. 10, EC 8.5 pp. 12-14, Section 9.3
+// pp. 19-30, Section 10.2 pp. 33-35, RGT0016C drawing 4222419/E pp. 52-54.
+// Package: Device Comparison Table (p. 6) and the appended drawing give
+// RGT0016C; the Figure 7-1 caption says RGT0016B (document conflict).
+// Footprint EP 1.68 x 1.68 mm and 0.5-mm pitch match RGT0016C; KiCad
+// perimeter lands are 0.825 x 0.25 mm at 1.4625 mm vs TI 0.6 x 0.24 at 1.4.
+// EP (pad 17) is internally connected to VSS but is a thermal pad: no
+// internal_pad_groups; VSS must still be grounded (Table 7-1).
+// OUT_11 is modelled passive so the two OUT lands are not competing drivers.
+// Overbarred datasheet names CE, CHG and PGOOD are written without bars.
+// Design facts (typ (min-max) unless noted):
+//  IN operating 4.35-6.4 V (ROC; Table 7-1 text says 4.35-6.6 V); IN may
+//  be 4.35-26 V (ROC) without damage, abs max 28 V. UVLO 3.3 V (3.2-3.4).
+//  VOVP 6.6 V (6.4-6.8) rising, 110 mV hysteresis, 50 us deglitch; above
+//  VOVP OUT is connected to BAT and PGOOD is Hi-Z.
+//  OUT ('72): VBAT + 225 mV (150-270) when VBAT >= 3.2 V, 3.4 V (3.3-3.5)
+//  when VBAT < 3.2 V (Section 9.3.4.1 text says "200 mV above BAT").
+//  VDPPM = VO(REG) - 100 mV (-180..-30); no input: OUT = BAT via Q2.
+//  EN2/EN1: 0/0 USB100 (90-100 mA), 0/1 USB500 (450-500 mA),
+//  1/0 ILIM resistor, 1/1 standby (USB suspend). VIN-DPM 4.5 V (4.35-4.63)
+//  in USB100/USB500 only.
+//  IIN-MAX = KILIM/RILIM, KILIM 1610 AOhm (1500-1720) for 0.5-1.5 A,
+//  1525 (1330-1720) for 0.2-0.5 A; RILIM 1.1-8 kOhm.
+//  ICHG = KISET/RISET, KISET 890 AOhm (797-975), RISET 590 Ohm-8.9 kOhm
+//  (1% resistor); IPRECHG = KPRECHG/RISET, KPRECHG 88 AOhm (70-106);
+//  ITERM 10% of ICHG (3.3% in USB100); VISET = ICHG/400 * RISET.
+//  VBAT(REG) 4.20 V (4.16-4.23); VLOWV 3.0 V; VRCH VBAT(REG) - 100 mV.
+//  tPRECHG = KTMR*RTMR, tMAXCHG = 10*KTMR*RTMR, KTMR 48 s/kOhm (36-60),
+//  RTMR 18-72 kOhm; TMR open = 1800 s / 18000 s; TMR to VSS disables.
+//  TD high disables termination and timers (TD read at startup only).
+//  TS: 75 uA (72-78) source; charging allowed between VHOT 300 mV
+//  (270-330, falling, 30 mV hyst) and VCOLD 2.1 V (2.0-2.2, rising, 300 mV
+//  hyst) = 0/50 C with a 10-kOhm NTC (EC note: Vishay Type 2 curve;
+//  Sections 9.3.6/10.2.2.3: 103AT-2). No NTC: 10 kOhm TS to VSS.
+//  CHG/PGOOD open drain, 1-100 kOhm pull-up, VOL 0.4 V at 5 mA.
+//  Logic inputs VIL <= 0.4 V, VIH 1.4-6 V, ~285 kOhm internal pull-down.
+//  Caps: IN 1-10 uF, OUT and BAT 4.7-47 uF ceramic.
+part BQ24072RGTR {
+    category = "power.charger.li_ion";
+    manufacturer = "Texas Instruments";
+    footprint = "Package_DFN_QFN:VQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm";
+    source_document = "BQ2407x Standalone 1-Cell 1.5-A Linear Battery Chargers with Power Path";
+    source_revision = "SLUS810N Rev N";
+    source_location = "Tables 7-1 and 7-2 pp. 8-9; ROC 8.3 p. 10; EC 8.5 pp. 12-14; Sections 9.3, 10.2; RGT0016C pp. 52-54";
+    source_url = "https://www.ti.com/lit/ds/symlink/bq24072.pdf";
+    source_checksum = "sha256:4fe4e4f9855501f83b400c6932e3098439e51c50539e40dc45b44a8d509e8db1";
+    pin TS { number = "1"; domains = "analog"; directions = "input"; }
+    pin BAT_2 { number = "2"; domains = "power"; directions = "bidirectional"; }
+    pin BAT_3 { number = "3"; domains = "power"; directions = "bidirectional"; }
+    pin CE { number = "4"; domains = "digital"; directions = "input"; connection = required; }
+    pin EN2 { number = "5"; domains = "digital"; directions = "input"; connection = required; }
+    pin EN1 { number = "6"; domains = "digital"; directions = "input"; connection = required; }
+    pin PGOOD { number = "7"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; }
+    pin VSS { number = "8"; domains = "ground"; directions = "input"; connection = required; }
+    pin CHG { number = "9"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; }
+    pin OUT_10 { number = "10"; domains = "power"; directions = "output"; }
+    pin OUT_11 { number = "11"; domains = "power"; directions = "passive"; }
+    pin ILIM { number = "12"; domains = "analog"; directions = "input"; }
+    pin IN { number = "13"; domains = "power"; directions = "input"; voltage_min = 4.35V; voltage_max = 6.4V; }
+    // TMR may be left unconnected to select the default timers (Table 7-1).
+    pin TMR { number = "14"; domains = "analog"; directions = "input"; connection = optional; }
+    pin TD { number = "15"; domains = "digital"; directions = "input"; connection = required; }
+    pin ISET { number = "16"; domains = "analog"; directions = "bidirectional"; }
+    pin EP { number = "17"; domains = "ground"; directions = "input"; connection = required; }
+}

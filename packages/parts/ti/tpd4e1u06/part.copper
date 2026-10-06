@@ -1,0 +1,29 @@
+// TI TPD4E1U06DBVR, 4-channel unidirectional TVS ESD array, DBV0006A
+// 6-pin SOT-23. SLVSBQ9D Rev D (Apr 2017): pin functions p. 3, ratings 6.1-6.4
+// p. 4, EC 6.6 p. 5, DBV0006A drawing 4214840/G pp. 17-19.
+// Datasheet names D1+, D1-, D2+, D2- are written D1_P, D1_N, D2_P, D2_N.
+// Circuit Schematic Diagram (p. 1): each channel steers into a shared internal
+// TVS clamp to GND that is not brought out. NC (pin 5) may be left floating,
+// grounded or tied to VCC (Pin Functions).
+// Channel facts: VIO 0-5.5 V (ROC); VRWM 5.5 V max; VBR 6.5-8.5 V at 1 mA;
+// CL 0.8 pF typ / 1.0 pF max (1 MHz, 2.5-V bias); CCROSS (DBV) 0.01 / 0.025
+// pF; leakage 1 / 10 nA at 2.5 V; VCLAMP 11 V at 1 A, 15 V at 3 A (8/20 us);
+// IEC 61000-4-2 +-15 kV contact/air; IEC 61000-4-5 3 A.
+// Footprint pitch 0.95 mm and numbering match DBV0006A; KiCad lands are
+// 1.325 x 0.6 mm at x=+-1.1375 vs TI example 1.1 x 0.6 mm at x=+-1.3.
+part TPD4E1U06DBVR {
+    category = "protection.esd";
+    manufacturer = "Texas Instruments";
+    footprint = "Package_TO_SOT_SMD:SOT-23-6";
+    source_document = "TPD4E1U06 Quad-Channel, High-Speed ESD Protection Device";
+    source_revision = "SLVSBQ9D Rev D";
+    source_location = "Pin Functions p. 3; ROC 6.4 p. 4; EC 6.6 p. 5; DBV0006A pp. 17-19";
+    source_url = "https://www.ti.com/lit/ds/symlink/tpd4e1u06.pdf";
+    source_checksum = "sha256:f2cf0c3dcadf31c762a88e2b140df7ab3538082e7e3d7bccf0ef52afedf23f3e";
+    pin D1_P { number = "1"; domains = "digital"; directions = "passive"; voltage_min = 0V; voltage_max = 5.5V; }
+    pin GND { number = "2"; domains = "ground"; directions = "input"; }
+    pin D2_P { number = "3"; domains = "digital"; directions = "passive"; voltage_min = 0V; voltage_max = 5.5V; }
+    pin D2_N { number = "4"; domains = "digital"; directions = "passive"; voltage_min = 0V; voltage_max = 5.5V; }
+    pin NC { number = "5"; domains = "power,ground"; directions = "passive"; connection = optional; }
+    pin D1_N { number = "6"; domains = "digital"; directions = "passive"; voltage_min = 0V; voltage_max = 5.5V; }
+}

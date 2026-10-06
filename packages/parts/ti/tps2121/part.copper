@@ -1,0 +1,48 @@
+// TI TPS2121RUXR, 2.8-V to 22-V priority power mux, RUX0012A 12-pin VQFN-HR.
+// SLVSEA3F Rev F (Aug 2020): pin functions pp. 4-5 (Figure 6-2 and table),
+// ROC 7.3 p. 6, EC 7.5 pp. 7-8, Sections 9.3-9.5 pp. 12-18, 10.2-10.5
+// pp. 19-30, RUX0012A drawing 4224010/A pp. 38-40.
+// Footprint verified against the RUX0012A land-pattern example (p. 39):
+// pads 1/2/7/8 1.05 x 0.4 mm at x=+-0.675, y=-+0.35; pads 3-6 and 9-12
+// 0.2 x 0.6 mm at y=+-1.15, 0.5-mm pitch; numbering matches top view.
+// ILM is labelled "ILM" in Figure 6-2, ROC and Section 9.3.2 but "ILIM" in the
+// pin-function table; the figure name is used here.
+// OUT lands 1 and 8 must both be connected; no internal connection between
+// them is stated, so no internal_pad_groups. OUT_8 is modelled passive so the
+// two lands of one rail are not reported as competing drivers.
+// Design facts (typ unless noted):
+//  VREF (PR1, CP2, OV1, OV2) rising 1.06 V (1.01-1.10), falling 1.04 V
+//  (0.99-1.09). OVx >= VREF turns that channel off (active-low supervisor
+//  enable, divider R1/R2 from INx, Figure 9-5); OVx to GND if unused.
+//  Table 9-3: CP2 < VREF and PR1 >= VREF -> IN1 whenever IN1 valid (VREF
+//  mode, tSW 100 us); CP2 >= VREF -> PR1 vs CP2 compared (XCOMP/XREF, fast
+//  switchover tFSW 5 us, VOFST 5-40 mV); PR1 and CP2 < VREF -> highest input
+//  (VCOMP, IN2 wins ties). A single valid input always powers OUT.
+//  ST high (via pull-up) = OUT from IN1 or Hi-Z; ST low = OUT from IN2.
+//  ILM = 65.2 / RILM^0.861 (A, RILM in kOhm), RILM 18-100 kOhm (ROC).
+//  CSS sets input settling time and output slew (Table 9-1: 100 nF ~780 V/s
+//  at 5 V); no closed-form settling-time equation is given (unresolved).
+//  CP2 has no ROC/abs-max voltage row (ROC lists PRI/SEL only): unresolved.
+part TPS2121RUXR {
+    category = "power.mux";
+    manufacturer = "Texas Instruments";
+    footprint = "Package_DFN_QFN:Texas_VQFN-HR-12_2x2.5mm_P0.5mm";
+    source_document = "TPS212x 2.8-V to 22-V Priority Power MUX with Seamless Switchover";
+    source_revision = "SLVSEA3F Rev F";
+    source_location = "Pin Functions pp. 4-5; ROC 7.3 p. 6; EC 7.5 pp. 7-8; Tables 9-1, 9-3; RUX0012A pp. 38-40";
+    source_url = "https://www.ti.com/lit/ds/symlink/tps2121.pdf";
+    source_checksum = "sha256:b2f5950f596dc2c4ca33e4ebac27fd35e4dcc68ea63e173466123e1118e91a06";
+    pin OUT_1 { number = "1"; domains = "power"; directions = "output"; voltage_min = 0V; voltage_max = 22V; }
+    pin IN2 { number = "2"; domains = "power"; directions = "input"; voltage_min = 2.8V; voltage_max = 22V; }
+    pin CP2 { number = "3"; domains = "analog"; directions = "input"; connection = required; }
+    pin OV2 { number = "4"; domains = "analog"; directions = "input"; voltage_min = 0V; voltage_max = 5.5V; connection = required; }
+    pin OV1 { number = "5"; domains = "analog"; directions = "input"; voltage_min = 0V; voltage_max = 5.5V; connection = required; }
+    pin PR1 { number = "6"; domains = "analog"; directions = "input"; voltage_min = 0V; voltage_max = 5.5V; connection = required; }
+    pin IN1 { number = "7"; domains = "power"; directions = "input"; voltage_min = 2.8V; voltage_max = 22V; }
+    pin OUT_8 { number = "8"; domains = "power"; directions = "passive"; voltage_min = 0V; voltage_max = 22V; }
+    // ST needs an external pull-up (ROC RST 6-20 kOhm); connect to GND if unused.
+    pin ST { number = "9"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; voltage_min = 0V; voltage_max = 5.5V; connection = required; }
+    pin ILM { number = "10"; domains = "analog"; directions = "output"; }
+    pin SS { number = "11"; domains = "analog"; directions = "output"; voltage_max = 4V; }
+    pin GND { number = "12"; domains = "ground"; directions = "input"; }
+}
