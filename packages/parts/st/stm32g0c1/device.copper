@@ -1,5 +1,9 @@
 // LQFP64-GP pad identities from STM32G0C1xC/xE datasheet DS13564 Rev 5,
 // Table 12 (pages 48-56). Peripheral/mux coverage remains a subset.
+// I2C1/I2C2/I2C3 mux rows: DS13564 Rev 2 (November 2021), Tables 13-16
+// (pages 57-60), AF0-AF15 columns; Fm+ (FT_f) pin types from Table 12.
+// Rev 2 copy: LCSC mirror of C3029185, sha256:
+// d2d20689e01ea6679dcf18afdc8e52b7a228d79551ec6e9601da2ff7b33a1887.
 device STM32G0C1 {
     vendor = "STMicroelectronics";
     family = "STM32G0";
@@ -34,18 +38,18 @@ device STM32G0C1 {
     pad PB0 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO1; }
     pad PB1 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO1; }
     pad PB2 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO1; }
-    pad PB3 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO1; }
-    pad PB4 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO1; }
+    pad PB3 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO1; }
+    pad PB4 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO1; }
     pad PB5 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO1; }
     pad PB6 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO1; voltage_max = 3.6V; }
     pad PB7 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO1; voltage_max = 3.6V; }
     pad PB8 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO1; voltage_max = 3.6V; }
     pad PB9 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO1; voltage_max = 3.6V; }
-    pad PB10 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO1; }
-    pad PB11 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO1; }
+    pad PB10 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO1; }
+    pad PB11 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO1; }
     pad PB12 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO1; }
-    pad PB13 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO1; }
-    pad PB14 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO1; }
+    pad PB13 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO1; }
+    pad PB14 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO1; }
     pad PB15 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO1; }
     pad PC0 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO1; voltage_max = 3.6V; }
     pad PC1 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO1; voltage_max = 3.6V; }
@@ -79,7 +83,9 @@ device STM32G0C1 {
     peripheral USART2: uart { signal TX: output; signal RX: input; }
     peripheral USART3: uart { signal TX: output; signal RX: input; }
     peripheral USART6: uart { signal TX: output; signal RX: input; }
+    peripheral I2C1: i2c { signal SDA: open_drain; signal SCL: open_drain; }
     peripheral I2C2: i2c { signal SDA: open_drain; signal SCL: open_drain; }
+    peripheral I2C3: i2c { signal SDA: open_drain; signal SCL: open_drain; }
     peripheral FDCAN1: can { signal TX: output; signal RX: input; }
     peripheral USB_FS: usb { signal DP: bidirectional; signal DM: bidirectional; }
 
@@ -91,8 +97,20 @@ device STM32G0C1 {
     mux PB9: USART3.RX { selector = "AF4"; }
     mux PA4: USART6.TX { selector = "AF3"; }
     mux PA5: USART6.RX { selector = "AF3"; }
-    mux PA6: I2C2.SDA { selector = "AF6"; }
-    mux PA7: I2C2.SCL { selector = "AF6"; }
+    mux PA6: I2C2.SDA { selector = "AF8"; }
+    mux PA7: I2C2.SCL { selector = "AF8"; }
+    mux PB6: I2C1.SCL { selector = "AF6"; }
+    mux PB7: I2C1.SDA { selector = "AF6"; }
+    mux PB8: I2C1.SCL { selector = "AF6"; }
+    mux PB9: I2C1.SDA { selector = "AF6"; }
+    mux PB10: I2C2.SCL { selector = "AF6"; }
+    mux PB11: I2C2.SDA { selector = "AF6"; }
+    mux PB13: I2C2.SCL { selector = "AF6"; }
+    mux PB14: I2C2.SDA { selector = "AF6"; }
+    mux PB3: I2C3.SCL { selector = "AF6"; }
+    mux PB4: I2C3.SDA { selector = "AF6"; }
+    mux PA6: I2C3.SDA { selector = "AF9"; }
+    mux PA7: I2C3.SCL { selector = "AF9"; }
     mux PC5: FDCAN1.TX { selector = "AF3"; }
     mux PC4: FDCAN1.RX { selector = "AF3"; }
     mux PA12: USB_FS.DP { selector = "AF10"; }
