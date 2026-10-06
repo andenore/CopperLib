@@ -1,0 +1,56 @@
+// GCT USB4105-GF-A: USB 2.0 Type-C 16-position SMT receptacle, top mount,
+// gold-flash contacts, tape & reel, 0.95 mm shell stake (blank stake code).
+// Signals from GCT drawing USB4105 rev B4 (18/12/23), sheet 1/2 pin table:
+// A1/A12/B1/B12 GND, A4/A9/B4/B9 VBUS, A5 CC1, B5 CC2, A6/B6 Dp, A7/B7 Dn,
+// A8 SBU1, B8 SBU2, SHELL GND.
+// Ratings (same sheet): VBUS 5.00 A collectively, GND 6.25 A collectively,
+// A5/B5 1.25 A, all other pins 0.25 A; 48 V DC; -40 to +85 degC.
+//
+// Recommended PCB layout: 12 lands. A1+B12, A4+B9, B4+A9 and B1+A12 each
+// share ONE land (two contact tails per land); KiCad models this with two
+// coincident pads carrying both numbers. Each number is its own pin here, so
+// every footprint pad maps to exactly one pin; tie each stacked pair to the
+// same net (GND or VBUS).
+// SHIELD = the four plated shell tabs (KiCad pad "SH"). The drawing names the
+// shell GND but does not establish continuity between the front shell tabs,
+// the rear tabs and the mid plate, nor between the shell and the GND contacts:
+// no internal_pad_groups, so all four SH lands route as ordinary copper.
+// The two 0.65 mm NPTH locating pegs are unnumbered and carry no pin.
+//
+// Footprint: package-local copy of KiCad Connector_USB:USB_C_Receptacle_GCT_
+// USB4105-xx-A_16P_TopMnt_Horizontal with identical copper, drills, pad numbers
+// and outline. The stock file cannot be used directly: CopperScript rejects
+// its plated SH pads with F.Paste (pin-in-paste) and the locked KiCad
+// provider revision 7ebfa6b does not contain it. Pin-in-paste is kept as
+// unnumbered F.Paste apertures over the four SH pads.
+part GCT_USB4105_GF_A {
+    category = "connector.usb_c.usb2";
+    manufacturer = "GCT";
+    footprint = "footprints/Connector_USB.pretty/USB_C_Receptacle_GCT_USB4105-GF-A_16P_TopMnt_Horizontal.kicad_mod";
+    source_document = "GCT USB4105 product drawing, USB Type C Receptacle for USB 2.0, SMT Type, PCB Top Mount";
+    source_revision = "B4, 18/12/23 (drawing date 4 Oct 2019)";
+    source_url = "https://gct.co/files/drawings/usb4105.pdf";
+    source_location = "Sheet 1/2: pin/signal table, electrical specifications, recommended PCB layout, ordering grid";
+    source_checksum = "sha256:fb331fbabee8392ed2937ed757c1610cb0f174b84625147c0b580a18eea8c0e5";
+
+    pin GND_A1 { number = "A1"; domains = "ground"; directions = "passive"; }
+    pin VBUS_A4 { number = "A4"; domains = "power"; directions = "passive"; }
+    pin CC1 { number = "A5"; domains = "analog"; directions = "passive"; traits = "usb_cc"; }
+    pin DP1 { number = "A6"; domains = "digital"; directions = "passive"; traits = "usb_dp"; }
+    pin DN1 { number = "A7"; domains = "digital"; directions = "passive"; traits = "usb_dm"; }
+    // Sideband use; not used by USB 2.0 operation.
+    pin SBU1 { number = "A8"; domains = "analog,digital"; directions = "passive"; connection = optional; }
+    pin VBUS_A9 { number = "A9"; domains = "power"; directions = "passive"; }
+    pin GND_A12 { number = "A12"; domains = "ground"; directions = "passive"; }
+
+    pin GND_B1 { number = "B1"; domains = "ground"; directions = "passive"; }
+    pin VBUS_B4 { number = "B4"; domains = "power"; directions = "passive"; }
+    pin CC2 { number = "B5"; domains = "analog"; directions = "passive"; traits = "usb_cc"; }
+    pin DP2 { number = "B6"; domains = "digital"; directions = "passive"; traits = "usb_dp"; }
+    pin DN2 { number = "B7"; domains = "digital"; directions = "passive"; traits = "usb_dm"; }
+    pin SBU2 { number = "B8"; domains = "analog,digital"; directions = "passive"; connection = optional; }
+    pin VBUS_B9 { number = "B9"; domains = "power"; directions = "passive"; }
+    pin GND_B12 { number = "B12"; domains = "ground"; directions = "passive"; }
+
+    pin SHIELD { number = "SH"; domains = "ground"; directions = "passive"; }
+}

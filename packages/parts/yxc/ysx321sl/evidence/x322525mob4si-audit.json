@@ -1,0 +1,37 @@
+{
+  "scope": "terminal mapping and series-rating audit; exact-MPN option decoding is unresolved",
+  "part": "YXC_X322525MOB4SI",
+  "production_publishable": false,
+  "source": {
+    "document": "YXC Crystal Unit YSX321SL datasheet",
+    "revision": "yxc.hk upload 2026/09 (PDF ModDate 2026-09-22)",
+    "locator": "page 1: Specifications, ESR table, Top View Crystal Connection, Top View Suggested Layout",
+    "url": "https://www.yxc.hk/uploadfiles/2026/09/YXC-YSX321SL.pdf",
+    "sha256": "d030f99f71eca8e0ec0443534a90dbb297edf4df29153bed10c9b81bde2165b7",
+    "cache_path": "cache/parts/YXC-YSX321SL-2026-09.pdf",
+    "verification": "image-only PDF; rendered page inspected"
+  },
+  "other_copies": [
+    {"url": "https://www.lcsc.com/datasheet/C9006.pdf", "sha256": "7bc18549e407d8e381075b0f5fc696e48cf0fa060aeee67971925f43cfdfbb8b",
+     "difference": "ESR 16-31 MHz 50 Ohm max; 8-11.2892 MHz 180 Ohm max"},
+    {"url": "https://www.yxc.hk/uploadfiles/2025/07/YXC-YSX321SL.pdf", "sha256": "dcaa535b201cf86c317a57b648949605a7fef36231edb87b33a274a2f2338036",
+     "difference": "ESR 16-31 MHz 50 Ohm max; 8-11.2892 MHz 150 Ohm max"}
+  ],
+  "terminals": {"1": "crystal", "2": "GND", "3": "crystal", "4": "GND"},
+  "top_view_positions": {"1": "lower-left", "2": "lower-right", "3": "upper-right", "4": "upper-left"},
+  "semantic_pins": {"XTAL1": "1", "GND_2": "2", "XTAL2": "3", "GND_4": "4"},
+  "footprint": "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm",
+  "footprint_checks": {"pad_size_mm": [1.4, 1.2], "pad_centres_mm": {"1": [-1.1, 0.85], "2": [1.1, 0.85], "3": [1.1, -0.85], "4": [-1.1, -0.85]},
+                       "suggested_layout_mm": "1.4 / 0.8 / 1.4 by 1.2 / 0.5 / 1.2 (KiCad y axis points down)"},
+  "series_ratings": {"mode": "AT fundamental", "frequency_range": "8-64 MHz", "esr_25MHz": "40 Ohm max (2026/09) / 50 Ohm max (earlier copies)",
+                     "shunt_capacitance": "3 pF max", "drive_level": "10-200 uW max, 100 uW typical", "aging": "+/-3 ppm/year max",
+                     "load_capacitance_options": "10 pF, 20 pF, or specify", "tolerance_options": "+/-10 ppm, +/-20 ppm, or specify",
+                     "stability_options": "+/-20 ppm, or specify", "operating_temperature": "-40 to +85 degC or specify", "storage": "-55 to +125 degC"},
+  "distributor_catalogue_C9006": {"source": "https://jlcpcb.com/partdetail/C9006 (observed 2026-10-06)", "load_capacitance": "12 pF",
+                                  "tolerance": "+/-10 ppm", "stability": "+/-20 ppm", "esr": "50 Ohm", "temperature": "-40 to +85 degC",
+                                  "library_type": "basic"},
+  "internal_pad_groups": "none: no evidence that GND pads 2 and 4 are joined inside the package",
+  "unresolved": ["exact-MPN load capacitance (no YXC document decodes option letter 'O'; distributor states 12 pF)",
+                 "exact-MPN tolerance/stability/temperature codes (distributor states +/-10 ppm, +/-20 ppm, -40 to +85 degC)",
+                 "oscillator negative-resistance margin with the GMSL X1/X2 amplifier"]
+}

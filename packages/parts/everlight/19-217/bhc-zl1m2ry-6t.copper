@@ -1,0 +1,22 @@
+// Everlight 19-217/BHC-ZL1M2RY/6T: blue (InGaN) 1.6 x 0.8 x 0.4 mm SMD LED,
+// water clear. JLCPCB/LCSC C2986058 (extended part).
+// Package drawing (page 6): terminal 1 = "+" (anode), terminal 2 = "-"
+// (cathode, cathode mark). Pin numbers are the manufacturer terminal numbers;
+// they are the reverse of KiCad LED_0603_1608Metric (K=1, A=2), so this part
+// uses the package-local footprint with cathode pad 2 on the marked side.
+// Ratings (pages 2-4, Ta=25 degC): VF 2.50 min / 3.10 max V at IF=5 mA
+// (bins 9/10/11, +/-0.1 V tolerance); IF 10 mA max; IFP 40 mA (1/10 duty,
+// 1 kHz); Pd 40 mW; ESD HBM 150 V; Iv 11.5-28.5 mcd and lambda_d 465-475 nm
+// at 5 mA; -40 to +85 degC. Reverse voltage is a leakage-test condition only.
+part EVERLIGHT_19_217_BHC_ZL1M2RY_6T {
+    category = "optoelectronics.led";
+    manufacturer = "Everlight Electronics";
+    footprint = "footprints/EVERLIGHT_19-217.kicad_mod";
+    source_document = "Everlight datasheet 19-217/BHC-ZL1M2RY/6T, issue no. DSE-0014124";
+    source_revision = "Rev.5, release date May.31.2022";
+    source_url = "https://www.everlighteurope.com/custom/files/datasheets/DSE-0014124.pdf";
+    source_location = "Page 6 package dimension and polarity; pages 2-4 ratings, electro-optical characteristics and VF bins";
+    source_checksum = "sha256:7054cc30056655f4978640f868b84a3baaf8ff2d9d398272d212b02912b9008e";
+    pin A { number = "1"; domains = "analog"; directions = "passive"; }
+    pin K { number = "2"; domains = "analog"; directions = "passive"; }
+}

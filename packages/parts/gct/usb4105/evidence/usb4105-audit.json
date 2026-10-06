@@ -1,0 +1,36 @@
+{
+  "scope": "source-backed contact/pad mapping audit, not USB SI, EMC or mechanical qualification",
+  "part": "GCT_USB4105_GF_A",
+  "production_publishable": false,
+  "source": {
+    "document": "GCT USB4105 product drawing, USB Type C Receptacle for USB 2.0, SMT Type, PCB Top Mount",
+    "revision": "B4, 18/12/23 (drawing date 4 October 2019)",
+    "locator": "sheet 1/2: pin/signal table, electrical specifications, recommended PCB layout, ordering grid",
+    "url": "https://gct.co/files/drawings/usb4105.pdf",
+    "sha256": "fb331fbabee8392ed2937ed757c1610cb0f174b84625147c0b580a18eea8c0e5",
+    "cache_path": "cache/parts/usb4105.pdf",
+    "verification": "rendered sheet 1 inspected; land labels read from 600 dpi crop of the recommended PCB layout"
+  },
+  "ordering_code": "USB4105-GF-A = gold flash contact plating, A = tape & reel, blank stake code = 0.95 mm shell stake",
+  "signals": {"A1": "GND", "A4": "VBUS", "A5": "CC1", "A6": "Dp1", "A7": "Dn1", "A8": "SBU1", "A9": "VBUS", "A12": "GND",
+              "B1": "GND", "B4": "VBUS", "B5": "CC2", "B6": "Dp2", "B7": "Dn2", "B8": "SBU2", "B9": "VBUS", "B12": "GND", "SHELL": "GND"},
+  "shared_lands": [["A1", "B12"], ["A4", "B9"], ["B4", "A9"], ["B1", "A12"]],
+  "land_order_component_side": ["A1/B12", "A4/B9", "B8", "A5", "B7", "A6", "A7", "B6", "A8", "B5", "B4/A9", "B1/A12"],
+  "semantic_pins": {"GND_A1": "A1", "VBUS_A4": "A4", "CC1": "A5", "DP1": "A6", "DN1": "A7", "SBU1": "A8", "VBUS_A9": "A9", "GND_A12": "A12",
+                    "GND_B1": "B1", "VBUS_B4": "B4", "CC2": "B5", "DP2": "B6", "DN2": "B7", "SBU2": "B8", "VBUS_B9": "B9", "GND_B12": "B12",
+                    "SHIELD": "SH"},
+  "ratings": {"current": "VBUS 5.00 A collectively; GND 6.25 A collectively; A5/B5 1.25 A; other pins 0.25 A",
+              "voltage": "48 V DC", "power": "240 W", "contact_resistance": "40 mOhm max initial, 50 mOhm after test",
+              "operating_temperature": "-40 to +85 degC", "durability": "20,000 cycles"},
+  "footprint": "footprints/Connector_USB.pretty/USB_C_Receptacle_GCT_USB4105-GF-A_16P_TopMnt_Horizontal.kicad_mod",
+  "footprint_derivation": {
+    "from": "KiCad Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal (KiCad 10 library, CC-BY-SA 4.0 with design exception)",
+    "changes": ["SH plated pads: F.Paste removed (CopperScript rejects pasted through-hole pads); equal unnumbered F.Paste apertures added",
+                "KiCad pad_prop_mechanical removed from SH pads (unsupported fabrication property)",
+                "user texts and 3D model reference removed"],
+    "reason": "stock footprint fails CopperScript import and is absent from locked kicad-footprints 7ebfa6b"
+  },
+  "internal_pad_groups": "none: shell/mid-plate/tab continuity and shell-to-GND-contact continuity are not stated by the drawing",
+  "procurement": {"jlcpcb_lcsc": "C3020560", "library_type_observed_2026_10_06": "extended"},
+  "unresolved": ["continuity between the four SH tabs (front shell tabs vs rear tabs/mid plate)", "board-level USB SI/EMC"]
+}

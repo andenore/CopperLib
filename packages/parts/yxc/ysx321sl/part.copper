@@ -1,0 +1,34 @@
+// YXC X322525MOB4SI: 25 MHz AT-cut fundamental crystal, YSX321SL series,
+// 3.2 x 2.5 x 0.7 mm metal-lid SMD, 4 pads. JLCPCB basic part / LCSC C9006.
+// Terminals from the YSX321SL "Top View Crystal Connection": the resonator
+// spans #1 and #3 (diagonal); #2 and #4 are labelled GND. Top-view numbering
+// #1 lower-left, #2 lower-right, #3 upper-right, #4 upper-left matches KiCad
+// Crystal_SMD_3225-4Pin_3.2x2.5mm, whose 1.4 x 1.2 mm pads at (+/-1.1,
+// +/-0.85) equal the "Top View Suggested Layout" (1.4/0.8/1.4 x 1.2/0.5/1.2).
+// Series sheet: AT fundamental; ESR 40 Ohm max at 20-64 MHz (this revision;
+// earlier revisions and the LCSC copy say 50 Ohm max at 16-31 MHz); C0 3 pF
+// max; drive 10-200 uW max (100 uW typ); aging +/-3 ppm/year max; storage
+// -55 to +125 degC.
+// Exact-MPN options (UNRESOLVED from manufacturer documents): the series sheet
+// offers CL "10pF, 20pF, or specify", tolerance "+/-10, +/-20 ppm or specify",
+// stability "+/-20 ppm or specify", -40 to +85 degC "or specify", and no YXC
+// document found decodes the MPN option letters. JLCPCB/LCSC catalogue data
+// for C9006: CL 12 pF, +/-10 ppm tolerance, +/-20 ppm stability, 50 Ohm,
+// -40 to +85 degC. Size load capacitors from CL only after confirming it.
+// The GND pads are separate lands; no evidence states that #2 and #4 are
+// connected inside the package, so no internal_pad_groups.
+part YXC_X322525MOB4SI {
+    category = "passive.crystal";
+    manufacturer = "YXC (Yangxing Technology)";
+    footprint = "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm";
+    source_document = "YXC Crystal Unit YSX321SL datasheet";
+    source_revision = "yxc.hk upload 2026/09 (PDF modified 2026-09-22)";
+    source_url = "https://www.yxc.hk/uploadfiles/2026/09/YXC-YSX321SL.pdf";
+    source_location = "Page 1: Specifications, ESR table, Top View Crystal Connection, Top View Suggested Layout";
+    source_checksum = "sha256:d030f99f71eca8e0ec0443534a90dbb297edf4df29153bed10c9b81bde2165b7";
+
+    pin XTAL1 { number = "1"; domains = "analog,clock"; directions = "passive"; }
+    pin GND_2 { number = "2"; domains = "ground"; directions = "passive"; }
+    pin XTAL2 { number = "3"; domains = "analog,clock"; directions = "passive"; }
+    pin GND_4 { number = "4"; domains = "ground"; directions = "passive"; }
+}

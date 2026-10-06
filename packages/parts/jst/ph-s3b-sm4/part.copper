@@ -1,0 +1,30 @@
+// JST S3B-PH-SM4-TB(LF)(SN): PH series 2.0 mm pitch, 3-circuit, side-entry
+// SMT header (tin-plated copper-alloy posts and reinforcements, PA housing).
+// Circuit 1 is the end marked "No. 1 circuit" on the side-entry SMT PC board
+// layout (catalogue page 2, viewed from the connector mounting surface): the
+// leftmost signal land with the reinforcement lands below/toward the mating
+// face. KiCad's footprint matches: pad 1 at x=-2 mm, pads 1-3 at y=-2.85 mm,
+// MP lands at y=+2.9 mm.
+// Ratings (catalogue page 1): 2 A AC/DC (AWG #24), 100 V AC/DC,
+// -40 to +105 degC including temperature rise; 10 mOhm max initial contact
+// resistance; PCB thickness 0.8-1.6 mm.
+// Pack pinout (BAT+/GND/NTC) is a board-side assignment, not a header fact.
+part JST_S3B_PH_SM4_TB {
+    category = "connector.wire_to_board";
+    manufacturer = "JST";
+    footprint = "Connector_JST:JST_PH_S3B-PH-SM4-TB_1x03-1MP_P2.00mm_Horizontal";
+    source_document = "JST PH connector catalogue (2.0 mm pitch wire-to-board), ePH.pdf";
+    source_revision = "undated web catalogue; PDF created 2026-01-27";
+    source_url = "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf";
+    source_location = "p1 specifications; p2 SMT side-entry PC board layout (No. 1 circuit); p4 S3B-PH-SM4-TB row and materials";
+    source_checksum = "sha256:447624f4f2f7d37c58c1eaa7ee314ad757fe7aff48f6186491ef6f69fbc00b96";
+
+    pin P1 { number = "1"; domains = "analog,power,ground"; directions = "passive"; }
+    pin P2 { number = "2"; domains = "analog,power,ground"; directions = "passive"; }
+    pin P3 { number = "3"; domains = "analog,power,ground"; directions = "passive"; }
+    // Two tin-plated reinforcement (solder-tab) lands, both numbered MP.
+    // Mechanical retention; the catalogue states no electrical function or
+    // tab-to-tab continuity, so no internal group: if MP is assigned a net,
+    // both lands must be connected on the PCB.
+    pin MP { number = "MP"; domains = "ground"; directions = "passive"; connection = optional; }
+}

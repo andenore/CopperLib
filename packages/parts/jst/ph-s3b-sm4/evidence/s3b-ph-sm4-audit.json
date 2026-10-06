@@ -1,0 +1,26 @@
+{
+  "scope": "source-backed circuit numbering and land audit, not battery-pack or mechanical qualification",
+  "part": "JST_S3B_PH_SM4_TB",
+  "orderable": "S3B-PH-SM4-TB(LF)(SN)",
+  "production_publishable": false,
+  "source": {
+    "document": "JST PH connector catalogue, 2.0 mm pitch wire-to-board (ePH.pdf)",
+    "revision": "undated web catalogue; PDF CreationDate 2026-01-27",
+    "locator": "p1 specifications; p2 PC board layout (SMT type) side entry, No. 1 circuit; p4 side-entry SMT table (S3B-PH-SM4-TB: A=4.0, B=9.9) and materials",
+    "url": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf",
+    "sha256": "447624f4f2f7d37c58c1eaa7ee314ad757fe7aff48f6186491ef6f69fbc00b96",
+    "cache_path": "cache/parts/ePH.pdf",
+    "verification": "rendered p2 and p4 inspected"
+  },
+  "semantic_pins": {"P1": "1", "P2": "2", "P3": "3", "MP": "MP"},
+  "circuit_1": "leftmost signal land viewed from the mounting surface with reinforcement lands below (toward the mating face)",
+  "footprint": "Connector_JST:JST_PH_S3B-PH-SM4-TB_1x03-1MP_P2.00mm_Horizontal",
+  "footprint_checks": {"pad_1_x_mm": -2.0, "signal_pitch_mm": 2.0, "mp_x_mm": [-4.35, 4.35], "mp_size_mm": [1.5, 3.4],
+                       "note": "MP x = A/2 + 1.6 + 1.5/2 and MP length 3.4 match p2; identical pads in locked kicad-footprints 7ebfa6b"},
+  "ratings": {"current": "2 A AC/DC (AWG #24)", "voltage": "100 V AC/DC", "temperature": "-40 to +105 degC including temperature rise",
+              "contact_resistance": "10 mOhm max initial, 20 mOhm after test", "withstanding_voltage": "800 VAC for 1 minute",
+              "pcb_thickness": "0.8 to 1.6 mm"},
+  "internal_pad_groups": "none: the two reinforcement tabs have no stated electrical function or continuity",
+  "procurement": {"jlcpcb_lcsc": "C265101", "library_type_observed_2026_10_06": "extended"},
+  "unresolved": ["battery-pack wire colour/pinout (BAT+, GND, NTC) is board-side and pack-specific"]
+}

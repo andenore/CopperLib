@@ -1,0 +1,29 @@
+{
+  "scope": "polarity and footprint-number audit plus datasheet ratings; no light-output or lifetime validation",
+  "production_publishable": false,
+  "footprint": "footprints/EVERLIGHT_19-217.kicad_mod",
+  "footprint_note": "KiCad LED_0603_1608Metric copper (IPC nominal 0.875 x 0.95 mm lands at +/-0.7875 mm) with numbers swapped so cathode pad 2 sits at the silkscreen/fab cathode mark; Everlight's suggested 0.5 x 0.9 mm pads are not copied",
+  "polarity": {"1": "anode (+)", "2": "cathode (-)", "verification": "page 6 polarity symbol and cathode mark inspected at 400-500 dpi for all three datasheets"},
+  "parts": {
+    "EVERLIGHT_19_217_GHC_YR1S2_6T": {
+      "mpn": "19-217/GHC-YR1S2/6T", "colour": "brilliant green, InGaN", "jlcpcb_lcsc": "C2986059",
+      "document": "DSE-0025583 Rev.3, release May.31.2022", "url": "https://www.everlighteurope.com/custom/files/datasheets/DSE-0025583.pdf",
+      "sha256": "4d0eb56e7dc66ab0a81ca648a8f56c5c1442ab5c74ac46bc298478b02533aa17", "cache_path": "cache/parts/DSE-0025583.pdf",
+      "vf_v": {"min": 2.7, "typ": 3.3, "max": 3.7, "if_mA": 20}, "if_max_mA": 25, "ifp_mA": 50, "pd_mW": 95, "esd_hbm_V": 150,
+      "iv_mcd": [112.0, 285.0], "dominant_nm": [520, 535]},
+    "EVERLIGHT_19_217_BHC_ZL1M2RY_6T": {
+      "mpn": "19-217/BHC-ZL1M2RY/6T", "colour": "blue, InGaN", "jlcpcb_lcsc": "C2986058",
+      "document": "DSE-0014124 Rev.5, release May.31.2022", "url": "https://www.everlighteurope.com/custom/files/datasheets/DSE-0014124.pdf",
+      "sha256": "7054cc30056655f4978640f868b84a3baaf8ff2d9d398272d212b02912b9008e", "cache_path": "cache/parts/DSE-0014124.pdf",
+      "vf_v": {"min": 2.5, "typ": null, "max": 3.1, "if_mA": 5}, "if_max_mA": 10, "ifp_mA": 40, "pd_mW": 40, "esd_hbm_V": 150,
+      "iv_mcd": [11.5, 28.5], "dominant_nm": [465.0, 475.0]},
+    "EVERLIGHT_19_217_Y5C_AP1Q2_6T": {
+      "mpn": "19-217/Y5C-AP1Q2/6T", "colour": "brilliant yellow, AlGaInP", "jlcpcb_lcsc": "C2986063",
+      "document": "DSE-0025584 Rev.3, release 21.Jul.2023", "url": "https://www.everlighteurope.com/custom/files/datasheets/DSE-0025584.pdf",
+      "sha256": "891ebd4dc8843d71d49bb6a74bbd23932886617ea72d2a3509b0c8a71d39ec1f", "cache_path": "cache/parts/DSE-0025584.pdf",
+      "vf_v": {"min": 1.7, "typ": 2.0, "max": 2.4, "if_mA": 20}, "if_max_mA": 25, "ifp_mA": 60, "pd_mW": 60, "esd_hbm_V": 2000,
+      "iv_mcd": [45.0, 112.0], "dominant_nm": [585.5, 594.5]}
+  },
+  "procurement_note": "observed 2026-10-06: JLCPCB lists no basic or preferred green/blue/yellow 0603 LED (basic 0603 LEDs are only KENTO red C2286 and white C2290); the /3T Everlight codes C72043/C72041 show zero stock, so in-stock /6T extended parts were chosen",
+  "unresolved": ["brightness/current budget per board", "ESD handling for the 150 V HBM InGaN parts"]
+}
