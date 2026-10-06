@@ -1,0 +1,122 @@
+// Analog Devices MAX96792AGTM/VY+ dual GMSL3/2 to MIPI CSI-2 deserializer,
+// 48-pin 7x7 mm side-wettable TQFN with exposed pad (package code T4877Y+11).
+// Electrical profiles, D-PHY lane pairs, C-PHY trio pads and CSI-2 voltage
+// limits live on the package-independent device MAX96792A (device.copper). This
+// part binds every package pin to the pad of the same name; the CSI-2 pins of
+// port A (25-26, 29-36) and port B (37-44, 47-48) do so only in their port's
+// default D-PHY mode (PHY_A/PHY_B=DPHY). With `modes = "PHY_A=CPHY"` pins 31-36
+// bond to the C-PHY port D trio pads, with `modes = "PHY_B=CPHY"` pins 37-42 to
+// the port E trio pads (pp.23-24). Pin names stay the D-PHY names in both modes.
+//
+// Source: MAX96792A data sheet 19-101426 Rev 1 (1/24).
+//   p.10  Absolute Maximum Ratings and Package Information
+//   p.23  Pin Configuration (top view, visually checked against rendered page)
+//   pp.23-27 Pin Descriptions
+//   p.29  Table 2 Recommended Operating Conditions
+//   pp.29-30 Table 3 External Component Requirements
+//   p.56  CSI-2 Output Interface (per-port D-PHY or C-PHY)
+//   p.58  Tables 12/13 CFG0/CFG1 input maps
+//   p.75  Ordering Information
+// The PDF was retrieved from the mirror https://www.datasheetall.com/pdf/max96792a.pdf
+// (analog.com unreachable); source_checksum is the SHA-256 of that mirror copy
+// (cache/adi/max96792a-19-101426-rev1.pdf), not of the analog.com file.
+// Data sheet Rev 2 (4/26) exists but was not obtainable; this pinout is from Rev 1 and
+// must be re-checked against Rev 2 before production publication.
+//
+// Footprint is PROVISIONAL: KiCad's TQFN-48 7x7 EP5.1 follows Maxim outline
+// 21-0144 (non-side-wettable 48TQFN family). The orderable part uses outline
+// 21-100045 / land pattern 90-100016, which was not available. Exposed-pad and
+// land dimensions are unresolved; see evidence/package-audit.json.
+//
+// Supply envelopes: Table 2 gives VDD as two bands (0.95-1.05 V LDO bypass,
+// 1.14-1.26 V internal LDO) and VDDIO as two bands (1.7-1.9 V, 3.0-3.6 V).
+// Only the outer envelope is representable; voltages in the gaps are NOT
+// supported by the data sheet.
+part MAX96792AGTM_VY {
+    category = "interface.serdes.deserializer";
+    manufacturer = "Analog Devices";
+    footprint = "Package_DFN_QFN:TQFN-48-1EP_7x7mm_P0.5mm_EP5.1x5.1mm";
+    device = MAX96792A;
+    source_document = "MAX96792A Dual GMSL3/2 to CSI-2 Deserializer data sheet";
+    source_revision = "19-101426 Rev 1 (1/24)";
+    source_location = "p.23 Pin Configuration; pp.23-27 Pin Descriptions; p.10 Absolute Maximum Ratings; p.29 Table 2; pp.29-30 Table 3; p.56 CSI-2 Output Interface";
+    source_url = "https://www.analog.com/media/en/technical-documentation/data-sheets/max96792a.pdf";
+    source_checksum = "sha256:0896b8aa91ecfcf985e08ac3b5e63fcc2e15e601ba07b5b78aa6476971eb122a";
+
+    pin PWDNB { number = "1"; bond = PWDNB; }
+
+    // Multifunction pins: "leave pins open if unused" (Pin Descriptions p.25).
+    pin MFP0 { number = "2"; bond = MFP0; connection = optional; }
+    pin MFP1 { number = "3"; bond = MFP1; connection = optional; }
+    // CFG0 strap: a VDDIO-EP divider is mandatory (Table 3, Table 12).
+    pin MFP2_CFG0 { number = "4"; bond = MFP2_CFG0; connection = required; }
+
+    pin SIOBN { number = "5"; bond = SIOBN; }
+    pin SIOBP { number = "6"; bond = SIOBP; }
+
+    // Table 3: connect both VDD18 pins together.
+    pin VDD18_7 { number = "7"; bond = VDD18_7; }
+
+    // CFG1 strap: mandatory divider (Table 3, Table 13).
+    pin MFP3_CFG1 { number = "8"; bond = MFP3_CFG1; connection = required; }
+    pin MFP4 { number = "9"; bond = MFP4; connection = optional; }
+    pin MFP11 { number = "10"; bond = MFP11; connection = optional; }
+    pin MFP12 { number = "11"; bond = MFP12; connection = optional; }
+
+    pin X1_OSC { number = "12"; bond = X1_OSC; }
+    // "Leave open if an oscillator is used".
+    pin X2 { number = "13"; bond = X2; connection = optional; }
+    // Reserved. Do not connect.
+    pin RSVD { number = "14"; connection = do_not_connect; }
+    // 402 Ohm +/-1% calibration resistor to EP is mandatory (Table 3).
+    pin XRES { number = "15"; bond = XRES; connection = required; }
+    pin VDD18_16 { number = "16"; bond = VDD18_16; }
+
+    pin SIOAP { number = "17"; bond = SIOAP; }
+    pin SIOAN { number = "18"; bond = SIOAN; }
+
+    // Table 3 makes its 0.1 uF + 10 uF decoupling mandatory.
+    pin CAP_VDD { number = "19"; bond = CAP_VDD; connection = required; }
+    pin VDD { number = "20"; bond = VDD; }
+
+    pin MFP5 { number = "21"; bond = MFP5; connection = optional; }
+    pin MFP6 { number = "22"; bond = MFP6; connection = optional; }
+
+    // Bypass VTERM to EP with 0.1 uF.
+    pin VTERM { number = "23"; bond = VTERM; }
+    pin VDDIO { number = "24"; bond = VDDIO; }
+
+    // CSI-2 port A: "leave pins open if unused" (Pin Descriptions p.23). Lanes
+    // 2/3 are D-PHY only; lanes 0/1 and the clock lane carry the C-PHY port D
+    // trio wires with PHY_A=CPHY (pp.23-24).
+    pin DA2P { number = "25"; bond = "DA2P@PHY_A=DPHY"; connection = optional; }
+    pin DA2N { number = "26"; bond = "DA2N@PHY_A=DPHY"; connection = optional; }
+    pin MFP7 { number = "27"; bond = MFP7; connection = optional; }
+    pin MFP8 { number = "28"; bond = MFP8; connection = optional; }
+    pin DA3P { number = "29"; bond = "DA3P@PHY_A=DPHY"; connection = optional; }
+    pin DA3N { number = "30"; bond = "DA3N@PHY_A=DPHY"; connection = optional; }
+    pin DA0P { number = "31"; bond = "DA0P@PHY_A=DPHY,DD0A@PHY_A=CPHY"; connection = optional; }
+    pin DA0N { number = "32"; bond = "DA0N@PHY_A=DPHY,DD0B@PHY_A=CPHY"; connection = optional; }
+    pin CKAP { number = "33"; bond = "CKAP@PHY_A=DPHY,DD0C@PHY_A=CPHY"; connection = optional; }
+    pin CKAN { number = "34"; bond = "CKAN@PHY_A=DPHY,DD1A@PHY_A=CPHY"; connection = optional; }
+    pin DA1P { number = "35"; bond = "DA1P@PHY_A=DPHY,DD1B@PHY_A=CPHY"; connection = optional; }
+    pin DA1N { number = "36"; bond = "DA1N@PHY_A=DPHY,DD1C@PHY_A=CPHY"; connection = optional; }
+
+    // CSI-2 port B, same rule; C-PHY port E with PHY_B=CPHY (p.24).
+    pin DB0P { number = "37"; bond = "DB0P@PHY_B=DPHY,DE0A@PHY_B=CPHY"; connection = optional; }
+    pin DB0N { number = "38"; bond = "DB0N@PHY_B=DPHY,DE0B@PHY_B=CPHY"; connection = optional; }
+    pin CKBP { number = "39"; bond = "CKBP@PHY_B=DPHY,DE0C@PHY_B=CPHY"; connection = optional; }
+    pin CKBN { number = "40"; bond = "CKBN@PHY_B=DPHY,DE1A@PHY_B=CPHY"; connection = optional; }
+    pin DB1P { number = "41"; bond = "DB1P@PHY_B=DPHY,DE1B@PHY_B=CPHY"; connection = optional; }
+    pin DB1N { number = "42"; bond = "DB1N@PHY_B=DPHY,DE1C@PHY_B=CPHY"; connection = optional; }
+    pin DB2P { number = "43"; bond = "DB2P@PHY_B=DPHY"; connection = optional; }
+    pin DB2N { number = "44"; bond = "DB2N@PHY_B=DPHY"; connection = optional; }
+    pin MFP9 { number = "45"; bond = MFP9; connection = optional; }
+    pin MFP10 { number = "46"; bond = MFP10; connection = optional; }
+    pin DB3P { number = "47"; bond = "DB3P@PHY_B=DPHY"; connection = optional; }
+    pin DB3N { number = "48"; bond = "DB3N@PHY_B=DPHY"; connection = optional; }
+
+    // Exposed pad: device ground; must be connected to the PCB ground plane
+    // through a via array. Number 49 is the KiCad footprint's EP copper pad.
+    pin EP { number = "49"; bond = EP; connection = required; }
+}

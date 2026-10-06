@@ -1,0 +1,124 @@
+{
+  "scope": "source-backed pinout, supply-limit, CSI-2 pin-limit, D-PHY/C-PHY mode, device-model and package audit; not land-pattern, GMSL channel or CSI-2 signal-integrity qualification",
+  "part": "MAX96792AGTM_VY",
+  "orderable": ["MAX96792AGTM/VY+", "MAX96792AGTM/VY+T"],
+  "production_publishable": false,
+  "source": {
+    "document": "MAX96792A Dual GMSL3/2 to CSI-2 Deserializer data sheet",
+    "revision": "19-101426 Rev 1 (1/24)",
+    "official_url": "https://www.analog.com/media/en/technical-documentation/data-sheets/max96792a.pdf",
+    "retrieved_from": "https://www.datasheetall.com/pdf/max96792a.pdf",
+    "retrieval_note": "analog.com was unreachable; the mirror copy carries datasheetall.com watermark/metadata, so this hash identifies the mirror file, not the analog.com file",
+    "sha256": "0896b8aa91ecfcf985e08ac3b5e63fcc2e15e601ba07b5b78aa6476971eb122a",
+    "cache_path": "cache/adi/max96792a-19-101426-rev1.pdf",
+    "page_count": 350,
+    "verification": "pin numbers transcribed from the Pin Descriptions table and visually checked against the rendered p.23 Pin Configuration (top view)"
+  },
+  "locators": {
+    "pin_configuration": "p.23",
+    "pin_descriptions": "pp.23-27",
+    "absolute_maximum_ratings": "p.10",
+    "package_information": "p.10",
+    "recommended_operating_conditions": "p.29, Table 2",
+    "external_component_requirements": "pp.29-30, Table 3",
+    "cfg_input_maps": "p.58, Tables 12 and 13",
+    "ordering_information": "p.75",
+    "product_overview_phy": "p.40, Product Overview",
+    "csi2_output_interface": "p.56, CSI-2 Output Interface, Lane Configurations and Data Rates",
+    "csi2_transmitter_dc_characteristics": "p.11, Electrical Characteristics: C-PHY and D-PHY LP transmitter, D-PHY HS transmitter"
+  },
+  "package": {
+    "description": "48-pin 7 mm x 7 mm TQFN-SW (side-wettable), exposed pad",
+    "orderable_package_code": "T4877Y+11",
+    "orderable_outline": "21-100045",
+    "orderable_land_pattern": "90-100016",
+    "non_side_wettable_listing": {"package_code": "T4877+11", "outline": "21-0144", "land_pattern": "90-0130"},
+    "drawings_obtained": false
+  },
+  "footprint": {
+    "id": "Package_DFN_QFN:TQFN-48-1EP_7x7mm_P0.5mm_EP5.1x5.1mm",
+    "status": "provisional",
+    "kicad_reference": "descr cites Maxim 21-0144; tags T4877+3 T4877+3C",
+    "kicad_library": "kicad-footprints 10.0.6",
+    "kicad_mod_sha256": "6159576ecc8c14f8ce20a7d9abe71ee47eca8273c9e794e2570dc3b181ca44f8",
+    "exposed_pad_number": "49",
+    "exposed_pad_copper_mm": [5.1, 5.1],
+    "copperscript_export": "export-kicad-pcb succeeds with --footprint-root /usr/share/kicad/footprints"
+  },
+  "coverage": {
+    "package_terminals": 49,
+    "part_pins": 49,
+    "footprint_copper_pad_numbers": 49,
+    "exact_number_match": true
+  },
+  "pins": {
+    "PWDNB": "1", "MFP0": "2", "MFP1": "3", "MFP2_CFG0": "4", "SIOBN": "5", "SIOBP": "6",
+    "VDD18_7": "7", "MFP3_CFG1": "8", "MFP4": "9", "MFP11": "10", "MFP12": "11", "X1_OSC": "12",
+    "X2": "13", "RSVD": "14", "XRES": "15", "VDD18_16": "16", "SIOAP": "17", "SIOAN": "18",
+    "CAP_VDD": "19", "VDD": "20", "MFP5": "21", "MFP6": "22", "VTERM": "23", "VDDIO": "24",
+    "DA2P": "25", "DA2N": "26", "MFP7": "27", "MFP8": "28", "DA3P": "29", "DA3N": "30",
+    "DA0P": "31", "DA0N": "32", "CKAP": "33", "CKAN": "34", "DA1P": "35", "DA1N": "36",
+    "DB0P": "37", "DB0N": "38", "CKBP": "39", "CKBN": "40", "DB1P": "41", "DB1N": "42",
+    "DB2P": "43", "DB2N": "44", "MFP9": "45", "MFP10": "46", "DB3P": "47", "DB3N": "48",
+    "EP": "49"
+  },
+  "name_notes": {
+    "CAP_VDD": "Pin Descriptions name; the Pin Configuration drawing prints CAPVDD",
+    "VDD18_7/VDD18_16": "both data-sheet pins are named VDD18; suffixed with pin number for uniqueness",
+    "MFP2_CFG0/MFP3_CFG1/X1_OSC": "data-sheet names MFP2/CFG0, MFP3/CFG1, X1/OSC with '/' replaced by '_'"
+  },
+  "supplies": [
+    {"pin": "VTERM", "operating_v": [1.14, 1.26], "absolute_max_v": 1.32, "locator": "p.29 Table 2; p.10"},
+    {"pin": "VDD18", "operating_v": [1.7, 1.9], "absolute_max_v": 2.0, "locator": "p.29 Table 2; p.10"},
+    {"pin": "VDD", "operating_v_bands": [[0.95, 1.05], [1.14, 1.26]], "modeled_envelope_v": [0.95, 1.26], "absolute_max_v": 2.0, "locator": "p.29 Table 2; p.27 VDD row; p.10"},
+    {"pin": "VDDIO", "operating_v_bands": [[1.7, 1.9], [3.0, 3.6]], "modeled_envelope_v": [1.7, 3.6], "absolute_max_v": 3.9, "locator": "p.29 Table 2; p.10"},
+    {"pin": "CAP_VDD", "absolute_max_v": 1.2, "note": "decoupling node, no operating range modeled", "locator": "p.10; p.30 Table 3"},
+    {"pin": "D-PHY, C-PHY Pins", "absolute_min_v": -0.3, "absolute_max": "VTERM + 0.1V (Note b: VTERM <= +1.26V)", "note": "signal pins; modeled as absolute_min = -0.3V, absolute_max = \"VTERM+0.1V, 1.36V\" on the CSI-2 device pads (D-PHY and C-PHY), no operating range", "locator": "p.10"}
+  ],
+  "connection_policy_basis": {
+    "optional": "CSI-2 and multifunction pin sections: 'leave pins open if unused' (pp.23, 25); X2: 'leave open if an oscillator is used' (p.27)",
+    "do_not_connect": "RSVD: 'Reserved. Do not connect.' (p.27)",
+    "required": "EP must connect to the ground plane (p.27); XRES 402 Ohm to EP and mandatory CAP_VDD decoupling (Table 3, pp.29-30); CFG0/CFG1 dividers latched at power-up, every Table 12/13 row needs at least one resistor (p.58)",
+    "normal": "SIOAP/SIOAN/SIOBP/SIOBN: the data sheet does not state they may be left open; in coax mode the unused SIO pin of each link is AC-terminated (Table 3, p.30)"
+  },
+  "device_model": {
+    "device": "MAX96792A",
+    "pad_mapping": "one device pad per package pin with the pin's name, plus the twelve C-PHY trio pads DD0A-DD1C (port D) and DE0A-DE1C (port E) named after their data-sheet C-PHY functions; RSVD (pin 14, do not connect) has no pad; no internal pad connections implied",
+    "differential_pairs": {
+      "DA0": ["DA0P", "DA0N"], "DA1": ["DA1P", "DA1N"], "DA2": ["DA2P", "DA2N"], "DA3": ["DA3P", "DA3N"], "CKA": ["CKAP", "CKAN"],
+      "DB0": ["DB0P", "DB0N"], "DB1": ["DB1P", "DB1N"], "DB2": ["DB2P", "DB2N"], "DB3": ["DB3P", "DB3N"], "CKB": ["CKBP", "CKBN"]
+    },
+    "differential_pairs_locator": "pp.23-24 Pin Descriptions: CSI-2 Port A/B Data Lane 0-3 and Clock Lane Noninverted/Inverted Output (D-PHY 4-Lane Mode)",
+    "differential_pairs_when": {"DA0": "PHY_A=DPHY", "DA1": "PHY_A=DPHY", "DA2": "PHY_A=DPHY", "DA3": "PHY_A=DPHY", "CKA": "PHY_A=DPHY",
+                                "DB0": "PHY_B=DPHY", "DB1": "PHY_B=DPHY", "DB2": "PHY_B=DPHY", "DB3": "PHY_B=DPHY", "CKB": "PHY_B=DPHY"},
+    "csi2_pin_absolute_min_v": -0.3,
+    "csi2_pin_absolute_max": {"reference": "VTERM", "offset_v": 0.1, "cap_v": 1.36},
+    "csi2_pin_voltage_rating": "absolute_maximum",
+    "csi2_pin_voltage_basis": "p.10 Absolute Maximum Ratings: 'D-PHY, C-PHY Pins (Note b) -0.3V to (VTERM + 0.1V)'; 'Note b: VTERM <= +1.26V'. Modeled as absolute_min = -0.3V and absolute_max = \"VTERM+0.1V, 1.36V\" = min(VTERM + 0.1 V, 1.36 V) on all 20 D-PHY and 12 C-PHY pads; 1.36 V = 1.26 V + 0.1 V is the most Note b allows",
+    "csi2_pin_operating_v": null,
+    "csi2_pin_operating_basis": "not given: p.11 lists only transmitter output levels (LP VOH/VOL, HS VCMTX/VOD), no pin operating range",
+    "phy_selection": "p.56 CSI-2 Output Interface: 'Each port can be configured to use either D-PHY v1.2 or C-PHY v1.0'; D-PHY is the default after power-up ((*) markers, pp.23-24)",
+    "mode_groups": {
+      "PHY_A": {"choices": ["DPHY", "CPHY"], "default": "DPHY", "pins": "25-26, 29-36 (D-PHY port A, C-PHY port D)", "locator": "p.56 (per-port D-PHY or C-PHY); pp.23-24 (*) D-PHY default after power-up"},
+      "PHY_B": {"choices": ["DPHY", "CPHY"], "default": "DPHY", "pins": "37-44, 47-48 (D-PHY port B, C-PHY port E)", "locator": "p.56 (per-port D-PHY or C-PHY); p.24 (*) D-PHY default after power-up"}
+    },
+    "cphy_modeled": true,
+    "cphy_alternates": {
+      "DA0P": "DD0A", "DA0N": "DD0B", "CKAP": "DD0C", "CKAN": "DD1A", "DA1P": "DD1B", "DA1N": "DD1C",
+      "DB0P": "DE0A", "DB0N": "DE0B", "CKBP": "DE0C", "CKBN": "DE1A", "DB1P": "DE1B", "DB1N": "DE1C"
+    },
+    "cphy_alternates_locator": "pp.23-24 Pin Descriptions, pins 31-42: 'CSI-2 Port D/E Data Lane 0/1 A/B/C-Output (C-PHY 2-Lane Mode)'; bonded as '<D-PHY pad>@PHY_x=DPHY,<C-PHY pad>@PHY_x=CPHY'",
+    "dphy_only_pins": ["DA2P", "DA2N", "DA3P", "DA3N", "DB2P", "DB2N", "DB3P", "DB3N"],
+    "dphy_only_pins_basis": "pp.23-24 list only a '(D-PHY 4-Lane Mode)' function for pins 25-26, 29-30, 43-44 and 47-48, and p.56 gives a C-PHY port one or two lanes/trios; bonded only with their port's DPHY choice, so with that port in C-PHY mode these pins have no modeled function"
+  },
+  "unresolved": [
+    {"item": "cphy_lane2_lane3_function", "detail": "The data sheet states no function for DA2/DA3 (pins 25-26, 29-30) and DB2/DB3 (pins 43-44, 47-48) with their port in C-PHY mode. They are bonded only with their port's DPHY choice, so in C-PHY mode they are unmodeled (UNMODELED_PIN if connected); 'leave pins open if unused' still applies."},
+    {"item": "vterm_relative_csi2_limit", "detail": "The CSI-2 absolute maximum min(VTERM + 0.1 V, 1.36 V) is resolved per component from the declared supply on VTERM's net. ERC evaluates it only for CSI-2 pins on nets with a declared supply (signal nets carry no voltage); if such a pin's VTERM net has no declared supply, ERC reports VOLTAGE_LIMIT_UNRESOLVED and applies only the 1.36 V cap. No operating pin-voltage range is given."},
+    {"item": "cphy_trio_grouping", "detail": "CopperScript has no trio signal-group kind, so the C-PHY trios (DD0A-DD0C, DD1A-DD1C, DE0A-DE0C, DE1A-DE1C) are modeled as individual pads; ERC does not report a partially connected trio."},
+    {"item": "exposed_pad_and_land_pattern", "detail": "Orderable side-wettable T4877Y+11 uses outline 21-100045 / land pattern 90-100016, which were not obtainable. The KiCad footprint follows 21-0144 (tags T4877+3/+3C); its 5.1 x 5.1 mm EP is not verified for T4877+11 or T4877Y+11. Lead lands, EP size, paste apertures and side-wettable flank lands remain unverified."},
+    {"item": "datasheet_rev2_recheck", "detail": "MAX96792A data sheet Rev 2 (4/26) exists but was not obtainable. Pinout, names and limits here come from Rev 1 (1/24) and must be re-checked against Rev 2."},
+    {"item": "official_copy_hash", "detail": "Source hash is of a third-party mirror copy; the analog.com file was not retrieved."},
+    {"item": "ep_via_array", "detail": "EP must reach the ground plane through an array of vias; via count/pattern is not specified in the data sheet."},
+    {"item": "supply_bands", "detail": "VDD and VDDIO operating ranges are two discrete bands each; the part models only the outer envelope, so ERC does not reject voltages inside the gaps."}
+  ]
+}

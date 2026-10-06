@@ -1,0 +1,87 @@
+// Analog Devices MAX96793GTJ/VY+ MIPI CSI-2 to GMSL3/2 serializer,
+// 32-pin 5x5 mm side-wettable TQFN with exposed pad (package code T3255Y).
+// Electrical profiles, D-PHY lane pairs, C-PHY trio pads and CSI-2 voltage
+// limits live on the package-independent device MAX96793 (device.copper). This
+// part binds every package pin to the pad of the same name; the CSI-2 pins
+// 19-20 and 23-30 do so only in the default D-PHY mode (PHY=DPHY), and with
+// `modes = "PHY=CPHY"` pins 25-30 bond to the C-PHY trio pads instead
+// (pp.24-25). Pin names stay the D-PHY names in both modes.
+//
+// Source: MAX96793 data sheet 19-101163 Rev 3 (4/25).
+//   p.10  Absolute Maximum Ratings and Package Information
+//   p.24  Pin Configuration (top view, visually checked against rendered page)
+//   pp.24-28 Pin Descriptions
+//   p.30  Table 2 Recommended Operating Conditions
+//   pp.30-31 Table 3 External Component Requirements
+//   p.59  Lane Configurations and Data Rates (D-PHY or C-PHY port)
+//   p.61  Tables 11/12 CFG0/CFG1 input maps
+//   p.78  Ordering Information
+// The PDF was retrieved from the LCSC mirror
+// https://datasheet.lcsc.com/datasheet/pdf/ca5c73dda81dce23773e30fee5dc35fa.pdf
+// (analog.com unreachable); source_checksum is the SHA-256 of that mirror copy
+// (cache/adi/max96793-19-101163-rev3.pdf), not of the analog.com file.
+//
+// Footprint is PROVISIONAL: the data sheet gives outline 21-100156 and land
+// pattern 90-100067, neither available. KiCad's Maxim TQFN-32 5x5 footprints
+// (21-0140: EP 2.1 T3255-6, 3.1 T3255-3, 3.4 mm T3255-9) use custom chamfered
+// corner pads that CopperScript's importer rejects, so the generic KiCad
+// QFN-32 5x5 / 0.5 mm / EP 3.1 mm land pattern (same EP as T3255-3) is used
+// provisionally. Lead lands and exposed-pad size remain unresolved.
+// See evidence/package-audit.json.
+part MAX96793GTJ_VY {
+    category = "interface.serdes.serializer";
+    manufacturer = "Analog Devices";
+    footprint = "Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm";
+    device = MAX96793;
+    source_document = "MAX96793 CSI-2 to GMSL3/2 Serializer data sheet";
+    source_revision = "19-101163 Rev 3 (4/25)";
+    source_location = "p.24 Pin Configuration; pp.24-28 Pin Descriptions; p.10 Absolute Maximum Ratings; p.30 Table 2; pp.30-31 Table 3; p.59 Lane Configurations and Data Rates";
+    source_url = "https://www.analog.com/media/en/technical-documentation/data-sheets/max96793.pdf";
+    source_checksum = "sha256:508e4b4fca1e42148d260cc4044e8238e4b3759a5bfd691bb5aecce507055965";
+
+    pin PWDNB { number = "1"; bond = PWDNB; }
+    pin MFP0 { number = "2"; bond = MFP0; }
+    // CFG straps: a VDDIO-ground divider is mandatory (Table 3, Tables 11/12).
+    pin MFP1_CFG0 { number = "3"; bond = MFP1_CFG0; connection = required; }
+    pin MFP2_CFG1 { number = "4"; bond = MFP2_CFG1; connection = required; }
+    pin MFP9 { number = "5"; bond = MFP9; }
+    pin MFP10 { number = "6"; bond = MFP10; }
+    // "Leave open if not used".
+    pin VREF { number = "7"; bond = VREF; connection = optional; }
+    // Left open in Reference-over-Reverse mode (X1/OSC) and with an oscillator (X2).
+    pin X1_OSC { number = "8"; bond = X1_OSC; connection = optional; }
+    pin X2 { number = "9"; bond = X2; connection = optional; }
+    // 402 Ohm +/-1% calibration resistor is mandatory (Table 3).
+    pin XRES { number = "10"; bond = XRES; connection = required; }
+    pin VDD18 { number = "11"; bond = VDD18; }
+    pin SIOP { number = "12"; bond = SIOP; }
+    pin SION { number = "13"; bond = SION; }
+    // Mandatory 0.1 uF + 10 uF decoupling (Table 3).
+    pin CAP_VDD { number = "14"; bond = CAP_VDD; connection = required; }
+    pin VDD { number = "15"; bond = VDD; }
+    pin VDDIO { number = "16"; bond = VDDIO; }
+    pin MFP3 { number = "17"; bond = MFP3; }
+    pin MFP4 { number = "18"; bond = MFP4; }
+
+    // CSI-2 inputs: "leave open if unused" (pp.24-25; for CKP/CKN the statement
+    // is on their C-PHY D0C/D1A rows). Lanes 2/3 have no C-PHY function.
+    pin D2P { number = "19"; bond = "D2P@PHY=DPHY"; connection = optional; }
+    pin D2N { number = "20"; bond = "D2N@PHY=DPHY"; connection = optional; }
+    pin MFP5 { number = "21"; bond = MFP5; }
+    pin MFP6 { number = "22"; bond = MFP6; }
+    pin D3P { number = "23"; bond = "D3P@PHY=DPHY"; connection = optional; }
+    pin D3N { number = "24"; bond = "D3N@PHY=DPHY"; connection = optional; }
+    // D-PHY function (default) or C-PHY trio wire (PHY=CPHY), pp.24-25.
+    pin D0P { number = "25"; bond = "D0P@PHY=DPHY,D0A@PHY=CPHY"; connection = optional; }
+    pin D0N { number = "26"; bond = "D0N@PHY=DPHY,D0B@PHY=CPHY"; connection = optional; }
+    pin CKP { number = "27"; bond = "CKP@PHY=DPHY,D0C@PHY=CPHY"; connection = optional; }
+    pin CKN { number = "28"; bond = "CKN@PHY=DPHY,D1A@PHY=CPHY"; connection = optional; }
+    pin D1P { number = "29"; bond = "D1P@PHY=DPHY,D1B@PHY=CPHY"; connection = optional; }
+    pin D1N { number = "30"; bond = "D1N@PHY=DPHY,D1C@PHY=CPHY"; connection = optional; }
+    pin MFP7 { number = "31"; bond = MFP7; }
+    pin MFP8 { number = "32"; bond = MFP8; }
+
+    // Exposed pad: must be connected to the PCB ground plane through a via
+    // array. Number 33 is the KiCad footprint's EP copper pad.
+    pin EP { number = "33"; bond = EP; connection = required; }
+}

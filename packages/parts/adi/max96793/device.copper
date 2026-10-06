@@ -1,0 +1,129 @@
+// Analog Devices MAX96793 MIPI CSI-2 to GMSL3/2 serializer: package-independent
+// pad model with electrical profiles, the CSI-2 D-PHY lane pairs and the C-PHY
+// trio pads of the D-PHY/C-PHY mode group.
+//
+// Source: MAX96793 data sheet 19-101163 Rev 3 (4/25), LCSC mirror copy
+// (cache/adi/max96793-19-101163-rev3.pdf; see part.copper for the retrieval note).
+//   p.10      Absolute Maximum Ratings: "D_P/N, CKP/N ... -0.3V to +1.35V"
+//   pp.24-28  Pin Descriptions ((*) marks the CSI-2 state after power-up)
+//   p.30      Table 2 Recommended Operating Conditions
+//   p.40      Product Overview: "a four-lane D-PHY v1.2 ... or a two-lane
+//             C-PHY v1.0 CSI-2 v1.3 input port"
+//   p.59      Lane Configurations and Data Rates: "The port can be configured to
+//             use either D-PHY v1.2 or C-PHY v1.0." ... "When configured as
+//             C-PHY, the port supports either one or two lane/trios."
+//
+// Pads use the MAX96793GTJ_VY package-pin names; the C-PHY pads use the data
+// sheet's C-PHY function names. Every pad is its own die terminal: the model
+// implies no internal connection between any two pads.
+//
+// CSI-2 PHY: the port is D-PHY or C-PHY (p.59, "The port can be configured to
+// use either D-PHY v1.2 or C-PHY v1.0"). mode_group PHY selects it; its default
+// DPHY is the state after power-up ((*) markers on the D-PHY functions,
+// pp.24-25), so a component without a `modes` selection gets the D-PHY pads.
+//
+// D-PHY (PHY=DPHY): each data lane and the clock lane is a differential_pair
+// group (noninverted = positive, inverted = negative), so ERC reports
+// INCOMPLETE_DIFFERENTIAL_PAIR when only one polarity of a lane is connected.
+// The groups and the D-PHY pads are conditioned on PHY=DPHY; p.59 gives the
+// "one, two, three, or four differential lanes" only "When configured as D-PHY".
+//
+// C-PHY (PHY=CPHY): pins 25-30 carry the trio wires named in the Pin
+// Descriptions (pp.24-25): D0P=D0A, D0N=D0B, CKP=D0C, CKN=D1A, D1P=D1B,
+// D1N=D1C ("CSI-2 C-PHY Data Lane 0/1, A/B/C Input"). D2P/N and D3P/N list only
+// their lane-2/3 function and the C-PHY port has "one or two lane/trios" (p.59),
+// so those pads exist only in D-PHY mode: with PHY=CPHY pins 19, 20, 23 and 24
+// have no modeled function (connecting them is UNMODELED_PIN).
+//
+// CSI-2 pin voltage limits: the Absolute Maximum Rating "D_P/N, CKP/N -0.3V to
+// +1.35V" (p.10) is given per pin, so it applies to the D-PHY and the C-PHY pads
+// as absolute_min/absolute_max. The data sheet gives no operating pin-voltage
+// range for these pins (the -0.05 V to 1.35 V on p.11 is only the D-PHY LP
+// receiver ILEAK test condition), so none is declared.
+device MAX96793 {
+    vendor = "Analog Devices";
+    source_document = "MAX96793 CSI-2 to GMSL3/2 Serializer data sheet";
+    source_revision = "19-101163 Rev 3 (4/25)";
+    source_location = "p.10 Absolute Maximum Ratings; pp.24-28 Pin Descriptions; p.30 Table 2; p.40 Product Overview; p.59 Lane Configurations and Data Rates";
+    source_url = "https://www.analog.com/media/en/technical-documentation/data-sheets/max96793.pdf";
+    source_checksum = "sha256:508e4b4fca1e42148d260cc4044e8238e4b3759a5bfd691bb5aecce507055965";
+
+    // Power-down input, internal 1 MOhm pull-down (low = power-down).
+    pad PWDNB { domains = "digital"; directions = "input"; }
+    // MFP0: GPIO0 (default, high-Z with 1 MOhm pull-down)/SCLK.
+    pad MFP0 { domains = "digital"; directions = "bidirectional"; }
+    // MFP1/CFG0 and MFP2/CFG1: straps latched at power-up; connect a VDDIO-ground
+    // divider (Table 3, Tables 11/12). Afterwards usable only as outputs
+    // (GPO1/SS1/BNE; GPO2/RCLKOUT(Alt)/DPLL_OUT(Alt)); never as general-purpose inputs.
+    pad MFP1_CFG0 { domains = "analog,digital"; directions = "input,output"; }
+    pad MFP2_CFG1 { domains = "analog,digital"; directions = "input,output"; }
+    // MFP9: SDA_RX (default control port, I2C/UART selected by CFG0)/ODO9_GPI9/SDA2_RX2.
+    pad MFP9 { domains = "digital"; directions = "bidirectional"; drive_modes = "open_drain"; }
+    // MFP10: SCL_TX (default control port)/ODO10_GPI10/SCL2_TX2.
+    pad MFP10 { domains = "digital"; directions = "bidirectional"; drive_modes = "open_drain"; }
+    // Optional ADC reference (1.25 V) or ROR_CAP (18/22 nF to ground in RoR
+    // 12 Gb/s mode); "leave open if not used".
+    pad VREF { domains = "analog"; directions = "input"; }
+    // 25 MHz +/-200 ppm crystal or oscillator input; leave open in Reference-over-Reverse mode.
+    pad X1_OSC { domains = "analog,clock"; directions = "input"; }
+    // Crystal input; leave open in RoR mode or with an oscillator.
+    pad X2 { domains = "analog,clock"; directions = "input"; }
+    // SIO driver calibration: 402 Ohm +/-1% single resistor to ground/EP (Table 3).
+    pad XRES { domains = "analog"; directions = "passive"; }
+    // 1.8 V analog supply.
+    pad VDD18 { domains = "power"; directions = "input"; voltage_min = 1.7V; voltage_max = 1.9V; }
+    // GMSL3/2 serial link; in coax mode SION is terminated (100 nF + 50 Ohm to ground).
+    pad SIOP { domains = "digital"; directions = "bidirectional"; }
+    pad SION { domains = "digital"; directions = "bidirectional"; }
+    // 1 V core decoupling node; Table 3 makes its 0.1 uF + 10 uF decoupling mandatory.
+    pad CAP_VDD { domains = "power"; directions = "passive"; }
+    // Digital core supply, Table 2: 0.95-1.26 V.
+    pad VDD { domains = "power"; directions = "input"; voltage_min = 0.95V; voltage_max = 1.26V; }
+    // I/O supply, Table 2: 1.7-3.6 V.
+    pad VDDIO { domains = "power"; directions = "input"; voltage_min = 1.7V; voltage_max = 3.6V; }
+    // MFP3: GPIO3 (default)/ERRB/ADC0/LOCK.
+    pad MFP3 { domains = "digital,analog"; directions = "bidirectional"; }
+    // MFP4: GPIO4 (default)/RCLKOUT/DPLL_OUT/SS2/RO.
+    pad MFP4 { domains = "digital,clock"; directions = "bidirectional"; }
+    // MFP5: ODO5_GPI5 (default)/ADC1/LMN0. MFP6: ODO6_GPI6 (default)/ADC2/LMN1.
+    pad MFP5 { domains = "digital,analog"; directions = "bidirectional"; drive_modes = "open_drain"; }
+    pad MFP6 { domains = "digital,analog"; directions = "bidirectional"; drive_modes = "open_drain"; }
+    // MFP7: GPIO7 (default)/MOSI/SDA1/RX1/LOCK(Alt).
+    pad MFP7 { domains = "digital"; directions = "bidirectional"; }
+    // MFP8: GPIO8 (default)/MS/MISO/SCL1/TX1/ERRB(Alt).
+    pad MFP8 { domains = "digital"; directions = "bidirectional"; }
+    // Exposed pad: the device ground connection.
+    pad EP { domains = "ground"; directions = "input"; }
+
+    // CSI-2 PHY selection; D-PHY is the state after power-up (pp.24-25).
+    mode_group PHY { choices = "DPHY,CPHY"; default = DPHY; }
+
+    // CSI-2 D-PHY inputs (pp.24-25). Absolute maximum -0.3 V to +1.35 V
+    // (p.10, "D_P/N, CKP/N"); no operating range is given.
+    pad D0P { domains = "digital"; directions = "input"; traits = "differential_positive"; absolute_min = -0.3V; absolute_max = 1.35V; when = "PHY=DPHY"; }
+    pad D0N { domains = "digital"; directions = "input"; traits = "differential_negative"; absolute_min = -0.3V; absolute_max = 1.35V; when = "PHY=DPHY"; }
+    pad D1P { domains = "digital"; directions = "input"; traits = "differential_positive"; absolute_min = -0.3V; absolute_max = 1.35V; when = "PHY=DPHY"; }
+    pad D1N { domains = "digital"; directions = "input"; traits = "differential_negative"; absolute_min = -0.3V; absolute_max = 1.35V; when = "PHY=DPHY"; }
+    pad D2P { domains = "digital"; directions = "input"; traits = "differential_positive"; absolute_min = -0.3V; absolute_max = 1.35V; when = "PHY=DPHY"; }
+    pad D2N { domains = "digital"; directions = "input"; traits = "differential_negative"; absolute_min = -0.3V; absolute_max = 1.35V; when = "PHY=DPHY"; }
+    pad D3P { domains = "digital"; directions = "input"; traits = "differential_positive"; absolute_min = -0.3V; absolute_max = 1.35V; when = "PHY=DPHY"; }
+    pad D3N { domains = "digital"; directions = "input"; traits = "differential_negative"; absolute_min = -0.3V; absolute_max = 1.35V; when = "PHY=DPHY"; }
+    pad CKP { domains = "digital,clock"; directions = "input"; traits = "differential_positive"; absolute_min = -0.3V; absolute_max = 1.35V; when = "PHY=DPHY"; }
+    pad CKN { domains = "digital,clock"; directions = "input"; traits = "differential_negative"; absolute_min = -0.3V; absolute_max = 1.35V; when = "PHY=DPHY"; }
+
+    // CSI-2 C-PHY trio inputs, lanes 0 and 1, wires A/B/C (pp.24-25), on pins
+    // 25-30. Same per-pin absolute maximum (p.10).
+    pad D0A { domains = "digital"; directions = "input"; absolute_min = -0.3V; absolute_max = 1.35V; when = "PHY=CPHY"; }
+    pad D0B { domains = "digital"; directions = "input"; absolute_min = -0.3V; absolute_max = 1.35V; when = "PHY=CPHY"; }
+    pad D0C { domains = "digital"; directions = "input"; absolute_min = -0.3V; absolute_max = 1.35V; when = "PHY=CPHY"; }
+    pad D1A { domains = "digital"; directions = "input"; absolute_min = -0.3V; absolute_max = 1.35V; when = "PHY=CPHY"; }
+    pad D1B { domains = "digital"; directions = "input"; absolute_min = -0.3V; absolute_max = 1.35V; when = "PHY=CPHY"; }
+    pad D1C { domains = "digital"; directions = "input"; absolute_min = -0.3V; absolute_max = 1.35V; when = "PHY=CPHY"; }
+
+    // D-PHY data lanes 0-3 and the clock lane (Pin Descriptions pp.24-25).
+    group D0: differential_pair { positive = D0P; negative = D0N; when = "PHY=DPHY"; }
+    group D1: differential_pair { positive = D1P; negative = D1N; when = "PHY=DPHY"; }
+    group D2: differential_pair { positive = D2P; negative = D2N; when = "PHY=DPHY"; }
+    group D3: differential_pair { positive = D3P; negative = D3N; when = "PHY=DPHY"; }
+    group CK: differential_pair { positive = CKP; negative = CKN; when = "PHY=DPHY"; }
+}

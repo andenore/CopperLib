@@ -1,0 +1,255 @@
+{
+  "scope": "source-backed pinout, supply-limit, CSI-2 pin-limit, D-PHY/C-PHY mode, device-model and package audit; not land-pattern, GMSL channel or CSI-2 signal-integrity qualification",
+  "part": "MAX96793GTJ_VY",
+  "orderable": [
+    "MAX96793GTJ/VY+",
+    "MAX96793GTJ/VY+T"
+  ],
+  "production_publishable": false,
+  "source": {
+    "document": "MAX96793 CSI-2 to GMSL3/2 Serializer data sheet",
+    "revision": "19-101163 Rev 3 (4/25)",
+    "official_url": "https://www.analog.com/media/en/technical-documentation/data-sheets/max96793.pdf",
+    "retrieved_from": "https://datasheet.lcsc.com/datasheet/pdf/ca5c73dda81dce23773e30fee5dc35fa.pdf",
+    "retrieval_note": "analog.com was unreachable; this hash identifies the LCSC mirror file and is not verified against the analog.com file",
+    "sha256": "508e4b4fca1e42148d260cc4044e8238e4b3759a5bfd691bb5aecce507055965",
+    "cache_path": "cache/adi/max96793-19-101163-rev3.pdf",
+    "page_count": 250,
+    "verification": "pin numbers transcribed from the Pin Descriptions table and visually checked against the rendered p.24 Pin Configuration (top view)"
+  },
+  "locators": {
+    "pin_configuration": "p.24",
+    "pin_descriptions": "pp.24-28",
+    "absolute_maximum_ratings": "p.10",
+    "package_information": "p.10",
+    "recommended_operating_conditions": "p.30, Table 2",
+    "external_component_requirements": "pp.30-31, Table 3",
+    "cfg_input_maps": "p.61, Tables 11 and 12",
+    "ordering_information": "p.78",
+    "product_overview_phy": "p.40, Product Overview",
+    "lane_configurations": "p.59, Lane Configurations and Data Rates",
+    "csi2_receiver_dc_characteristics": "pp.11-12, Electrical Characteristics: D-PHY HS/LP and C-PHY HS/LP receiver"
+  },
+  "package": {
+    "description": "32-pin 5 mm x 5 mm TQFN-SW (side-wettable), exposed pad",
+    "orderable_package_code": "T3255Y",
+    "orderable_outline": "21-100156",
+    "orderable_land_pattern": "90-100067",
+    "drawings_obtained": false
+  },
+  "footprint": {
+    "id": "Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm",
+    "status": "provisional",
+    "kicad_reference": "generic KiCad QFN-32 5x5 mm, 0.5 mm pitch, EP 3.1 mm (descr cites Microchip 8008S); chosen because the Maxim-derived TQFN-32 variants are not importable",
+    "kicad_library": "kicad-footprints 10.0.6",
+    "kicad_mod_sha256": "00f84cfad8ff7eef33b5390104475ad27f97b51ce0993a1e33ef3c32b68d07ed",
+    "exposed_pad_number": "33",
+    "exposed_pad_copper_mm": [
+      3.1,
+      3.1
+    ],
+    "alternatives": [
+      {
+        "id": "Package_DFN_QFN:TQFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm",
+        "kicad_reference": "21-0140 (T3255-3)",
+        "copperscript_import": "rejected: custom corner pads"
+      },
+      {
+        "id": "Package_DFN_QFN:TQFN-32-1EP_5x5mm_P0.5mm_EP2.1x2.1mm",
+        "kicad_reference": "21-0140 (T3255-6)",
+        "copperscript_import": "rejected: custom corner pads"
+      },
+      {
+        "id": "Package_DFN_QFN:TQFN-32-1EP_5x5mm_P0.5mm_EP3.4x3.4mm",
+        "kicad_reference": "21-0140 (T3255-9)",
+        "copperscript_import": "rejected: custom corner pads"
+      }
+    ],
+    "copperscript_export": "importable (no custom pads)"
+  },
+  "coverage": {
+    "package_terminals": 33,
+    "part_pins": 33,
+    "footprint_copper_pad_numbers": 33,
+    "exact_number_match": true
+  },
+  "pins": {
+    "PWDNB": "1",
+    "MFP0": "2",
+    "MFP1_CFG0": "3",
+    "MFP2_CFG1": "4",
+    "MFP9": "5",
+    "MFP10": "6",
+    "VREF": "7",
+    "X1_OSC": "8",
+    "X2": "9",
+    "XRES": "10",
+    "VDD18": "11",
+    "SIOP": "12",
+    "SION": "13",
+    "CAP_VDD": "14",
+    "VDD": "15",
+    "VDDIO": "16",
+    "MFP3": "17",
+    "MFP4": "18",
+    "D2P": "19",
+    "D2N": "20",
+    "MFP5": "21",
+    "MFP6": "22",
+    "D3P": "23",
+    "D3N": "24",
+    "D0P": "25",
+    "D0N": "26",
+    "CKP": "27",
+    "CKN": "28",
+    "D1P": "29",
+    "D1N": "30",
+    "MFP7": "31",
+    "MFP8": "32",
+    "EP": "33"
+  },
+  "name_notes": {
+    "MFP1_CFG0/MFP2_CFG1/X1_OSC": "data-sheet names MFP1/CFG0, MFP2/CFG1, X1/OSC with '/' replaced by '_'"
+  },
+  "supplies": [
+    {
+      "pin": "VDD18",
+      "operating_v": [
+        1.7,
+        1.9
+      ],
+      "absolute_max_v": 2.0,
+      "locator": "p.30 Table 2; p.10"
+    },
+    {
+      "pin": "VDD",
+      "operating_v": [
+        0.95,
+        1.26
+      ],
+      "absolute_max_v": 2.0,
+      "locator": "p.30 Table 2; p.10"
+    },
+    {
+      "pin": "VDDIO",
+      "operating_v": [
+        1.7,
+        3.6
+      ],
+      "absolute_max_v": 3.9,
+      "locator": "p.30 Table 2; p.10"
+    },
+    {
+      "pin": "CAP_VDD",
+      "absolute_max_v": 1.2,
+      "note": "decoupling node, no operating range modeled",
+      "locator": "p.10; p.31 Table 3"
+    },
+    {
+      "pin": "D_P/N, CKP/N",
+      "absolute_min_v": -0.3,
+      "absolute_max_v": 1.35,
+      "note": "signal pins; modeled as absolute_min/absolute_max on the CSI-2 device pads (D-PHY and C-PHY), no operating range",
+      "locator": "p.10"
+    }
+  ],
+  "connection_policy_basis": {
+    "optional": "D0-D3/CKP/CKN rows: 'leave open if unused' (pp.24-25; for CKP/CKN on the C-PHY D0C/D1A function); VREF: 'leave open if not used' (p.28); X1/OSC open in RoR mode, X2 open in RoR or oscillator mode (p.28)",
+    "required": "EP is the device ground and must connect to the ground plane (p.27); XRES 402 Ohm to ground and mandatory CAP_VDD decoupling (Table 3, pp.30-31); CFG0/CFG1 dividers latched at power-up, every Table 11/12 row needs at least one resistor (p.61)",
+    "normal": "MFP0 and MFP3-MFP10 (no leave-open note in the MFP section), SIOP/SION (SION AC-terminated in coax mode), PWDNB"
+  },
+  "device_model": {
+    "device": "MAX96793",
+    "pad_mapping": "one device pad per package pin with the pin's name, plus the six C-PHY trio pads D0A/D0B/D0C/D1A/D1B/D1C named after their data-sheet C-PHY functions; no internal pad connections implied",
+    "differential_pairs": {
+      "D0": [
+        "D0P",
+        "D0N"
+      ],
+      "D1": [
+        "D1P",
+        "D1N"
+      ],
+      "D2": [
+        "D2P",
+        "D2N"
+      ],
+      "D3": [
+        "D3P",
+        "D3N"
+      ],
+      "CK": [
+        "CKP",
+        "CKN"
+      ]
+    },
+    "differential_pairs_locator": "pp.24-25 Pin Descriptions: CSI-2 Data Lane 0-3 and Clock Lane Noninverted/Inverted Input",
+    "differential_pairs_when": "PHY=DPHY",
+    "csi2_pin_absolute_v": [
+      -0.3,
+      1.35
+    ],
+    "csi2_pin_voltage_rating": "absolute_maximum",
+    "csi2_pin_voltage_basis": "p.10 Absolute Maximum Ratings: 'D_P/N, CKP/N -0.3V to +1.35V'; given per pin, so applied as absolute_min/absolute_max to all 10 D-PHY pads and all 6 C-PHY pads",
+    "csi2_pin_operating_v": null,
+    "csi2_pin_operating_basis": "not given: the CSI-2 receiver tables (pp.11-12) give thresholds and common-mode ranges only; '-0.05V to 1.35V' is the D-PHY LP receiver ILEAK test condition, not a pin operating range",
+    "phy_selection": "p.59 Lane Configurations and Data Rates: 'The port can be configured to use either D-PHY v1.2 or C-PHY v1.0'; D-PHY is the state after power-up ((*) markers, pp.24-25)",
+    "mode_groups": {
+      "PHY": {
+        "choices": [
+          "DPHY",
+          "CPHY"
+        ],
+        "default": "DPHY",
+        "locator": "p.59 (D-PHY or C-PHY port); pp.24-25 (*) D-PHY state after power-up"
+      }
+    },
+    "cphy_modeled": true,
+    "cphy_alternates": {
+      "D0P": "D0A",
+      "D0N": "D0B",
+      "CKP": "D0C",
+      "CKN": "D1A",
+      "D1P": "D1B",
+      "D1N": "D1C"
+    },
+    "cphy_alternates_locator": "pp.24-25 Pin Descriptions, pins 25-30: 'CSI-2 C-PHY Data Lane 0/1, A/B/C Input'; bonded as '<D-PHY pad>@PHY=DPHY,<C-PHY pad>@PHY=CPHY'",
+    "dphy_only_pins": [
+      "D2P",
+      "D2N",
+      "D3P",
+      "D3N"
+    ],
+    "dphy_only_pins_basis": "pp.24-25 list only the lane-2/3 function for pins 19-20 and 23-24, and p.59/p.40 give the C-PHY port one or two lane/trios; bonded only with PHY=DPHY, so with PHY=CPHY these pins have no modeled function"
+  },
+  "unresolved": [
+    {
+      "item": "cphy_lane2_lane3_function",
+      "detail": "The data sheet states no function for D2P/D2N/D3P/D3N (pins 19-20, 23-24) with the port in C-PHY mode. They are bonded only with PHY=DPHY, so with PHY=CPHY they are unmodeled (UNMODELED_PIN if connected); 'leave open if unused' still applies."
+    },
+    {
+      "item": "csi2_operating_pin_range",
+      "detail": "No operating pin-voltage range is given for the CSI-2 inputs, so only the -0.3 V to +1.35 V absolute maximum is modeled. ERC evaluates it only for CSI-2 pins on nets with a declared supply; signal nets are not voltage-checked."
+    },
+    {
+      "item": "cphy_trio_grouping",
+      "detail": "CopperScript has no trio signal-group kind, so the C-PHY trios D0A/D0B/D0C and D1A/D1B/D1C are modeled as individual pads; ERC does not report a partially connected trio."
+    },
+    {
+      "item": "exposed_pad_and_land_pattern",
+      "detail": "Orderable T3255Y uses outline 21-100156 / land pattern 90-100067, which were not obtainable. The EP size is unresolved among the KiCad 21-0140 variants 2.1 mm (T3255-6), 3.1 mm (T3255-3, chosen provisionally) and 3.4 mm (T3255-9); lead lands, paste apertures and side-wettable flank lands remain unverified."
+    },
+    {
+      "item": "official_copy_hash",
+      "detail": "Source hash is of the LCSC mirror copy; the analog.com file was not retrieved."
+    },
+    {
+      "item": "ep_via_array",
+      "detail": "EP must reach the ground plane through an array of vias; via count/pattern is not specified in the data sheet."
+    },
+    {
+      "item": "maxim_land_pattern_substitute",
+      "detail": "Generic QFN-32 land pattern substitutes for ADI 90-100067; verify lead-land length/width, EP size and side-wettable requirements before fabrication."
+    }
+  ]
+}
