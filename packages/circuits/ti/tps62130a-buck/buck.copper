@@ -1,0 +1,46 @@
+// TI TPS62130A step-down stage after SLVSAG7F Rev F, Figure 9-1 and Table 9-1:
+// 10 uF PVIN, 100 nF AVIN, 3.3 nF soft start, DEF = Low (nominal output) and
+// FSW = Low (about 2.5 MHz). Output filter: 2.2 uH (Coilcraft XAL4020-222MEC)
+// with 2 x 22 uF, a combination Table 9-2 marks as proven stable; footnote (2)
+// names 2.2 uH / 22 uF the standard combination.
+//
+// The parent sets the output voltage with a divider on FB (Equation 6):
+//   R_top (VOUT to FB) = R_bottom (FB to GND) x (VOUT / 0.8 V - 1),
+// R_bottom <= 400 kohm. PG is left open (optional pin).
+// Capacitor voltage ratings, input range and thermal performance are the
+// parent's responsibility; layout must follow the data sheet section 11.
+module TPS62130A_BUCK_2U2 {
+    import ti "github.com/andenore/CopperLib/packages/parts/ti/tps62130a";
+    import coilcraft "github.com/andenore/CopperLib/packages/parts/coilcraft/xal4020";
+    import passives "github.com/andenore/CopperLib/packages/generic/passives";
+
+    port VIN: power_in;
+    port EN: input;
+    port FB: passive;
+    port VOUT: power_out;
+    port GND: power_in;
+
+    component U: ti.TPS62130ARGTR;
+    component L: coilcraft.XAL4020_222MEC;
+    component C_PVIN: passives.CAPACITOR { value = 10uF; footprint = "Capacitor_SMD:C_0805_2012Metric"; }
+    component C_AVIN: passives.CAPACITOR { value = 100nF; footprint = "Capacitor_SMD:C_0402_1005Metric"; }
+    component C_SS: passives.CAPACITOR { value = 3.3nF; footprint = "Capacitor_SMD:C_0402_1005Metric"; }
+    component C_OUT1: passives.CAPACITOR { value = 22uF; footprint = "Capacitor_SMD:C_0805_2012Metric"; }
+    component C_OUT2: passives.CAPACITOR { value = 22uF; footprint = "Capacitor_SMD:C_0805_2012Metric"; }
+
+    net VIN { port.VIN; U.PVIN_1; U.PVIN_2; U.AVIN; C_PVIN.P1; C_AVIN.P1; }
+    net EN { port.EN; U.EN; }
+    net FB { port.FB; U.FB; }
+    net SW { U.SW_1; U.SW_2; U.SW_3; L.A; }
+    net SS { U.SS_TR; C_SS.P1; }
+    net VOUT { port.VOUT; L.B; U.VOS; C_OUT1.P1; C_OUT2.P1; }
+    net GND {
+        port.GND;
+        U.AGND; U.PGND_1; U.PGND_2; U.EP; U.FSW; U.DEF;
+        C_PVIN.P2; C_AVIN.P2; C_SS.P2; C_OUT1.P2; C_OUT2.P2;
+    }
+
+    // ERC cannot trace the switch node through the inductor. The parent
+    // declares the rail with this module's VOUT port as its source, e.g.
+    //   supply V1V2 { voltage = 1.2V; source = BUCK.VOUT; }
+}
