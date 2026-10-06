@@ -1,0 +1,45 @@
+// Four-lane MIPI CSI-2 (D-PHY) cable interface, sink side ("IN"): one I-PEX
+// CABLINE-CA 20525-040E-02 receptacle with the same pair and GND positions as
+// CSI2_DPHY_X4_SOURCE_PORT (see source.copper in this package for the position
+// map and the package-edge pair order), so a straight cable (n -> n) from a
+// source port connects pair to pair:
+//   PAIR_A 14/15, PAIR_B 17/18, PAIR_C 20/21, CLK 23/24, PAIR_D 26/27;
+//   GND 1 4 8 11 12 13 16 19 22 25 28 29 30 33 37 40 SH.
+// The sink side leaves the 5 V (2 3 38 39), I2C (5 6), DUT_VIO (7) and reserved
+// (9 10 31 32 34 35 36) positions unconnected, so this module has no ports for
+// them: a loopback cable from a source port lands the DUT-side rails on open
+// contacts.
+module CSI2_DPHY_X4_SINK_PORT {
+    import ipex "github.com/andenore/CopperLib/packages/parts/i-pex/20525-040e-02";
+
+    port PAIR_A_P: passive;
+    port PAIR_A_N: passive;
+    port PAIR_B_P: passive;
+    port PAIR_B_N: passive;
+    port PAIR_C_P: passive;
+    port PAIR_C_N: passive;
+    port CLK_P: passive;
+    port CLK_N: passive;
+    port PAIR_D_P: passive;
+    port PAIR_D_N: passive;
+    port GND: power_in;
+
+    component J: ipex.IPEX_20525_040E_02;
+
+    net PAIR_A_P { port.PAIR_A_P; J.P14; }
+    net PAIR_A_N { port.PAIR_A_N; J.P15; }
+    net PAIR_B_P { port.PAIR_B_P; J.P17; }
+    net PAIR_B_N { port.PAIR_B_N; J.P18; }
+    net PAIR_C_P { port.PAIR_C_P; J.P20; }
+    net PAIR_C_N { port.PAIR_C_N; J.P21; }
+    net CLK_P { port.CLK_P; J.P23; }
+    net CLK_N { port.CLK_N; J.P24; }
+    net PAIR_D_P { port.PAIR_D_P; J.P26; }
+    net PAIR_D_N { port.PAIR_D_N; J.P27; }
+    net GND {
+        port.GND;
+        J.P1; J.P4; J.P8; J.P11; J.P12; J.P13; J.P16; J.P19; J.P22;
+        J.P25; J.P28; J.P29; J.P30; J.P33; J.P37; J.P40; J.SHIELD;
+    }
+    // Positions 2 3 5 6 7 9 10 31 32 34 35 36 38 39 stay unconnected.
+}

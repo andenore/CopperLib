@@ -14,7 +14,7 @@ silently presented as production-qualified parts.
 packages/parts/        exact manufacturer parts grouped by vendor/family
 packages/generic/      reference geometry and generic interfaces
 packages/circuits/     reusable multi-part electrical assemblies
-packages/interfaces/   debug and bus interfaces
+packages/interfaces/   debug, bus and harness interfaces
 packages/profiles/     reusable board/profile geometry such as CM4
 tools/generate/        package-local generation helpers and source readers
 ```

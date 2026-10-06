@@ -1,0 +1,76 @@
+// Four-lane MIPI CSI-2 (D-PHY) cable interface, source side ("OUT",
+// camera-like): one I-PEX CABLINE-CA 20525-040E-02 receptacle with four data
+// pairs and the clock pair, each flanked by GND, plus +5 V and I/O-reference
+// inputs and an I2C control bus for the device under test.
+//
+// The pairs follow the order in which a four-lane serializer/deserializer
+// package presents its D-PHY pads along one edge (data, data, data, clock,
+// data), so a QFN facing the connector fans out without any pair crossing.
+// Lane order and any re-arrangement towards a particular device are done in the
+// cable or adapter, not on the board. Source and sink ports use the same
+// positions, so a straight cable (n -> n) between them connects pair to pair.
+// This is a board-level pinout, not a MIPI or I-PEX standard.
+//
+// Position map (SH = connector shield/ground lands):
+//   GND      1 4 8 11 12 13 16 19 22 25 28 29 30 33 37 40 SH
+//   VDUT_5V  2 3 38 39      +5 V supplied by the DUT into this board
+//   SDA      5              I2C data (this board is an I2C target on OUT)
+//   SCL      6              I2C clock
+//   DUT_VIO  7              DUT I/O reference (1.65-3.3 V) supplied by the DUT
+//   PAIR_A   14 (+) 15 (-)
+//   PAIR_B   17 (+) 18 (-)
+//   PAIR_C   20 (+) 21 (-)
+//   CLK      23 (+) 24 (-)
+//   PAIR_D   26 (+) 27 (-)
+//   reserved 9 10 31 32 34 35 36   not connected
+// Pairs A-D are connector positions, not CSI-2 lane numbers: the board chooses
+// which chip lane drives each pair; logical lane order is assigned in firmware.
+//
+// Port directions describe what the cable side presents to the parent: the
+// lanes, SDA and SCL pass through passive contacts; VDUT_5V and DUT_VIO are
+// sourced by the DUT. ERC cannot see the DUT, so the parent declares those rails
+// as external supplies, e.g. `supply VDUT_5V { voltage = 5V; external = true; }`.
+// The I-PEX contacts carry 0.3 A each with AWG #40 cable (part.copper), so the
+// four 5 V contacts are the parent's current budget to respect.
+module CSI2_DPHY_X4_SOURCE_PORT {
+    import ipex "github.com/andenore/CopperLib/packages/parts/i-pex/20525-040e-02";
+
+    port PAIR_A_P: passive;
+    port PAIR_A_N: passive;
+    port PAIR_B_P: passive;
+    port PAIR_B_N: passive;
+    port PAIR_C_P: passive;
+    port PAIR_C_N: passive;
+    port CLK_P: passive;
+    port CLK_N: passive;
+    port PAIR_D_P: passive;
+    port PAIR_D_N: passive;
+    port VDUT_5V: power_out;
+    port SDA: passive;
+    port SCL: passive;
+    port DUT_VIO: power_out;
+    port GND: power_in;
+
+    component J: ipex.IPEX_20525_040E_02;
+
+    net PAIR_A_P { port.PAIR_A_P; J.P14; }
+    net PAIR_A_N { port.PAIR_A_N; J.P15; }
+    net PAIR_B_P { port.PAIR_B_P; J.P17; }
+    net PAIR_B_N { port.PAIR_B_N; J.P18; }
+    net PAIR_C_P { port.PAIR_C_P; J.P20; }
+    net PAIR_C_N { port.PAIR_C_N; J.P21; }
+    net CLK_P { port.CLK_P; J.P23; }
+    net CLK_N { port.CLK_N; J.P24; }
+    net PAIR_D_P { port.PAIR_D_P; J.P26; }
+    net PAIR_D_N { port.PAIR_D_N; J.P27; }
+    net VDUT_5V { port.VDUT_5V; J.P2; J.P3; J.P38; J.P39; }
+    net SDA { port.SDA; J.P5; }
+    net SCL { port.SCL; J.P6; }
+    net DUT_VIO { port.DUT_VIO; J.P7; }
+    net GND {
+        port.GND;
+        J.P1; J.P4; J.P8; J.P11; J.P12; J.P13; J.P16; J.P19; J.P22;
+        J.P25; J.P28; J.P29; J.P30; J.P33; J.P37; J.P40; J.SHIELD;
+    }
+    // Reserved positions 9, 10, 31, 32, 34, 35 and 36 stay unconnected.
+}
