@@ -1,0 +1,476 @@
+{
+  "scope": "source-backed land pattern, pin-1 and ground-land audit for the I-PEX 20525-040E-02 receptacle; not SI/EMC or assembly-process qualification",
+  "part": "IPEX_20525_040E_02",
+  "orderable_variant": "20525-040E-02 = '#'=0 finish row of Table 1 (contact area Au 0.1 um min over Ni), 40 positions; listed as recommended P/N 20525-0**E-02 (12-60P) on sheet 1/7",
+  "production_publishable": false,
+  "sources": [
+    {
+      "id": "dwg20525",
+      "document": "CABLINE-CA receptacle assembly drawing 20525 (customer copy, marked 'Confidential C')",
+      "revision": "20525 rev 34 (ECN ZC00726, 2026/06/01)",
+      "url": "https://www.i-pex.com/sites/default/files/downloads/pdf/2D_CABLINE-CA_RECEPTACLE_20525C34.pdf",
+      "sha256": "54a4dff3d49a9247c161bc00c10aebbd2b23e06068ab6aa8f5087730704d7eb3",
+      "cache_path": "cache/i-pex/2D_CABLINE-CA_RECEPTACLE_20525C34.pdf",
+      "verification": "pages rendered at 300-1200 dpi and read visually; drawing is not to scale, only labelled dimensions are used"
+    },
+    {
+      "id": "harness82652",
+      "document": "CABLINE-CA 40P harness drawing 82652 (82652-100B-02-D)",
+      "revision": "rev 0 (ZM00318, 2025/11/20)",
+      "url": "https://www.i-pex.com/sites/default/files/downloads/pdf/2D_CABLINE-CA_40P_HARNESS_82652C0.pdf",
+      "sha256": "bd9b9a05995cc2c52934444f6eb8abb9c376258c3dee9ab9c0a4396832b2d80f",
+      "cache_path": "cache/i-pex/2D_CABLINE-CA_40P_HARNESS_82652C0.pdf"
+    },
+    {
+      "id": "harness82653",
+      "document": "CABLINE-CA 40P harness drawing 82653 (82653-100B-02-D, 300 mm)",
+      "revision": "rev 0 (ZM00318, 2025/11/20)",
+      "url": "https://www.i-pex.com/sites/default/files/downloads/pdf/2D_CABLINE-CA_40P_HARNESS_82653C0.pdf",
+      "sha256": "851d1593792034faa67651668e8c4b00476aa0b837c40f013778cba17d015835",
+      "cache_path": "cache/i-pex/2D_CABLINE-CA_40P_HARNESS_82653C0.pdf"
+    },
+    {
+      "id": "manual18016",
+      "document": "CABLINE-CAF instruction manual HIM-18016-04EN",
+      "revision": "rev 4 (2025/12/19)",
+      "url": "https://www.i-pex.com/sites/default/files/downloads/pdf/MANUAL_CABLINE-CAF_HIM-18016-04EN.pdf",
+      "sha256": "5b57d023c42b2fa57f39ed9a61f18d7541fc22a388b3199809d9889b46c58234",
+      "cache_path": "cache/i-pex/MANUAL_CABLINE-CAF_HIM-18016-04EN.pdf"
+    },
+    {
+      "id": "dwg20858",
+      "document": "CABLINE-CAF shell assembly drawing 20858",
+      "revision": "rev 10",
+      "url": "https://www.i-pex.com/sites/default/files/downloads/pdf/2D_CABLINE-CAF_SHELL_ASSEMBLY_20858C10.pdf",
+      "sha256": "c64039b85fc5e58a6959420c7977f4f38ee16d15b5594f0e66ace070a6e6e68f",
+      "cache_path": "cache/i-pex/2D_CABLINE-CAF_SHELL_ASSEMBLY_20858C10.pdf"
+    },
+    {
+      "id": "catalogCAF",
+      "document": "CABLINE-CAF catalog (English)",
+      "revision": "202607R0",
+      "url": "https://www.i-pex.com/sites/default/files/downloads/pdf/CATALOG_CABLINE-CAF_E.pdf",
+      "sha256": "76636f901557a7cd52cca018c9372155c3e34fb2f74b42314d5a9ee952dea595",
+      "cache_path": "cache/i-pex/CATALOG_CABLINE-CAF_E.pdf"
+    },
+    {
+      "id": "prs2465",
+      "document": "CABLINE-CAF product specification PRS-2465-05EN",
+      "revision": "05",
+      "url": "https://www.i-pex.com/sites/default/files/downloads/pdf/PRODSPEC_CABLINE-CAF_PRS-2465-05EN.pdf",
+      "sha256": "47620f40d5486a47f3eb50e5e1d399047298dcb6c79239d9b955c164c46978a9",
+      "cache_path": "cache/i-pex/PRODSPEC_CABLINE-CAF_PRS-2465-05EN.pdf"
+    }
+  ],
+  "footprint": {
+    "path": "footprints/Connector_I-PEX.pretty/I-PEX_20525-040E-02.kicad_mod",
+    "view": "top (component side), same orientation as dwg20525 sheets 1, 5 and 6: signal-pad row toward -Y",
+    "origin": "centre of the copper extents: X = midpoint of the signal row (between positions 20 and 21); Y = midway between the signal-pad outer edge line and the lower shell-pad bottom edge (copper depth 4.45 mm)",
+    "signal_pad_outer_edge_y_mm": -2.225,
+    "lower_shell_pad_bottom_y_mm": 2.225,
+    "units": "mm, KiCad +Y down",
+    "paste": "pad-sized apertures; sheet 5/7 RECOMMENDED METAL MASK LAYOUT carries the same labelled dimensions as the copper pattern (A, B, 0.40, 0.20, 0.55, 0.90, 0.80, 0.25, 0.55, 1.30, 1.85, 2.60, K, E, G, H); stencil thickness t=0.12 mm (not representable in the footprint)",
+    "mask": "solder mask opening on every pad; no other opening (Note 2 GND AREA keeps solder resist)"
+  },
+  "dimensions": [
+    {
+      "name": "A",
+      "value_mm": 17.4,
+      "tolerance_mm": 0.05,
+      "meaning": "end-pad centre-to-centre",
+      "locator": "dwg20525 sheet 5/7 table, 40P row; footprint view",
+      "use": "end SH pads at x=+/-8.70"
+    },
+    {
+      "name": "B",
+      "value_mm": 15.6,
+      "tolerance_mm": 0.03,
+      "meaning": "position 1 to position 40 pad centres",
+      "locator": "dwg20525 sheet 5/7 table, 40P row",
+      "use": "signal pads x=-7.80..+7.80"
+    },
+    {
+      "name": "signal_pitch",
+      "value_mm": 0.4,
+      "tolerance_mm": 0.03,
+      "locator": "dwg20525 sheet 5/7 footprint view, top dimension chain",
+      "use": "pitch"
+    },
+    {
+      "name": "signal_pad_width",
+      "value_mm": 0.2,
+      "tolerance_mm": 0.03,
+      "locator": "dwg20525 sheet 5/7 footprint view",
+      "use": "signal pad X size"
+    },
+    {
+      "name": "signal_pad_length",
+      "value_mm": 0.8,
+      "tolerance_mm": 0.03,
+      "locator": "dwg20525 sheet 5/7 footprint view, right-hand dimension (dot at signal-pad inner edge)",
+      "use": "signal pad Y size; outer edges on one line"
+    },
+    {
+      "name": "end_pad_width",
+      "value_mm": 0.55,
+      "tolerance_mm": 0.05,
+      "locator": "dwg20525 sheet 5/7 footprint view, top right",
+      "use": "end SH pad X size"
+    },
+    {
+      "name": "end_pad_length",
+      "value_mm": 0.9,
+      "tolerance_mm": 0.05,
+      "locator": "dwg20525 sheet 5/7 footprint view, left dimension column 3 (from the signal-pad outer edge line)",
+      "use": "end SH pad Y size; outer edge on the signal line"
+    },
+    {
+      "name": "ground_pad_gap",
+      "value_mm": 0.25,
+      "tolerance_mm": 0.03,
+      "locator": "dwg20525 sheet 5/7 footprint view, right-hand dimension",
+      "use": "ground-contact pad outer edge 0.25 below signal-pad inner edge"
+    },
+    {
+      "name": "ground_pad_size",
+      "value_mm": [
+        0.55,
+        0.55
+      ],
+      "tolerance_mm": 0.05,
+      "locator": "dwg20525 sheet 5/7 footprint view (0.55 width, bottom chain; 0.55 height, right-hand dimension)",
+      "use": "ground-contact SH pads"
+    },
+    {
+      "name": "K",
+      "value_mm": 2.4,
+      "tolerance_mm": 0.05,
+      "meaning": "ground-contact pad pitch",
+      "locator": "dwg20525 sheet 5/7 table, 40P row",
+      "use": "x = -6.0, -3.6, -1.2, 1.2, 3.6, 6.0"
+    },
+    {
+      "name": "E",
+      "value_mm": 12.0,
+      "tolerance_mm": 0.05,
+      "meaning": "first to last ground-contact pad centre",
+      "locator": "dwg20525 sheet 5/7 table, 40P row; corroborated by sheet 2/7 40P bottom view (6 contacts, 2.40, 12.00 +/-0.10, symmetric about the centre line)",
+      "use": "E/K+1 = 6 pads, symmetric"
+    },
+    {
+      "name": "G",
+      "value_mm": 20.18,
+      "tolerance_mm": 0.05,
+      "meaning": "shell-pad inner edges",
+      "locator": "dwg20525 sheet 5/7 table, 40P row",
+      "use": "shell pad inner edge |x|=10.09"
+    },
+    {
+      "name": "H",
+      "value_mm": 21.6,
+      "tolerance_mm": 0.1,
+      "meaning": "shell-pad outer edges",
+      "locator": "dwg20525 sheet 5/7 table, 40P row",
+      "use": "shell pad outer edge |x|=10.80; width (H-G)/2 = 0.71, centre |x|=10.445 (derived)"
+    },
+    {
+      "name": "upper_shell_pad",
+      "value_mm": {
+        "top_below_signal_line": 0.55,
+        "height": 1.3
+      },
+      "tolerance_mm": 0.05,
+      "locator": "dwg20525 sheet 5/7 footprint view, left dimension column 1 (0.55 then 1.30 from the dot)",
+      "use": "y -1.675..-0.375"
+    },
+    {
+      "name": "lower_shell_pad",
+      "value_mm": {
+        "top_below_signal_line": 2.6,
+        "height": 1.85
+      },
+      "tolerance_mm": 0.05,
+      "locator": "dwg20525 sheet 5/7 footprint view, left dimension column 2 (2.60 then 1.85 from the dot)",
+      "use": "y 0.375..2.225"
+    },
+    {
+      "name": "J",
+      "value_mm": 23.6,
+      "tolerance_mm": 0.1,
+      "meaning": "Note 1 area width",
+      "locator": "dwg20525 sheet 5/7 table, 40P row",
+      "use": "courtyard x=+/-11.80"
+    },
+    {
+      "name": "note1_extent_above",
+      "value_mm": 3.42,
+      "tolerance": "MIN.",
+      "meaning": "Note 1 area top edge measured from the lower shell-pad top edge (i.e. >= 0.82 above the signal-pad outer edge)",
+      "locator": "dwg20525 sheet 5/7 footprint view, far-left '3.42 MIN.'",
+      "use": "courtyard top y=-3.045 (minimum used)"
+    },
+    {
+      "name": "note1_extent_below",
+      "value_mm": 1.5,
+      "tolerance_mm": 0.1,
+      "meaning": "Note 1 area bottom below the lower shell-pad bottom edge",
+      "locator": "dwg20525 sheet 5/7 footprint view, left dimension column 3",
+      "use": "courtyard bottom y=3.725"
+    },
+    {
+      "name": "D",
+      "value_mm": 21.2,
+      "tolerance_mm": 0.15,
+      "meaning": "overall body width",
+      "locator": "dwg20525 sheet 1/7 table, 40P row; top view",
+      "use": "F.Fab body x=+/-10.60"
+    },
+    {
+      "name": "C",
+      "value_mm": 20.43,
+      "tolerance_mm": 0.15,
+      "meaning": "body width at the mating-side edge",
+      "locator": "dwg20525 sheet 1/7 table, 40P row",
+      "use": "not drawn"
+    },
+    {
+      "name": "body_depth_tail_tip_to_bottom",
+      "value_mm": 4.15,
+      "tolerance": "general",
+      "locator": "dwg20525 sheet 1/7 top view, right side",
+      "use": "F.Fab body depth"
+    },
+    {
+      "name": "tail_tip_inset",
+      "value_mm": 0.35,
+      "tolerance": "reference (parenthesised)",
+      "meaning": "signal and end-tail tips inside the signal-pad outer edge",
+      "locator": "dwg20525 sheet 6/7 '(0.35)' at the right end",
+      "use": "F.Fab body top y=-1.875, bottom y=2.275"
+    },
+    {
+      "name": "shell_body_depth",
+      "value_mm": 3.75,
+      "tolerance": "general",
+      "locator": "dwg20525 sheet 1/7 top view, left side",
+      "use": "cross-check only (shell side-tab top at 0.75 below the signal line = sheet 6 reference (0.20) inside the upper shell pad)"
+    },
+    {
+      "name": "mated_depth",
+      "value_mm": 5.3,
+      "tolerance": "general",
+      "meaning": "receptacle tail tips to plug shell edge, mated, excluding cable",
+      "locator": "dwg20525 sheet 1/7 RECE./PLUG mated top view",
+      "use": "cross-check: mated plug edge at y=3.425 lies inside the Note 1 courtyard"
+    },
+    {
+      "name": "mated_height",
+      "value_mm": 1.0,
+      "tolerance_mm": 0.1,
+      "locator": "dwg20525 sheet 1/7 PULL BAR MOVEMENTS",
+      "use": "documentation only"
+    }
+  ],
+  "pads": {
+    "signal": {
+      "count": 40,
+      "size_mm": [
+        0.2,
+        0.8
+      ],
+      "y_mm": -1.825,
+      "x_mm": {
+        "1": -7.8,
+        "40": 7.8
+      }
+    },
+    "SH": {
+      "count": 12,
+      "end_tails": {
+        "positions_mm": [
+          [
+            -8.7,
+            -1.775
+          ],
+          [
+            8.7,
+            -1.775
+          ]
+        ],
+        "size_mm": [
+          0.55,
+          0.9
+        ]
+      },
+      "ground_contacts": {
+        "positions_mm": [
+          [
+            -6.0,
+            -0.9
+          ],
+          [
+            -3.6,
+            -0.9
+          ],
+          [
+            -1.2,
+            -0.9
+          ],
+          [
+            1.2,
+            -0.9
+          ],
+          [
+            3.6,
+            -0.9
+          ],
+          [
+            6.0,
+            -0.9
+          ]
+        ],
+        "size_mm": [
+          0.55,
+          0.55
+        ]
+      },
+      "shell_upper": {
+        "positions_mm": [
+          [
+            -10.445,
+            -1.025
+          ],
+          [
+            10.445,
+            -1.025
+          ]
+        ],
+        "size_mm": [
+          0.71,
+          1.3
+        ]
+      },
+      "shell_lower": {
+        "positions_mm": [
+          [
+            -10.445,
+            1.3
+          ],
+          [
+            10.445,
+            1.3
+          ]
+        ],
+        "size_mm": [
+          0.71,
+          1.85
+        ]
+      }
+    }
+  },
+  "semantic_pins": {
+    "P1": "1",
+    "P2": "2",
+    "P3": "3",
+    "P4": "4",
+    "P5": "5",
+    "P6": "6",
+    "P7": "7",
+    "P8": "8",
+    "P9": "9",
+    "P10": "10",
+    "P11": "11",
+    "P12": "12",
+    "P13": "13",
+    "P14": "14",
+    "P15": "15",
+    "P16": "16",
+    "P17": "17",
+    "P18": "18",
+    "P19": "19",
+    "P20": "20",
+    "P21": "21",
+    "P22": "22",
+    "P23": "23",
+    "P24": "24",
+    "P25": "25",
+    "P26": "26",
+    "P27": "27",
+    "P28": "28",
+    "P29": "29",
+    "P30": "30",
+    "P31": "31",
+    "P32": "32",
+    "P33": "33",
+    "P34": "34",
+    "P35": "35",
+    "P36": "36",
+    "P37": "37",
+    "P38": "38",
+    "P39": "39",
+    "P40": "40",
+    "SHIELD": "SH"
+  },
+  "pin1": {
+    "footprint_end": "pad 1 at x=-7.80 (left end of the signal row in top view with the signal row toward -Y)",
+    "evidence": [
+      "dwg20525 sheet 1/7 TOP VIEW (signal tails up, mating opening down): 'DATUM MARK' triangle at the left end of the contact row, I-PEX logo at the right end; same marks in the mated RECE./PLUG view where the plug triangle is also at the left",
+      "manual18016 section 2 Fig.1 names the moulded triangle 'Datum Pin Mark'; section 3.1 / Fig.2 'Align the datum pin marks of the plug connector and the receptacle connector'",
+      "harness82652 / harness82653: CONNECTOR 1&2 detail top view (pull bar up, cable down) has the plug triangle at the left; the overall plan views show the same face (I-PEX logo legible, not mirrored) rotated 90 degrees: connector 1 rotated CCW puts the triangle end at the bottom, labelled POS.1; connector 2 rotated CW puts it at the top, labelled POS.1",
+      "dwg20525 sheets 5/7 and 6/7 are drawn in the sheet 1/7 top-view orientation (signal tails/pads at the top, shell tabs at both sides, connector seen from above on the pattern)"
+    ],
+    "status": "inferred from the datum-mark convention and harness POS.1 labels; the receptacle drawing never prints POS.1"
+  },
+  "cable_exit_side": {
+    "footprint_direction": "+Y",
+    "description": "the plug mates from the side opposite the signal-pad row; its body lies over the GND AREA and the cable leaves toward +Y, away from the signal pads",
+    "evidence": [
+      "dwg20525 sheet 1/7 mated RECE./PLUG top view: receptacle tails at the top, plug 20633 below, cables extend downward",
+      "dwg20525 sheet 1/7 MATING CONDITION and SECT. X-X: signal tails on one side, mating opening and cable on the opposite side",
+      "manual18016 Fig.2 and dwg20858 sheet 2/6 mating condition"
+    ]
+  },
+  "harness_pin_mapping": {
+    "fact": "standard 40P CABLINE-CA harnesses 82652 (100 mm) and 82653 (300 mm) connect connector-1 position n to connector-2 position 41-n (PIN ASSIGNMENT table: 40->1, 39->2, ..., 2->39, 1->40)",
+    "cable": "40x micro-coaxial cable AWG#40, 50 ohm (both drawings)",
+    "plug": "CABLINE-CA plug 20633-240T-01S, connector to be mated 20525-040E-02",
+    "harness_limits": "rating voltage 30 V; harness operating temperature 80 degC max (harness drawing notes 3-4)"
+  },
+  "sh_land_classification": {
+    "shell_tabs": "4 lands G/H: side tabs of item 3 SHELL (dwg20525 sheet 1/7 top view outline; sheet 6/7 shows the shell tab feet on the pads with reference (0.20) insets)",
+    "end_tails": "2 lands A: pointed solder tails drawn continuous with the shell outline in the sheet 1/7 top view and sheet 2/7 bottom view; not separately itemised",
+    "ground_contacts": "6 lands K/E: the six contacts of the sheet 2/7 bottom view whose feet sit 0.25 behind the signal row inside the sheet 5/7 'GND AREA'; catalog advertises 'EMI shielding and multi-point ground design'",
+    "pin_assignment": "all 12 lands use number SH and pin SHIELD (ground/passive); the shared number does not claim an internal connection: no internal_pad_groups is declared, so every SH land must be routed to the ground net"
+  },
+  "ratings": {
+    "operating_temperature_c": [
+      -40,
+      85
+    ],
+    "locator": "dwg20525 sheet 3/7 and 4/7 OPERATING TEMPERATURE 233 to 358 K; PRS-2465-05EN section 3.1",
+    "current_per_contact_a": {
+      "value": 0.3,
+      "condition": "AWG #40 cable, up to 40 contacts (sheet 3/7, CABLINE-CA plug cable assembly); CABLINE-CAF: 0.3 A all pin counts (sheet 4/7)"
+    },
+    "voltage": "100 V AC per contact pin (sheet 3/7); harness may be lower",
+    "contact_resistance": "600 mohm max initial with AWG #40 (sheet 3/7); ground shell resistance 50 mohm max",
+    "durability_cycles": 30
+  },
+  "corrections_to_preliminary_reading": [
+    "The right-hand '0.80 +/-0.03' on sheet 5/7 is the signal-pad length, not the Note 1 area offset. The Note 1 area top is only given as '3.42 MIN.' from the lower shell-pad top edge, i.e. at least 0.82 above the signal-pad outer edge; the courtyard uses that minimum.",
+    "The sheet 5/7 view is a generic drawing (5 ground pads with one on the centre line); the 40P count comes from the table: E/K+1 = 6, symmetric (+/-1.2, +/-3.6, +/-6.0), no pad on the centre line, matching sheet 2/7.",
+    "The metal-mask layout repeats every copper dimension 1:1 (no split shell apertures); only the 0.12 mm stencil thickness is additional.",
+    "Sheet 1/7 5.30 is the mated receptacle+plug depth, not the receptacle body; the body envelope is D=21.20 x 4.15 (tail tip to body bottom), placed with the sheet 6/7 reference (0.35) tail-tip inset.",
+    "Sheet 2/7 is an unlabelled bottom view; it does not name the six contacts 'ground'."
+  ],
+  "unresolved": [
+    "Whether the six ground contacts are formed from item 3 SHELL or are separate contacts (the BOM lists only housing, contact and shell; sheet 2/7 draws them as separate outlines); any permanent internal connection between ground-contact, end-tail and shell lands is therefore unestablished and none is declared.",
+    "End-tail identity as part of the shell relies on outline continuity, not a label.",
+    "Position 1 is inferred from the datum-mark convention plus harness POS.1 labels; no I-PEX document labels receptacle POS.1 directly.",
+    "F.Fab body Y placement uses parenthesised reference dimensions from sheet 6/7; F.SilkS marker, F.Fab datum/cable arrow and line widths are CopperLib conventions.",
+    "Courtyard top uses the 3.42 MIN. minimum; the Note 1 keep-out applies only when a pull-bar plug (20633-#**T-01S) is used, but it is applied unconditionally.",
+    "Note 2 GND AREA outline on Dwgs.User follows the hatch boundary read from sheet 5/7 (H wide; top at 0.55 below the signal line outside the end pads, at the ground-pad top line between them; bottom at the Note 1 bottom); it is documentation only.",
+    "Per-position signal/ground use is a harness/board decision; the receptacle assigns none. 50 ohm micro-coax SI, EMC and assembly process are not qualified.",
+    "No 3D model."
+  ]
+}

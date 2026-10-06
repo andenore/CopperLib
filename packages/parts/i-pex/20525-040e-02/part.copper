@@ -1,0 +1,62 @@
+// I-PEX CABLINE-CA receptacle 20525-040E-02: 40 positions, 0.4 mm pitch, horizontal-mating
+// micro-coax / FPC board connector (mate for CABLINE-CA harnesses 82652/82653 and CABLINE-CAF
+// shell assemblies 20858-040T-01).
+// Ratings, I-PEX drawing 20525 rev 34 sheet 3/7 (CABLINE-CA plug cable assembly table):
+// operating temperature -40 to +85 degC (233 to 358 K); 0.3 A AC/DC per contact pin with
+// AWG #40 cable, up to 40 contacts; 100 V AC per contact pin (harness rating may be lower;
+// harness drawings 82652/82653 state 30 V and 80 degC max). Sheet 4/7 (CABLINE-CAF): 0.3 A per
+// contact for all pin counts, -40 to +85 degC.
+// Position 1 is the datum-mark end (sheet 1/7 top view; see evidence/footprint-audit.json).
+// SH covers every non-signal land (2 end tails, 6 ground-contact lands, 4 shell tabs); no
+// internal_pad_groups: each SH land must be routed to the ground net explicitly.
+part IPEX_20525_040E_02 {
+    category = "connector.micro_coax";
+    manufacturer = "I-PEX";
+    footprint = "footprints/Connector_I-PEX.pretty/I-PEX_20525-040E-02.kicad_mod";
+    source_document = "CABLINE-CA receptacle assembly, drawing 20525 (customer copy)";
+    source_revision = "20525 rev 34";
+    source_location = "Sheet 1/7 outline and datum mark; sheet 2/7 bottom view, 40P (six non-signal contacts, 2.40 pitch, 12.00 span); sheets 3-4/7 ratings; sheet 5/7 recommended footprint pattern and metal mask, 40P row; sheet 6/7 connector on footprint";
+    source_url = "https://www.i-pex.com/sites/default/files/downloads/pdf/2D_CABLINE-CA_RECEPTACLE_20525C34.pdf";
+    source_checksum = "sha256:54a4dff3d49a9247c161bc00c10aebbd2b23e06068ab6aa8f5087730704d7eb3";
+    pin P1 { number = "1"; domains = "analog,digital"; directions = "passive"; }
+    pin P2 { number = "2"; domains = "analog,digital"; directions = "passive"; }
+    pin P3 { number = "3"; domains = "analog,digital"; directions = "passive"; }
+    pin P4 { number = "4"; domains = "analog,digital"; directions = "passive"; }
+    pin P5 { number = "5"; domains = "analog,digital"; directions = "passive"; }
+    pin P6 { number = "6"; domains = "analog,digital"; directions = "passive"; }
+    pin P7 { number = "7"; domains = "analog,digital"; directions = "passive"; }
+    pin P8 { number = "8"; domains = "analog,digital"; directions = "passive"; }
+    pin P9 { number = "9"; domains = "analog,digital"; directions = "passive"; }
+    pin P10 { number = "10"; domains = "analog,digital"; directions = "passive"; }
+    pin P11 { number = "11"; domains = "analog,digital"; directions = "passive"; }
+    pin P12 { number = "12"; domains = "analog,digital"; directions = "passive"; }
+    pin P13 { number = "13"; domains = "analog,digital"; directions = "passive"; }
+    pin P14 { number = "14"; domains = "analog,digital"; directions = "passive"; }
+    pin P15 { number = "15"; domains = "analog,digital"; directions = "passive"; }
+    pin P16 { number = "16"; domains = "analog,digital"; directions = "passive"; }
+    pin P17 { number = "17"; domains = "analog,digital"; directions = "passive"; }
+    pin P18 { number = "18"; domains = "analog,digital"; directions = "passive"; }
+    pin P19 { number = "19"; domains = "analog,digital"; directions = "passive"; }
+    pin P20 { number = "20"; domains = "analog,digital"; directions = "passive"; }
+    pin P21 { number = "21"; domains = "analog,digital"; directions = "passive"; }
+    pin P22 { number = "22"; domains = "analog,digital"; directions = "passive"; }
+    pin P23 { number = "23"; domains = "analog,digital"; directions = "passive"; }
+    pin P24 { number = "24"; domains = "analog,digital"; directions = "passive"; }
+    pin P25 { number = "25"; domains = "analog,digital"; directions = "passive"; }
+    pin P26 { number = "26"; domains = "analog,digital"; directions = "passive"; }
+    pin P27 { number = "27"; domains = "analog,digital"; directions = "passive"; }
+    pin P28 { number = "28"; domains = "analog,digital"; directions = "passive"; }
+    pin P29 { number = "29"; domains = "analog,digital"; directions = "passive"; }
+    pin P30 { number = "30"; domains = "analog,digital"; directions = "passive"; }
+    pin P31 { number = "31"; domains = "analog,digital"; directions = "passive"; }
+    pin P32 { number = "32"; domains = "analog,digital"; directions = "passive"; }
+    pin P33 { number = "33"; domains = "analog,digital"; directions = "passive"; }
+    pin P34 { number = "34"; domains = "analog,digital"; directions = "passive"; }
+    pin P35 { number = "35"; domains = "analog,digital"; directions = "passive"; }
+    pin P36 { number = "36"; domains = "analog,digital"; directions = "passive"; }
+    pin P37 { number = "37"; domains = "analog,digital"; directions = "passive"; }
+    pin P38 { number = "38"; domains = "analog,digital"; directions = "passive"; }
+    pin P39 { number = "39"; domains = "analog,digital"; directions = "passive"; }
+    pin P40 { number = "40"; domains = "analog,digital"; directions = "passive"; }
+    pin SHIELD { number = "SH"; domains = "ground"; directions = "passive"; }
+}
