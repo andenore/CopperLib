@@ -1,0 +1,145 @@
+"""Deterministic, provisional six-layer TPS62130A physical adaptation.
+
+Uses the documented circuit and layout principles, not extracted vendor CAD.
+No compiler implementation or fetching is included in this generator.
+"""
+from hashlib import sha256
+import argparse
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+LAYERS = ["F.Cu", "In1.Cu", "In2.Cu", "In3.Cu", "In4.Cu", "B.Cu"]
+FOOTPRINTS = {
+    "U": ("Package_DFN_QFN:VQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm", "2cd7a54456461aff937a78ba0d02a90302e6000c2b7eb618b82920a55a5bda6b"),
+    "L": ("Inductor_SMD:L_Coilcraft_XAL4020-XXX", "676cea6505e0b24c6ab5f94a07d9492d504f7f7d7bccffa3f1542e2455c2ded5"),
+    "C_PVIN": ("Capacitor_SMD:C_0805_2012Metric", "89bba70c2d465045c058445d23f9626bb02341f69c6d5c44043a8621be2112ce"),
+    "C_OUT1": ("Capacitor_SMD:C_0805_2012Metric", "89bba70c2d465045c058445d23f9626bb02341f69c6d5c44043a8621be2112ce"),
+    "C_OUT2": ("Capacitor_SMD:C_0805_2012Metric", "89bba70c2d465045c058445d23f9626bb02341f69c6d5c44043a8621be2112ce"),
+    "C_AVIN": ("Capacitor_SMD:C_0402_1005Metric", "6626461e823efd255bfbdef7bdf64c8feb10fc410b0cacfd6353137e29252eda"),
+    "C_SS": ("Capacitor_SMD:C_0402_1005Metric", "6626461e823efd255bfbdef7bdf64c8feb10fc410b0cacfd6353137e29252eda"),
+    "R_FB_TOP": ("Resistor_SMD:R_0402_1005Metric", "66db65bc75ecc968fdec69997097d224d9fb5d1d7ae2517c82faa8042d3e127e"),
+    "R_FB_BOT": ("Resistor_SMD:R_0402_1005Metric", "66db65bc75ecc968fdec69997097d224d9fb5d1d7ae2517c82faa8042d3e127e"),
+}
+POSES = {"U": (0, 0, 0), "L": (-5.1, -.4, 180), "C_PVIN": (3.8, -1.9, 90),
+         "C_AVIN": (3.4, .9, 0), "C_SS": (2.9, 2.6, 180),
+         "C_OUT1": (-4.6, 3, 0), "C_OUT2": (-8.8, .5, 90),
+         "R_FB_TOP": (-1.6, 3, 0), "R_FB_BOT": (.3, 3, 0)}
+
+
+def nm(value): return round(value * 1_000_000)
+def point(x, y): return [nm(x), nm(y)]
+def pad(ref, number): return {"pad": [ref, str(number)]}
+
+
+def generate(enabled=False):
+    """The variant changes only the explicit EN role and its local connection."""
+    tracks, vias = [], []
+    def track(net, vertices, width=.25, layer="F.Cu"):
+        tracks.append(dict(net=net, points=[v if isinstance(v, dict) else point(*v) for v in vertices],
+                           width_nm=nm(width), layer=layer))
+    def via(net, xy, thermal=False):
+        data = dict(net=net, position_nm=point(*xy), size_nm=450000 if thermal else 600000,
+                    drill_nm=200000 if thermal else 300000, from_layer="F.Cu", to_layer="B.Cu", technology=None)
+        if thermal: data["finish"] = "filled-capped"
+        vias.append(data)
+    pad_nets = []
+    def assign(ref, numbers, net):
+        pad_nets.extend([ref, str(number), net] for number in numbers)
+    for numbers, net in [([1,2,3],"SW"),([5],"FB"),([6,7,8,15,16,17],"GND"),([9],"SS"),
+                         ([10,11,12],"VIN"),([13],"EN" if enabled else "VIN"),([14],"VOUT")]:
+        assign("U", numbers, net)
+    assign("L",[1],"SW"); assign("L",[2],"VOUT")
+    for ref, net in [("C_PVIN","VIN"),("C_AVIN","VIN"),("C_SS","SS"),("C_OUT1","VOUT"),("C_OUT2","VOUT")]:
+        assign(ref,[1],net); assign(ref,[2],"GND")
+    assign("R_FB_TOP",[1],"VOUT"); assign("R_FB_TOP",[2],"FB")
+    assign("R_FB_BOT",[1],"FB"); assign("R_FB_BOT",[2],"GND")
+
+    # Every power contact is individually wired; none is an internal-pad exemption.
+    for n in (1,2,3): track("SW", [pad("U",n),(-2.25,(-.75,-.25,.25)[n-1])], .25)
+    track("SW", [(-2.25,-.75),(-2.25,.25)], .7)
+    track("SW", [(-2.25,-.4),pad("L",1)], .8)
+    for n, y in ((11,-.25),(12,-.75)):
+        track("VIN", [pad("U",n),(2.25,y)], .25)
+    track("VIN", [(2.25,-.75),(2.25,-.25)], .5)
+    track("VIN", [(2.25,-.75),pad("C_PVIN",1)], .8)
+    track("VIN", [pad("U",10),(2.1,.25),pad("C_AVIN",1)], .25)
+    track("VIN", [pad("C_AVIN",1),(2.92,-.95),pad("C_PVIN",1)], .25)
+    track("VIN", [pad("C_PVIN",1),(6.1,-.95),(6.1,-4.5)], .8)
+    for xy in ((6.1,-4.5),(5.3,-4.5)):
+        via("VIN", xy)
+    track("VIN", [(5.3,-4.5),(6.1,-4.5)], .8)
+    track("VIN", [(5.3,-4.5),(6.1,-4.5)], .8,"B.Cu")
+    track("VOUT", [pad("L",2),(-6.285,3),pad("C_OUT1",1)], .8)
+    track("VOUT", [pad("C_OUT2",1),(-6.285,1.45)], .8)
+    track("VOUT", [pad("C_OUT1",1),(-6,6)], .8)
+    for xy in ((-6,6),(-5.2,6)):
+        via("VOUT", xy)
+    track("VOUT", [(-6,6),(-5.2,6)], .8)
+    track("VOUT", [(-6,6),(-5.2,6)], .8,"B.Cu")
+    # Quiet sense geometry is owner copper on In2, shielded from SW by In1 GND.
+    track("VOUT", [pad("U",14),(.25,-2.6)], .25)
+    track("VOUT", [pad("C_OUT1",1),(-5.55,4.25)], .25)
+    track("VOUT", [pad("R_FB_TOP",1),(-2.2,4.25)], .25)
+    for xy in ((.25,-2.6),(-5.55,4.25),(-2.2,4.25)):
+        via("VOUT",xy)
+    track("VOUT", [(.25,-2.6),(-5.55,4.25),(-5.55,5),(-2.2,5),(-2.2,4.25)], .25,"In2.Cu")
+    track("FB", [pad("U",5),(-.75,2.3),pad("R_FB_TOP",2),pad("R_FB_BOT",1)], .2)
+    track("SS", [pad("U",9),(2,.75),(2,1.6),pad("C_SS",1)], .2)
+    for n, xy in ((6,(-.25,.65)),(7,(.25,.65)),(8,(.65,.65)),(15,(-.25,-.65)),(16,(-.65,-.65))):
+        track("GND", [pad("U",n),xy], .25)
+    for xy in ((-.35,-.35),(.35,-.35),(-.35,.35),(.35,.35)):
+        via("GND",xy,thermal=True)
+    grounds = [("C_PVIN",(5.1,-2.85)),("C_AVIN",(4.8,.9)),("C_SS",(1.4,2.6)),
+               ("C_OUT1",(-3.65,4.25)),("C_OUT2",(-10.1,-.45)),("R_FB_BOT",(.81,4))]
+    for ref, xy in grounds:
+        track("GND",[pad(ref,2),xy],.5 if ref in {"C_PVIN","C_OUT1","C_OUT2"} else .25)
+        via("GND",xy)
+        track("GND",[xy,(.35,.35)],.8,"B.Cu")
+    # Join thermal annuli on B.Cu without depending on an unfilled plane.
+    track("GND", [(-.35,-.35),(.35,-.35),(.35,.35),(-.35,.35),(-.35,-.35)], .6,"B.Cu")
+    track("GND",[(.35,.35),(0,6)],.8,"B.Cu"); via("GND",(0,6))
+    if enabled:
+        track("EN",[pad("U",13),(.75,-2.2),(2,-3.45),(2,-4.5)],.2)
+    else:
+        track("VIN",[pad("U",13),(.75,-2.2),(2,-3.8),(6.1,-3.8)],.25)
+
+    def region(name,layers,tracks,vias,zones):
+        return dict(id=name,layers=layers,vertices=[point(-10.6,-3.9),point(6.6,-3.9),point(6.6,5.1),point(-10.6,5.1)],
+                    block_tracks=tracks,block_vias=vias,block_zones=zones)
+    ports = []
+    for role, xy, layer in [("VIN",(6.1,-4.5),"F.Cu"),("VOUT",(-6,6),"F.Cu"),("GND",(0,6),"B.Cu")]+([("EN",(2,-4.5),"F.Cu")] if enabled else []):
+        ports.append(dict(name=role,net=role,point=point(*xy),layer=layer,pads=[[r,p] for r,p,n in pad_nets if n==role]))
+    return dict(schema="copperlib-physical-hard-macro/v0.1", production_publishable=False,
+        source={"datasheet_url":"https://www.ti.com/lit/ds/symlink/tps62130a.pdf",
+                "datasheet_sha256":"f9b1af285622c0cf1a5991f9641a6e64c5e6d899e52cc0b1632808742019579f",
+                "datasheet_locator":"SLVSAG7F Rev F, Table 6-1, sections 11.1–11.3, Figure 11-1, pages 3 and 28–29",
+                "evm_url":"https://www.ti.com/lit/pdf/SLVU437",
+                "evm_sha256":"b8e09708c6e866ee1c7f99993dd430967e1b3d1055678873452f3af0d8402237",
+                "evm_locator":"SLVU437B Rev B, sections 4–5, pages 16–20",
+                "geometry_status":"authored adaptation; different inductor, two output capacitors and six-layer stack; not extracted TI CAD",
+                "gerber_status":"SLVC394 public URLs returned HTTP 401 on 2026-10-06; archive not consumed"},
+        anchor="U",members=[dict(reference=r,footprint=FOOTPRINTS[r][0],footprint_digest=FOOTPRINTS[r][1],
+                                 center_nm=point(x,y),rotation_degrees=str(angle),edge_clearance_nm=250000)
+                              for r,(x,y,angle) in sorted(POSES.items())],
+        pad_nets=pad_nets,isolated_pads=[["U","4"]],tracks=tracks,vias=vias,ports=ports,
+        protected_regions=[region("regulator-private",["F.Cu","In2.Cu","B.Cu"],True,True,False)],
+        keepouts=[region("regulator-fill-exclusion",["F.Cu","In2.Cu","In3.Cu","B.Cu"],False,False,True)],
+        required_layers=LAYERS,allowed_rotations=[0,90,180,270],internal_clearance_nm=0,
+        unresolved=["rail current and thermal qualification including access-neck and via-bank capacity",
+                    "assembly review of filled-capped thermal vias and solder paste",
+                    "six-layer laminate and control-loop/EMI bench validation",
+                    "TI Gerber archive unavailable without authentication; authored adaptation rather than CAD reproduction"])
+
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output-dir",type=Path,default=ROOT/"assets")
+    args=parser.parse_args();args.output_dir.mkdir(parents=True,exist_ok=True)
+    for enabled in (False,True):
+        path=args.output_dir/f"tps62130a-six-layer-{'enabled' if enabled else 'always-on'}.json"
+        path.write_bytes((json.dumps(generate(enabled),sort_keys=True,indent=2)+"\n").encode())
+        print(f"{path.name}: sha256:{sha256(path.read_bytes()).hexdigest()}")
+
+
+if __name__=="__main__":main()
