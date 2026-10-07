@@ -4,9 +4,9 @@
 // map and the package-edge pair order), so a straight cable (n -> n) from a
 // source port connects pair to pair:
 //   PAIR_A 14/15, PAIR_B 17/18, PAIR_C 20/21, CLK 23/24, PAIR_D 26/27;
-//   GND 1 4 8 11 12 13 16 19 22 25 28 29 30 33 37 40 SH.
-// The sink side leaves the 5 V (2 3 38 39), I2C (5 6), DUT_VIO (7) and reserved
-// (9 10 31 32 34 35 36) positions unconnected, so this module has no ports for
+//   GND 1 4 8 11 12 13 16 19 22 25 28 29 30 33 40 SH.
+// The sink side leaves the 5 V (36 37 38 39), I2C (31 32), DUT_VIO (34) and
+// reserved (2 3 5 6 7 9 10 35) positions unconnected, so this module has no ports for
 // them: a loopback cable from a source port lands the DUT-side rails on open
 // contacts.
 module CSI2_DPHY_X4_SINK_PORT {
@@ -39,7 +39,7 @@ module CSI2_DPHY_X4_SINK_PORT {
     net GND {
         port.GND;
         J.P1; J.P4; J.P8; J.P11; J.P12; J.P13; J.P16; J.P19; J.P22;
-        J.P25; J.P28; J.P29; J.P30; J.P33; J.P37; J.P40; J.SHIELD;
+        J.P25; J.P28; J.P29; J.P30; J.P33; J.P40; J.SHIELD;
     }
-    // Positions 2 3 5 6 7 9 10 31 32 34 35 36 38 39 stay unconnected.
+    // Positions 2 3 5 6 7 9 10 31 32 34 35 36 37 38 39 stay unconnected.
 }

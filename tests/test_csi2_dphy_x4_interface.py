@@ -23,13 +23,13 @@ LANE_PORTS = (
 
 # Function column; None = reserved / not connected.
 SOURCE_PINOUT = {
-    "1": "GND", "2": "VDUT_5V", "3": "VDUT_5V", "4": "GND", "5": "SDA", "6": "SCL",
-    "7": "DUT_VIO", "8": "GND", "9": None, "10": None, "11": "GND", "12": "GND",
+    "1": "GND", "2": None, "3": None, "4": "GND", "5": None, "6": None,
+    "7": None, "8": "GND", "9": None, "10": None, "11": "GND", "12": "GND",
     "13": "GND", "14": "PAIR_A_P", "15": "PAIR_A_N", "16": "GND", "17": "PAIR_B_P",
     "18": "PAIR_B_N", "19": "GND", "20": "PAIR_C_P", "21": "PAIR_C_N", "22": "GND",
     "23": "CLK_P", "24": "CLK_N", "25": "GND", "26": "PAIR_D_P", "27": "PAIR_D_N",
-    "28": "GND", "29": "GND", "30": "GND", "31": None, "32": None, "33": "GND",
-    "34": None, "35": None, "36": None, "37": "GND", "38": "VDUT_5V",
+    "28": "GND", "29": "GND", "30": "GND", "31": "SDA", "32": "SCL", "33": "GND",
+    "34": "DUT_VIO", "35": None, "36": "VDUT_5V", "37": "VDUT_5V", "38": "VDUT_5V",
     "39": "VDUT_5V", "40": "GND", "SH": "GND",
 }
 # IN column: 5 V, I2C, VIO and reserved positions are "not connected".
@@ -40,7 +40,7 @@ SINK_PINOUT = {
     "19": "GND", "20": "PAIR_C_P", "21": "PAIR_C_N", "22": "GND", "23": "CLK_P",
     "24": "CLK_N", "25": "GND", "26": "PAIR_D_P", "27": "PAIR_D_N", "28": "GND",
     "29": "GND", "30": "GND", "31": None, "32": None, "33": "GND", "34": None,
-    "35": None, "36": None, "37": "GND", "38": None, "39": None, "40": "GND", "SH": "GND",
+    "35": None, "36": None, "37": None, "38": None, "39": None, "40": "GND", "SH": "GND",
 }
 # Example lane assignment: a deserializer port A (source) and a
 # serializer CSI-2 input (sink) wired to the pair positions.
