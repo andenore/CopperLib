@@ -47,10 +47,13 @@ bound the switching-loop or transient requirements.
   lock, ERC passes but `plan-layout` with one or three candidates finds no legal
   placement: `R_VDUT_BOT` is 12.58 mm from `U_MCU` against a 4 mm maximum.
   The original locked macro produces a legal one-candidate placement with the
-  same board and compiler. Investigate this placement-search regression before
-  changing CopperVigo's pinned scenes/lock or running a full route. This is a
-  host-board integration failure, not evidence of a regulator copper DRC fault.
-  Full-board routing and qualification remain pending.
+  same board and compiler. Replaying its 142 poses with the revised macro is
+  legal, confirming a placement-search regression rather than a geometric
+  impossibility. CopperScript now retries independent constrained groups after
+  an oversized fixed-anchor pack exhausts its search. With that change, the
+  revised macro produces a legal one-candidate Vigo placement and passes
+  critical preflight with package-access checks. CopperVigo's pinned scenes
+  and lock remain unchanged until full-board routing and qualification.
 
 ## 1. Redraw the power stage around current loops
 
