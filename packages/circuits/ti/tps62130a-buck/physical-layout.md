@@ -75,6 +75,13 @@ and In4.Cu GND planes contact the individual ground/thermal vias. Native refill
 and zero unconnected items are required to prove those plane-backed returns;
 an unfilled zone outline is not accepted as a connection.
 
+`required_layers` names the six-layer stackup contract; it does not reserve
+every layer beneath the macro. The macro permits tracks beneath its envelope
+on In1.Cu, In3.Cu and In4.Cu. Its In3.Cu keepout excludes pours only. Vigo's
+board-wide GND zones separately reserve In1.Cu and In4.Cu for plane return;
+they are not hard-macro track keepouts. Through-vias still occupy their actual
+six-layer spans and need normal copper clearance.
+
 Each instance requires an explicit `via_in_pad(BUCK_x/U.EP)` filled-capped
 permission, the JLCPCB six-layer profile, and declared inner GND zones. The asset
 finish field alone grants no process permission. VIN and VOUT each have one

@@ -52,7 +52,13 @@ def test_assets_reproduce_and_bind_every_required_pad(enabled):
     assert sum(v.get("finish") == "filled-capped" for v in asset["vias"]) == 4
     for port in asset["ports"]:
         assert {tuple(p) for p in port["pads"]} == {(r,p) for r,p,n in asset["pad_nets"] if n == port["net"]}
-    assert all("In1.Cu" not in k["layers"] and "In4.Cu" not in k["layers"] for k in asset["keepouts"])
+    assert len(asset["protected_regions"]) == 1
+    assert asset["protected_regions"][0]["layers"] == ["F.Cu", "In2.Cu", "B.Cu"]
+    assert len(asset["keepouts"]) == 1
+    assert asset["keepouts"][0]["layers"] == ["In2.Cu", "In3.Cu", "B.Cu"]
+    assert not asset["keepouts"][0]["block_tracks"]
+    assert not asset["keepouts"][0]["block_vias"]
+    assert asset["keepouts"][0]["block_zones"]
 
 
 def test_cached_official_evidence_identity():
