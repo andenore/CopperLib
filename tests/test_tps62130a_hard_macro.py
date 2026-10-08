@@ -32,6 +32,14 @@ def test_assets_reproduce_and_bind_every_required_pad(enabled):
     asset = load("generate_layout").generate(enabled)
     assert (json.dumps(asset,sort_keys=True,indent=2)+"\n").encode() == path(enabled).read_bytes()
     assert asset["production_publishable"] is False and asset["unresolved"]
+    assert asset["schema"] == "copperlib-physical-hard-macro/v0.2"
+    assert {zone["net"] for zone in asset["zones"]} == {"VIN", "VOUT", "GND"}
+    assert len(asset["zones"]) == 5
+    assert not any(track["net"] == "GND" and track["layer"] == "B.Cu" for track in asset["tracks"])
+    assert asset["plane_returns"][0]["net"] == "GND"
+    assert {tuple(p) for p in asset["plane_returns"][0]["pads"]} == {
+        (r,p) for r,p,n in asset["pad_nets"] if n == "GND"}
+    assert len({tuple(c["via_position_nm"]) for c in asset["plane_returns"][0]["dedicated_contacts"]}) == 6
     assert len(asset["members"]) == 9
     assert asset["isolated_pads"] == [["U","4"]]
     assert {p for r,p,n in asset["pad_nets"] if r == "U"} == {str(p) for p in range(1,18) if p != 4}
@@ -54,6 +62,7 @@ def test_cached_official_evidence_identity():
 
 @pytest.mark.skipif(not FOOTPRINT_ROOT.is_dir(), reason="explicit KiCad footprint installation required")
 def test_input_capacitor_loop_stays_compact(tmp_path):
+    from pcbir.hard_macros import resolved_macro_geometry
     from pcbir.placement import transformed_pad_position
     board = load("layout_trial").make_trial(tmp_path, enabled=True, external=False, footprint_root=FOOTPRINT_ROOT)
     poses = {p.reference: p for p in board.placements}
@@ -68,6 +77,12 @@ def test_input_capacitor_loop_stays_compact(tmp_path):
     assert distance(cap_vin, pvin) < 1.9
     assert distance(cap_gnd, cap_via.position) < 1.2
     assert min(distance(cap_via.position, v.position) for v in thermal_vias) < 3.1
+    macro = board.hard_macros[0]
+    resolved_vias = resolved_macro_geometry(board, macro)[1]
+    via_positions = {source.position: placed.position for source, placed in zip(macro.vias, resolved_vias)}
+    for pad, local_via in macro.plane_returns[0].dedicated_contacts:
+        land = transformed_pad_position(board, poses[pad.component], pad.pad)
+        assert distance(land, via_positions[local_via]) <= 1.35
 
 
 @pytest.mark.skipif(not FOOTPRINT_ROOT.is_dir(), reason="explicit KiCad footprint installation required")
@@ -88,11 +103,14 @@ def test_materialization_rotates_and_independent_refill_accepts_external_routes(
     if cli is None: pytest.skip("native KiCad CLI required for independent fill acceptance")
     target = tmp_path/"buck.kicad_pcb"
     write_kicad_project(KiCadPcbBackend().generate(routed),target)
-    subprocess.run([cli,"pcb","drc","--refill-zones","--format","json","-o",str(tmp_path/"native.json"),str(target)],
+    subprocess.run([cli,"pcb","drc","--refill-zones","--save-board","--format","json","-o",str(tmp_path/"native.json"),str(target)],
                    check=True,capture_output=True,text=True)
     result = json.loads((tmp_path/"native.json").read_bytes())
     assert not result["violations"], result["violations"]
     assert not result["unconnected_items"], result["unconnected_items"]
+    blocks = target.read_text().split("(zone\n")
+    assert all(any(f'(name "{zone.id}")' in block and "(filled_polygon" in block
+                   for block in blocks) for zone in board.hard_macros[0].zones)
 
 
 @pytest.mark.skipif(not FOOTPRINT_ROOT.is_dir(), reason="explicit KiCad footprint installation required")
@@ -112,6 +130,40 @@ def test_broken_internal_owner_copper_and_same_net_intrusion_are_rejected(tmp_pa
         validate_hard_macros(replace(board,tracks=(*board.tracks,shortcut)))
     with pytest.raises(ValueError,match="immutable hard-macro copper"):
         validate_hard_macros(replace(board,tracks=board.tracks[1:]))
+
+
+@pytest.mark.skipif(not FOOTPRINT_ROOT.is_dir(), reason="explicit KiCad footprint installation required")
+def test_missing_dedicated_ground_via_rejects_macro(tmp_path):
+    trial = load("layout_trial")
+    damaged = json.loads(path(False).read_bytes())
+    contact = damaged["plane_returns"][0]["dedicated_contacts"][0]
+    damaged["vias"] = [via for via in damaged["vias"]
+                       if via["position_nm"] != contact["via_position_nm"]]
+    asset = tmp_path/"missing-via.json"
+    asset.write_text(json.dumps(damaged), encoding="utf-8")
+    with pytest.raises(ValueError, match="plane return|dedicated plane contact"):
+        trial.make_trial(tmp_path/"damaged", footprint_root=FOOTPRINT_ROOT, asset_path=asset)
+
+
+@pytest.mark.skipif(not FOOTPRINT_ROOT.is_dir() or shutil.which("kicad-cli") is None,
+                    reason="native KiCad plus explicit footprint installation required")
+def test_plane_outline_does_not_prove_a_blocked_ground_return(tmp_path):
+    from pcbir.backends.kicad_pcb import KiCadPcbBackend
+    from pcbir.backends.kicad_project import write_kicad_project
+    from pcbir.physical import CopperKeepout, CopperLayer, Point, PolygonRing, PolygonWithHoles
+    board = load("layout_trial").make_trial(tmp_path, external=False, footprint_root=FOOTPRINT_ROOT)
+    via = next(v for v in board.vias if v.net == "GND" and v.position == Point.mm(9.9, 19.55))
+    x, y = via.position.x_nm, via.position.y_nm
+    outline = PolygonWithHoles(PolygonRing(tuple(Point(x + dx, y + dy) for dx, dy in (
+        (-700000,-700000), (700000,-700000), (700000,700000), (-700000,700000)))))
+    blocked = replace(board, copper_keepouts=(*board.copper_keepouts,
+        CopperKeepout("blocked-return", (CopperLayer.INTERNAL_1, CopperLayer.INTERNAL_4),
+                      outline, block_tracks=False, block_vias=False, block_zones=True)))
+    target = tmp_path/"blocked.kicad_pcb"
+    write_kicad_project(KiCadPcbBackend().generate(blocked), target)
+    subprocess.run([shutil.which("kicad-cli"), "pcb", "drc", "--refill-zones", "--format", "json",
+                    "-o", str(tmp_path/"blocked.json"), str(target)], check=True, capture_output=True, text=True)
+    assert json.loads((tmp_path/"blocked.json").read_text())["unconnected_items"]
 
 
 @pytest.mark.skipif(not FOOTPRINT_ROOT.is_dir(), reason="explicit KiCad footprint installation required")

@@ -62,8 +62,8 @@ def generate(enabled=False):
     for n, y in ((11,-.25),(12,-.75)):
         track("VIN", [pad("U",n),(2.25,y)], .25)
     track("VIN", [(2.25,-.75),(2.25,-.25)], .5)
-    track("VIN", [(2.25,-.75),pad("C_PVIN",1)], .8)
-    track("VIN", [pad("U",10),(2.1,.25),pad("C_AVIN",1)], .25)
+    track("VIN", [(2.25,-.75),(2.45,-.95),pad("C_PVIN",1)], .8)
+    track("VIN", [pad("U",10),(2.1,.25),(2.75,.9),pad("C_AVIN",1)], .25)
     track("VIN", [pad("C_AVIN",1),(2.92,-.95),pad("C_PVIN",1)], .25)
     track("VIN", [pad("C_PVIN",1),(6.1,-.95),(6.1,-4.5)], .8)
     for xy in ((6.1,-4.5),(5.3,-4.5)):
@@ -72,7 +72,7 @@ def generate(enabled=False):
     track("VIN", [(5.3,-4.5),(6.1,-4.5)], .8,"B.Cu")
     track("VOUT", [pad("L",2),(-6.285,3),pad("C_OUT1",1)], .8)
     track("VOUT", [pad("C_OUT2",1),(-6.285,1.45)], .8)
-    track("VOUT", [pad("C_OUT1",1),(-6,6)], .8)
+    track("VOUT", [pad("C_OUT1",1),(-6,3.45),(-6,6)], .8)
     for xy in ((-6,6),(-5.2,6)):
         via("VOUT", xy)
     track("VOUT", [(-6,6),(-5.2,6)], .8)
@@ -80,13 +80,13 @@ def generate(enabled=False):
     # Quiet sense geometry is owner copper on In2, shielded from SW by In1 GND.
     track("VOUT", [pad("U",14),(.25,-2.6)], .25)
     track("VOUT", [pad("C_OUT1",1),(-5.55,4.25)], .25)
-    track("VOUT", [pad("R_FB_TOP",1),(-2.2,4.25)], .25)
-    for xy in ((.25,-2.6),(-5.55,4.25),(-2.2,4.25)):
+    track("VOUT", [pad("R_FB_TOP",1),(-2.11,4.25)], .25)
+    for xy in ((.25,-2.6),(-5.55,4.25),(-2.11,4.25)):
         via("VOUT",xy)
-    track("VOUT", [(.25,-2.6),(-5.55,4.25),(-5.55,5),(-2.2,5),(-2.2,4.25)], .25,"In2.Cu")
-    track("FB", [pad("U",5),(-.75,2.3),pad("R_FB_TOP",2),pad("R_FB_BOT",1)], .2)
+    track("VOUT", [(.25,-2.6),(-5.55,4.25),(-5.55,5),(-2.11,5),(-2.11,4.25)], .25,"In2.Cu")
+    track("FB", [pad("U",5),(-.75,2.3),(-1.09,2.64),pad("R_FB_TOP",2),pad("R_FB_BOT",1)], .2)
     track("SS", [pad("U",9),(2,.75),(2,1.6),pad("C_SS",1)], .2)
-    for n, xy in ((6,(-.25,.65)),(7,(.25,.65)),(8,(.65,.65)),(15,(-.25,-.65)),(16,(-.65,-.65))):
+    for n, xy in ((6,(-.25,.65)),(7,(.25,.65)),(8,(.75,.65)),(15,(-.25,-.65)),(16,(-.75,-.65))):
         track("GND", [pad("U",n),xy], .25)
     ep_vias = ((-.35,-.35),(.35,-.35),(-.35,.35),(.35,.35))
     for xy in ep_vias:
@@ -96,23 +96,36 @@ def generate(enabled=False):
     for ref, xy in grounds:
         track("GND",[pad(ref,2),xy],.5 if ref in {"C_PVIN","C_OUT1","C_OUT2"} else .25)
         via("GND",xy)
-        nearest_ep = min(ep_vias,key=lambda ep: (xy[0]-ep[0])**2+(xy[1]-ep[1])**2)
-        track("GND",[xy,nearest_ep],.8,"B.Cu")
-    # Join thermal annuli on B.Cu without depending on an unfilled plane.
-    track("GND", [(-.35,-.35),(.35,-.35),(.35,.35),(-.35,.35),(-.35,-.35)], .6,"B.Cu")
-    track("GND",[(.35,.35),(0,6)],.8,"B.Cu"); via("GND",(0,6))
     if enabled:
         track("EN",[pad("U",13),(1,-1.7125),(1,-4.5),(2,-4.5)],.2)
     else:
         track("VIN",[pad("U",13),(1,-1.7125),(1,-3.8),(6.1,-3.8)],.25)
 
+    # Owned F.Cu copper areas: short power/return shapes, never a broad SW pour.
+    # Explicit traces still prove all private contacts before native zone refill.
+    def zone(name, net, vertices):
+        return dict(id=name, net=net, layers=["F.Cu"], vertices=[point(*p) for p in vertices],
+                    priority=2, clearance_nm=200000, minimum_width_nm=200000,
+                    pad_connection="solid")
+    zones = [
+        zone("pvin", "VIN", [(1.7,-1.25),(3.7,-1.25),(3.7,-.05),(1.7,-.05)]),
+        zone("vout", "VOUT", [(-6.8,-.7),(-5.8,-.7),(-5.8,2.5),(-5.1,2.5),(-5.1,3.5),(-6.8,3.5)]),
+        zone("input-return", "GND", [(1.7,-3.35),(3.7,-3.35),(3.7,-2.35),(1.7,-2.35)]),
+        zone("output-return", "GND", [(-4.2,2.5),(-3.1,2.5),(-3.1,4.7),(-4.2,4.7)]),
+        zone("exposed-pad", "GND", [(-.6,-.6),(.6,-.6),(.6,.6),(-.6,.6)]),
+    ]
+
     def region(name,layers,tracks,vias,zones):
         return dict(id=name,layers=layers,vertices=[point(-10.6,-3.9),point(6.6,-3.9),point(6.6,5.1),point(-10.6,5.1)],
                     block_tracks=tracks,block_vias=vias,block_zones=zones)
     ports = []
-    for role, xy, layer in [("VIN",(6.1,-4.5),"F.Cu"),("VOUT",(-6,6),"F.Cu"),("GND",(0,6),"B.Cu")]+([("EN",(2,-4.5),"F.Cu")] if enabled else []):
+    for role, xy, layer in [("VIN",(6.1,-4.5),"F.Cu"),("VOUT",(-6,6),"F.Cu")]+([("EN",(2,-4.5),"F.Cu")] if enabled else []):
         ports.append(dict(name=role,net=role,point=point(*xy),layer=layer,pads=[[r,p] for r,p,n in pad_nets if n==role]))
-    return dict(schema="copperlib-physical-hard-macro/v0.1", production_publishable=False,
+    plane_returns = [dict(net="GND", layers=["In1.Cu","In4.Cu"],
+                          pads=[[r,p] for r,p,n in pad_nets if n=="GND"],
+                          dedicated_contacts=[dict(pad=[ref,"2"],via_position_nm=point(*xy))
+                                              for ref,xy in grounds])]
+    return dict(schema="copperlib-physical-hard-macro/v0.2", production_publishable=False,
         source={"datasheet_url":"https://www.ti.com/lit/ds/symlink/tps62130a.pdf",
                 "datasheet_sha256":"f9b1af285622c0cf1a5991f9641a6e64c5e6d899e52cc0b1632808742019579f",
                 "datasheet_locator":"SLVSAG7F Rev F, Table 6-1, sections 11.1–11.3, Figure 11-1, pages 3 and 28–29",
@@ -124,9 +137,10 @@ def generate(enabled=False):
         anchor="U",members=[dict(reference=r,footprint=FOOTPRINTS[r][0],footprint_digest=FOOTPRINTS[r][1],
                                  center_nm=point(x,y),rotation_degrees=str(angle),edge_clearance_nm=250000)
                               for r,(x,y,angle) in sorted(POSES.items())],
-        pad_nets=pad_nets,isolated_pads=[["U","4"]],tracks=tracks,vias=vias,ports=ports,
+        pad_nets=pad_nets,isolated_pads=[["U","4"]],tracks=tracks,vias=vias,ports=ports,zones=zones,
+        plane_returns=plane_returns,
         protected_regions=[region("regulator-private",["F.Cu","In2.Cu","B.Cu"],True,True,False)],
-        keepouts=[region("regulator-fill-exclusion",["F.Cu","In2.Cu","In3.Cu","B.Cu"],False,False,True)],
+        keepouts=[region("regulator-fill-exclusion",["In2.Cu","In3.Cu","B.Cu"],False,False,True)],
         required_layers=LAYERS,allowed_rotations=[0,90,180,270],internal_clearance_nm=0,
         unresolved=["rail current and thermal qualification including access-neck and via-bank capacity",
                     "assembly review of filled-capped thermal vias and solder paste",

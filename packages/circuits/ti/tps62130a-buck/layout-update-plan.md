@@ -54,6 +54,16 @@ bound the switching-loop or transient requirements.
   revised macro produces a legal one-candidate Vigo placement and passes
   critical preflight with package-access checks. CopperVigo's pinned scenes
   and lock remain unchanged until full-board routing and qualification.
+- The next v0.2 revision adds five owned, filled F.Cu VIN/VOUT/GND areas and an
+  explicit pending plane-return group. Each passive GND pad has a distinct local
+  via; the long B.Cu spokes and fictional common GND port are gone. CopperScript
+  binds, rotates, locks, fingerprints and source-recovers these areas. Local
+  pours no longer defer external VIN/VOUT routing. The minimal
+  `CopperScript/examples/tps62130a_macro` board and eight rotated external-access
+  trials pass KiCad refill/DRC with zero opens and violations. Current switching
+  geometry still differs from TI's authored example; output-capacitor placement,
+  loop metrics, current/thermal/EMI validation and full-board integration remain
+  open. This iteration deliberately does not use CopperVigo as a trial.
 
 ## 1. Redraw the power stage around current loops
 
@@ -102,11 +112,11 @@ with many overlapping tracks.
 
 ## 3. Add only the hard-macro support this layout proves necessary
 
-The v0.1 macro asset contains immutable tracks/vias, ports and all-net zone
-exclusions, but no macro-owned copper areas. Its pre-fill continuity proof
-requires every private GND pad to reach a single explicit GND port. This is
-why the current asset includes long B.Cu spokes even though CopperVigo has
-In1.Cu and In4.Cu GND planes. Solve these as two bounded compiler features:
+The original v0.1 macro asset contained immutable tracks/vias, ports and
+all-net zone exclusions, but no macro-owned copper areas. Its pre-fill
+continuity proof required every private GND pad to reach a single explicit GND
+port, causing the long B.Cu spokes. The v0.2 isolated revision implements the
+following two bounded compiler features; full-board integration remains open:
 
 1. **Owned local copper areas.** Prefer the existing typed `CopperZone` model
    for local F.Cu VIN, VOUT and GND intent, with solid pad connections and
@@ -148,12 +158,11 @@ label the copper-area/return limitations as unresolved.
    targeted assertions for the measured loop/sense geometry and for absent
    or interrupted plane returns; current tests cover connectivity and width
    but do not bound switching-loop shape.
-3. Route the complete CopperVigo board with all three instances and refill it
-   independently. Require zero opens/violations, no hard-macro intrusion, the
-   declared GND/VIN/VOUT zone contacts present, and no regression in CSI-2
-   routing/reference planes. Compare per-layer regulator plots and the
-   geometric metrics with the saved baseline. Inspect actual filled polygons,
-   not only zone outlines.
+3. Iterate first on the one-regulator CopperScript probe; do not use CopperVigo
+   as the layout trial. A later board-integration milestone must route all three
+   instances and refill independently, requiring zero opens/violations, no
+   hard-macro intrusion, filled GND/VIN/VOUT contacts and no CSI-2 regression.
+   Compare per-layer plots and geometry with the saved baseline at that stage.
 4. Select real capacitor part numbers and verify effective capacitance under
    DC bias, voltage/temperature ratings, thermal-via assembly and the actual
    stackup. Bench-check regulation/transients, temperature and conducted/
