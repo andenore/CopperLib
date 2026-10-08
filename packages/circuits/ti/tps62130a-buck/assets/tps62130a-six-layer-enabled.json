@@ -428,6 +428,47 @@
       ]
     }
   ],
+  "polygons": [
+    {
+      "id": "switch-island",
+      "layer": "F.Cu",
+      "net": "SW",
+      "vertices": [
+        [
+          -4050000,
+          -750000
+        ],
+        [
+          -2600000,
+          -750000
+        ],
+        [
+          -2600000,
+          -1100000
+        ],
+        [
+          -1900000,
+          -1100000
+        ],
+        [
+          -1900000,
+          350000
+        ],
+        [
+          -2600000,
+          350000
+        ],
+        [
+          -2600000,
+          150000
+        ],
+        [
+          -4050000,
+          150000
+        ]
+      ]
+    }
+  ],
   "ports": [
     {
       "layer": "F.Cu",
@@ -547,7 +588,7 @@
     "In4.Cu",
     "B.Cu"
   ],
-  "schema": "copperlib-physical-hard-macro/v0.2",
+  "schema": "copperlib-physical-hard-macro/v0.3",
   "source": {
     "datasheet_locator": "SLVSAG7F Rev F, Table 6-1, sections 11.1\u201311.3, Figure 11-1, pages 3 and 28\u201329",
     "datasheet_sha256": "f9b1af285622c0cf1a5991f9641a6e64c5e6d899e52cc0b1632808742019579f",
@@ -609,38 +650,6 @@
         ]
       ],
       "width_nm": 250000
-    },
-    {
-      "layer": "F.Cu",
-      "net": "SW",
-      "points": [
-        [
-          -2250000,
-          -750000
-        ],
-        [
-          -2250000,
-          250000
-        ]
-      ],
-      "width_nm": 700000
-    },
-    {
-      "layer": "F.Cu",
-      "net": "SW",
-      "points": [
-        [
-          -2250000,
-          -400000
-        ],
-        {
-          "pad": [
-            "L",
-            "1"
-          ]
-        }
-      ],
-      "width_nm": 800000
     },
     {
       "layer": "F.Cu",

@@ -32,7 +32,10 @@ def test_assets_reproduce_and_bind_every_required_pad(enabled):
     asset = load("generate_layout").generate(enabled)
     assert (json.dumps(asset,sort_keys=True,indent=2)+"\n").encode() == path(enabled).read_bytes()
     assert asset["production_publishable"] is False and asset["unresolved"]
-    assert asset["schema"] == "copperlib-physical-hard-macro/v0.2"
+    assert asset["schema"] == "copperlib-physical-hard-macro/v0.3"
+    assert len(asset["polygons"]) == 1
+    assert asset["polygons"][0]["net"] == "SW"
+    assert asset["polygons"][0]["layer"] == "F.Cu"
     assert {zone["net"] for zone in asset["zones"]} == {"VIN", "VOUT", "GND"}
     assert len(asset["zones"]) == 5
     assert not any(track["net"] == "GND" and track["layer"] == "B.Cu" for track in asset["tracks"])
@@ -98,6 +101,7 @@ def test_materialization_rotates_and_independent_refill_accepts_external_routes(
     routed = trial.route_trial(board)
     assert routed.tracks[:len(board.tracks)] == board.tracks
     assert routed.vias[:len(board.vias)] == board.vias
+    assert routed.polygons == board.polygons
     validate_hard_macros(routed)
     cli = shutil.which("kicad-cli")
     if cli is None: pytest.skip("native KiCad CLI required for independent fill acceptance")
@@ -108,6 +112,8 @@ def test_materialization_rotates_and_independent_refill_accepts_external_routes(
     result = json.loads((tmp_path/"native.json").read_bytes())
     assert not result["violations"], result["violations"]
     assert not result["unconnected_items"], result["unconnected_items"]
+    assert any('(net "B/SW")' in block and '(fill yes)' in block
+               for block in target.read_text().split('(gr_poly')[1:])
     blocks = target.read_text().split("(zone\n")
     assert all(any(f'(name "{zone.id}")' in block and "(filled_polygon" in block
                    for block in blocks) for zone in board.hard_macros[0].zones)
@@ -130,6 +136,13 @@ def test_broken_internal_owner_copper_and_same_net_intrusion_are_rejected(tmp_pa
         validate_hard_macros(replace(board,tracks=(*board.tracks,shortcut)))
     with pytest.raises(ValueError,match="immutable hard-macro copper"):
         validate_hard_macros(replace(board,tracks=board.tracks[1:]))
+    with pytest.raises(ValueError,match="immutable hard-macro polygon"):
+        validate_hard_macros(replace(board,polygons=()))
+    damaged = json.loads(path(False).read_bytes())
+    damaged["polygons"] = []
+    asset.write_text(json.dumps(damaged),encoding="utf-8")
+    with pytest.raises(ValueError,match="internal net.*not connected"):
+        trial.make_trial(tmp_path/"no-switch-island",footprint_root=FOOTPRINT_ROOT,asset_path=asset)
 
 
 @pytest.mark.skipif(not FOOTPRINT_ROOT.is_dir(), reason="explicit KiCad footprint installation required")

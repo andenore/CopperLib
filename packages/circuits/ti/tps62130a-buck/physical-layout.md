@@ -2,7 +2,7 @@
 
 Review this adaptation against the [CopperLib hard-macro checklist](../../../../docs/hard-macro-review-checklist.md).
 
-The two v0.2 JSON assets preserve nine component poses and their local copper for the
+The two v0.3 JSON assets preserve nine component poses and their local copper for the
 existing `TPS62130A_BUCK_2U2` circuit, including its board-owned feedback resistors.
 The always-on variant joins EN to VIN locally. The enabled variant exposes a
 separate EN port. Neither asset changes the electrical module or resistor values.
@@ -24,7 +24,9 @@ This authored adaptation uses a Coilcraft XAL4020-222MEC, two 0805 output
 capacitors and a six-layer board. The output-capacitor arrangement, wide explicit
 tracks, via banks and layer assignment differ from the TI drawings. Five locked
 F.Cu zones now supply local VIN, VOUT, input/output GND and EP copper areas; no
-SW pour is used. The IC lands and short pin necks feed
+SW pour is used. A fixed, netted F.Cu polygon forms the compact SW island
+between the three pin necks and inductor pad. It does not depend on zone
+refill or use the former pair of wide track segments. The IC lands and short pin necks feed
 0.8 mm power trunks; their electrical adequacy still requires application review.
 Every VIN/VOUT segment, including AVIN, VOS, divider pick-up and the always-on
 EN branch, is at least 0.25 mm wide to satisfy 0.25 mm rail routing rules. The
@@ -47,7 +49,7 @@ output-capacitor placement was retained.
 ## Geometry and integration
 
 The anchor is U at `(0, 0)`; only front-side 0/90/180/270-degree rotations are
-allowed. Component-local coordinates, tracks, vias, ports, zones and keepouts rotate
+allowed. Component-local coordinates, tracks, vias, ports, polygons, zones and keepouts rotate
 together. The private envelope is x = −10.6…6.6 mm, y = −3.9…5.1 mm. Owner
 lead-ins extend to ports outside it; total copper extent is about 17.2 × 11.2 mm.
 

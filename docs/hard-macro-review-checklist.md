@@ -25,7 +25,9 @@ performance.
 - **Keep ownership explicit.** Declare local copper, ports, protected routing
   regions and fill exclusions separately. Do not use a zone outline, shared
   logical pad number or net name as proof of physical connectivity. Confirm
-  that host routing and fill cannot bypass a prescribed local return.
+  that host routing and fill cannot bypass a prescribed local return. Use
+  fixed netted polygons for prescribed conductor shapes and zones for copper
+  that must refill around neighboring objects; inspect both after native DRC.
 - **Test the contract.** Regenerate the asset deterministically; test permitted
   rotations and variants, lost or altered owner copper, wrong pad/net bindings,
   prohibited shortcuts, external port access, independent native refill and

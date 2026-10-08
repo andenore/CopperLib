@@ -57,8 +57,10 @@ def generate(enabled=False):
 
     # Every power contact is individually wired; none is an internal-pad exemption.
     for n in (1,2,3): track("SW", [pad("U",n),(-2.25,(-.75,-.25,.25)[n-1])], .25)
-    track("SW", [(-2.25,-.75),(-2.25,.25)], .7)
-    track("SW", [(-2.25,-.4),pad("L",1)], .8)
+    # The short, wide SW island is fixed copper, not a refill-dependent pour.
+    polygons = [dict(id="switch-island", net="SW", layer="F.Cu", vertices=[point(*p) for p in
+        [(-4.05,-.75),(-2.6,-.75),(-2.6,-1.1),(-1.9,-1.1),(-1.9,.35),
+         (-2.6,.35),(-2.6,.15),(-4.05,.15)]])]
     for n, y in ((11,-.25),(12,-.75)):
         track("VIN", [pad("U",n),(2.25,y)], .25)
     track("VIN", [(2.25,-.75),(2.25,-.25)], .5)
@@ -125,7 +127,7 @@ def generate(enabled=False):
                           pads=[[r,p] for r,p,n in pad_nets if n=="GND"],
                           dedicated_contacts=[dict(pad=[ref,"2"],via_position_nm=point(*xy))
                                               for ref,xy in grounds])]
-    return dict(schema="copperlib-physical-hard-macro/v0.2", production_publishable=False,
+    return dict(schema="copperlib-physical-hard-macro/v0.3", production_publishable=False,
         source={"datasheet_url":"https://www.ti.com/lit/ds/symlink/tps62130a.pdf",
                 "datasheet_sha256":"f9b1af285622c0cf1a5991f9641a6e64c5e6d899e52cc0b1632808742019579f",
                 "datasheet_locator":"SLVSAG7F Rev F, Table 6-1, sections 11.1–11.3, Figure 11-1, pages 3 and 28–29",
@@ -137,7 +139,7 @@ def generate(enabled=False):
         anchor="U",members=[dict(reference=r,footprint=FOOTPRINTS[r][0],footprint_digest=FOOTPRINTS[r][1],
                                  center_nm=point(x,y),rotation_degrees=str(angle),edge_clearance_nm=250000)
                               for r,(x,y,angle) in sorted(POSES.items())],
-        pad_nets=pad_nets,isolated_pads=[["U","4"]],tracks=tracks,vias=vias,ports=ports,zones=zones,
+        pad_nets=pad_nets,isolated_pads=[["U","4"]],tracks=tracks,vias=vias,ports=ports,zones=zones,polygons=polygons,
         plane_returns=plane_returns,
         protected_regions=[region("regulator-private",["F.Cu","In2.Cu","B.Cu"],True,True,False)],
         keepouts=[region("regulator-fill-exclusion",["In2.Cu","In3.Cu","B.Cu"],False,False,True)],
