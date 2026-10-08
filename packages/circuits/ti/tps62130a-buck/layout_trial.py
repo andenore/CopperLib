@@ -78,7 +78,7 @@ def make_trial(directory, *, enabled=False, rotation=0, footprint_root=Path("/us
     anchor = replace(poses["B/U"], position=Point.mm(20,20), rotation_degrees=rotation)
     poses.update(cluster_placements(board, board.rigid_clusters[0], anchor))
     if external:
-        for role, xy in {"VIN":(6.1,-7), "VOUT":(-6,8.5), "GND":(0,8.5), "EN":(2,-7)}.items():
+        for role, xy in {"VIN":(9.5,-.95), "VOUT":(-13.5,0), "GND":(0,8.5), "EN":(2,-8.5)}.items():
             ref = "J_" + role
             if ref in poses:
                 poses[ref] = replace(poses[ref], position=transformed_local_point(anchor, Point.mm(*xy)),

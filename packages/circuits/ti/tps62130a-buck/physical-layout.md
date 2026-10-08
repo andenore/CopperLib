@@ -21,16 +21,24 @@ SLVC394 ZIP short/direct URLs returned HTTP 401 on 2026-10-06. No archive or
 Gerber entry was consumed, so there is no extracted-CAD claim or invented hash.
 
 This authored adaptation uses a Coilcraft XAL4020-222MEC, two 0805 output
-capacitors and a six-layer board. The output-capacitor arrangement, wide explicit
-tracks, via banks and layer assignment differ from the TI drawings. Five locked
-F.Cu zones now supply local VIN, VOUT, input/output GND and EP copper areas; no
-SW pour is used. A fixed, netted F.Cu polygon forms the compact SW island
-between the three pin necks and inductor pad. It does not depend on zone
-refill or use the former pair of wide track segments. The IC lands and short pin necks feed
-0.8 mm power trunks; their electrical adequacy still requires application review.
-Every VIN/VOUT segment, including AVIN, VOS, divider pick-up and the always-on
-EN branch, is at least 0.25 mm wide to satisfy 0.25 mm rail routing rules. The
-bounded fixtures enforce those same rail widths during materialization and routing.
+capacitors and a six-layer board. It follows the arrangement in datasheet
+Figure 11-1: viewed at 180° in the probe, VIN and its input capacitor are to
+the left of U; the inductor is to the right with SW above VOUT; C_OUT1 is below
+and between U and L; and the second output capacitor extends the VOUT edge.
+Three fixed, netted F.Cu polygons form the broad VIN and VOUT lobes and the
+bounded SW island. The VOUT lobe contacts the inductor's lower land, both output
+capacitors and the side access lead. Two locked F.Cu GND zones form the lower
+return field and the exposed-pad area. The lower field extends well below the
+output capacitors; every capacitor also retains its own nearby GND via.
+
+The extra capacitor, larger inductor, side via banks and layer assignment are
+adaptations, not literal TI geometry. The XAL4020 courtyard forces more space
+between U and L than in the drawing, so the SW polygon has a narrow contoured
+neck; it remains local and has no SW via or broad SW pour. The IC lands and short
+pin necks feed the polygons and 0.8 mm access tracks. Their electrical adequacy
+still requires application review. Every VIN/VOUT track, including AVIN, VOS,
+divider pick-up and the always-on EN branch, is at least 0.25 mm wide to
+satisfy the rail routing rules.
 
 AGND, PGND and all thermal-pad lands connect directly to the EP region. Every
 required SW and PVIN contact is individually routed. SW stays on F.Cu without
@@ -38,31 +46,31 @@ vias. VOS and the divider's output pick-up use a separate fixed In2.Cu path to
 C_OUT1, with In1.Cu GND retained above it. Four 0.45/0.20 mm filled-capped thermal
 vias sit inside EP. The regulator PG land remains present and unconnected.
 
-C_PVIN is 0.6 mm closer to U than in the initial adaptation. Its individual GND
-via is on the IC-facing side of the capacitor, 1.10 mm from the GND pad and
-3.05 mm from the nearest EP thermal via. Every capacitor ground has its own
-nearby through via. The former long B.Cu spokes to EP have been removed; their
-continuity is pending actual filled In1.Cu/In4.Cu GND planes. A proposed move of C_OUT1 below the inductor
-shortened VOS but lengthened the divider pickup and output power path, so the
-output-capacitor placement was retained.
+C_PVIN's individual GND via is on the IC-facing side of the capacitor, 1.10 mm
+from its GND pad and 3.05 mm from the nearest EP thermal via. Every capacitor
+ground has its own nearby through via; none shares another component's return
+contact. The former long B.Cu spokes to EP remain removed. Their continuity
+depends on actual filled In1.Cu/In4.Cu GND planes. C_OUT1's power land is the
+quiet VOS/divider pickup point on shielded In2.Cu, separate from the SW island.
 
 ## Geometry and integration
 
 The anchor is U at `(0, 0)`; only front-side 0/90/180/270-degree rotations are
-allowed. Component-local coordinates, tracks, vias, ports, polygons, zones and keepouts rotate
-together. The private envelope is x = −10.6…6.6 mm, y = −3.9…5.1 mm. Owner
-lead-ins extend to ports outside it; total copper extent is about 17.2 × 11.2 mm.
+allowed. Component-local coordinates, tracks, vias, ports, polygons, zones and
+keepouts rotate together. The private envelope is x = −10.6…6.6 mm,
+y = −6…5.1 mm. Side access and the enabled EN lead extend to ports outside it;
+the power-port span is 18.4 mm.
 
 | Port | Local position (mm) | Exposed layer | Intended entry |
 | --- | --- | --- | --- |
-| VIN | (6.1, −4.5) | F.Cu; paired through-via bank also reaches B.Cu | Input-capacitor side |
-| VOUT | (−6, 6) | F.Cu; paired through-via bank also reaches B.Cu | Output-capacitor side |
-| EN, enabled variant only | (2, −4.5) | F.Cu | Logic-control side |
+| VIN | (7.2, −0.95) | F.Cu; paired through-via bank also reaches B.Cu | Input side |
+| VOUT | (−11.2, 0) | F.Cu; paired through-via bank also reaches B.Cu | Output side |
+| EN, enabled variant only | (2, −6.5) | F.Cu | Logic-control side |
 
 Protection on F.Cu/In2.Cu/B.Cu prevents later same-net shortcuts as well as
 foreign routing. Fill exclusions on In2.Cu/In3.Cu/B.Cu keep host pours out of
 the quiet-sense and lower-layer corridors. On F.Cu, host zones overlapping the
-private region are rejected so the five owned zones can fill as drawn. In1.Cu
+private region are rejected so the two owned zones can fill as drawn. In1.Cu
 and In4.Cu GND planes contact the individual ground/thermal vias. Native refill
 and zero unconnected items are required to prove those plane-backed returns;
 an unfilled zone outline is not accepted as a connection.
@@ -110,8 +118,8 @@ selected probe directory. Keep probes outside the CopperLib checkout: generated
 JSON under `work/` can otherwise enter a local dependency's content inventory.
 The bounded acceptance suite checks both enable
 variants and all four rotations, external routing with owner preservation,
-native refill/connectivity including all five filled owner zones, surface power
-landing, a missing dedicated GND via, changed footprint/rail rejection,
+native refill/connectivity including both filled owner zones and all three
+fixed polygons, surface power landing, a missing dedicated GND via, changed footprint/rail rejection,
 disconnected internal SS copper, removed owner copper and same-net intrusion.
 Native KiCad 10.0.6 accepts the eight rotated/variant external-access
 fixtures with zero violations and zero unconnected items. Full-board placement,

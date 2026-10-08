@@ -64,6 +64,16 @@ bound the switching-loop or transient requirements.
   geometry still differs from TI's authored example; output-capacitor placement,
   loop metrics, current/thermal/EMI validation and full-board integration remain
   open. This iteration deliberately does not use CopperVigo as a trial.
+- A subsequent reference-oriented v0.3 revision supersedes the earlier
+  C_OUT1 placement decision. The XAL4020 now has its SW land above its VOUT
+  land in the 180° comparison view; C_OUT1 sits below and between U and L,
+  with C_OUT2 continuing the output edge. Fixed VIN, SW and VOUT polygons
+  replace the small power zones. A broad lower GND zone and the EP zone retain
+  local return copper; VIN and VOUT leave at opposite sides. The isolated
+  eight-rotation/variant external-access suite and native refill/DRC pass,
+  as does the full CopperLib test suite. This is still an authored adaptation
+  of TI Figure 11-1, not extracted CAD. The larger inductor, extra capacitor,
+  current and EMI evidence, and CopperVigo integration remain open.
 
 ## 1. Redraw the power stage around current loops
 

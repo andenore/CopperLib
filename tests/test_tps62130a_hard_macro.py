@@ -33,11 +33,10 @@ def test_assets_reproduce_and_bind_every_required_pad(enabled):
     assert (json.dumps(asset,sort_keys=True,indent=2)+"\n").encode() == path(enabled).read_bytes()
     assert asset["production_publishable"] is False and asset["unresolved"]
     assert asset["schema"] == "copperlib-physical-hard-macro/v0.3"
-    assert len(asset["polygons"]) == 1
-    assert asset["polygons"][0]["net"] == "SW"
-    assert asset["polygons"][0]["layer"] == "F.Cu"
-    assert {zone["net"] for zone in asset["zones"]} == {"VIN", "VOUT", "GND"}
-    assert len(asset["zones"]) == 5
+    assert {p["net"] for p in asset["polygons"]} == {"VIN", "SW", "VOUT"}
+    assert all(p["layer"] == "F.Cu" for p in asset["polygons"])
+    assert {zone["net"] for zone in asset["zones"]} == {"GND"}
+    assert {zone["id"] for zone in asset["zones"]} == {"lower-return", "exposed-pad"}
     assert not any(track["net"] == "GND" and track["layer"] == "B.Cu" for track in asset["tracks"])
     assert asset["plane_returns"][0]["net"] == "GND"
     assert {tuple(p) for p in asset["plane_returns"][0]["pads"]} == {
@@ -61,6 +60,25 @@ def test_cached_official_evidence_identity():
     for name, key in [("tps62130a.pdf","datasheet_sha256"),("slvu437b.pdf","evm_sha256")]:
         source = ROOT/"cache/ti/tps62130a-layout"/name
         if source.is_file(): assert sha256(source.read_bytes()).hexdigest() == asset["source"][key]
+
+
+@pytest.mark.skipif(not FOOTPRINT_ROOT.is_dir(), reason="explicit KiCad footprint installation required")
+def test_reference_oriented_power_stage_arrangement(tmp_path):
+    from pcbir.placement import transformed_pad_position
+    board = load("layout_trial").make_trial(tmp_path, rotation=180, external=False,
+                                             footprint_root=FOOTPRINT_ROOT)
+    poses = {p.reference: p for p in board.placements}
+    u, l = poses["B/U"].position, poses["B/L"].position
+    input_cap = poses["B/C_PVIN"].position
+    output_cap = poses["B/C_OUT1"].position
+    second_output = poses["B/C_OUT2"].position
+    assert input_cap.x_nm < u.x_nm < output_cap.x_nm < l.x_nm < second_output.x_nm
+    assert input_cap.y_nm > u.y_nm and output_cap.y_nm > u.y_nm
+    sw_land = transformed_pad_position(board, poses["B/L"], "1")
+    output_land = transformed_pad_position(board, poses["B/L"], "2")
+    assert sw_land.y_nm < output_land.y_nm
+    lower_return = next(z for z in board.zones if z.id.endswith("/lower-return"))
+    assert max(p.y_nm for p in lower_return.outline.outer.vertices) > output_cap.y_nm + 2_000_000
 
 
 @pytest.mark.skipif(not FOOTPRINT_ROOT.is_dir(), reason="explicit KiCad footprint installation required")
@@ -112,8 +130,9 @@ def test_materialization_rotates_and_independent_refill_accepts_external_routes(
     result = json.loads((tmp_path/"native.json").read_bytes())
     assert not result["violations"], result["violations"]
     assert not result["unconnected_items"], result["unconnected_items"]
-    assert any('(net "B/SW")' in block and '(fill yes)' in block
-               for block in target.read_text().split('(gr_poly')[1:])
+    polygon_blocks = target.read_text().split('(gr_poly')[1:]
+    assert all(any(f'(net "{net}")' in block and '(fill yes)' in block
+                   for block in polygon_blocks) for net in ("VIN", "VOUT", "B/SW"))
     blocks = target.read_text().split("(zone\n")
     assert all(any(f'(name "{zone.id}")' in block and "(filled_polygon" in block
                    for block in blocks) for zone in board.hard_macros[0].zones)
@@ -165,7 +184,12 @@ def test_plane_outline_does_not_prove_a_blocked_ground_return(tmp_path):
     from pcbir.backends.kicad_project import write_kicad_project
     from pcbir.physical import CopperKeepout, CopperLayer, Point, PolygonRing, PolygonWithHoles
     board = load("layout_trial").make_trial(tmp_path, external=False, footprint_root=FOOTPRINT_ROOT)
-    via = next(v for v in board.vias if v.net == "GND" and v.position == Point.mm(9.9, 19.55))
+    from pcbir.placement import transformed_pad_position
+    isolated_ground = transformed_pad_position(board,
+        next(p for p in board.placements if p.reference == "B/C_AVIN"), "2")
+    via = min((v for v in board.vias if v.net == "GND" and v.finish != "filled-capped"),
+              key=lambda v: hypot(v.position.x_nm-isolated_ground.x_nm,
+                                  v.position.y_nm-isolated_ground.y_nm))
     x, y = via.position.x_nm, via.position.y_nm
     outline = PolygonWithHoles(PolygonRing(tuple(Point(x + dx, y + dy) for dx, dy in (
         (-700000,-700000), (700000,-700000), (700000,700000), (-700000,700000)))))
@@ -201,11 +225,12 @@ def test_surface_power_fill_connects_at_owner_via_banks(tmp_path):
     from pcbir.hard_macros import validate_hard_macros
     trial = load("layout_trial")
     board = trial.make_trial(tmp_path,enabled=True,footprint_root=FOOTPRINT_ROOT)
-    def zone(name,net,y0,y1):
+    def zone(name,net,x0,x1):
         return CopperZone(name,net,(CopperLayer.BACK,),PolygonWithHoles(PolygonRing(tuple(
-            Point.mm(x,y) for x,y in ((.5,y0),(39.5,y0),(39.5,y1),(.5,y1))))),
+            Point.mm(x,y) for x,y in ((x0,.5),(x1,.5),(x1,39.5),(x0,39.5))))),
             pad_connection=ZoneConnection.SOLID)
-    board = replace(board,zones=(*board.zones,zone("vin-access","VIN",.5,16),zone("vout-access","VOUT",25.2,39.5)))
+    board = replace(board,zones=(*board.zones,zone("vin-access","VIN",26.8,39.5),
+                                 zone("vout-access","VOUT",.5,9.2)))
     # Ordinary routing first has enough endpoint contacts; explicit surface
     # stitching then proves that no private-pad shortcut is needed for a pour.
     routed = trial.route_trial(board)
