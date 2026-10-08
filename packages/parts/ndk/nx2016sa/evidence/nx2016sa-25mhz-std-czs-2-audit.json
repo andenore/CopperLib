@@ -1,0 +1,33 @@
+{
+  "scope": "terminal mapping, land pattern and series-rating audit; exact-MPN option codes are unresolved",
+  "part": "NDK_NX2016SA_25MHZ_STD_CZS_2",
+  "production_publishable": false,
+  "source": {
+    "document": "NDK Crystal Units NX2016SA catalogue sheet",
+    "revision": "2008F_NX2016SA_e (PDF ModDate 2020-08-08)",
+    "locator": "page 1: Specifications, *2 Equivalent Series Resistance, Dimensions, Terminal land connections (TOP VIEW), Land pattern (Recommended)",
+    "url": "https://www.ndk.com/images/products/catalog/c_NX2016SA_e.pdf",
+    "sha256": "33d5ec782ad65285f62a4bed7218170d3d566a5e664f48cdfc12313202905f49",
+    "cache_path": "cache/parts/NDK-NX2016SA-2008F.pdf",
+    "verification": "text extracted with pdftotext; dimension and land-pattern drawings rendered and inspected"
+  },
+  "terminals": {"1": "crystal", "2": "GND", "3": "crystal", "4": "GND"},
+  "top_view_positions": {"1": "lower-left", "2": "lower-right", "3": "upper-right", "4": "upper-left"},
+  "semantic_pins": {"XTAL1": "1", "GND_2": "2", "XTAL2": "3", "GND_4": "4"},
+  "internal_pad_groups": [["2", "4"]],
+  "internal_connection_evidence": "catalogue note: '#2 and #4 are connected with a cover. (Please connect with a GND.)'",
+  "footprint": "Crystal:Crystal_SMD_2016-4Pin_2.0x1.6mm",
+  "footprint_checks": {"pad_size_mm": [0.9, 0.8], "pad_centres_mm": {"1": [-0.7, 0.55], "2": [0.7, 0.55], "3": [0.7, -0.55], "4": [-0.7, -0.55]},
+                       "recommended_land_mm": "0.85 x 0.75 lands at 1.35 x 1.05 centre pitch (KiCad y axis points down)",
+                       "difference": "KiCad lands are 0.05 mm larger in each direction and 0.025 mm further out; they cover NDK's recommended lands"},
+  "series_ratings": {"mode": "AT fundamental", "frequency_range": "16-80 MHz", "esr_25MHz": "80 Ohm max (24 <= F < 26 MHz)",
+                     "drive_level": "10 uW, 100 uW max", "load_capacitance": "8 pF standard, 6-18 pF optional",
+                     "tolerance": "+/-10 ppm at 25 +/- 3 degC",
+                     "temperature_characteristics": "+/-25 ppm over -40 to +85 degC (STD-CZS-7) or +/-15 ppm over -10 to +75 degC (STD-CZS-6)",
+                     "aging": "+/-3 ppm/year max (optional specification)", "storage": "-40 to +85 degC"},
+  "distributor_catalogue_C843258": {"source": "https://jlcpcb.com/partdetail/NDK-NX2016SA_25MHZ_STD_CZS2/C843258 (observed 2026-10-08)",
+                                    "load_capacitance": "8 pF", "tolerance": "+/-15 ppm", "package": "SMD2016-4P"},
+  "unresolved": ["ordering code STD-CZS-2 is not in catalogue revision 2008F; its operating temperature range and frequency-versus-temperature code",
+                 "exact-MPN load capacitance (distributor states 8 pF, the catalogue standard)",
+                 "oscillator negative-resistance margin with the host amplifier (check against the host data sheet)"]
+}

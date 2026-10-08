@@ -31,10 +31,12 @@ def board(tmp_path_factory):
         import gct "{LIB}/parts/gct/usb4105";
         import jst "{LIB}/parts/jst/ph-s3b-sm4";
         import yxc "{LIB}/parts/yxc/ysx321sl";
+        import ndk "{LIB}/parts/ndk/nx2016sa";
         import everlight "{LIB}/parts/everlight/19-217";
         component J_USB: gct.GCT_USB4105_GF_A;
         component J_BAT: jst.JST_S3B_PH_SM4_TB;
         component Y1: yxc.YXC_X322525MOB4SI;
+        component Y2: ndk.NDK_NX2016SA_25MHZ_STD_CZS_2;
         component D_G: everlight.EVERLIGHT_19_217_GHC_YR1S2_6T;
         component D_B: everlight.EVERLIGHT_19_217_BHC_ZL1M2RY_6T;
         component D_Y: everlight.EVERLIGHT_19_217_Y5C_AP1Q2_6T;
@@ -51,9 +53,11 @@ def board(tmp_path_factory):
         net NTC {{ J_BAT.P3; }}
         net XTAL_1 {{ Y1.XTAL1; }}
         net XTAL_2 {{ Y1.XTAL2; }}
+        net XTAL_3 {{ Y2.XTAL1; }}
+        net XTAL_4 {{ Y2.XTAL2; }}
         net GND {{
             J_USB.GND_A1; J_USB.GND_A12; J_USB.GND_B1; J_USB.GND_B12; J_USB.SHIELD;
-            J_BAT.P2; J_BAT.MP; Y1.GND_2; Y1.GND_4; R_CC1.P2; R_CC2.P2;
+            J_BAT.P2; J_BAT.MP; Y1.GND_2; Y1.GND_4; Y2.GND_2; Y2.GND_4; R_CC1.P2; R_CC2.P2;
             D_G.K; D_B.K; D_Y.K;
         }}
     }}''', str(tmp / "board.copper"), offline=True)
@@ -107,6 +111,7 @@ def test_generic_resistor_matches_capacitor_abstraction(board):
     ("gct.GCT_USB4105_GF_A", "gct/usb4105", "gct/usb4105/evidence/usb4105-audit.json"),
     ("jst.JST_S3B_PH_SM4_TB", "jst/ph-s3b-sm4", "jst/ph-s3b-sm4/evidence/s3b-ph-sm4-audit.json"),
     ("yxc.YXC_X322525MOB4SI", "yxc/ysx321sl", "yxc/ysx321sl/evidence/x322525mob4si-audit.json"),
+    ("ndk.NDK_NX2016SA_25MHZ_STD_CZS_2", "ndk/nx2016sa", "ndk/nx2016sa/evidence/nx2016sa-25mhz-std-czs-2-audit.json"),
 ])
 def test_connector_and_crystal_pins_cover_every_footprint_pad(board, part, package_dir, evidence):
     pins = _pins(board, part)
@@ -202,6 +207,30 @@ def test_crystal_terminals_are_diagonal_and_match_yxc_layout(board):
     assert xtal[0].x_nm == -xtal[1].x_nm and xtal[0].y_nm == -xtal[1].y_nm  # diagonal pair
     assert "12 pF" in record["distributor_catalogue_C9006"]["load_capacitance"]
     assert any("load capacitance" in item for item in record["unresolved"])
+
+
+def test_ndk_crystal_terminals_are_diagonal_and_its_cover_joins_the_ground_pads(board):
+    name = "ndk.NDK_NX2016SA_25MHZ_STD_CZS_2"
+    pins = _pins(board, name)
+    record = _evidence("ndk/nx2016sa/evidence/nx2016sa-25mhz-std-czs-2-audit.json")
+    assert {pins["XTAL1"], pins["XTAL2"]} == {n for n, f in record["terminals"].items() if f == "crystal"} == {"1", "3"}
+    assert {pins["GND_2"], pins["GND_4"]} == {n for n, f in record["terminals"].items() if f == "GND"} == {"2", "4"}
+    part = board.library[name]
+    # The catalogue states #2 and #4 are connected through the cover.
+    assert [sorted(group.numbers) for group in part.internal_pad_groups] == record["internal_pad_groups"]
+    pads = {pad.number: pad for pad in _pads(part.footprints[0], "ndk/nx2016sa")}
+    for number, (x, y) in record["footprint_checks"]["pad_centres_mm"].items():
+        assert (pads[number].position.x_nm, pads[number].position.y_nm) == (round(x * 1e6), round(y * 1e6))
+        assert (pads[number].size.width_nm, pads[number].size.height_nm) == (900_000, 800_000)
+        # KiCad's land covers NDK's recommended 0.85 x 0.75 mm land at 1.35 x 1.05 mm pitch.
+        assert abs(pads[number].position.x_nm) + 450_000 >= 675_000 + 425_000
+        assert abs(pads[number].position.x_nm) - 450_000 <= 675_000 - 425_000
+        assert abs(pads[number].position.y_nm) + 400_000 >= 525_000 + 375_000
+        assert abs(pads[number].position.y_nm) - 400_000 <= 525_000 - 375_000
+    xtal = [pads[pins[name]].position for name in ("XTAL1", "XTAL2")]
+    assert xtal[0].x_nm == -xtal[1].x_nm and xtal[0].y_nm == -xtal[1].y_nm  # diagonal pair
+    assert "8 pF" in record["distributor_catalogue_C843258"]["load_capacitance"]
+    assert any("STD-CZS-2" in item for item in record["unresolved"])
 
 
 @pytest.mark.parametrize("name", LEDS)

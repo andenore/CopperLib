@@ -1,0 +1,37 @@
+// NDK NX2016SA-25MHZ-STD-CZS-2: 25 MHz AT-cut fundamental crystal, NX2016SA
+// series, 2.0 x 1.6 x 0.45 mm SMD, 4 pads. JLCPCB/LCSC C843258.
+// Terminals from the catalogue's "Terminal land connections (TOP VIEW)": the
+// resonator spans #1 and #3 (diagonal); #2 and #4 "are connected with a
+// cover" ("Please connect with a GND"). Top-view numbering #1 lower-left, #2
+// lower-right, #3 upper-right, #4 upper-left matches KiCad
+// Crystal_SMD_2016-4Pin_2.0x1.6mm. Its 0.9 x 0.8 mm lands at (+/-0.7,
+// +/-0.55) are 0.05 mm larger and 0.025 mm further out than NDK's recommended
+// 0.85 x 0.75 mm lands at 1.35 x 1.05 mm pitch, and cover them.
+// Series sheet: AT fundamental 16-80 MHz; ESR 80 Ohm max at 24 <= F < 26 MHz;
+// drive level 10 uW (100 uW max); load capacitance 8 pF standard (6-18 pF
+// optional); tolerance +/-10 ppm at 25 degC; +/-25 ppm over -40 to +85 degC
+// (STD-CZS-7) or +/-15 ppm over -10 to +75 degC (STD-CZS-6); aging +/-3
+// ppm/year max (optional).
+// Exact-MPN options (UNRESOLVED from manufacturer documents): the ordering
+// code STD-CZS-2 is not listed in this catalogue revision. JLCPCB catalogue
+// data for C843258: 25 MHz, CL 8 pF, +/-15 ppm. Its operating temperature range
+// and frequency-versus-temperature code are unresolved; confirm before
+// ordering, and size load capacitors from the confirmed CL.
+part NDK_NX2016SA_25MHZ_STD_CZS_2 {
+    category = "passive.crystal";
+    manufacturer = "NDK (Nihon Dempa Kogyo)";
+    footprint = "Crystal:Crystal_SMD_2016-4Pin_2.0x1.6mm";
+    source_document = "NDK Crystal Units NX2016SA catalogue sheet";
+    source_revision = "2008F_NX2016SA_e (PDF modified 2020-08-08)";
+    source_url = "https://www.ndk.com/images/products/catalog/c_NX2016SA_e.pdf";
+    source_location = "Page 1: Specifications, *2 Equivalent Series Resistance, Dimensions, Terminal land connections, Land pattern";
+    source_checksum = "sha256:33d5ec782ad65285f62a4bed7218170d3d566a5e664f48cdfc12313202905f49";
+    // #2 and #4 are joined by the metal cover (catalogue note); one GND
+    // connection grounds the cover.
+    internal_pad_groups = "2, 4";
+
+    pin XTAL1 { number = "1"; domains = "analog,clock"; directions = "passive"; }
+    pin GND_2 { number = "2"; domains = "ground"; directions = "passive"; }
+    pin XTAL2 { number = "3"; domains = "analog,clock"; directions = "passive"; }
+    pin GND_4 { number = "4"; domains = "ground"; directions = "passive"; }
+}
