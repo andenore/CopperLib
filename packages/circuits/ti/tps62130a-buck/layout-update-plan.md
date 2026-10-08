@@ -1,6 +1,6 @@
 # TPS62130A buck hard-macro layout update plan
 
-Status: proposed. This is a six-layer layout revision of the existing electrical
+Status: in progress. This is a six-layer layout revision of the existing electrical
 module, not a claim that the result reproduces TI CAD or is production qualified.
 Keep `production_publishable = false` through geometric acceptance. The 3.3 V
 instance uses the always-on asset; the 1.8 V and 1.2 V instances share the
@@ -19,14 +19,38 @@ bound the switching-loop or transient requirements.
   baseline. Its zero KiCad DRC violations and opens establish connectivity and
   clearance only. Save cropped F.Cu, In1.Cu, In2.Cu and B.Cu plots for each
   regulator, alongside Figure 11-1 and the EVM top-layer drawing.
-- Current local geometry, measured from `generate_layout.py`: the C_PVIN,
-  C_OUT1 and C_OUT2 ground-via-to-EP B.Cu spokes are approximately 5.37,
-  5.11 and 10.48 mm. The drawn VOS connection from U.14 to C_OUT1.1 is about
+- Baseline local geometry, measured from `generate_layout.py`: the C_PVIN,
+  C_OUT1 and C_OUT2 explicit ground-via-to-EP B.Cu spokes were approximately
+  5.73, 5.59 and 10.48 mm. The drawn VOS connection from U.14 to C_OUT1.1 is about
   11.36 mm; its In2.Cu diagonal projects across the SW fanout vicinity. The
   SW merge-to-inductor section is about 1.67 mm, 0.8 mm wide and via-free.
   The inner GND plane offers parallel returns, so spoke length is a geometry
   warning rather than a measured current path. Recalculate the figures from
   each candidate's resolved footprint geometry.
+
+## Progress, 2026-10-08
+
+- Added a reusable CopperLib review checklist and linked it from the TPS62130A
+  and Nordic RF physical-layout documentation. It recommends reference-layout
+  hard macros for noise-generating and noise-sensitive circuits.
+- Moved C_PVIN 0.6 mm toward U and placed its dedicated GND via on the IC-facing
+  side. The C_PVIN VIN pad to U.12 center distance is 1.75 mm, its GND pad to via
+  is 1.10 mm, and the via to its nearest EP thermal via is 3.05 mm. Choosing the
+  nearest EP thermal via for each explicit B.Cu return reduces the C_OUT1 and
+  C_OUT2 spokes to 5.11 and 9.75 mm without changing their capacitor positions.
+- Tested moving C_OUT1 below the inductor in a disposable fixture. It shortened
+  the VOS path but lengthened the divider pickup and output power trunk, so this
+  candidate was rejected. The output loop, quiet-sense corridor and proposed
+  v0.2 copper/plane-return support remain open.
+- Both generated enable variants pass the isolated four-rotation native KiCad
+  refill/DRC trial. In a disposable CopperVigo copy with a local dependency
+  lock, ERC passes but `plan-layout` with one or three candidates finds no legal
+  placement: `R_VDUT_BOT` is 12.58 mm from `U_MCU` against a 4 mm maximum.
+  The original locked macro produces a legal one-candidate placement with the
+  same board and compiler. Investigate this placement-search regression before
+  changing CopperVigo's pinned scenes/lock or running a full route. This is a
+  host-board integration failure, not evidence of a regulator copper DRC fault.
+  Full-board routing and qualification remain pending.
 
 ## 1. Redraw the power stage around current loops
 

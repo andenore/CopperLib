@@ -21,7 +21,7 @@ FOOTPRINTS = {
     "R_FB_TOP": ("Resistor_SMD:R_0402_1005Metric", "66db65bc75ecc968fdec69997097d224d9fb5d1d7ae2517c82faa8042d3e127e"),
     "R_FB_BOT": ("Resistor_SMD:R_0402_1005Metric", "66db65bc75ecc968fdec69997097d224d9fb5d1d7ae2517c82faa8042d3e127e"),
 }
-POSES = {"U": (0, 0, 0), "L": (-5.1, -.4, 180), "C_PVIN": (3.8, -1.9, 90),
+POSES = {"U": (0, 0, 0), "L": (-5.1, -.4, 180), "C_PVIN": (3.2, -1.9, 90),
          "C_AVIN": (3.4, .9, 0), "C_SS": (2.9, 2.6, 180),
          "C_OUT1": (-4.6, 3, 0), "C_OUT2": (-8.8, .5, 90),
          "R_FB_TOP": (-1.6, 3, 0), "R_FB_BOT": (.3, 3, 0)}
@@ -88,21 +88,23 @@ def generate(enabled=False):
     track("SS", [pad("U",9),(2,.75),(2,1.6),pad("C_SS",1)], .2)
     for n, xy in ((6,(-.25,.65)),(7,(.25,.65)),(8,(.65,.65)),(15,(-.25,-.65)),(16,(-.65,-.65))):
         track("GND", [pad("U",n),xy], .25)
-    for xy in ((-.35,-.35),(.35,-.35),(-.35,.35),(.35,.35)):
+    ep_vias = ((-.35,-.35),(.35,-.35),(-.35,.35),(.35,.35))
+    for xy in ep_vias:
         via("GND",xy,thermal=True)
-    grounds = [("C_PVIN",(5.1,-2.85)),("C_AVIN",(4.8,.9)),("C_SS",(1.4,2.6)),
+    grounds = [("C_PVIN",(2.1,-2.85)),("C_AVIN",(4.8,.9)),("C_SS",(1.4,2.6)),
                ("C_OUT1",(-3.65,4.25)),("C_OUT2",(-10.1,-.45)),("R_FB_BOT",(.81,4))]
     for ref, xy in grounds:
         track("GND",[pad(ref,2),xy],.5 if ref in {"C_PVIN","C_OUT1","C_OUT2"} else .25)
         via("GND",xy)
-        track("GND",[xy,(.35,.35)],.8,"B.Cu")
+        nearest_ep = min(ep_vias,key=lambda ep: (xy[0]-ep[0])**2+(xy[1]-ep[1])**2)
+        track("GND",[xy,nearest_ep],.8,"B.Cu")
     # Join thermal annuli on B.Cu without depending on an unfilled plane.
     track("GND", [(-.35,-.35),(.35,-.35),(.35,.35),(-.35,.35),(-.35,-.35)], .6,"B.Cu")
     track("GND",[(.35,.35),(0,6)],.8,"B.Cu"); via("GND",(0,6))
     if enabled:
-        track("EN",[pad("U",13),(.75,-2.2),(2,-3.45),(2,-4.5)],.2)
+        track("EN",[pad("U",13),(1,-1.7125),(1,-4.5),(2,-4.5)],.2)
     else:
-        track("VIN",[pad("U",13),(.75,-2.2),(2,-3.8),(6.1,-3.8)],.25)
+        track("VIN",[pad("U",13),(1,-1.7125),(1,-3.8),(6.1,-3.8)],.25)
 
     def region(name,layers,tracks,vias,zones):
         return dict(id=name,layers=layers,vertices=[point(-10.6,-3.9),point(6.6,-3.9),point(6.6,5.1),point(-10.6,5.1)],

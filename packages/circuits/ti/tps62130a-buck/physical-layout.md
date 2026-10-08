@@ -1,5 +1,7 @@
 # Provisional six-layer physical macro
 
+Review this adaptation against the [CopperLib hard-macro checklist](../../../../docs/hard-macro-review-checklist.md).
+
 The two JSON assets preserve nine component poses and their local copper for the
 existing `TPS62130A_BUCK_2U2` circuit, including its board-owned feedback resistors.
 The always-on variant joins EN to VIN locally. The enabled variant exposes a
@@ -32,6 +34,15 @@ required SW and PVIN contact is individually routed. SW stays on F.Cu without
 vias. VOS and the divider's output pick-up use a separate fixed In2.Cu path to
 C_OUT1, with In1.Cu GND retained above it. Four 0.45/0.20 mm filled-capped thermal
 vias sit inside EP. The regulator PG land remains present and unconnected.
+
+C_PVIN is 0.6 mm closer to U than in the initial adaptation. Its individual GND
+via is now on the IC-facing side of the capacitor, 1.10 mm from the GND pad and
+3.05 mm from the nearest EP thermal via. The explicit B.Cu return for each local
+GND via ends at its nearest EP via; the C_OUT1 and C_OUT2 return spokes are
+5.11 and 9.75 mm respectively. These remain provisional drawn conductors, not
+measured switching-current paths. A proposed move of C_OUT1 below the inductor
+shortened VOS but lengthened the divider pickup and output power path, so the
+output-capacitor placement was retained.
 
 ## Geometry and integration
 
@@ -76,8 +87,8 @@ stackup or current/temperature rating. `R = ρL/(wt)` for tracks and
 
 | Conductor | Estimated resistance |
 | --- | --- |
-| VIN port to C_PVIN, 5.85 mm of 0.8 mm copper | 3.60 mΩ |
-| C_PVIN to PVIN merge, 1.56 mm of 0.8 mm copper | 0.96 mΩ |
+| VIN port to C_PVIN, 6.45 mm of 0.8 mm copper | 3.97 mΩ |
+| C_PVIN to PVIN merge, 0.97 mm of 0.8 mm copper | 0.60 mΩ |
 | Each PVIN pin neck, 0.7875 mm of 0.25 mm copper | 1.55 mΩ; two contacts share current |
 | SW merge to L, 1.665 mm of 0.8 mm copper | 1.03 mΩ; pin necks are additional |
 | L output to C_OUT1, 4.135 mm of 0.8 mm copper | 2.55 mΩ |

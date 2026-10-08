@@ -1,5 +1,8 @@
 # nRF52832 and Johanson antenna reference circuit
 
+Use the [CopperLib hard-macro review checklist](../../../../docs/hard-macro-review-checklist.md)
+when revising its physical asset.
+
 This package keeps the reusable electrical assembly and its physical evidence
 together without making either one a production-qualified radio module. The
 `Nrf52832JohansonRf` module contains the Nordic QFAA, matching network and

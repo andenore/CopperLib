@@ -3,6 +3,7 @@ from dataclasses import replace
 from hashlib import sha256
 import importlib.util
 import json
+from math import hypot
 import os
 from pathlib import Path
 import shutil
@@ -49,6 +50,24 @@ def test_cached_official_evidence_identity():
     for name, key in [("tps62130a.pdf","datasheet_sha256"),("slvu437b.pdf","evm_sha256")]:
         source = ROOT/"cache/ti/tps62130a-layout"/name
         if source.is_file(): assert sha256(source.read_bytes()).hexdigest() == asset["source"][key]
+
+
+@pytest.mark.skipif(not FOOTPRINT_ROOT.is_dir(), reason="explicit KiCad footprint installation required")
+def test_input_capacitor_loop_stays_compact(tmp_path):
+    from pcbir.placement import transformed_pad_position
+    board = load("layout_trial").make_trial(tmp_path, enabled=True, external=False, footprint_root=FOOTPRINT_ROOT)
+    poses = {p.reference: p for p in board.placements}
+    cap_vin = transformed_pad_position(board, poses["B/C_PVIN"], "1")
+    cap_gnd = transformed_pad_position(board, poses["B/C_PVIN"], "2")
+    pvin = transformed_pad_position(board, poses["B/U"], "12")
+    def distance(a, b):
+        return hypot(a.x_nm-b.x_nm, a.y_nm-b.y_nm)/1_000_000
+    cap_via = min((v for v in board.vias if v.net == "GND" and v.finish != "filled-capped"),
+                  key=lambda v: distance(v.position, cap_gnd))
+    thermal_vias = (v for v in board.vias if v.net == "GND" and v.finish == "filled-capped")
+    assert distance(cap_vin, pvin) < 1.9
+    assert distance(cap_gnd, cap_via.position) < 1.2
+    assert min(distance(cap_via.position, v.position) for v in thermal_vias) < 3.1
 
 
 @pytest.mark.skipif(not FOOTPRINT_ROOT.is_dir(), reason="explicit KiCad footprint installation required")
