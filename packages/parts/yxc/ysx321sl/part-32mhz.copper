@@ -1,0 +1,13 @@
+// 32MHz, not the 25MHz X322525MOB4SI from CopperLib. Catalog C9009.
+// Exact option decoding and load tuning remain a pre-production review item.
+part YXC_X322532MOB4SI {
+    category = "passive.crystal";
+    manufacturer = "YXC (Yangxing Technology)";
+    footprint = "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm";
+    source_document = "YXC YSX321SL series datasheet";
+    source_url = "https://www.yxc.hk/uploadfiles/2026/09/YXC-YSX321SL.pdf";
+    pin XTAL1 { number = "1"; domains = "analog,clock"; directions = "passive"; }
+    pin GND_2 { number = "2"; domains = "ground"; directions = "passive"; }
+    pin XTAL2 { number = "3"; domains = "analog,clock"; directions = "passive"; }
+    pin GND_4 { number = "4"; domains = "ground"; directions = "passive"; }
+}

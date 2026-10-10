@@ -1,0 +1,48 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "usb.usb2-channel",
+  "kind": "interface",
+  "protocol": "USB 2.0",
+  "production_publishable": false,
+  "sources": [
+    {
+      "url": "https://www.usb.org/sites/default/files/usb_20_20250603.zip",
+      "revision": "USB-IF package 2025-06-03; base specification Revision 2.0, 27-Apr-2000; applicable ECNs must be reviewed separately",
+      "locator": "usb_20_20250603/usb_20_20240927/usb_20_20240927/usb_20.pdf; Chapter 7, including 7.1.2.1 printed p130 and 7.1.11 printed p159; see README.md",
+      "sha256": "5fe9c53c04033818af396e8852b3acbca5c3a76ba92fab549fd81cd0ea7b3692",
+      "member_sha256": "d39698a33486c399124af92bd02e4f978fd9a836b5cf4e52e6e4633eb1d89f61"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "operating-mode",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Establish exact endpoint roles/capabilities, negotiated signalling modes, firmware/clock requirements, VBUS detect/power behaviour in every required supply state and applicability of the specification/ECNs. A USB 2.0 label does not establish 480 Mbit/s operation."
+    },
+    {
+      "id": "layout-review",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review the complete endpoint-to-endpoint channel, physical pad assignments, inline filters/ESD/connectors, layer changes, plane openings, actual return transfer, stubs and all source-backed layout requirements. Nearby GND via distance alone does not prove a valid return path."
+    },
+    {
+      "id": "impedance",
+      "stage": "simulation",
+      "algorithm": "external",
+      "description": "Qualify actual channel cross-sections and discontinuities using selected fabrication data, mask/adjacent copper, launches, pads, vias and component models. Record pinned models/settings, convergence and bounds; nominal width/gap or uniform-line formulas do not replace this review."
+    },
+    {
+      "id": "signal-integrity",
+      "stage": "simulation",
+      "algorithm": "external",
+      "description": "Assess mode-applicable waveforms, timing/skew, loading and margins for the entire channel and actual transceivers/inline components. Use applicable test loads/planes and endpoints; do not substitute a high-speed template for full-speed operation or copper length for delay."
+    },
+    {
+      "id": "prototype-interface",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "Measure mode-applicable electrical behaviour and verify enumeration/data transfer, firmware and attach/power transitions in the intended configurations. Retain candidate-bound reviewed test conditions/results; this contract is not USB-IF certification."
+    }
+  ]
+}

@@ -1,0 +1,1642 @@
+{
+  "allowed_rotations": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "anchor": "U",
+  "internal_clearance_nm": 0,
+  "isolated_pads": [
+    [
+      "U",
+      "14"
+    ]
+  ],
+  "keepouts": [
+    {
+      "block_tracks": false,
+      "block_vias": false,
+      "block_zones": true,
+      "id": "converter-fill-exclusion",
+      "layers": [
+        "In2.Cu",
+        "In3.Cu",
+        "B.Cu"
+      ],
+      "vertices": [
+        [
+          -9300000,
+          -6200000
+        ],
+        [
+          7300000,
+          -6200000
+        ],
+        [
+          7300000,
+          7500000
+        ],
+        [
+          -9300000,
+          7500000
+        ]
+      ]
+    }
+  ],
+  "members": [
+    {
+      "center_nm": [
+        3550000,
+        -100000
+      ],
+      "edge_clearance_nm": 250000,
+      "footprint": "Capacitor_SMD:C_0805_2012Metric",
+      "footprint_digest": "10029d0eef91812b8b2cbffa7695a033370cbca3ee988ba1426b632cf6609662",
+      "reference": "C_IN",
+      "rotation_degrees": "90"
+    },
+    {
+      "center_nm": [
+        -3550000,
+        200000
+      ],
+      "edge_clearance_nm": 250000,
+      "footprint": "Capacitor_SMD:C_0805_2012Metric",
+      "footprint_digest": "10029d0eef91812b8b2cbffa7695a033370cbca3ee988ba1426b632cf6609662",
+      "reference": "C_OUT1",
+      "rotation_degrees": "90"
+    },
+    {
+      "center_nm": [
+        -5750000,
+        200000
+      ],
+      "edge_clearance_nm": 250000,
+      "footprint": "Capacitor_SMD:C_0805_2012Metric",
+      "footprint_digest": "10029d0eef91812b8b2cbffa7695a033370cbca3ee988ba1426b632cf6609662",
+      "reference": "C_OUT2",
+      "rotation_degrees": "90"
+    },
+    {
+      "center_nm": [
+        -8050000,
+        200000
+      ],
+      "edge_clearance_nm": 250000,
+      "footprint": "Capacitor_SMD:C_0805_2012Metric",
+      "footprint_digest": "10029d0eef91812b8b2cbffa7695a033370cbca3ee988ba1426b632cf6609662",
+      "reference": "C_OUT3",
+      "rotation_degrees": "90"
+    },
+    {
+      "center_nm": [
+        -3000000,
+        -2000000
+      ],
+      "edge_clearance_nm": 250000,
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "footprint_digest": "86575c98c1bd84414ad1626d2f1a649749c0fb10743c56ba8f2c3fdee795a0ff",
+      "reference": "C_VINA",
+      "rotation_degrees": "180"
+    },
+    {
+      "center_nm": [
+        0,
+        5000000
+      ],
+      "edge_clearance_nm": 250000,
+      "footprint": "github.com/andenore/CopperLib/packages/parts/bourns/srp4020ta/footprints/Bourns_SRP4020TA.kicad_mod",
+      "footprint_digest": "2d3625ed24b82fd9bea8f1468539474a40f6026b87c13ca1a44dc91fc41dc03e",
+      "reference": "L",
+      "rotation_degrees": "180"
+    },
+    {
+      "center_nm": [
+        -700000,
+        -3900000
+      ],
+      "edge_clearance_nm": 250000,
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "footprint_digest": "e907cca3732f063d1d109c709b5962d31caeb59bfff68284fb04effdb7351e12",
+      "reference": "R_BOT",
+      "rotation_degrees": "0"
+    },
+    {
+      "center_nm": [
+        -2600000,
+        -3900000
+      ],
+      "edge_clearance_nm": 250000,
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "footprint_digest": "e907cca3732f063d1d109c709b5962d31caeb59bfff68284fb04effdb7351e12",
+      "reference": "R_TOP",
+      "rotation_degrees": "0"
+    },
+    {
+      "center_nm": [
+        0,
+        0
+      ],
+      "edge_clearance_nm": 250000,
+      "footprint": "github.com/andenore/CopperLib/packages/parts/ti/tps63020/footprints/TI_DSJ0014_TPS63020.kicad_mod",
+      "footprint_digest": "868d75b61d43b61e5e92f5d118d4ac8bb28cb590d8bccda128789cd399c2d80d",
+      "reference": "U",
+      "rotation_degrees": "0"
+    }
+  ],
+  "pad_nets": [
+    [
+      "U",
+      "1",
+      "VIN"
+    ],
+    [
+      "U",
+      "10",
+      "VIN"
+    ],
+    [
+      "U",
+      "11",
+      "VIN"
+    ],
+    [
+      "U",
+      "2",
+      "GND"
+    ],
+    [
+      "U",
+      "13",
+      "GND"
+    ],
+    [
+      "U",
+      "15",
+      "GND"
+    ],
+    [
+      "U",
+      "3",
+      "FB"
+    ],
+    [
+      "U",
+      "4",
+      "VOUT"
+    ],
+    [
+      "U",
+      "5",
+      "VOUT"
+    ],
+    [
+      "U",
+      "6",
+      "L2"
+    ],
+    [
+      "U",
+      "7",
+      "L2"
+    ],
+    [
+      "U",
+      "8",
+      "L1"
+    ],
+    [
+      "U",
+      "9",
+      "L1"
+    ],
+    [
+      "U",
+      "12",
+      "VIN"
+    ],
+    [
+      "L",
+      "1",
+      "L1"
+    ],
+    [
+      "L",
+      "2",
+      "L2"
+    ],
+    [
+      "C_IN",
+      "1",
+      "VIN"
+    ],
+    [
+      "C_IN",
+      "2",
+      "GND"
+    ],
+    [
+      "C_VINA",
+      "1",
+      "VIN"
+    ],
+    [
+      "C_VINA",
+      "2",
+      "GND"
+    ],
+    [
+      "C_OUT1",
+      "1",
+      "VOUT"
+    ],
+    [
+      "C_OUT1",
+      "2",
+      "GND"
+    ],
+    [
+      "C_OUT2",
+      "1",
+      "VOUT"
+    ],
+    [
+      "C_OUT2",
+      "2",
+      "GND"
+    ],
+    [
+      "C_OUT3",
+      "1",
+      "VOUT"
+    ],
+    [
+      "C_OUT3",
+      "2",
+      "GND"
+    ],
+    [
+      "R_TOP",
+      "1",
+      "VOUT"
+    ],
+    [
+      "R_TOP",
+      "2",
+      "FB"
+    ],
+    [
+      "R_BOT",
+      "1",
+      "FB"
+    ],
+    [
+      "R_BOT",
+      "2",
+      "GND"
+    ]
+  ],
+  "plane_returns": [
+    {
+      "dedicated_contacts": [
+        {
+          "pad": [
+            "C_IN",
+            "2"
+          ],
+          "via_position_nm": [
+            3550000,
+            -2400000
+          ]
+        },
+        {
+          "pad": [
+            "C_VINA",
+            "2"
+          ],
+          "via_position_nm": [
+            -4000000,
+            -2400000
+          ]
+        },
+        {
+          "pad": [
+            "C_OUT1",
+            "2"
+          ],
+          "via_position_nm": [
+            -3750000,
+            -3000000
+          ]
+        },
+        {
+          "pad": [
+            "C_OUT2",
+            "2"
+          ],
+          "via_position_nm": [
+            -5750000,
+            -1950000
+          ]
+        },
+        {
+          "pad": [
+            "C_OUT3",
+            "2"
+          ],
+          "via_position_nm": [
+            -8050000,
+            -1950000
+          ]
+        }
+      ],
+      "layers": [
+        "In1.Cu",
+        "In4.Cu"
+      ],
+      "net": "GND",
+      "pads": [
+        [
+          "U",
+          "2"
+        ],
+        [
+          "U",
+          "13"
+        ],
+        [
+          "U",
+          "15"
+        ],
+        [
+          "C_IN",
+          "2"
+        ],
+        [
+          "C_VINA",
+          "2"
+        ],
+        [
+          "C_OUT1",
+          "2"
+        ],
+        [
+          "C_OUT2",
+          "2"
+        ],
+        [
+          "C_OUT3",
+          "2"
+        ],
+        [
+          "R_BOT",
+          "2"
+        ]
+      ]
+    }
+  ],
+  "polygons": [
+    {
+      "id": "switch-l1",
+      "layer": "F.Cu",
+      "net": "L1",
+      "vertices": [
+        [
+          1900000,
+          850000
+        ],
+        [
+          2650000,
+          850000
+        ],
+        [
+          2650000,
+          6200000
+        ],
+        [
+          950000,
+          6200000
+        ],
+        [
+          950000,
+          3800000
+        ],
+        [
+          1900000,
+          3800000
+        ]
+      ]
+    },
+    {
+      "id": "switch-l2",
+      "layer": "F.Cu",
+      "net": "L2",
+      "vertices": [
+        [
+          -1900000,
+          3800000
+        ],
+        [
+          -950000,
+          3800000
+        ],
+        [
+          -950000,
+          6200000
+        ],
+        [
+          -2650000,
+          6200000
+        ],
+        [
+          -2650000,
+          850000
+        ],
+        [
+          -1900000,
+          850000
+        ]
+      ]
+    },
+    {
+      "id": "input-lobe",
+      "layer": "F.Cu",
+      "net": "VIN",
+      "vertices": [
+        [
+          1800000,
+          -120000
+        ],
+        [
+          2300000,
+          -120000
+        ],
+        [
+          2300000,
+          300000
+        ],
+        [
+          6000000,
+          300000
+        ],
+        [
+          6000000,
+          1550000
+        ],
+        [
+          2850000,
+          1550000
+        ],
+        [
+          2850000,
+          620000
+        ],
+        [
+          1800000,
+          620000
+        ]
+      ]
+    },
+    {
+      "id": "output-lobe",
+      "layer": "F.Cu",
+      "net": "VOUT",
+      "vertices": [
+        [
+          -1800000,
+          -120000
+        ],
+        [
+          -2300000,
+          -120000
+        ],
+        [
+          -2300000,
+          300000
+        ],
+        [
+          -9000000,
+          300000
+        ],
+        [
+          -9000000,
+          1850000
+        ],
+        [
+          -2850000,
+          1850000
+        ],
+        [
+          -2850000,
+          620000
+        ],
+        [
+          -1800000,
+          620000
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "layer": "F.Cu",
+      "name": "VIN",
+      "net": "VIN",
+      "pads": [
+        [
+          "U",
+          "1"
+        ],
+        [
+          "U",
+          "10"
+        ],
+        [
+          "U",
+          "11"
+        ],
+        [
+          "U",
+          "12"
+        ],
+        [
+          "C_IN",
+          "1"
+        ],
+        [
+          "C_VINA",
+          "1"
+        ]
+      ],
+      "point": [
+        8200000,
+        850000
+      ]
+    },
+    {
+      "layer": "F.Cu",
+      "name": "VOUT",
+      "net": "VOUT",
+      "pads": [
+        [
+          "U",
+          "4"
+        ],
+        [
+          "U",
+          "5"
+        ],
+        [
+          "C_OUT1",
+          "1"
+        ],
+        [
+          "C_OUT2",
+          "1"
+        ],
+        [
+          "C_OUT3",
+          "1"
+        ],
+        [
+          "R_TOP",
+          "1"
+        ]
+      ],
+      "point": [
+        -10200000,
+        1150000
+      ]
+    }
+  ],
+  "production_publishable": false,
+  "protected_regions": [
+    {
+      "block_tracks": true,
+      "block_vias": true,
+      "block_zones": false,
+      "id": "converter-private",
+      "layers": [
+        "F.Cu",
+        "In2.Cu",
+        "B.Cu"
+      ],
+      "vertices": [
+        [
+          -9300000,
+          -6200000
+        ],
+        [
+          7300000,
+          -6200000
+        ],
+        [
+          7300000,
+          7500000
+        ],
+        [
+          -9300000,
+          7500000
+        ]
+      ]
+    }
+  ],
+  "required_layers": [
+    "F.Cu",
+    "In1.Cu",
+    "In2.Cu",
+    "In3.Cu",
+    "In4.Cu",
+    "B.Cu"
+  ],
+  "schema": "copperlib-physical-hard-macro/v0.4",
+  "source": {
+    "datasheet_locator": "SLVS916I Rev I, section 10.1, Figure 31, p23; DSJ land drawings pp31-33",
+    "datasheet_sha256": "d117773bb7370fd79377bc70ce987eec3469ea5979547a09df52fca5f95b2e69",
+    "datasheet_url": "https://www.ti.com/lit/ds/symlink/tps63020.pdf",
+    "evm_locator": "SLVU365 March 2010, Figures 6-8, pp6-7",
+    "evm_sha256": "a164c060584f238a27553efe054ad47916d90fcf4ca5739bf0d01c8e35c5c221",
+    "evm_url": "https://www.ti.com/lit/ug/slvu365/slvu365.pdf",
+    "geometry_status": "authored adaptation, not digitized/extracted TI CAD; Bourns inductor, 0805 outputs, six layers, off-pad vias and shielded feedback"
+  },
+  "tracks": [
+    {
+      "layer": "F.Cu",
+      "net": "L1",
+      "points": [
+        {
+          "pad": [
+            "U",
+            "8"
+          ]
+        },
+        [
+          2250000,
+          1500000
+        ]
+      ],
+      "width_nm": 240000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "L1",
+      "points": [
+        {
+          "pad": [
+            "U",
+            "9"
+          ]
+        },
+        [
+          2250000,
+          1000000
+        ]
+      ],
+      "width_nm": 240000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "L2",
+      "points": [
+        {
+          "pad": [
+            "U",
+            "6"
+          ]
+        },
+        [
+          -2250000,
+          1000000
+        ]
+      ],
+      "width_nm": 240000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "L2",
+      "points": [
+        {
+          "pad": [
+            "U",
+            "7"
+          ]
+        },
+        [
+          -2250000,
+          1500000
+        ]
+      ],
+      "width_nm": 240000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "VIN",
+      "points": [
+        {
+          "pad": [
+            "U",
+            "10"
+          ]
+        },
+        [
+          2100000,
+          500000
+        ]
+      ],
+      "width_nm": 240000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "VIN",
+      "points": [
+        {
+          "pad": [
+            "U",
+            "11"
+          ]
+        },
+        [
+          2100000,
+          0
+        ]
+      ],
+      "width_nm": 240000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "VOUT",
+      "points": [
+        {
+          "pad": [
+            "U",
+            "4"
+          ]
+        },
+        [
+          -2100000,
+          0
+        ]
+      ],
+      "width_nm": 240000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "VOUT",
+      "points": [
+        {
+          "pad": [
+            "U",
+            "5"
+          ]
+        },
+        [
+          -2100000,
+          500000
+        ]
+      ],
+      "width_nm": 240000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "VIN",
+      "points": [
+        [
+          5700000,
+          850000
+        ],
+        [
+          8200000,
+          850000
+        ]
+      ],
+      "width_nm": 800000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "VOUT",
+      "points": [
+        [
+          -8700000,
+          1150000
+        ],
+        [
+          -10200000,
+          1150000
+        ]
+      ],
+      "width_nm": 800000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "VIN",
+      "points": [
+        {
+          "pad": [
+            "U",
+            "1"
+          ]
+        },
+        {
+          "pad": [
+            "C_VINA",
+            "1"
+          ]
+        },
+        [
+          -2490000,
+          -2500000
+        ],
+        [
+          -3000000,
+          -3000000
+        ]
+      ],
+      "width_nm": 200000
+    },
+    {
+      "layer": "B.Cu",
+      "net": "VIN",
+      "points": [
+        [
+          -3000000,
+          -3000000
+        ],
+        [
+          -2600000,
+          -3000000
+        ],
+        [
+          -2600000,
+          -5800000
+        ],
+        [
+          9400000,
+          -5800000
+        ],
+        [
+          9400000,
+          850000
+        ],
+        [
+          8200000,
+          850000
+        ]
+      ],
+      "width_nm": 200000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "VOUT",
+      "points": [
+        {
+          "pad": [
+            "R_TOP",
+            "1"
+          ]
+        },
+        [
+          -3600000,
+          -5000000
+        ]
+      ],
+      "width_nm": 200000
+    },
+    {
+      "layer": "B.Cu",
+      "net": "VOUT",
+      "points": [
+        [
+          -10200000,
+          1150000
+        ],
+        [
+          -4600000,
+          1150000
+        ]
+      ],
+      "width_nm": 800000
+    },
+    {
+      "layer": "B.Cu",
+      "net": "VOUT",
+      "points": [
+        [
+          -4600000,
+          1150000
+        ],
+        [
+          -4600000,
+          -5000000
+        ],
+        [
+          -3600000,
+          -5000000
+        ]
+      ],
+      "width_nm": 200000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "FB",
+      "points": [
+        {
+          "pad": [
+            "U",
+            "3"
+          ]
+        },
+        [
+          -2400000,
+          -550000
+        ]
+      ],
+      "width_nm": 200000
+    },
+    {
+      "layer": "In2.Cu",
+      "net": "FB",
+      "points": [
+        [
+          -2400000,
+          -550000
+        ],
+        [
+          -1350000,
+          -550000
+        ],
+        [
+          -1350000,
+          -3200000
+        ],
+        [
+          -1950000,
+          -3200000
+        ]
+      ],
+      "width_nm": 200000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "FB",
+      "points": [
+        [
+          -1950000,
+          -3200000
+        ],
+        {
+          "pad": [
+            "R_TOP",
+            "2"
+          ]
+        },
+        {
+          "pad": [
+            "R_BOT",
+            "1"
+          ]
+        }
+      ],
+      "width_nm": 200000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "VIN",
+      "points": [
+        {
+          "pad": [
+            "U",
+            "12"
+          ]
+        },
+        [
+          2350000,
+          -600000
+        ]
+      ],
+      "width_nm": 200000
+    },
+    {
+      "layer": "In2.Cu",
+      "net": "VIN",
+      "points": [
+        [
+          2350000,
+          -600000
+        ],
+        [
+          6000000,
+          -600000
+        ],
+        [
+          8200000,
+          -3000000
+        ]
+      ],
+      "width_nm": 200000
+    },
+    {
+      "layer": "B.Cu",
+      "net": "VIN",
+      "points": [
+        [
+          8200000,
+          -3000000
+        ],
+        [
+          8200000,
+          850000
+        ]
+      ],
+      "width_nm": 200000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "GND",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          -2750000
+        ]
+      ],
+      "width_nm": 600000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "GND",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2750000
+        ]
+      ],
+      "width_nm": 600000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "GND",
+      "points": [
+        [
+          -600000,
+          -2750000
+        ],
+        [
+          600000,
+          -2750000
+        ]
+      ],
+      "width_nm": 600000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "GND",
+      "points": [
+        [
+          -600000,
+          2750000
+        ],
+        [
+          600000,
+          2750000
+        ]
+      ],
+      "width_nm": 600000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "GND",
+      "points": [
+        {
+          "pad": [
+            "U",
+            "2"
+          ]
+        },
+        [
+          0,
+          -1000000
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "width_nm": 200000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "GND",
+      "points": [
+        {
+          "pad": [
+            "R_BOT",
+            "2"
+          ]
+        },
+        [
+          0,
+          -2750000
+        ]
+      ],
+      "width_nm": 200000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "GND",
+      "points": [
+        {
+          "pad": [
+            "U",
+            "13"
+          ]
+        },
+        [
+          2100000,
+          -1300000
+        ],
+        [
+          2700000,
+          -2000000
+        ]
+      ],
+      "width_nm": 200000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "GND",
+      "points": [
+        {
+          "pad": [
+            "C_IN",
+            "2"
+          ]
+        },
+        [
+          3550000,
+          -2400000
+        ]
+      ],
+      "width_nm": 400000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "GND",
+      "points": [
+        {
+          "pad": [
+            "C_VINA",
+            "2"
+          ]
+        },
+        [
+          -4000000,
+          -2400000
+        ]
+      ],
+      "width_nm": 200000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "GND",
+      "points": [
+        {
+          "pad": [
+            "C_OUT1",
+            "2"
+          ]
+        },
+        [
+          -3750000,
+          -3000000
+        ]
+      ],
+      "width_nm": 400000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "GND",
+      "points": [
+        {
+          "pad": [
+            "C_OUT2",
+            "2"
+          ]
+        },
+        [
+          -5750000,
+          -1950000
+        ]
+      ],
+      "width_nm": 400000
+    },
+    {
+      "layer": "F.Cu",
+      "net": "GND",
+      "points": [
+        {
+          "pad": [
+            "C_OUT3",
+            "2"
+          ]
+        },
+        [
+          -8050000,
+          -1950000
+        ]
+      ],
+      "width_nm": 400000
+    }
+  ],
+  "unresolved": [
+    "input/output conductor, neckdown and via current capacity at actual copper weight",
+    "MLCC effective capacitance and inductor saturation/temperature at minimum battery voltage",
+    "loop stability, EMI, thermal and modem-transient bench qualification",
+    "six-layer stackup, assembly paste and off-pad thermal-via suitability",
+    "author adaptation differs from TI CAD; native geometry checks are not production approval"
+  ],
+  "vias": [
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "VIN",
+      "position_nm": [
+        8200000,
+        850000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "VOUT",
+      "position_nm": [
+        -10200000,
+        1150000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "VIN",
+      "position_nm": [
+        -3000000,
+        -3000000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "VOUT",
+      "position_nm": [
+        -3600000,
+        -5000000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "VOUT",
+      "position_nm": [
+        -4600000,
+        1150000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "FB",
+      "position_nm": [
+        -2400000,
+        -550000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "FB",
+      "position_nm": [
+        -1950000,
+        -3200000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "VIN",
+      "position_nm": [
+        2350000,
+        -600000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "VIN",
+      "position_nm": [
+        8200000,
+        -3000000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "GND",
+      "position_nm": [
+        0,
+        -2750000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "GND",
+      "position_nm": [
+        600000,
+        -2750000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "GND",
+      "position_nm": [
+        -600000,
+        -2750000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "GND",
+      "position_nm": [
+        0,
+        2750000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "GND",
+      "position_nm": [
+        600000,
+        2750000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "GND",
+      "position_nm": [
+        -600000,
+        2750000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "GND",
+      "position_nm": [
+        2700000,
+        -2000000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "GND",
+      "position_nm": [
+        3550000,
+        -2400000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "GND",
+      "position_nm": [
+        -4000000,
+        -2400000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "GND",
+      "position_nm": [
+        -3750000,
+        -3000000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "GND",
+      "position_nm": [
+        -5750000,
+        -1950000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    },
+    {
+      "drill_nm": 300000,
+      "from_layer": "F.Cu",
+      "net": "GND",
+      "position_nm": [
+        -8050000,
+        -1950000
+      ],
+      "size_nm": 600000,
+      "technology": null,
+      "to_layer": "B.Cu"
+    }
+  ],
+  "width_contracts": [
+    {
+      "evidence": "Authored 0.24 mm individual DSJ land entry into owned power/switch polygon; see physical-layout.md. Peak/RMS neckdown capacity remains unresolved.",
+      "minimum_width_nm": 240000,
+      "purpose": "pin_entry",
+      "track_index": 0
+    },
+    {
+      "evidence": "Authored 0.24 mm individual DSJ land entry into owned power/switch polygon; see physical-layout.md. Peak/RMS neckdown capacity remains unresolved.",
+      "minimum_width_nm": 240000,
+      "purpose": "pin_entry",
+      "track_index": 1
+    },
+    {
+      "evidence": "Authored 0.24 mm individual DSJ land entry into owned power/switch polygon; see physical-layout.md. Peak/RMS neckdown capacity remains unresolved.",
+      "minimum_width_nm": 240000,
+      "purpose": "pin_entry",
+      "track_index": 2
+    },
+    {
+      "evidence": "Authored 0.24 mm individual DSJ land entry into owned power/switch polygon; see physical-layout.md. Peak/RMS neckdown capacity remains unresolved.",
+      "minimum_width_nm": 240000,
+      "purpose": "pin_entry",
+      "track_index": 3
+    },
+    {
+      "evidence": "Authored 0.24 mm individual DSJ land entry into owned power/switch polygon; see physical-layout.md. Peak/RMS neckdown capacity remains unresolved.",
+      "minimum_width_nm": 240000,
+      "purpose": "pin_entry",
+      "track_index": 4
+    },
+    {
+      "evidence": "Authored 0.24 mm individual DSJ land entry into owned power/switch polygon; see physical-layout.md. Peak/RMS neckdown capacity remains unresolved.",
+      "minimum_width_nm": 240000,
+      "purpose": "pin_entry",
+      "track_index": 5
+    },
+    {
+      "evidence": "Authored 0.24 mm individual DSJ land entry into owned power/switch polygon; see physical-layout.md. Peak/RMS neckdown capacity remains unresolved.",
+      "minimum_width_nm": 240000,
+      "purpose": "pin_entry",
+      "track_index": 6
+    },
+    {
+      "evidence": "Authored 0.24 mm individual DSJ land entry into owned power/switch polygon; see physical-layout.md. Peak/RMS neckdown capacity remains unresolved.",
+      "minimum_width_nm": 240000,
+      "purpose": "pin_entry",
+      "track_index": 7
+    },
+    {
+      "evidence": "Authored 0.2 mm VINA control supply/decoupler feed, not VIN main current distribution; TI SLVS916I section 10.1 intent, adaptation in physical-layout.md.",
+      "minimum_width_nm": 200000,
+      "purpose": "control_supply",
+      "track_index": 10
+    },
+    {
+      "evidence": "Authored 0.2 mm VINA control supply/decoupler feed, not VIN main current distribution; TI SLVS916I section 10.1 intent, adaptation in physical-layout.md.",
+      "minimum_width_nm": 200000,
+      "purpose": "control_supply",
+      "track_index": 11
+    },
+    {
+      "evidence": "Authored 0.2 mm low-current Kelvin feedback sense from output-capacitor copper, not load-current distribution; TI SLVS916I section 10.1 intent, adaptation in physical-layout.md.",
+      "minimum_width_nm": 200000,
+      "purpose": "output_sense",
+      "track_index": 12
+    },
+    {
+      "evidence": "Authored 0.2 mm low-current Kelvin feedback sense from output-capacitor copper, not load-current distribution; TI SLVS916I section 10.1 intent, adaptation in physical-layout.md.",
+      "minimum_width_nm": 200000,
+      "purpose": "output_sense",
+      "track_index": 14
+    },
+    {
+      "evidence": "Authored 0.2 mm EN control branch, not the VIN main current path; physical-layout.md and TI SLVS916I pin functions.",
+      "minimum_width_nm": 200000,
+      "purpose": "enable",
+      "track_index": 18
+    },
+    {
+      "evidence": "Authored 0.2 mm EN control branch, not the VIN main current path; physical-layout.md and TI SLVS916I pin functions.",
+      "minimum_width_nm": 200000,
+      "purpose": "enable",
+      "track_index": 19
+    },
+    {
+      "evidence": "Authored 0.2 mm EN control branch, not the VIN main current path; physical-layout.md and TI SLVS916I pin functions.",
+      "minimum_width_nm": 200000,
+      "purpose": "enable",
+      "track_index": 20
+    }
+  ],
+  "zones": [
+    {
+      "clearance_nm": 90000,
+      "id": "local-ground-return",
+      "layers": [
+        "F.Cu"
+      ],
+      "minimum_width_nm": 150000,
+      "net": "GND",
+      "pad_connection": "solid",
+      "priority": 2,
+      "vertices": [
+        [
+          -9300000,
+          -6200000
+        ],
+        [
+          7300000,
+          -6200000
+        ],
+        [
+          7300000,
+          7500000
+        ],
+        [
+          -9300000,
+          7500000
+        ]
+      ]
+    }
+  ]
+}

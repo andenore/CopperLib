@@ -1,0 +1,42 @@
+{
+  "schema": "copperscript-fabrication-stackup/v0.1",
+  "selected_profile": "JLC06161H-3313",
+  "production_publishable": false,
+  "source": {
+    "url": "https://jlcpcb.com/impedance",
+    "revision": "Published table retrieved 2026-10-10; no supplier revision stated",
+    "locator": "6-layer, 1.6 mm, 1 oz outer / 0.5 oz inner; JLC06161H-3313 (not No requirement); dielectric-constant tables",
+    "sha256": "01412a8cd823e94927db2349e0170940225dd8e0c973fba4e9f0d46ed1f37385"
+  },
+  "capabilities_source": {
+    "url": "https://jlcpcb.com/capabilities/pcb-capabilities",
+    "revision": "Published capabilities retrieved 2026-10-10",
+    "locator": "Thickness tolerance >=1.0 mm; average hole plating thickness",
+    "sha256": "a8a10b242cef774ae33057a40e6f04a00280bbd64f49b9c770b25367ce008698"
+  },
+  "nominal_finished_thickness_nm": 1600000,
+  "finished_thickness_tolerance_fraction": 0.1,
+  "copper_layers": ["F.Cu", "In1.Cu", "In2.Cu", "In3.Cu", "In4.Cu", "B.Cu"],
+  "physical_layers": [
+    {"kind": "copper", "name": "F.Cu", "thickness_nm": 35000},
+    {"kind": "dielectric", "name": "PP1", "material": "3313*1", "type": "prepreg", "thickness_nm": 99400, "relative_permittivity": 4.1, "loss_tangent": null},
+    {"kind": "copper", "name": "In1.Cu", "thickness_nm": 15200},
+    {"kind": "dielectric", "name": "Core1", "material": "FR4", "type": "core", "thickness_nm": 550000, "relative_permittivity": 4.6, "loss_tangent": null},
+    {"kind": "copper", "name": "In2.Cu", "thickness_nm": 15200},
+    {"kind": "dielectric", "name": "PP2", "material": "2116*1", "type": "prepreg", "thickness_nm": 108800, "relative_permittivity": 4.16, "loss_tangent": null},
+    {"kind": "copper", "name": "In3.Cu", "thickness_nm": 15200},
+    {"kind": "dielectric", "name": "Core2", "material": "FR4", "type": "core", "thickness_nm": 550000, "relative_permittivity": 4.6, "loss_tangent": null},
+    {"kind": "copper", "name": "In4.Cu", "thickness_nm": 15200},
+    {"kind": "dielectric", "name": "PP3", "material": "3313*1", "type": "prepreg", "thickness_nm": 99400, "relative_permittivity": 4.1, "loss_tangent": null},
+    {"kind": "copper", "name": "B.Cu", "thickness_nm": 35000}
+  ],
+  "published_average_hole_plating_nm": 18000,
+  "finished_via_plating_nm": null,
+  "limitations": [
+    "Published construction sums to 1.5384 mm; nominal finished board is 1.6 mm. Do not alter dielectric spacing to make the sum exact.",
+    "Dielectric loss tangent and order-specific minimum finished barrel plating are not established by these tables.",
+    "18 um is a published average, not a guaranteed local minimum for current-capacity signoff.",
+    "Select this exact stackup explicitly when ordering; No requirement has a different central prepreg.",
+    "Nominal geometry and dielectric constants are screening inputs, not field-solver or fabrication approval."
+  ]
+}

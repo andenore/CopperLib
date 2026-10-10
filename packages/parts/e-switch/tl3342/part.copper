@@ -1,0 +1,11 @@
+part TL3342F160QG {
+    category = "switch.momentary";
+    manufacturer = "E-Switch";
+    footprint = "Button_Switch_SMD:SW_SPST_TL3342";
+    internal_pad_groups = "1; 2";
+    source_document = "TL3342F160QG drawing P010632";
+    source_revision = "J";
+    source_url = "https://configured-product-images.s3.amazonaws.com/2D/specs/TL3342F160QG.pdf";
+    pin A { number = "1"; domains = "digital"; directions = "passive"; }
+    pin B { number = "2"; domains = "digital"; directions = "passive"; }
+}

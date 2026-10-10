@@ -1,0 +1,2 @@
+# Generated asset bytes are pinned by consuming projects and reproduction tests.
+assets/*.json text eol=lf

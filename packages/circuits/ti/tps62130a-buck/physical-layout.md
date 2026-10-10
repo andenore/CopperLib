@@ -73,7 +73,10 @@ the quiet-sense and lower-layer corridors. On F.Cu, host zones overlapping the
 private region are rejected so the two owned zones can fill as drawn. In1.Cu
 and In4.Cu GND planes contact the individual ground/thermal vias. Native refill
 and zero unconnected items are required to prove those plane-backed returns;
-an unfilled zone outline is not accepted as a connection.
+an unfilled zone outline is not accepted as a connection. A board may
+explicitly set `allow_same_net_hard_macro_overlap = true` on a same-net F.Cu
+GND zone to let its native fill connect to these local GND zones; the macro's
+B.Cu/In2.Cu/In3.Cu fill exclusions and all foreign-net clearances remain active.
 
 `required_layers` names the six-layer stackup contract; it does not reserve
 every layer beneath the macro. The macro permits tracks beneath its envelope

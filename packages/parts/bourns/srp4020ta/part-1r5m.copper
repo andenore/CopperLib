@@ -1,0 +1,12 @@
+part SRP4020TA_1R5M {
+    category = "passive.inductor";
+    manufacturer = "Bourns";
+    footprint = "footprints/Bourns_SRP4020TA.kicad_mod";
+    source_document = "SRP4020TA Series Shielded Power Inductors";
+    source_revision = "Official datasheet retrieved 2026-10-09";
+    source_location = "Page1, 1R5M ratings and recommended layout";
+    source_url = "https://www.bourns.com/docs/Product-Datasheets/SRP4020TA.pdf";
+    source_checksum = "sha256:601b2bd60f01531d3dd98df00eab15635fa971ebc03cf7ae4ccb5679faf03485";
+    pin A { number = "1"; domains = "power,analog"; directions = "passive"; }
+    pin B { number = "2"; domains = "power,analog"; directions = "passive"; }
+}

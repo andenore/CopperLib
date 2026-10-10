@@ -1,0 +1,14 @@
+part JST_S3B_XH_SM4_TB {
+    category = "connector.battery";
+    manufacturer = "JST";
+    footprint = "footprints/JST_S3B_XH_SM4_TB.kicad_mod";
+    source_document = "JST XH connector catalogue";
+    source_revision = "Official catalogue retrieved 2026-10-09";
+    source_location = "SMT header page6; recommended board layout";
+    source_url = "https://www.jst-mfg.com/product/pdf/eng/eXH.pdf";
+    source_checksum = "sha256:9426b136902f11900825077535e5c65032b7fbc31ffb59c5e9e1f463bb20fb90";
+    pin P1 { number = "1"; domains = "power"; directions = "passive"; }
+    pin P2 { number = "2"; domains = "ground"; directions = "passive"; }
+    pin P3 { number = "3"; domains = "analog"; directions = "passive"; }
+    pin MP { number = "MP"; domains = "ground"; directions = "passive"; }
+}

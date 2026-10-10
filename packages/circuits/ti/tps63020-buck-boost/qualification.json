@@ -1,0 +1,70 @@
+{
+  "id": "ti.tps63020-buck-boost",
+  "kind": "power",
+  "sources": [
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/tps63020.pdf",
+      "revision": "SLVS916I Rev I",
+      "locator": "Section 10.1, Figure 31 p23; DSJ land drawings pp31-33",
+      "sha256": "d117773bb7370fd79377bc70ce987eec3469ea5979547a09df52fca5f95b2e69"
+    },
+    {
+      "url": "https://www.ti.com/lit/ug/slvu365/slvu365.pdf",
+      "revision": "SLVU365 March 2010",
+      "locator": "Figures 6-8 pp6-7",
+      "sha256": "a164c060584f238a27553efe054ad47916d90fcf4ca5739bf0d01c8e35c5c221"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "component-ratings",
+      "stage": "design",
+      "description": "Review exact component ratings and tolerances, effective MLCC capacitance under bias/temperature, inductor saturation and load-dependent converter limits.",
+      "algorithm": "external"
+    },
+    {
+      "id": "current-capacity",
+      "stage": "design",
+      "description": "Review peak/RMS currents, minimum copper/plating, pad neckdowns, every via/barrel and permitted drop/temperature; resistance is not ampacity.",
+      "algorithm": "external"
+    },
+    {
+      "id": "layout-review",
+      "stage": "design",
+      "description": "Review actual filled copper against reference layout: critical loops, quiet feedback/sense, local returns, thermal paths and host-board adaptations.",
+      "algorithm": "external"
+    },
+    {
+      "id": "transient",
+      "stage": "simulation",
+      "description": "Review source/load cases, exact models/settings and power-path/regulator transient behavior; simplified droop is screening only.",
+      "algorithm": "external"
+    },
+    {
+      "id": "prototype-power",
+      "stage": "bench",
+      "description": "Measure bursts, minimum battery/input voltage, charging/NTC if applicable, startup/shutdown, temperature and actual pack/harness limits.",
+      "algorithm": "external"
+    },
+    {
+      "id": "host-conductor-width",
+      "algorithm": "route_width",
+      "stage": "design",
+      "description": "Optional host-rail width screen; consumer must supply source/derivation and account for owned pad neckdowns separately."
+    },
+    {
+      "id": "input-demand",
+      "algorithm": "calculation",
+      "stage": "design",
+      "description": "Explicit lower-bound efficiency and minimum input-voltage screening, not current-limit/control-loop signoff."
+    },
+    {
+      "id": "reservoir-droop",
+      "algorithm": "calculation",
+      "stage": "design",
+      "description": "Pulse droop with effective capacitance/ESR and no assumed replenishment; does not model ESL or closed-loop response."
+    }
+  ],
+  "schema": "copperscript-engineering-contract/v0.1",
+  "production_publishable": false
+}

@@ -1,0 +1,11 @@
+part BSS138 {
+    category = "transistor.nmos";
+    manufacturer = "onsemi";
+    footprint = "Package_TO_SOT_SMD:SOT-23";
+    source_document = "BSS138 N-Channel MOSFET datasheet";
+    source_url = "https://www.onsemi.com/pdf/datasheet/bss138-d.pdf";
+    // Board uses gate/source/drain as a low-current PWRKEY open-drain driver.
+    pin IN { number = "1"; domains = "digital"; directions = "input"; }
+    pin GND { number = "2"; domains = "ground"; directions = "input"; }
+    pin OUT { number = "3"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; }
+}

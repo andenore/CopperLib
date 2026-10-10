@@ -3,3 +3,7 @@ data/full-vertical/nrf52832-qfaa-rf-reference.json text eol=lf
 data/full-vertical/nrf-antenna-hard-macro.json text eol=lf
 # New demo sources are pinned by raw bytes in CopperScript's copper.lock.
 packages/nrf52_demo/*.copper text eol=lf
+# Supported package assets are byte-pinned by consumers on Windows and Linux.
+packages/**/*.copper text eol=lf
+packages/**/*.kicad_mod text eol=lf
+packages/**/*.json text eol=lf

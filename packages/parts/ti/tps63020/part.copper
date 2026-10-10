@@ -1,0 +1,25 @@
+part TPS63020DSJR {
+    category = "power.regulator.buck_boost";
+    manufacturer = "Texas Instruments";
+    footprint = "footprints/TI_DSJ0014_TPS63020.kicad_mod";
+    source_document = "TPS6302x datasheet";
+    source_revision = "SLVS916I";
+    source_location = "Pin Functions p4; section 8; mechanical drawings pp31-33";
+    source_url = "https://www.ti.com/lit/ds/symlink/tps63020.pdf";
+    source_checksum = "sha256:d117773bb7370fd79377bc70ce987eec3469ea5979547a09df52fca5f95b2e69";
+    pin VINA { number = "1"; domains = "power"; directions = "input"; voltage_min = 1.8V; voltage_max = 5.5V; }
+    pin GND { number = "2"; domains = "ground"; directions = "input"; }
+    pin FB { number = "3"; domains = "analog"; directions = "input"; }
+    pin VOUT_4 { number = "4"; domains = "power"; directions = "output"; }
+    pin VOUT_5 { number = "5"; domains = "power"; directions = "passive"; }
+    pin L2_6 { number = "6"; domains = "power"; directions = "passive"; }
+    pin L2_7 { number = "7"; domains = "power"; directions = "passive"; }
+    pin L1_8 { number = "8"; domains = "power"; directions = "passive"; }
+    pin L1_9 { number = "9"; domains = "power"; directions = "passive"; }
+    pin VIN_10 { number = "10"; domains = "power"; directions = "input"; voltage_min = 1.8V; voltage_max = 5.5V; }
+    pin VIN_11 { number = "11"; domains = "power"; directions = "input"; voltage_min = 1.8V; voltage_max = 5.5V; }
+    pin EN { number = "12"; domains = "digital"; directions = "input"; }
+    pin PS_SYNC { number = "13"; domains = "digital"; directions = "input"; }
+    pin PG { number = "14"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; connection = optional; }
+    pin PGND { number = "15"; domains = "ground"; directions = "input"; }
+}

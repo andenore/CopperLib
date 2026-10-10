@@ -1,0 +1,47 @@
+{
+  "id": "simcom.sim7670g-lngv",
+  "kind": "rf",
+  "matching": "unresolved",
+  "sources": [
+    {
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/ee03db1eecfc7b8f7e60fb0421704843.pdf?productCode=C45935408",
+      "revision": "supplier-linked SIM7670G specification; not exact hardware-layout qualification",
+      "locator": "Cat-1 bis identity; used-pin/related-guide limitations in README",
+      "sha256": "12d00aae02bc600ac678f8d478d86e099f3339f9a9a7e2837773e5d9489acb11"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "matching-review",
+      "stage": "design",
+      "description": "Review exact package/band matching topology and every reference-layout adaptation; a nominal 50-ohm port is not evidence matching is unnecessary.",
+      "algorithm": "external"
+    },
+    {
+      "id": "impedance",
+      "stage": "simulation",
+      "description": "Qualify actual routed geometry, selected fabrication stackup, return copper and solver settings; closed DRC is insufficient.",
+      "algorithm": "external"
+    },
+    {
+      "id": "prototype-rf",
+      "stage": "bench",
+      "description": "Measure tuning and RF performance with actual antenna, enclosure, power states and intended bands.",
+      "algorithm": "external"
+    },
+    {
+      "id": "reference-layout",
+      "stage": "design",
+      "description": "Review layer-specific matching/antenna keepouts, prescribed ground returns, short pin-to-pad distances and support circuitry.",
+      "algorithm": "external"
+    },
+    {
+      "id": "reference-coverage",
+      "algorithm": "reference_coverage",
+      "stage": "design",
+      "description": "Screen actual filled adjacent ground copper beneath routed host feed; margin needs explicit engineering basis."
+    }
+  ],
+  "schema": "copperscript-engineering-contract/v0.1",
+  "production_publishable": false
+}

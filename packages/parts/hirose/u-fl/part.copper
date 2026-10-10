@@ -1,0 +1,8 @@
+part U_FL_R_SMT_1 {
+    category = "connector.coaxial";
+    manufacturer = "Hirose";
+    footprint = "Connector_Coaxial:U.FL_Hirose_U.FL-R-SMT-1_Vertical";
+    source_url = "https://www.hirose.com/product/series/U.FL";
+    pin SIGNAL { number = "1"; domains = "rf"; directions = "passive"; }
+    pin GND { number = "2"; domains = "ground"; directions = "input"; }
+}

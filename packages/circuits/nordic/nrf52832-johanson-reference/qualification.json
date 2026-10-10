@@ -1,0 +1,41 @@
+{
+  "id": "nordic.nrf52832-johanson-reference",
+  "kind": "rf",
+  "matching": "required",
+  "sources": [
+    {
+      "url": "https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/reference-layouts/nrf52832qfaxreflayoutv11.zip",
+      "revision": "QFAA LDO v1.1, 30 November 2016",
+      "locator": "QFAA reference schematic/PCB PDF and Production files; adaptation documented in README",
+      "sha256": "21e37dcdd8e63d80825bb9e06462efdebe55b642f4e19c5f25c2d9a131e6e334"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "matching-review",
+      "stage": "design",
+      "description": "Review exact package/band matching topology and every reference-layout adaptation; a nominal 50-ohm port is not evidence matching is unnecessary.",
+      "algorithm": "external"
+    },
+    {
+      "id": "impedance",
+      "stage": "simulation",
+      "description": "Qualify actual routed geometry, selected fabrication stackup, return copper and solver settings; closed DRC is insufficient.",
+      "algorithm": "external"
+    },
+    {
+      "id": "prototype-rf",
+      "stage": "bench",
+      "description": "Measure tuning and RF performance with actual antenna, enclosure, power states and intended bands.",
+      "algorithm": "external"
+    },
+    {
+      "id": "reference-layout",
+      "stage": "design",
+      "description": "Review layer-specific matching/antenna keepouts, prescribed ground returns, short pin-to-pad distances and support circuitry.",
+      "algorithm": "external"
+    }
+  ],
+  "schema": "copperscript-engineering-contract/v0.1",
+  "production_publishable": false
+}

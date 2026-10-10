@@ -1,0 +1,139 @@
+// SIM7670G-LNGV, JLCPCB C45935408. Cat-1 bis: SIMCom supplier-linked spec.
+// Used pins cross-checked against SIMCom-authored SIM7672X Hardware Design
+// V1.01 Tables4/5 and the exact C45935408 library. Unused multifunction pins
+// are not claimed equivalent between variants; they remain unconnected.
+// Package geometry is transcribed from JLCEDA/EasyEDA Official Library.
+// https://lceda.cn/ https://easyeda.com (see README.md).
+part SIM7670G_LNGV {
+    category = "module.cellular.lte_cat1bis";
+    manufacturer = "SIMCom Wireless Solutions";
+    footprint = "footprints/SIM7670G_LNGV.kicad_mod";
+    source_document = "SIMCom SIM7670X spec and SIM7672X Hardware Design";
+    source_revision = "Supplier-linked SIM7670X spec; hardware V1.01 used-pin subset";
+    source_url = "https://datasheet.lcsc.com/datasheet/pdf/ee03db1eecfc7b8f7e60fb0421704843.pdf?productCode=C45935408";
+    source_checksum = "sha256:12d00aae02bc600ac678f8d478d86e099f3339f9a9a7e2837773e5d9489acb11";
+    pin PWRKEY { number = "1"; domains = "digital"; directions = "input"; voltage_max = 1.95V; }
+    pin GND { number = "2"; domains = "ground"; directions = "input";  }
+    pin UNUSED_3 { number = "3"; connection = do_not_connect; }
+    pin UNUSED_4 { number = "4"; connection = do_not_connect; }
+    pin UNUSED_5 { number = "5"; connection = do_not_connect; }
+    pin UNUSED_6 { number = "6"; connection = do_not_connect; }
+    pin UNUSED_7 { number = "7"; connection = do_not_connect; }
+    pin UNUSED_8 { number = "8"; connection = do_not_connect; }
+    pin MAIN_TXD { number = "9"; domains = "digital"; directions = "output"; drive_modes = "push_pull"; voltage_max = 1.95V; }
+    pin MAIN_RXD { number = "10"; domains = "digital"; directions = "input"; voltage_max = 1.95V; }
+    pin UNUSED_11 { number = "11"; connection = do_not_connect; }
+    pin UNUSED_12 { number = "12"; connection = do_not_connect; }
+    pin UNUSED_13 { number = "13"; connection = do_not_connect; }
+    pin UNUSED_14 { number = "14"; connection = do_not_connect; }
+    pin VDD_EXT { number = "15"; domains = "power"; directions = "output"; voltage_min = 1.7V; voltage_max = 1.9V; }
+    pin UNUSED_16 { number = "16"; connection = do_not_connect; }
+    pin GND_17 { number = "17"; domains = "ground"; directions = "input";  }
+    pin GND_18 { number = "18"; domains = "ground"; directions = "input";  }
+    pin UNUSED_19 { number = "19"; connection = do_not_connect; }
+    pin UNUSED_20 { number = "20"; connection = do_not_connect; }
+    pin UNUSED_21 { number = "21"; connection = do_not_connect; }
+    pin UNUSED_22 { number = "22"; connection = do_not_connect; }
+    pin UNUSED_23 { number = "23"; connection = do_not_connect; }
+    pin USB_VBUS { number = "24"; domains = "power"; directions = "input"; voltage_max = 5.25V; }
+    pin UNUSED_25 { number = "25"; connection = do_not_connect; }
+    pin UNUSED_26 { number = "26"; connection = do_not_connect; }
+    pin USB_DP { number = "27"; domains = "digital"; directions = "bidirectional"; traits = "usb_dp"; }
+    pin USB_DM { number = "28"; domains = "digital"; directions = "bidirectional"; traits = "usb_dm"; }
+    pin GND_29 { number = "29"; domains = "ground"; directions = "input";  }
+    pin USIM_VDD { number = "30"; domains = "power"; directions = "output";  }
+    pin USIM_DATA { number = "31"; domains = "digital"; directions = "bidirectional";  }
+    pin USIM_CLK { number = "32"; domains = "digital,clock"; directions = "output"; drive_modes = "push_pull"; }
+    pin USIM_RST { number = "33"; domains = "digital"; directions = "output"; drive_modes = "push_pull"; }
+    pin UNUSED_34 { number = "34"; connection = do_not_connect; }
+    pin UNUSED_35 { number = "35"; connection = do_not_connect; }
+    pin UNUSED_36 { number = "36"; connection = do_not_connect; }
+    pin UNUSED_37 { number = "37"; connection = do_not_connect; }
+    pin UNUSED_38 { number = "38"; connection = do_not_connect; }
+    pin GND_39 { number = "39"; domains = "ground"; directions = "input";  }
+    pin UNUSED_40 { number = "40"; connection = do_not_connect; }
+    pin UNUSED_41 { number = "41"; connection = do_not_connect; }
+    pin UNUSED_42 { number = "42"; connection = do_not_connect; }
+    pin UNUSED_43 { number = "43"; connection = do_not_connect; }
+    pin UNUSED_44 { number = "44"; connection = do_not_connect; }
+    pin GND_45 { number = "45"; domains = "ground"; directions = "input";  }
+    pin GND_46 { number = "46"; domains = "ground"; directions = "input";  }
+    pin UNUSED_47 { number = "47"; connection = do_not_connect; }
+    pin UNUSED_48 { number = "48"; connection = do_not_connect; }
+    pin UNUSED_49 { number = "49"; connection = do_not_connect; }
+    pin UNUSED_50 { number = "50"; connection = do_not_connect; }
+    pin UNUSED_51 { number = "51"; connection = do_not_connect; }
+    pin UNUSED_52 { number = "52"; connection = do_not_connect; }
+    pin UNUSED_53 { number = "53"; connection = do_not_connect; }
+    pin GND_54 { number = "54"; domains = "ground"; directions = "input";  }
+    pin VBAT_1 { number = "55"; domains = "power"; directions = "input"; voltage_min = 3.4V; voltage_max = 4.2V; }
+    pin VBAT_2 { number = "56"; domains = "power"; directions = "input"; voltage_min = 3.4V; voltage_max = 4.2V; }
+    pin VBAT_3 { number = "57"; domains = "power"; directions = "input"; voltage_min = 3.4V; voltage_max = 4.2V; }
+    pin GND_58 { number = "58"; domains = "ground"; directions = "input";  }
+    pin GND_59 { number = "59"; domains = "ground"; directions = "input";  }
+    pin ANT_MAIN { number = "60"; domains = "rf"; directions = "bidirectional"; traits = "cellular_rf"; }
+    pin GND_61 { number = "61"; domains = "ground"; directions = "input";  }
+    pin GND_62 { number = "62"; domains = "ground"; directions = "input";  }
+    pin GND_63 { number = "63"; domains = "ground"; directions = "input";  }
+    pin GND_64 { number = "64"; domains = "ground"; directions = "input";  }
+    pin GND_65 { number = "65"; domains = "ground"; directions = "input";  }
+    pin STATUS { number = "66"; domains = "digital"; directions = "output"; drive_modes = "push_pull"; voltage_max = 1.95V; }
+    pin UNUSED_67 { number = "67"; connection = do_not_connect; }
+    pin UNUSED_68 { number = "68"; connection = do_not_connect; }
+    pin GND_69 { number = "69"; domains = "ground"; directions = "input";  }
+    pin GND_70 { number = "70"; domains = "ground"; directions = "input";  }
+    pin GND_71 { number = "71"; domains = "ground"; directions = "input";  }
+    pin GND_72 { number = "72"; domains = "ground"; directions = "input";  }
+    pin GND_73 { number = "73"; domains = "ground"; directions = "input";  }
+    pin GND_74 { number = "74"; domains = "ground"; directions = "input";  }
+    pin GND_75 { number = "75"; domains = "ground"; directions = "input";  }
+    pin GND_76 { number = "76"; domains = "ground"; directions = "input";  }
+    pin GND_77 { number = "77"; domains = "ground"; directions = "input";  }
+    pin GND_78 { number = "78"; domains = "ground"; directions = "input";  }
+    pin GND_79 { number = "79"; domains = "ground"; directions = "input";  }
+    pin GND_80 { number = "80"; domains = "ground"; directions = "input";  }
+    pin GND_81 { number = "81"; domains = "ground"; directions = "input";  }
+    pin GND_82 { number = "82"; domains = "ground"; directions = "input";  }
+    pin GND_83 { number = "83"; domains = "ground"; directions = "input";  }
+    pin GND_84 { number = "84"; domains = "ground"; directions = "input";  }
+    pin GND_85 { number = "85"; domains = "ground"; directions = "input";  }
+    pin GND_86 { number = "86"; domains = "ground"; directions = "input";  }
+    pin GND_87 { number = "87"; domains = "ground"; directions = "input";  }
+    pin GND_88 { number = "88"; domains = "ground"; directions = "input";  }
+    pin GND_89 { number = "89"; domains = "ground"; directions = "input";  }
+    pin UNUSED_90 { number = "90"; connection = do_not_connect; }
+    pin GND_91 { number = "91"; domains = "ground"; directions = "input";  }
+    pin GND_92 { number = "92"; domains = "ground"; directions = "input";  }
+    pin UNUSED_93 { number = "93"; connection = do_not_connect; }
+    pin GND_94 { number = "94"; domains = "ground"; directions = "input";  }
+    pin UNUSED_95 { number = "95"; connection = do_not_connect; }
+    pin UNUSED_96 { number = "96"; connection = do_not_connect; }
+    pin GNSS_VDD { number = "97"; domains = "power"; directions = "input"; voltage_min = 1.7V; voltage_max = 1.9V; }
+    pin UNUSED_98 { number = "98"; connection = do_not_connect; }
+    pin UNUSED_99 { number = "99"; connection = do_not_connect; }
+    pin UNUSED_100 { number = "100"; connection = do_not_connect; }
+    pin UNUSED_101 { number = "101"; connection = do_not_connect; }
+    pin UNUSED_102 { number = "102"; connection = do_not_connect; }
+    pin UNUSED_103 { number = "103"; connection = do_not_connect; }
+    pin UNUSED_104 { number = "104"; connection = do_not_connect; }
+    pin UNUSED_105 { number = "105"; connection = do_not_connect; }
+    pin UNUSED_106 { number = "106"; connection = do_not_connect; }
+    pin UNUSED_107 { number = "107"; connection = do_not_connect; }
+    pin UNUSED_108 { number = "108"; connection = do_not_connect; }
+    pin UNUSED_109 { number = "109"; connection = do_not_connect; }
+    pin UNUSED_110 { number = "110"; connection = do_not_connect; }
+    pin UNUSED_111 { number = "111"; connection = do_not_connect; }
+    pin UNUSED_112 { number = "112"; connection = do_not_connect; }
+    pin UNUSED_113 { number = "113"; connection = do_not_connect; }
+    pin UNUSED_114 { number = "114"; connection = do_not_connect; }
+    pin UNUSED_115 { number = "115"; connection = do_not_connect; }
+    pin GNSS_VBKP { number = "116"; domains = "power"; directions = "input"; voltage_min = 2V; voltage_max = 3.6V; }
+    pin UNUSED_117 { number = "117"; connection = do_not_connect; }
+    pin UNUSED_118 { number = "118"; connection = do_not_connect; }
+    pin UNUSED_119 { number = "119"; connection = do_not_connect; }
+    pin UNUSED_120 { number = "120"; connection = do_not_connect; }
+    pin UNUSED_121 { number = "121"; connection = do_not_connect; }
+    pin UNUSED_122 { number = "122"; connection = do_not_connect; }
+    pin UNUSED_123 { number = "123"; connection = do_not_connect; }
+    pin UNUSED_124 { number = "124"; connection = do_not_connect; }
+}

@@ -4,6 +4,51 @@ Use this when adding or revising a physical hard macro in CopperLib. A passing
 connectivity/DRC trial does not qualify electrical, thermal, EMI or assembly
 performance.
 
+## Required review when adding components
+
+These checks apply before deciding whether to create a hard macro, including
+standalone part additions. A standalone part can leave board-specific geometry
+to its host, but must document the required support circuit and physical layout
+obligations. Do not hide missing layout work behind a valid pin map or ERC pass.
+
+- **RF matching and reference layout.** For every RF-capable component, inspect
+  the exact manufacturer reference schematic and layout for its package,
+  operating band and intended antenna/interface. Explicitly record whether
+  chip-side matching, a balun, antenna tuning, filters or other support are
+  required or integrated. A nominal 50-ohm module port is not evidence that the
+  board antenna needs no matching. If no external network is needed, record
+  the source-backed reason; unknown requirements remain unresolved.
+- **Constrain RF-critical geometry.** Preserve matching topology and prescribed
+  ground returns. Encode reference-backed pin-to-component distances, relative
+  poses/orientations, short routes, layer/impedance requirements, return vias
+  and antenna copper/component keepouts. Prefer a reviewed hard macro when
+  placement alone cannot preserve the required copper. Do not invent universal
+  distance limits or copy matching values to a different package, antenna or
+  stackup without review.
+- **Switching supplies: macro first.** For switching regulators, converters and
+  switching chargers, ideally generate a hard macro from the applicable
+  manufacturer reference layout, preserving critical placement and copper.
+  Include local capacitors, inductor and other topology-specific support,
+  high-di/dt current/return loops, switching-node geometry, quiet feedback/sense
+  paths and thermal/ground connections. Record package, topology and operating
+  conditions, and distinguish authored adaptations from extracted vendor CAD.
+- **Strong fallback contract.** If a macro is unavailable or unsuitable,
+  require explicit, source-backed placement/orientation and pin-relative
+  distance limits plus trace widths or conductor geometry for each critical
+  power/current path. Review peak/RMS current, copper thickness, temperature
+  rise, voltage drop, pad-entry neckdowns and via capacity; do not apply one
+  arbitrary wide trace to every net. Bound critical route/loop geometry and
+  isolate feedback from switching copper. Soft placement groups, component
+  centre distances alone, or board-default widths do not satisfy this contract.
+- **Enforcement and evidence.** Check generated placement and routed geometry
+  against the contract. Add regression checks for enforceable requirements;
+  explicitly list unsupported constraints and require manual review of those
+  gaps before qualification. Never silently weaken a limit to make placement
+  or routing pass. Retain manufacturer revision/page/figure locators and
+  hashes with the part/circuit evidence.
+
+## Macro asset review
+
 - **Choose the right scope.** Identify components that generate noise or are
   sensitive to it. For switched regulators, RF circuits, precision analog
   front ends and similar layouts, prefer a hard macro derived from an official

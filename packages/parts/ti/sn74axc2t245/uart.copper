@@ -1,0 +1,19 @@
+part MODEM_UART_TRANSLATOR {
+    category = "interface.level_translator.uart";
+    manufacturer = "Texas Instruments";
+    footprint = "Package_DFN_QFN:UQFN-10_1.4x1.8mm_P0.4mm";
+    source_document = "SN74AXC2T245 datasheet";
+    source_revision = "SCES879A";
+    source_location = "Table4-1 pin functions; DIR truth table";
+    source_url = "https://www.ti.com/lit/ds/symlink/sn74axc2t245.pdf";
+    pin DIR2 { number = "1"; domains = "digital"; directions = "input"; }
+    pin OE_N { number = "2"; domains = "digital"; directions = "input"; }
+    pin GND { number = "3"; domains = "ground"; directions = "input"; }
+    pin B_TX { number = "4"; domains = "digital"; directions = "input"; voltage_max = 1.95V; }
+    pin B_RX { number = "5"; domains = "digital"; directions = "output"; drive_modes = "push_pull"; voltage_max = 1.95V; }
+    pin VCCB { number = "6"; domains = "power"; directions = "input"; voltage_min = 0.65V; voltage_max = 3.6V; }
+    pin VCCA { number = "7"; domains = "power"; directions = "input"; voltage_min = 0.65V; voltage_max = 3.6V; }
+    pin A_TX { number = "8"; domains = "digital"; directions = "input"; voltage_max = 3.6V; }
+    pin A_RX { number = "9"; domains = "digital"; directions = "output"; drive_modes = "push_pull"; voltage_max = 3.6V; }
+    pin DIR1 { number = "10"; domains = "digital"; directions = "input"; }
+}

@@ -1,0 +1,11 @@
+part DEBUG_HEADER {
+    category = "connector.debug.uart";
+    manufacturer = "JST";
+    footprint = "../../../parts/jst/xh-sm4/footprints/JST_S4B_XH_SM4_TB.kicad_mod";
+    source_url = "https://www.jst-mfg.com/product/pdf/eng/eXH.pdf";
+    pin VREF { number = "1"; domains = "power"; directions = "passive"; }
+    pin TX { number = "2"; domains = "digital"; directions = "passive"; }
+    pin RX { number = "3"; domains = "digital"; directions = "passive"; }
+    pin GND { number = "4"; domains = "ground"; directions = "passive"; }
+    pin MP { number = "MP"; domains = "ground"; directions = "passive"; }
+}

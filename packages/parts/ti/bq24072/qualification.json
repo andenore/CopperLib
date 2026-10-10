@@ -1,0 +1,47 @@
+{
+  "id": "ti.bq24072",
+  "kind": "power",
+  "sources": [
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/bq24072.pdf",
+      "revision": "SLUS810N Rev N",
+      "locator": "Sections 9.3, 10.2; thermal/power-path/NTC and package requirements",
+      "sha256": "4fe4e4f9855501f83b400c6932e3098439e51c50539e40dc45b44a8d509e8db1"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "component-ratings",
+      "stage": "design",
+      "description": "Review exact component ratings and tolerances, effective MLCC capacitance under bias/temperature, inductor saturation and load-dependent converter limits.",
+      "algorithm": "external"
+    },
+    {
+      "id": "current-capacity",
+      "stage": "design",
+      "description": "Review peak/RMS currents, minimum copper/plating, pad neckdowns, every via/barrel and permitted drop/temperature; resistance is not ampacity.",
+      "algorithm": "external"
+    },
+    {
+      "id": "layout-review",
+      "stage": "design",
+      "description": "Review actual filled copper against reference layout: critical loops, quiet feedback/sense, local returns, thermal paths and host-board adaptations.",
+      "algorithm": "external"
+    },
+    {
+      "id": "transient",
+      "stage": "simulation",
+      "description": "Review source/load cases, exact models/settings and power-path/regulator transient behavior; simplified droop is screening only.",
+      "algorithm": "external"
+    },
+    {
+      "id": "prototype-power",
+      "stage": "bench",
+      "description": "Measure bursts, minimum battery/input voltage, charging/NTC if applicable, startup/shutdown, temperature and actual pack/harness limits.",
+      "algorithm": "external"
+    }
+  ],
+  "notes": "Linear charger, not a switched converter and not cell protection. Review USB input-mode/current, charging tolerance, TS/pack NTC, actual protected pack and thermal dissipation.",
+  "schema": "copperscript-engineering-contract/v0.1",
+  "production_publishable": false
+}
