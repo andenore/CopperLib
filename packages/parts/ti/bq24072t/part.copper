@@ -1,0 +1,35 @@
+// BQ24072TRGTR: voltage-divider TS variant, NOT the current-source BQ24072.
+// SLUS937C pp4-5 pin mapping; pp8-9 EC; pp19-20 Figure18 TS;
+// p33 Figure37 layout; appended RGT0016C drawing 4222419/E (07/2025).
+// Package: 3x3 mm, 0.5 mm pitch, 1.68 mm EP. KiCad perimeter lands
+// 0.825x0.25 mm at 1.4625 mm differ from TI's example 0.6x0.24 at 1.4 mm.
+// EP must be grounded alongside VSS; no internal-pad-group exemption.
+// TS requires external divider/NTC. R6 <100 kohm requires 100 kohm series R8.
+// Charge regulation max is 4240 mV, not the non-T part's 4230 mV.
+part BQ24072TRGTR {
+    category = "power.charger.li_ion";
+    manufacturer = "Texas Instruments";
+    footprint = "Package_DFN_QFN:VQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm";
+    source_document = "BQ24072T, BQ24075T, BQ24079T Standalone Linear Battery Chargers with Power Path";
+    source_revision = "SLUS937C Rev C";
+    source_location = "pp4-5 pin functions; pp8-9 EC; pp19-20 TS; p33 layout; RGT0016C appended pp41-43";
+    source_url = "https://www.ti.com/lit/ds/symlink/bq24072t.pdf";
+    source_checksum = "sha256:6f09e139e13a7bca407b4e8608ed0c387e43ba8c1d3705b4f9872b82495ea71c";
+    pin TS { number = "1"; domains = "analog"; directions = "input"; connection = required; }
+    pin BAT_2 { number = "2"; domains = "power"; directions = "bidirectional"; }
+    pin BAT_3 { number = "3"; domains = "power"; directions = "bidirectional"; }
+    pin CE { number = "4"; domains = "digital"; directions = "input"; connection = required; }
+    pin EN2 { number = "5"; domains = "digital"; directions = "input"; connection = required; }
+    pin EN1 { number = "6"; domains = "digital"; directions = "input"; connection = required; }
+    pin PGOOD { number = "7"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; }
+    pin VSS { number = "8"; domains = "ground"; directions = "input"; connection = required; }
+    pin CHG { number = "9"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; }
+    pin OUT_10 { number = "10"; domains = "power"; directions = "output"; }
+    pin OUT_11 { number = "11"; domains = "power"; directions = "passive"; }
+    pin ILIM { number = "12"; domains = "analog"; directions = "input"; }
+    pin IN { number = "13"; domains = "power"; directions = "input"; voltage_min = 4.35V; voltage_max = 6.4V; }
+    pin TMR { number = "14"; domains = "analog"; directions = "input"; connection = optional; }
+    pin TD { number = "15"; domains = "digital"; directions = "input"; connection = required; }
+    pin ISET { number = "16"; domains = "analog"; directions = "bidirectional"; }
+    pin EP { number = "17"; domains = "ground"; directions = "input"; connection = required; }
+}

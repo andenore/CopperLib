@@ -11,6 +11,22 @@ SPEC.loader.exec_module(GEN)
 
 
 class LayoutTests(unittest.TestCase):
+    def test_power_output_variant_preserves_quiet_and_switch_copper(self):
+        old, new = GEN.generate(True), GEN.generate(True, True)
+        self.assertEqual(new['members'], old['members'])
+        self.assertEqual(new['pad_nets'], old['pad_nets'])
+        self.assertEqual(new['plane_returns'], old['plane_returns'])
+        self.assertEqual(new['keepouts'], old['keepouts'])
+        self.assertTrue(all(t in new['tracks'] for t in old['tracks']))
+        self.assertTrue(all(v in new['vias'] for v in old['vias']))
+        self.assertEqual(len(new['vias']), len(old['vias']) + 3)
+        self.assertTrue(all(p in new['polygons'] for p in old['polygons'] if p['id'] != 'output-lobe'))
+        expected = (json.dumps(new, sort_keys=True, indent=2) + '\n').encode()
+        self.assertEqual((PACKAGE / 'assets/tps63020-six-layer-enabled-power-output.json').read_bytes(), expected)
+        self.assertFalse(new['production_publishable'])
+        with self.assertRaises(ValueError):
+            GEN.generate(False, True)
+
     def test_deterministic_assets(self):
         for enabled, suffix in ((False, "always-on"), (True, "enabled-series-feedback")):
             expected = (json.dumps(GEN.generate(enabled), sort_keys=True, indent=2) + "\n").encode()

@@ -1,0 +1,25 @@
+{
+  "schema": "copperlib-charger-limits/v0.1",
+  "id": "ti.bq24072",
+  "source": {
+    "url": "https://www.ti.com/lit/ds/symlink/bq24072.pdf",
+    "revision": "SLUS810N Rev N",
+    "locator": "p13 electrical characteristics; p14 footnote; pp29-30 section 9.3.6",
+    "sha256": "4fe4e4f9855501f83b400c6932e3098439e51c50539e40dc45b44a8d509e8db1"
+  },
+  "battery_regulation_min_mv": 4160,
+  "battery_regulation_typical_mv": 4200,
+  "battery_regulation_max_mv": 4230,
+  "iset_factor_min_a_ohm": 797,
+  "iset_factor_typical_a_ohm": 890,
+  "iset_factor_max_a_ohm": 975,
+  "floating_tmr_fast_charge_min_s": 14400,
+  "floating_tmr_fast_charge_typical_s": 18000,
+  "floating_tmr_fast_charge_max_s": 21600,
+  "nominal_direct_10k_ntc_cold_c": 0,
+  "nominal_direct_10k_ntc_hot_c": 50,
+  "nominal_ntc_window_is_guaranteed": false,
+  "provides_cell_protection": false,
+  "production_publishable": false,
+  "notes": "Icharge = KISET / RISET. Threshold/current/sensor tolerances require corner review. Rs/Rp in section 9.3.6 extends, not tightens, the temperature window. Timer and thermal/input regulation can reduce actual charge current. These facts do not qualify a consumer design."
+}

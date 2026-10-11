@@ -1,0 +1,20 @@
+{
+  "schema": "copperlib-external-battery-holder/v0.1",
+  "id": "mpd.bh-18650-w",
+  "manufacturer": "Memory Protection Devices",
+  "mpn": "BH-18650-W",
+  "assembly_type": "external_wired_holder",
+  "designed_for_protected_18650": true,
+  "body_length_um": 77700,
+  "body_width_um": 20900,
+  "body_height_um": 21310,
+  "lead_length_um": 150000,
+  "lead_length_tolerance_um": 5000,
+  "lead_awg": 24,
+  "maximum_accepted_cell_length_um": null,
+  "current_rating_ma": null,
+  "contact_resistance_mohms": null,
+  "source": {"url": "https://www.batteryholders.com/uploads/parts/BH-18650-W/datasheets/BH-18650-W-datasheet.pdf", "revision": "Rev G 2024-08-21", "locator": "p1", "sha256": "7b09b755904dbd94c8a8012329911078f778e428c0b17dae053a517498b8bdfe"},
+  "production_publishable": false,
+  "notes": "Body dimensions do not prove fit of any particular protected cell. Consumer must verify fit/retention, connector assembly and contact/wire losses and heating at load peaks."
+}

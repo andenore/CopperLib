@@ -36,7 +36,9 @@ def pad(ref, number):
     return {"pad": [ref, str(number)]}
 
 
-def generate(enabled=False):
+def generate(enabled=False, power_output=False):
+    if power_output and not enabled:
+        raise ValueError('power-output variant requires enabled-series-feedback topology')
     poses = {"U": (0, 0, 0), "L": (0, 5, 180),
              "C_IN": (3.55, -.1, 90), "C_VINA": (-3, -2, 180),
              "C_OUT1": (-3.55, .2, 90), "C_OUT2": (-5.75, .2, 90),
@@ -103,6 +105,17 @@ def generate(enabled=False):
     track("VOUT", [(-8.7, 1.15), (-10.2, 1.15)], .8)
     for role, xy in (("VIN", (8.2, .85)), ("VOUT", (-10.2, 1.15))):
         via(role, xy)
+    if power_output:
+        # Widen only load-current copper. Do not widen the quiet sense branch,
+        # IC land entries, switch nodes or ground-return topology.
+        output = next(p for p in polygons if p['id'] == 'output-lobe')
+        output['vertices'] = [point(-1.8, -.12), point(-2.3, -.12), point(-2.3, .3),
+            point(-9, .3), point(-9, 2.7), point(-2.85, 2.7), point(-2.85, .62), point(-1.8, .62)]
+        polygons.append(polygon('output-plane-tap', 'VOUT',
+            [(-11.8, .3), (-8.7, .3), (-8.7, 2.7), (-11.8, 2.7)]))
+        for xy in ((-11.4, 1.15), (-10.2, 2.35), (-11.4, 2.35)):
+            via('VOUT', xy)
+        track('VOUT', [(-11.4, 1.15), (-12.6, 1.15)], 2)
 
     # VINA decoupling is local on F.Cu. Its low-current feed is behind the
     # In4 ground reference, separate from the main power and switch copper.
@@ -171,6 +184,8 @@ def generate(enabled=False):
                     block_tracks=tracks, block_vias=vias, block_zones=zones)
     ports = []
     for role, xy in [("VIN", (8.2, .85)), ("VOUT", (-10.2, 1.15))] + ([("EN", (8.8, -3))] if enabled else []):
+        if power_output and role == 'VOUT':
+            xy = (-12.6, 1.15)
         ports.append(dict(name=role, net=role, point=point(*xy), layer="F.Cu",
                           pads=[[r, p] for r, p, net in pad_nets if net == role]))
     width_contracts = []
@@ -192,6 +207,11 @@ def generate(enabled=False):
             purpose = "control_supply"
             evidence = "Authored 0.2 mm VINA control supply/decoupler feed, not VIN main current distribution; TI SLVS916I section 10.1 intent, adaptation in physical-layout.md."
         width_contracts.append(dict(track_index=index, minimum_width_nm=t["width_nm"], purpose=purpose, evidence=evidence))
+    protected = [region("converter-private", ["F.Cu", "In2.Cu", "B.Cu"], True, True)]
+    if power_output:
+        protected.append(dict(id='output-tap-private', layers=['F.Cu'],
+            vertices=[point(-11.8, .3), point(-8.7, .3), point(-8.7, 2.7), point(-11.8, 2.7)],
+            block_tracks=True, block_vias=True, block_zones=False))
     return dict(schema="copperlib-physical-hard-macro/v0.4", production_publishable=False,
         source=dict(datasheet_url="https://www.ti.com/lit/ds/symlink/tps63020.pdf",
                     datasheet_sha256="d117773bb7370fd79377bc70ce987eec3469ea5979547a09df52fca5f95b2e69",
@@ -210,7 +230,7 @@ def generate(enabled=False):
         plane_returns=[dict(net="GND", layers=["In1.Cu", "In4.Cu"],
             pads=[[r, p] for r, p, n in pad_nets if n == "GND"],
             dedicated_contacts=[dict(pad=[r, "2"], via_position_nm=point(*xy)) for r, xy in ground_contacts])],
-        ports=ports, protected_regions=[region("converter-private", ["F.Cu", "In2.Cu", "B.Cu"], True, True)],
+        ports=ports, protected_regions=protected,
         keepouts=[region("converter-fill-exclusion", ["In2.Cu", "In3.Cu", "B.Cu"], zones=True)],
         required_layers=LAYERS, allowed_rotations=[0, 90, 180, 270], internal_clearance_nm=0,
         unresolved=["input/output conductor, neckdown and via current capacity at actual copper weight",
@@ -223,8 +243,14 @@ def generate(enabled=False):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", type=Path, default=ROOT / "assets")
+    parser.add_argument('--power-output-only', action='store_true')
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
+    if args.power_output_only:
+        target = args.output_dir / 'tps63020-six-layer-enabled-power-output.json'
+        target.write_bytes((json.dumps(generate(True, True), sort_keys=True, indent=2) + '\n').encode())
+        print(f'{target.name}: sha256:{sha256(target.read_bytes()).hexdigest()}')
+        return
     for enabled in (False, True):
         target = args.output_dir / f"tps63020-six-layer-{'enabled-series-feedback' if enabled else 'always-on'}.json"
         target.write_bytes((json.dumps(generate(enabled), sort_keys=True, indent=2) + "\n").encode())

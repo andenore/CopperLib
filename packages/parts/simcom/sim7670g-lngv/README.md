@@ -7,6 +7,8 @@ a complete or production-qualified device definition.
 
 See [pending USB integration review](usb-review-pending.md) for source-backed
 related-family review triggers. Exact-model applicability remains unconfirmed.
+See [conditional RF/power reference facts](rf-power-reference-review.md) for
+reviewed antenna-feed, matching, protection and local VBAT obligations.
 
 - SIMCom supplier-linked specification:
   https://datasheet.lcsc.com/datasheet/pdf/ee03db1eecfc7b8f7e60fb0421704843.pdf?productCode=C45935408

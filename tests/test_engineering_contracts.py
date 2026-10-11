@@ -12,6 +12,7 @@ CONTRACTS = (
     "packages/parts/u-blox/max-m10s/qualification.json",
     "packages/parts/ti/bq24072/qualification.json",
     "packages/interfaces/usb/usb2-channel/qualification.json",
+    "packages/parts/ti/bq24072t/qualification.json",
 )
 
 

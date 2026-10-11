@@ -1,0 +1,131 @@
+// Conditional SIM7672X V1.01 Figure 6 support; consumer must accept applicability.
+// This module does not replace the required external >=100 uF effective reservoir.
+module SIM7670G_VBAT_BYPASS {
+    import modem "github.com/andenore/CopperLib/packages/parts/simcom/sim7670g-lngv";
+    import passives "github.com/andenore/CopperLib/packages/generic/passives";
+    port PWRKEY: input;
+    port GND: power_in;
+    port MAIN_TXD: output;
+    port MAIN_RXD: input;
+    port VDD_EXT: power_out;
+    port GND_17: power_in;
+    port GND_18: power_in;
+    port USB_VBUS: power_in;
+    port USB_DP: bidirectional;
+    port USB_DM: bidirectional;
+    port GND_29: power_in;
+    port USIM_VDD: power_out;
+    port USIM_DATA: bidirectional;
+    port USIM_CLK: output;
+    port USIM_RST: output;
+    port GND_39: power_in;
+    port GND_45: power_in;
+    port GND_46: power_in;
+    port GND_54: power_in;
+    port VBAT_1: power_in;
+    port VBAT_2: power_in;
+    port VBAT_3: power_in;
+    port GND_58: power_in;
+    port GND_59: power_in;
+    port ANT_MAIN: bidirectional;
+    port GND_61: power_in;
+    port GND_62: power_in;
+    port GND_63: power_in;
+    port GND_64: power_in;
+    port GND_65: power_in;
+    port STATUS: output;
+    port GND_69: power_in;
+    port GND_70: power_in;
+    port GND_71: power_in;
+    port GND_72: power_in;
+    port GND_73: power_in;
+    port GND_74: power_in;
+    port GND_75: power_in;
+    port GND_76: power_in;
+    port GND_77: power_in;
+    port GND_78: power_in;
+    port GND_79: power_in;
+    port GND_80: power_in;
+    port GND_81: power_in;
+    port GND_82: power_in;
+    port GND_83: power_in;
+    port GND_84: power_in;
+    port GND_85: power_in;
+    port GND_86: power_in;
+    port GND_87: power_in;
+    port GND_88: power_in;
+    port GND_89: power_in;
+    port GND_91: power_in;
+    port GND_92: power_in;
+    port GND_94: power_in;
+    port GNSS_VDD: power_in;
+    port GNSS_VBKP: power_in;
+    component U: modem.SIM7670G_LNGV;
+    component C_10P: passives.CAPACITOR { value = 10pF; footprint = "Capacitor_SMD:C_0402_1005Metric"; role = decoupling; decouples = "U.VBAT_1"; }
+    constraint max_distance(C_10P.P1, U.VBAT_1) { distance = 3mm; }
+    component C_33N: passives.CAPACITOR { value = 33nF; footprint = "Capacitor_SMD:C_0402_1005Metric"; role = decoupling; decouples = "U.VBAT_1"; }
+    constraint max_distance(C_33N.P1, U.VBAT_1) { distance = 3mm; }
+    component C_100N: passives.CAPACITOR { value = 100nF; footprint = "Capacitor_SMD:C_0402_1005Metric"; role = decoupling; decouples = "U.VBAT_2"; }
+    constraint max_distance(C_100N.P1, U.VBAT_2) { distance = 3mm; }
+    component C_1U: passives.CAPACITOR { value = 1uF; footprint = "Capacitor_SMD:C_0603_1608Metric"; role = decoupling; decouples = "U.VBAT_3"; }
+    constraint max_distance(C_1U.P1, U.VBAT_3) { distance = 3mm; }
+    net PWRKEY { port.PWRKEY; U.PWRKEY; }
+    net GND { port.GND; U.GND; C_10P.P2; C_33N.P2; C_100N.P2; C_1U.P2; }
+    net MAIN_TXD { port.MAIN_TXD; U.MAIN_TXD; }
+    net MAIN_RXD { port.MAIN_RXD; U.MAIN_RXD; }
+    net VDD_EXT { port.VDD_EXT; U.VDD_EXT; }
+    net GND_17 { port.GND_17; U.GND_17; }
+    net GND_18 { port.GND_18; U.GND_18; }
+    net USB_VBUS { port.USB_VBUS; U.USB_VBUS; }
+    net USB_DP { port.USB_DP; U.USB_DP; }
+    net USB_DM { port.USB_DM; U.USB_DM; }
+    net GND_29 { port.GND_29; U.GND_29; }
+    net USIM_VDD { port.USIM_VDD; U.USIM_VDD; }
+    net USIM_DATA { port.USIM_DATA; U.USIM_DATA; }
+    net USIM_CLK { port.USIM_CLK; U.USIM_CLK; }
+    net USIM_RST { port.USIM_RST; U.USIM_RST; }
+    net GND_39 { port.GND_39; U.GND_39; }
+    net GND_45 { port.GND_45; U.GND_45; }
+    net GND_46 { port.GND_46; U.GND_46; }
+    net GND_54 { port.GND_54; U.GND_54; }
+    net VBAT_1 { port.VBAT_1; U.VBAT_1; C_10P.P1; C_33N.P1; }
+    net VBAT_2 { port.VBAT_2; U.VBAT_2; C_100N.P1; }
+    net VBAT_3 { port.VBAT_3; U.VBAT_3; C_1U.P1; }
+    net GND_58 { port.GND_58; U.GND_58; }
+    net GND_59 { port.GND_59; U.GND_59; }
+    net ANT_MAIN { port.ANT_MAIN; U.ANT_MAIN; }
+    net GND_61 { port.GND_61; U.GND_61; }
+    net GND_62 { port.GND_62; U.GND_62; }
+    net GND_63 { port.GND_63; U.GND_63; }
+    net GND_64 { port.GND_64; U.GND_64; }
+    net GND_65 { port.GND_65; U.GND_65; }
+    net STATUS { port.STATUS; U.STATUS; }
+    net GND_69 { port.GND_69; U.GND_69; }
+    net GND_70 { port.GND_70; U.GND_70; }
+    net GND_71 { port.GND_71; U.GND_71; }
+    net GND_72 { port.GND_72; U.GND_72; }
+    net GND_73 { port.GND_73; U.GND_73; }
+    net GND_74 { port.GND_74; U.GND_74; }
+    net GND_75 { port.GND_75; U.GND_75; }
+    net GND_76 { port.GND_76; U.GND_76; }
+    net GND_77 { port.GND_77; U.GND_77; }
+    net GND_78 { port.GND_78; U.GND_78; }
+    net GND_79 { port.GND_79; U.GND_79; }
+    net GND_80 { port.GND_80; U.GND_80; }
+    net GND_81 { port.GND_81; U.GND_81; }
+    net GND_82 { port.GND_82; U.GND_82; }
+    net GND_83 { port.GND_83; U.GND_83; }
+    net GND_84 { port.GND_84; U.GND_84; }
+    net GND_85 { port.GND_85; U.GND_85; }
+    net GND_86 { port.GND_86; U.GND_86; }
+    net GND_87 { port.GND_87; U.GND_87; }
+    net GND_88 { port.GND_88; U.GND_88; }
+    net GND_89 { port.GND_89; U.GND_89; }
+    net GND_91 { port.GND_91; U.GND_91; }
+    net GND_92 { port.GND_92; U.GND_92; }
+    net GND_94 { port.GND_94; U.GND_94; }
+    net GNSS_VDD { port.GNSS_VDD; U.GNSS_VDD; }
+    net GNSS_VBKP { port.GNSS_VBKP; U.GNSS_VBKP; }
+    supply VBAT_REFERENCE { net = VBAT_1; voltage = 3.8V; external = true; }
+    supply GROUND { net = GND; voltage = 0V; external = true; }
+}

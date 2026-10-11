@@ -1,0 +1,15 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "ti.bq24072t",
+  "kind": "power",
+  "sources": [{"url": "https://www.ti.com/lit/ds/symlink/bq24072t.pdf", "revision": "SLUS937C Rev C", "locator": "pp8-9, 19-20, 26, 33", "sha256": "6f09e139e13a7bca407b4e8608ed0c387e43ba8c1d3705b4f9872b82495ea71c"}],
+  "requirements": [
+    {"id": "component-ratings", "stage": "design", "algorithm": "external", "description": "Exact protected cell, voltage/current/timer limits, sensor curve/leakage corners and divider isolation."},
+    {"id": "current-capacity", "stage": "design", "algorithm": "external", "description": "Holder, harness, connector, protection trip/recovery, power copper and peak/average demand."},
+    {"id": "layout-review", "stage": "design", "algorithm": "external", "description": "Local decoupling, quiet TS/programming returns, external-input protection and EP thermal copper/vias against Figure37."},
+    {"id": "transient", "stage": "simulation", "algorithm": "external", "description": "Input/load/temperature/timer and charger-to-regulator source cases with applicable models."},
+    {"id": "prototype-power", "stage": "bench", "algorithm": "external", "description": "Actual cell temperature tracking, fault handling, voltage regulation, charging completion and battery/load transitions."},
+    {"id": "ts-divider-corners", "stage": "design", "algorithm": "calculation", "description": "Optional ratiometric_ntc_divider screening with explicit independently justified sensor/leakage bounds; not thermal certification."}
+  ],
+  "production_publishable": false
+}

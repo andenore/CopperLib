@@ -1,0 +1,20 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "simcom.sim7670g-vbat-bypass",
+  "kind": "power",
+  "production_publishable": false,
+  "sources": [{
+    "url": "https://files.waveshare.com/wiki/SIM7670G-LTE-Cat-1-GNSS-HAT/SIM7672X_Series_Hardware_Design_V1.01.pdf",
+    "revision": "SIM7672X Hardware Design V1.01; conditional applicability to SIM7670G-LNGV",
+    "locator": "pp25-27, especially p26 Figure 6; consumer assumption is not manufacturer equivalence",
+    "sha256": "bd198ceb5eecddbafd3d438782cf35c89208e40a8c4b3b1eb19097fdb363706d"
+  }],
+  "requirements": [
+    {"id": "reference-applicability", "stage": "design", "algorithm": "external", "description": "Record exact modem variant and conditional reference applicability; retain unresolved manufacturer equivalence. The underlying part's RF contract remains independently required."},
+    {"id": "component-ratings", "stage": "design", "algorithm": "external", "description": "Review actual selected bypass/reservoir parts, effective capacitance under bias/temperature/tolerance, ESR and actual supply/load envelope. A nominal 100 uF ceramic does not establish 100 uF effective reservoir."},
+    {"id": "current-capacity", "stage": "design", "algorithm": "external", "description": "Review actual peak/RMS current, minimum copper and via plating, neckdowns, current sharing and voltage drop. No capacity is inferred from zone settings or a nominal converter rating."},
+    {"id": "layout-review", "stage": "design", "algorithm": "external", "description": "Review direct local VBAT feeds, all three load contacts and ground returns, filled distribution, pad neckdowns, copper thickness, via plating/current sharing, voltage drop, optional filtering and surge protection. Zone settings and DRC alone are insufficient."},
+    {"id": "transient", "stage": "simulation", "algorithm": "external", "description": "Model the actual regulator/battery/harness, modem bursts and startup, reservoir/ESR, low-battery operation and any battery-fed USB-detect margin."},
+    {"id": "prototype-power", "stage": "bench", "algorithm": "external", "description": "Measure VBAT and detection voltage during worst operating conditions, converter stability and temperatures, startup/shutdown and prototype functionality. No current or safety rating is inferred from routed geometry."}
+  ]
+}

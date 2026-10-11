@@ -53,6 +53,16 @@ RF keepout remains effective but must not disable this compatible GND overlap.
 
 ## Scoped local widths
 
+The optional `enabled-power-output` variant widens only the output capacitor
+lobe to 2400 um and adds a 2400 um-wide external load-current tap with four
+parallel 600/300 um off-pad through vias, at 1200 um pitch. Its 2000 um surface
+port extension lies outside a separately protected tap region. Existing chip
+entries, feedback/sense, switching and ground-return geometry are preserved;
+older assets are byte-identical. The tap can join a host inner power zone
+outside the converter's fill exclusion. This is an authored adaptation of
+TI's wide-power-path intent, not vendor CAD or a current rating. Current
+sharing, neckdowns, via plating and load-transient performance remain open.
+
 The v0.4 asset explicitly declares width contracts for individual 0.24 mm
 package entries and 0.2 mm VINA/EN/output-sense branches. Main VIN/VOUT port
 lead-ins remain 0.8 mm and have no width exception. These contracts bind exact

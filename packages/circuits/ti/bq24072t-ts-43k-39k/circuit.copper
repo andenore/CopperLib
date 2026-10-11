@@ -1,0 +1,21 @@
+// TI SLUS937C Figure18: VIN--R6--(R7 || external NTC)--GND;
+// R8 isolates the TS input when R6 <100 kohm. External NTC is NOT on this PCB.
+// Approximate 5-35 degC design target with Semitec 103AT-2; unqualified.
+module BQ24072T_TS_43K_39K {
+    import passives "github.com/andenore/CopperLib/packages/generic/passives";
+    port VIN: power_in;
+    port GND: power_in;
+    port NTC: passive;
+    port TS: passive;
+    component R_TOP: passives.RESISTOR { value = 43kohm; footprint = "Resistor_SMD:R_0603_1608Metric"; }
+    component R_SHUNT: passives.RESISTOR { value = 39kohm; footprint = "Resistor_SMD:R_0402_1005Metric"; }
+    component R_ISOLATION: passives.RESISTOR { value = 100kohm; footprint = "Resistor_SMD:R_0402_1005Metric"; }
+    net VIN { port.VIN; R_TOP.P1; }
+    net NTC { port.NTC; R_TOP.P2; R_SHUNT.P1; R_ISOLATION.P1; }
+    net TS { port.TS; R_ISOLATION.P2; }
+    net GND { port.GND; R_SHUNT.P2; }
+    supply INPUT { net = VIN; voltage = 5V; external = true; }
+    supply GROUND { net = GND; voltage = 0V; external = true; }
+    constraint max_distance(R_TOP.P2, R_SHUNT.P1) { distance = 3mm; }
+    constraint max_distance(R_SHUNT.P1, R_ISOLATION.P1) { distance = 3mm; }
+}

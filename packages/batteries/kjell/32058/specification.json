@@ -1,0 +1,50 @@
+{
+  "schema": "copperlib-external-battery/v0.1",
+  "id": "kjell.32058",
+  "assembly_type": "external_removable_cell",
+  "chemistry": "Li-ion",
+  "series_cells": 1,
+  "capacity_mah": 2600,
+  "retail_nominal_voltage_mv": 3600,
+  "retail_protection_present": true,
+  "integrated_ntc": null,
+  "connector": null,
+  "retail_diameter_um": 19000,
+  "retail_length_um": 71000,
+  "datasheet_pack": {
+    "nominal_voltage_mv": 3700,
+    "charge_voltage_min_mv": 4150,
+    "charge_voltage_max_mv": 4250,
+    "standard_charge_current_ma": 520,
+    "maximum_charge_current_ma": 2600,
+    "maximum_continuous_discharge_current_ma": 3000,
+    "charge_temperature_min_c": 0,
+    "charge_temperature_max_c": 45,
+    "discharge_temperature_min_c": -20,
+    "discharge_temperature_max_c": 60,
+    "maximum_pack_length_um": 71500,
+    "protection_trip_current_ma": null
+  },
+  "source_applicability_reviewed": false,
+  "production_publishable": false,
+  "sources": [
+    {
+      "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/batterier/litiumbatterier/kjell-company-18650-li-ion-batteri-36-v-2600-mah-p32058",
+      "locator": "Article 32058 product description and product:availability metadata",
+      "retrieved_date": "2026-10-10",
+      "sha256": "1eedbe865681b9eba5fc3467dccab8506c0bbddf2958078b6b768a7454948c34"
+    },
+    {
+      "url": "https://www.kjell.com/globalassets/mediaassets/604123_32058_data.pdf",
+      "revision": "1Li18650C-2600mAh A1, 2016-10-21",
+      "locator": "p4 pack dimensions; p5 section 4 pack ratings; p8 section 10 has no protection threshold table",
+      "sha256": "2b165ff8841f0d447f81080e1fc72ca56ea77e155efd469b1e9954c14af2d569"
+    }
+  ],
+  "unresolved": [
+    "Confirm current retail revision matches the linked older datasheet; nominal voltage differs.",
+    "Protection trip current, delay, recovery and resistance are not specified.",
+    "No integrated NTC or prewired connector is established.",
+    "Holder, contact resistance, retention and complete harness current rating require consumer review."
+  ]
+}

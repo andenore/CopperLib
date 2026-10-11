@@ -1,0 +1,17 @@
+{
+  "schema": "copperlib-external-sensor/v0.1",
+  "id": "semitec.103at-2",
+  "assembly_type": "external_cell_mounted_ntc",
+  "resistance_25c_ohms": 10000,
+  "resistance_25c_tolerance_percent": 1,
+  "beta_25_85_k": 3435,
+  "beta_tolerance_percent": 1,
+  "nominal_resistance_by_temperature_c": {"0": 27280, "10": 17960, "20": 12090, "25": 10000, "30": 8313, "40": 5827, "50": 4160, "60": 3020},
+  "guaranteed_rt_envelope_percent": null,
+  "thermal_time_constant_still_air_s": 15,
+  "dissipation_constant_still_air_mw_per_c": 2,
+  "cell_to_sensor_error_max_c": null,
+  "source": {"url": "https://www.semitec-global.com/uploads/2022/01/NTC_thermistors_Circuit_129M.pdf", "revision": "Catalogue 129M", "locator": "AT thermistors pp12-13", "sha256": "0914f59f843e367f55e9887d3ffc748296ea63d67e1696d7a145af7429df5bdb"},
+  "production_publishable": false,
+  "notes": "Mount electrically insulated against the cell wall with validated thermal contact; never solder to a bare cell. Still-air time constant is not proof of cell-temperature tracking."
+}
