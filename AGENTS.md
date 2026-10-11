@@ -1,5 +1,10 @@
 # Agent guidance
 
+Start with `copper agent-guide` (or `python -m copperscript agent-guide`) in the
+active CopperScript environment, then retrieve the `libraries` topic and selected
+contracts. The CLI guide is shared across library providers; the rules below
+describe contributions and evidence in this library.
+
 - Do not copy CopperScript compiler code into this repository.
 - Mark bypass capacitors in reusable circuits with CopperScript's `role = decoupling; decouples = "U.PIN";` so consumers inherit pin-specific placement/routing intent. Keep exact support topology and source-backed limits; do not mark RF matching, crystal loads or bulk reservoirs blindly. Explicit macros/critical policies still own prescribed copper. Ground-return vias are not globally prohibited.
 - Keep reusable RF/power qualification requirements in package-local `qualification.json`; follow [engineering contracts](docs/engineering-contracts.md). Consumer-specific bindings, operating envelopes and measurements stay in the consuming project. Do not turn unresolved facts into pass flags.
