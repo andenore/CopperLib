@@ -1,25 +1,27 @@
 # Agent guidance
 
-Start with `copper agent-guide` (or `python -m copperscript agent-guide`) in the
-active CopperScript environment, then retrieve the `libraries` topic and selected
-contracts. The CLI guide is shared across library providers; the rules below
-describe contributions and evidence in this library.
+Start with `copper agent-guide` in the active CopperScript environment, then
+request the `libraries` topic and selected contracts. Read only the owning
+package's definitions/evidence and the task-specific reference below. CopperLib
+is one provider; other libraries use the same discovery and contract interfaces.
+Historical migration plans in `docs/history/` are opt-in, not current rules.
 
-- Do not copy CopperScript compiler code into this repository.
-- Mark bypass capacitors in reusable circuits with CopperScript's `role = decoupling; decouples = "U.PIN";` so consumers inherit pin-specific placement/routing intent. Keep exact support topology and source-backed limits; do not mark RF matching, crystal loads or bulk reservoirs blindly. Explicit macros/critical policies still own prescribed copper. Ground-return vias are not globally prohibited.
-- Keep reusable RF/power qualification requirements in package-local `qualification.json`; follow [engineering contracts](docs/engineering-contracts.md). Consumer-specific bindings, operating envelopes and measurements stay in the consuming project. Do not turn unresolved facts into pass flags.
-- Generic components and reusable circuit modules, including their reusable footprints and hard macros, belong in CopperLib so other projects can import them. Check for existing packages before adding duplicates. Keep board-specific composition, placement, mechanics and configuration in the consuming project; do not embed project-specific assumptions in reusable library definitions.
-- Do not invent package pins, electrical limits, or mux facts. Use `?` and mark evidence `unresolved` when a source does not establish a value.
-- When adding or changing any RF-capable component or circuit, always check the exact manufacturer's matching-network requirements and reference schematic/layout. Record whether matching is required, already integrated, or unresolved; do not assume a 50-ohm port eliminates antenna matching. Encode source-backed short-distance, orientation, return-path and antenna keepout requirements as physical constraints or a reviewed hard macro. Follow the [RF and switched-power checklist](docs/hard-macro-review-checklist.md); a bare part must document the host circuit/layout obligations.
-- For switching regulators, converters and switching chargers, prefer a generated, source-backed physical hard macro preserving critical placement and copper. If a macro cannot be supplied, require strong, explicit placement and trace-width/current-path constraints, document their evidence and limitations, and flag requirements the tooling cannot enforce. Generic proximity hints or default trace widths are not sufficient. Follow the [hard-macro review checklist](docs/hard-macro-review-checklist.md) before treating the circuit as complete.
-- Check every multi-land contact for manufacturer-established internal connections. Follow [internal pad connectivity guidance](internal-pad-connectivity.md). Duplicate footprint numbers alone are NOT proof. Use `internal_pad_groups` only for permanently common contacts where one external connection is sufficient; never for switch actuation, every-required power contacts, thermal pads, or current-sharing assumptions. Test the package mapping and keep independent groups separate.
-- Downloaded source documents belong in ignored `cache/`; commit only manifests, hashes, evidence, and concise generated bundles.
-- Never execute downloaded source-provided code.
+- Follow [package ownership](docs/package-layout.md). Keep compiler algorithms
+  and model-gap labs in CopperScript and board-specific bindings/measurements in
+  consumers. Search dependencies before adding duplicate definitions. Do not
+  add components to CopperLib as part of the current LLM improvement work.
+- Preserve exact source facts and locators; unknown pins, limits or mux facts
+  use `?` and unresolved evidence. Downloaded sources belong in ignored `cache/`;
+  commit compact evidence/manifests/hashes and never execute source-provided code.
+- For RF or switched-power additions/changes, follow the
+  [hard-macro review checklist](docs/hard-macro-review-checklist.md) and exact
+  manufacturer schematic/layout. Preserve matching/support, critical copper,
+  returns and keepouts; unresolved adaptations prevent production qualification.
+- Mark true bypass capacitors with `role = decoupling; decouples = "U.PIN";`.
+  Do not infer roles for RF/load/bulk capacitors or forbid necessary ground vias.
+- Follow [engineering contracts](docs/engineering-contracts.md) for reusable
+  obligations and [internal pad connectivity](internal-pad-connectivity.md)
+  for manufacturer-established permanent joins. Duplicate pad numbers alone are
+  not evidence; externally required power/thermal contacts still need routing.
 - Keep generated files deterministic and run `python -m pytest` before committing.
-- Production publication is blocked by unresolved facts; illustrative values are never acceptable in a production bundle.
-- Treat an installed STM32CubeMX `db/mcu` tree as local source only; never commit or redistribute ST XML.
-- Hash every XML file actually consumed and keep only compact extraction artifacts/manifests in ignored `cache/` or `work/` paths.
-- Do not infer alternate-function selector numbers from CubeMX signal names; if XML does not provide a selector, leave mux generation out or unresolved.
-- Keep cross-vendor case studies bounded and source-first. Use official vendor URLs only and retain exact revision/table/page locators.
-- Do not turn a lossy or unrepresentable case into a fake production bundle. Use an explicit non-representable fixture and classify the model gap.
-- Run `python -m copperscript_stm32g0 compatibility` and keep both reports deterministic.
+  ERC/DRC or illustrative values cannot establish production publishability.

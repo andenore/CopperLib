@@ -1,5 +1,9 @@
 # Reusable components extracted from CopperAssetTracker
 
+> Historical record, archived 2026-10-11. Claims and commands below apply to
+> their recorded revisions, not current usage or approval. Read only when
+> investigating that history; use the current reference guides for new work.
+
 These definitions, five custom footprints and the SIMCom footprint converter
 were moved out of CopperAssetTracker on 2026-10-09. They retain their provisional
 qualification status; moving them into CopperLib does not approve them for

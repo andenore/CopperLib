@@ -1,5 +1,9 @@
 # CopperLib reorganization plan
 
+> Historical record, archived 2026-10-11. Claims and commands below apply to
+> their recorded revisions, not current usage or approval. Read only when
+> investigating that history; use the current reference guides for new work.
+
 Status: proposed; implementation has not started.
 
 ## 1. Objective and agreed scope

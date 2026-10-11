@@ -42,10 +42,12 @@ The former STM32 model lab, board bundles and project support modules are not
 part of this generic catalogue; CopperScript owns those examples and research
 fixtures.
 
-See `AGENTS.md` and `docs/reorganization-plan.md` for contribution rules and
-the migration rationale.
+For contributions, start with [AGENTS.md](AGENTS.md) and
+[package ownership](docs/package-layout.md), then read the owning package's
+evidence and relevant [engineering contract](docs/engineering-contracts.md).
+Modem, power, interface and connector definitions retain package-owned
+footprints and provisional qualification status; application power policy
+and selected board conditions remain consumer-owned.
 
-The [CopperAssetTracker component migration](docs/asset-tracker-component-migration.md)
-adds reusable modem, power, interface and connector models with package-owned
-footprints. The additions remain provisional; the tracker retains its own
-application-specific power-tree composition and consumes these shared packages.
+Completed migration records are retained under `docs/history/` for specific
+historical investigations. They are not contribution or current build guides.
