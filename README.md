@@ -49,5 +49,5 @@ Modem, power, interface and connector definitions retain package-owned
 footprints and provisional qualification status; application power policy
 and selected board conditions remain consumer-owned.
 
-Completed migration records are retained under `docs/history/` for specific
-historical investigations. They are not contribution or current build guides.
+Current package ownership and contracts are the guidance for new work;
+completed migration narratives are recoverable from Git.

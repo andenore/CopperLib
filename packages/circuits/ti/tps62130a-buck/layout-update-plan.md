@@ -1,200 +1,24 @@
-# TPS62130A buck hard-macro layout update plan
+# TPS62130A layout qualification backlog
 
-Status: in progress. This is a six-layer layout revision of the existing electrical
-module, not a claim that the result reproduces TI CAD or is production qualified.
-Keep `production_publishable = false` through geometric acceptance. The 3.3 V
-instance uses the always-on asset; the 1.8 V and 1.2 V instances share the
-enabled asset. All three have the same local power-stage geometry. CopperVigo's
-design-current target is below 0.5 A per output rail; DC current alone does not
-bound the switching-loop or transient requirements.
+The current always-on and enabled assets use v0.3 fixed VIN/SW/VOUT polygons,
+owned local GND zones and pending plane-backed returns. Geometry, provenance,
+ports, process assumptions and reproduction are in [physical layout](physical-layout.md).
+Both variants pass isolated native rotation/external-access checks; this is an
+authored adaptation of TI Figure 11-1, not extracted CAD or production approval.
+The conductor target is below 0.5 A per output rail.
 
-## Evidence and baseline
+- [ ] Extract actual filled copper, stackup and via plating for resistance/drop,
+  current density and input/output loop metrics; obsolete trace-only budgets
+  cannot qualify filled zones. Check SW extent and quiet VOS/FB pickup separately.
+- [ ] Add generator-local loop/sense geometry bounds and negative plane-return
+  assertions. Preserve each required power contact and dedicated capacitor GND via.
+- [ ] Select exact capacitors and verify biased capacitance, voltage/temperature
+  ratings, inductor saturation, thermal-via assembly and process.
+- [ ] Validate stability/transients, temperature and conducted/radiated EMI on hardware.
+- [ ] For a host integration, refresh reviewed scene/dependency identities, route
+  every instance, refill independently and check native closure, owner geometry,
+  filled returns and every host critical interface. Isolated fixtures are insufficient.
 
-- Use the pinned TPS62130A datasheet SLVSAG7F, section 11 and Figure 11-1, and
-  EVM guide SLVU437B, section 4, as the layout comparison. Record separately
-  which geometry is source-derived and which is an adaptation for the XAL4020,
-  two output capacitors and the CopperVigo six-layer stack.
-- Preserve the accepted CopperVigo route at
-  `build/runs/20261007T210041Z-route/native-refill/board.kicad_pcb` as the
-  baseline. Its zero KiCad DRC violations and opens establish connectivity and
-  clearance only. Save cropped F.Cu, In1.Cu, In2.Cu and B.Cu plots for each
-  regulator, alongside Figure 11-1 and the EVM top-layer drawing.
-- Baseline local geometry, measured from `generate_layout.py`: the C_PVIN,
-  C_OUT1 and C_OUT2 explicit ground-via-to-EP B.Cu spokes were approximately
-  5.73, 5.59 and 10.48 mm. The drawn VOS connection from U.14 to C_OUT1.1 is about
-  11.36 mm; its In2.Cu diagonal projects across the SW fanout vicinity. The
-  SW merge-to-inductor section is about 1.67 mm, 0.8 mm wide and via-free.
-  The inner GND plane offers parallel returns, so spoke length is a geometry
-  warning rather than a measured current path. Recalculate the figures from
-  each candidate's resolved footprint geometry.
-
-## Progress, 2026-10-08
-
-- Added a reusable CopperLib review checklist and linked it from the TPS62130A
-  and Nordic RF physical-layout documentation. It recommends reference-layout
-  hard macros for noise-generating and noise-sensitive circuits.
-- Moved C_PVIN 0.6 mm toward U and placed its dedicated GND via on the IC-facing
-  side. The C_PVIN VIN pad to U.12 center distance is 1.75 mm, its GND pad to via
-  is 1.10 mm, and the via to its nearest EP thermal via is 3.05 mm. Choosing the
-  nearest EP thermal via for each explicit B.Cu return reduces the C_OUT1 and
-  C_OUT2 spokes to 5.11 and 9.75 mm without changing their capacitor positions.
-- Tested moving C_OUT1 below the inductor in a disposable fixture. It shortened
-  the VOS path but lengthened the divider pickup and output power trunk, so this
-  candidate was rejected. The output loop, quiet-sense corridor and proposed
-  v0.2 copper/plane-return support remain open.
-- Both generated enable variants pass the isolated four-rotation native KiCad
-  refill/DRC trial. In a disposable CopperVigo copy with a local dependency
-  lock, ERC passes but `plan-layout` with one or three candidates finds no legal
-  placement: `R_VDUT_BOT` is 12.58 mm from `U_MCU` against a 4 mm maximum.
-  The original locked macro produces a legal one-candidate placement with the
-  same board and compiler. Replaying its 142 poses with the revised macro is
-  legal, confirming a placement-search regression rather than a geometric
-  impossibility. CopperScript now retries independent constrained groups after
-  an oversized fixed-anchor pack exhausts its search. With that change, the
-  revised macro produces a legal one-candidate Vigo placement and passes
-  critical preflight with package-access checks. CopperVigo's pinned scenes
-  and lock remain unchanged until full-board routing and qualification.
-- The next v0.2 revision adds five owned, filled F.Cu VIN/VOUT/GND areas and an
-  explicit pending plane-return group. Each passive GND pad has a distinct local
-  via; the long B.Cu spokes and fictional common GND port are gone. CopperScript
-  binds, rotates, locks, fingerprints and source-recovers these areas. Local
-  pours no longer defer external VIN/VOUT routing. The minimal
-  `CopperScript/examples/tps62130a_macro` board and eight rotated external-access
-  trials pass KiCad refill/DRC with zero opens and violations. Current switching
-  geometry still differs from TI's authored example; output-capacitor placement,
-  loop metrics, current/thermal/EMI validation and full-board integration remain
-  open. This iteration deliberately does not use CopperVigo as a trial.
-- A subsequent reference-oriented v0.3 revision supersedes the earlier
-  C_OUT1 placement decision. The XAL4020 now has its SW land above its VOUT
-  land in the 180° comparison view; C_OUT1 sits below and between U and L,
-  with C_OUT2 continuing the output edge. Fixed VIN, SW and VOUT polygons
-  replace the small power zones. A broad lower GND zone and the EP zone retain
-  local return copper; VIN and VOUT leave at opposite sides. The isolated
-  eight-rotation/variant external-access suite and native refill/DRC pass,
-  as does the full CopperLib test suite. This is still an authored adaptation
-  of TI Figure 11-1, not extracted CAD. The larger inductor, extra capacitor,
-  current and EMI evidence, and CopperVigo integration remain open.
-
-## 1. Redraw the power stage around current loops
-
-Work in the CopperLib generator and a disposable isolated trial first, leaving
-the electrical module and CopperVigo placements unchanged. Keep all required
-SW/PVIN/ground contacts and the four explicitly permitted filled/capped EP vias.
-
-1. Bring C_PVIN's VIN and GND lands closer to the PVIN/PGND side of U. Place
-   its dedicated ground via on the IC-facing side where clearance and assembly
-   rules allow, then compare the complete input-capacitor/PVIN/EP loop against
-   the baseline. Do not optimize pad-to-via distance alone while sending the
-   via farther from the IC.
-2. Place C_OUT1 as the primary switching-output capacitor beside the inductor
-   and the IC return. Give its GND land its own short plane contact. Move
-   C_OUT2 closer if feasible, but treat it as additional output storage rather
-   than letting it determine the primary high-frequency loop.
-3. Keep the SW connection on F.Cu, wide, short and via-free. Limit its copper
-   area; do not create a broad SW pour merely to resemble the reference image.
-   Retain individual legal necks from U.1/U.2/U.3 and U.11/U.12.
-4. Replace avoidable zigzags and abrupt narrow-to-wide transitions after the
-   component/loop geometry is settled. A 45-degree appearance is not an
-   electrical acceptance criterion; short loops, legal copper width and
-   clearance are.
-
-Record per candidate the resolved component/pad coordinates, pad-to-via
-distances, VIN/PVIN and L/C_OUT1 conductor lengths, return-via-to-EP distances,
-SW extent and the relevant loop envelopes. Require an improvement in the
-primary input/output paths without worsening the SW route or violating DRC.
-If the desired broad local VIN, VOUT or GND copper cannot be represented
-honestly by the v0.1 track/via asset, use phase 3 instead of imitating a pour
-with many overlapping tracks.
-
-## 2. Rework sensing and quiet support
-
-- Connect VOS to the regulated node at C_OUT1 through the shortest legal quiet
-  corridor that remains separate from the load-current path. Compare length
-  and projected proximity to SW against the 11.36 mm baseline. If In2.Cu is
-  retained, inspect the actual refilled In1.Cu GND shield along the whole path;
-  a declared zone outline is not shielding evidence.
-- Keep the FB divider close to U.5 and AGND, with its top pick-up at C_OUT1
-  and its bottom return away from the switching-current return. Keep C_AVIN
-  and C_SS close to their pins with individual ground contacts.
-- Review the always-on EN-to-VIN branch separately from the power paths; it
-  should not force a detour in C_PVIN placement. The enabled variant must keep
-  its distinct EN port.
-
-## 3. Add only the hard-macro support this layout proves necessary
-
-The original v0.1 macro asset contained immutable tracks/vias, ports and
-all-net zone exclusions, but no macro-owned copper areas. Its pre-fill
-continuity proof required every private GND pad to reach a single explicit GND
-port, causing the long B.Cu spokes. The v0.2 isolated revision implements the
-following two bounded compiler features; full-board integration remains open:
-
-1. **Owned local copper areas.** Prefer the existing typed `CopperZone` model
-   for local F.Cu VIN, VOUT and GND intent, with solid pad connections and
-   explicit outline, priority, clearance and minimum width. Bind each zone's
-   net, layers, geometry and owner to the asset digest and rigid transform.
-   Reject a host-board zone that overlaps the private area on the same layer
-   unless the export/fill semantics demonstrably preserve the intended owner
-   shape. Keep the SW and quiet-sense corridors excluded. If KiCad zones cannot
-   provide this owner isolation, design a fixed netted copper-area primitive
-   instead; do not silently weaken the private-region contract.
-2. **Plane-backed return proof.** Permit an explicitly declared private GND
-   group to have separate pad-to-local-via roots before fill. Require a
-   dedicated nearby contact for each capacitor GND land and direct, reviewed
-   AGND/PGND-to-EP connections; every contact must reach the named GND plane.
-   Mark the group pending, never connected merely because the zone outline exists.
-   Independent native refill plus filled-copper connectivity must prove every
-   pad/via reaches the declared plane and GND boundary. A missing/isolated
-   plane, a lost local via, a wrong-net plane or any native open fails the
-   complete route. Only then remove redundant B.Cu spokes from the regulator.
-
-Make this a new explicit schema version; keep v0.1 assets and their existing
-pre-fill proof unchanged. Preserve ownership through placement transforms,
-routing, source recovery, KiCad export, native refill, board fingerprints and
-manufacturing staging. Add synthetic negative tests before using either feature
-in CopperLib. If the feature work is deferred, phase 1 can still improve the
-macro using legal tracks/vias, but retain the current explicit GND proof and
-label the copper-area/return limitations as unresolved.
-
-## 4. Integrate and verify
-
-1. Regenerate both deterministic CopperLib assets and update their package
-   documentation. Rebind the three CopperVigo scenes with new SHA-256 values
-   and refresh the locked dependency inventory. Never change an asset under an
-   old digest or stretch a footprint to make it fit.
-2. Run both enable variants at 0/90/180/270 degrees in the isolated trial.
-   Require unchanged electrical pad roles, all required contacts, no SW via,
-   immutable owner geometry, legal via process, zero native KiCad DRC
-   violations and zero unconnected items after independent refill. Add
-   targeted assertions for the measured loop/sense geometry and for absent
-   or interrupted plane returns; current tests cover connectivity and width
-   but do not bound switching-loop shape.
-3. Iterate first on the one-regulator CopperScript probe; do not use CopperVigo
-   as the layout trial. A later board-integration milestone must route all three
-   instances and refill independently, requiring zero opens/violations, no
-   hard-macro intrusion, filled GND/VIN/VOUT contacts and no CSI-2 regression.
-   Compare per-layer plots and geometry with the saved baseline at that stage.
-4. Select real capacitor part numbers and verify effective capacitance under
-   DC bias, voltage/temperature ratings, thermal-via assembly and the actual
-   stackup. Bench-check regulation/transients, temperature and conducted/
-   radiated noise before proposing a separate production-qualification path.
-   The current compiler deliberately rejects `production_publishable = true`;
-   these results cannot be inferred from DRC or the TI artwork.
-
-## Reusable CopperLib and CopperScript guidance
-
-- Add a short CopperLib hard-macro review checklist: authoritative source and
-  exact revision/hash; extracted versus adapted geometry; pin and land mapping;
-  switching/current-loop and quiet-sense paths; ground via/plane intent;
-  exact component ratings; stackup/process assumptions; side-by-side layer
-  images; native fill/DRC; unresolved electrical, thermal, EMI and assembly
-  evidence. Link it from each physical-layout document.
-- Extend CopperScript's `docs/physical-hard-macros.md` to distinguish
-  **explicit pre-fill copper continuity** from **declared, pending plane-backed
-  continuity** once the latter is implemented. Document macro-owned-zone
-  collision/ownership rules and the native evidence required to close pending
-  contacts. The current fail-closed wording is correct for v0.1 and should
-  remain until the feature exists.
-- Keep geometry-performance assertions local to this TPS62130A generator
-  first. Extract a generic loop/sense audit helper only after another real
-  CopperLib macro needs the same computation. Do not add a blanket
-  angle-smoothing rule to the general router for this problem.
+Keep `production_publishable=false` until an explicit qualified path exists.
+Follow the [hard-macro review checklist](../../../../docs/hard-macro-review-checklist.md).
+Do not weaken host constraints or add example-specific repair selectors.

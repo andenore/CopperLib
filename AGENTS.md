@@ -4,7 +4,6 @@ Start with `copper agent-guide` in the active CopperScript environment, then
 request the `libraries` topic and selected contracts. Read only the owning
 package's definitions/evidence and the task-specific reference below. CopperLib
 is one provider; other libraries use the same discovery and contract interfaces.
-Historical migration plans in `docs/history/` are opt-in, not current rules.
 
 - Follow [package ownership](docs/package-layout.md). Keep compiler algorithms
   and model-gap labs in CopperScript and board-specific bindings/measurements in
