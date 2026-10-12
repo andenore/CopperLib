@@ -21,12 +21,17 @@
 // (analog.com unreachable); source_checksum is the SHA-256 of that mirror copy
 // (cache/adi/max96793-19-101163-rev3.pdf), not of the analog.com file.
 //
-// Footprint is PROVISIONAL: the data sheet gives outline 21-100156 and land
-// pattern 90-100067, neither available. KiCad's Maxim TQFN-32 5x5 footprints
-// (21-0140: EP 2.1 T3255-6, 3.1 T3255-3, 3.4 mm T3255-9) use custom chamfered
-// corner pads that CopperScript's importer rejects, so the generic KiCad
-// QFN-32 5x5 / 0.5 mm / EP 3.1 mm land pattern (same EP as T3255-3) is used
-// provisionally. Lead lands and exposed-pad size remain unresolved.
+// Footprint verified 2026-10-12 against the obtained drawings and KEPT. Outline
+// 21-100156 rev F gives the exposed pad as J/K = 3.00/3.10/3.20, so this
+// footprint's 3.1 mm pad matches the package nominal exactly; land pattern
+// 90-100067 rev C recommends a slightly larger 3.150 mm land. The generic
+// KiCad QFN-32 5x5 / 0.5 mm / EP 3.1 mm is used because KiCad's Maxim TQFN-32
+// variants (21-0140) have custom chamfered corner pads that CopperScript's
+// importer rejects.
+// Residual deviation: lead lands are 0.875 x 0.25 mm where 90-100067
+// recommends 0.800 x 0.300 mm. Terminal b is 0.20/0.25/0.30, so the land
+// matches the terminal nominal but is 0.05 mm narrower than recommended,
+// which reduces the side fillet this side-wettable package exists to expose.
 // See evidence/package-audit.json.
 part MAX96793GTJ_VY {
     category = "interface.serdes.serializer";
