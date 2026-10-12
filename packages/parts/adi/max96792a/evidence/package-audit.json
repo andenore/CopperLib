@@ -44,15 +44,15 @@
       "complies_to": "IPC7351A", "tolerance_mm": 0.02}
   },
   "footprint": {
-    "id": "Package_DFN_QFN:TQFN-48-1EP_7x7mm_P0.5mm_EP5.1x5.1mm",
-    "status": "known-undersized",
-    "kicad_reference": "descr cites Maxim 21-0144 (non-side-wettable); tags T4877+3 T4877+3C",
+    "id": "Package_DFN_QFN:QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm",
+    "status": "verified-with-deviation",
+    "kicad_reference": "generic KiCad QFN-48 7x7 mm, 0.5 mm pitch, EP 5.6 mm; land matches 90-100016 exactly",
     "kicad_library": "kicad-footprints 10.0.6",
     "exposed_pad_number": "49",
-    "exposed_pad_copper_mm": [5.1, 5.1],
-    "defect": {"measured": "thermal land 5.1 mm is smaller than the package exposed pad at every tolerance (5.40/5.50/5.60); EP overhangs its land by >= 0.15 mm per side on the chip's only ground connection",
-      "candidate_fix": "Package_DFN_QFN:QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm matches 90-100016 exactly with identical lead lands",
-      "candidate_blocked_by": "its 4x4 grid of 1.13 mm F.Paste apertures at 1.4 mm pitch leaves 0.27 mm gaps; CopperScript treats a paste aperture as a land, so no 0.45 mm via-in-pad site fits (3x3 and 4x4 at 1.27/1.1/0.95 mm all fail at the first site)"},
+    "exposed_pad_copper_mm": [5.6, 5.6],
+    "previous": {"id": "Package_DFN_QFN:TQFN-48-1EP_7x7mm_P0.5mm_EP5.1x5.1mm",
+      "rejected_because": "follows the non-side-wettable outline 21-0144; its 5.1 mm thermal land is smaller than the package exposed pad at every tolerance (5.40/5.50/5.60), so the EP overhung its land by >= 0.15 mm per side on the chip's only ground connection"},
+    "via_in_pad_effect": "the D-032 4x4 array keeps 16 vias and spreads at 1.40 mm default pitch on the 5.6 mm pad, against 1.27 mm on the 5.1 mm pad",
     "deviations": ["lead land 0.875 x 0.25 mm vs 0.80 x 0.30 mm recommended by 90-100016; matches terminal nominal b=0.25 but 0.05 mm narrower than recommended, reducing the side fillet"],
     "copperscript_export": "export-kicad-pcb succeeds with --footprint-root /usr/share/kicad/footprints"
   },

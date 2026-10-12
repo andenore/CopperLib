@@ -27,28 +27,24 @@
 // confirms EP is internally connected to device ground and must reach the
 // ground plane through a via array.
 //
-// Footprint is WRONG and the error is now measured, not suspected (2026-10-12).
-// KiCad's TQFN-48 7x7 EP5.1 follows Maxim outline 21-0144, the NON-side-wettable
-// 48TQFN family. The obtained drawings give this package's exposed pad as
-// D2/E2 = 5.40/5.50/5.60 (outline 21-100045 rev G) with a 5.60 mm recommended
-// land (90-100016 rev D). A 5.1 mm land is smaller than the package pad at
-// EVERY tolerance, so the EP overhangs its land by >= 0.15 mm per side on this
-// chip's ONLY ground connection, which also carries its D-PHY return current
-// and all of its heat.
+// Footprint CORRECTED 2026-10-12 against the obtained drawings. The previous
+// choice, KiCad's TQFN-48 7x7 EP5.1, follows Maxim outline 21-0144 -- the
+// NON-side-wettable 48TQFN family -- and its 5.1 mm thermal land is smaller
+// than this package's exposed pad at EVERY tolerance: outline 21-100045 rev G
+// gives D2/E2 = 5.40/5.50/5.60 and land pattern 90-100016 rev D recommends a
+// 5.60 mm land. The EP would have overhung its land by >= 0.15 mm per side on
+// this chip's ONLY ground connection, which also carries its D-PHY return
+// current and all of its heat.
 //
-// NOT yet corrected, because the obvious swap does not build. KiCad's
-// QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm has the exact 5.6 mm land and identical
-// lead lands, but carries a 4x4 grid of 1.13 mm F.Paste apertures at 1.4 mm
-// pitch, leaving 0.27 mm gaps. CopperScript treats a paste aperture as a land,
-// so no 0.45 mm via-in-pad site fits: 3x3, 4x4 at 1.27, 1.1 and 0.95 mm pitch
-// all fail at the first site. Either author a footprint from 90-100016 with a
-// paste pattern that clears the via array, or let filled-and-capped via-in-pad
-// sit under a paste aperture, which is what that process exists for.
+// Now uses the EP5.6 variant, whose land matches 90-100016 exactly and whose
+// lead lands are identical to the previous footprint's. The larger pad also
+// improves the D-032 via array: the default pitch scales with the pad, so the
+// 4x4 array spreads at 1.40 mm instead of 1.27 mm, still 16 vias.
 //
-// Separate deviation, present in both variants: lead lands are 0.875 x 0.25 mm
-// where 90-100016 recommends 0.80 x 0.30 mm. Terminal b is 0.20/0.25/0.30, so
-// the land matches the terminal nominal but is 0.05 mm narrower than
-// recommended, reducing the side fillet this side-wettable package exposes.
+// Residual deviation: both KiCad variants give 0.875 x 0.25 mm lead lands where
+// 90-100016 recommends 0.80 x 0.30 mm. Terminal b is 0.20/0.25/0.30, so the
+// land matches the terminal nominal but is 0.05 mm narrower than recommended,
+// which reduces the side fillet this side-wettable package exists to expose.
 // See evidence/package-audit.json.
 //
 // Supply envelopes: Table 2 gives VDD as two bands (0.95-1.05 V LDO bypass,
@@ -58,7 +54,7 @@
 part MAX96792AGTM_VY {
     category = "interface.serdes.deserializer";
     manufacturer = "Analog Devices";
-    footprint = "Package_DFN_QFN:TQFN-48-1EP_7x7mm_P0.5mm_EP5.1x5.1mm";
+    footprint = "Package_DFN_QFN:QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm";
     device = MAX96792A;
     source_document = "MAX96792A Dual GMSL3/2 to CSI-2 Deserializer data sheet";
     source_revision = "19-101426 Rev 1 (1/24); pin map re-verified against Rev 2 (4/26)";
