@@ -1,4 +1,10 @@
-# CopperLib reusable CopperScript component library
+# CopperLib
+
+**Reusable engineering definitions for PCB design as code.**
+
+[CopperScript website](https://andenore.github.io/CopperScript/) ·
+[Language and compiler](https://github.com/andenore/CopperScript) ·
+[Complete board example](https://github.com/andenore/CopperAssetTracker)
 
 CopperLib is the generic, provenance-first catalogue of reusable CopperScript
 parts, interfaces, profiles and circuit modules. Board-specific examples and
@@ -7,6 +13,20 @@ device-model research live in the sibling CopperScript repository.
 The repository contains source-backed definitions and compact evidence. Each
 package documents its own unresolved items; incomplete definitions are not
 silently presented as production-qualified parts.
+
+## Part of the CopperScript workflow
+
+[CopperScript](https://github.com/andenore/CopperScript) describes PCB connections,
+electrical intent and physical constraints in typed source. CopperLib supplies
+versioned building blocks; the compiler resolves their interfaces, footprints
+and supported contracts into inspectable outputs and native KiCad boards.
+
+[CopperAssetTracker](https://github.com/andenore/CopperAssetTracker) demonstrates
+the composition of these definitions into a cellular, GNSS and Bluetooth board.
+Its routed candidate remains a review design; see its
+[current qualification status](https://github.com/andenore/CopperAssetTracker/blob/main/docs/validation.md).
+Application configuration and board-specific measurements stay in the consumer
+repository. Generic compiler algorithms stay in CopperScript.
 
 ## Layout
 
