@@ -51,3 +51,21 @@ def test_generator_rejects_changed_archive_before_reading_geometry(tmp_path,monk
     source.write_bytes(b"not the pinned archive")
     with pytest.raises(ValueError,match="archive identity changed"):
         extractor.generate(source)
+
+
+def test_managed_corner_contract_retains_reference_copper_and_layer_exclusions(monkeypatch):
+    managed = ASSET.with_name("nrf52832-johanson-managed-corner.json")
+    data = json.loads(managed.read_bytes())
+    original = json.loads(ASSET.read_bytes())
+    assert data["schema"] == "copperlib-physical-hard-macro/v0.5"
+    assert data["edge_openings"] == [{"keepout": "antenna-corner", "edge_indices": [0, 1]}]
+    for field in ("tracks", "vias", "ports", "pad_nets", "isolated_pads", "keepouts", "protected_regions"):
+        assert data[field] == original[field]
+    assert next(k for k in data["keepouts"] if k["id"] == "antenna-corner")["layers"] == data["required_layers"]
+    assert data["production_publishable"] is False and data["unresolved"] == original["unresolved"]
+    archive = ROOT / "cache/rf-reference/nrf52832qfaxreflayoutv11.zip"
+    if not archive.is_file(): pytest.skip("optional cached Nordic source")
+    monkeypatch.syspath_prepend(str(ASSET.parents[1]))
+    extractor = importlib.import_module("generate_trial")
+    expected = (json.dumps(extractor.generate_managed(archive), indent=2, sort_keys=True) + "\n").encode()
+    assert expected == managed.read_bytes()

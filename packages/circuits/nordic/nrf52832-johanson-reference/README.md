@@ -44,3 +44,20 @@ in `docs/physical-hard-macros.md` in the sibling compiler repository. The
 matching reference extraction is written to
 `assets/nordic-qfaa-ldo-reference.json`; it is evidence for the trial, not a
 claim that the complete support circuit has been qualified.
+
+## Managed-footprint corner contract
+
+`assets/nrf52832-johanson-managed-corner.json` is the reusable managed-provider
+adaptation (KiCad revision `7ebfa6b23cc292a56f751b7b5f4a0e12eeef69dd`).
+Generate it with the command above plus `--managed`; the default output then
+selects this separate asset, preserving the older installed-footprint trial.
+Its v0.5 contract requires edges 0 and 1 of `antenna-corner` to coincide fully
+with the host's outer board perimeter. A closed island, one-edge-only opening
+or a centred 45-degree placement on a rectangular host is rejected. The host
+must place the entire macro accordingly; do not move only the radiator.
+
+Johanson 36S0021A Rev. 4.0 page 3 provides the two-edge-open 6500 um square
+ground-clearance reference. The managed adaptation changes no local copper,
+matching returns, isolated pads or layer exclusions. CopperScript checks host
+geometry, not antenna tuning; evaluation tee values, actual laminate/feed
+impedance, ground shape/via fence and enclosure performance remain unresolved.

@@ -8,6 +8,12 @@
       "revision": "QFAA LDO v1.1, 30 November 2016",
       "locator": "QFAA reference schematic/PCB PDF and Production files; adaptation documented in README",
       "sha256": "21e37dcdd8e63d80825bb9e06462efdebe55b642f4e19c5f25c2d9a131e6e334"
+    },
+    {
+      "url": "https://www.johansontechnology.com/docs/3827/Antenna-2450AT18A0100001E-Rev4.0.pdf",
+      "revision": "36S0021A Rev. 4.0 (2024)",
+      "locator": "pages 2-3: isolated mechanical terminal, two-edge-open corner ground clearance, evaluation matching and board-dependent tuning",
+      "sha256": "c11a1866c9fd04bad6dcbbd40cfdfbec067c731e47ba83f4e58b56c0e4c9dfa0"
     }
   ],
   "requirements": [

@@ -26,6 +26,17 @@ FOOTPRINTS = {
     "ANT": ("RF_Antenna:Johanson_2450AT18x100", "75af7637664284175ab59931a8ee60da88f9a34bedd40f84361e06c6604ccb62"),
 }
 LAYERS = ["F.Cu", "In1.Cu", "In2.Cu", "In3.Cu", "In4.Cu", "B.Cu"]
+# Existing reviewed adaptation to the pinned managed provider. Binding still
+# verifies each resolved footprint's geometry; these are not unchecked aliases.
+MANAGED_DIGESTS = {
+    "U1": "e1fd5a2f0b4520493a004ac461276796f4dbc6660de97596abd1696f709ea5a5",
+    "C3": "86575c98c1bd84414ad1626d2f1a649749c0fb10743c56ba8f2c3fdee795a0ff",
+    "CA": "86575c98c1bd84414ad1626d2f1a649749c0fb10743c56ba8f2c3fdee795a0ff",
+    "L1": "7d54e54f704c49c0007f15f104e5df6d6dc2433678585e2881f99f518ea2aba8",
+    "LA": "7d54e54f704c49c0007f15f104e5df6d6dc2433678585e2881f99f518ea2aba8",
+    "LB": "7d54e54f704c49c0007f15f104e5df6d6dc2433678585e2881f99f518ea2aba8",
+    "ANT": "e6cdc2c38925707147c256fb0e6da9aaf56adfe968f621f9d9aff803994f70a5",
+}
 
 
 def gerber_strokes(text):
@@ -143,12 +154,33 @@ def generate(archive):
                     "whole-board macro boundary port allocation and placement feedback", "enclosure/antenna radiation verification"])
 
 
+def generate_managed(archive):
+    """Keep reference copper, add enforceable host-corner intent and identities."""
+    document = generate(archive)
+    base = (json.dumps(document, indent=2, sort_keys=True) + "\n").encode()
+    for member in document["members"]:
+        member["footprint_digest"] = MANAGED_DIGESTS[member["reference"]]
+    document.update(schema="copperlib-physical-hard-macro/v0.5", zones=[],
+                    plane_returns=[], polygons=[], width_contracts=[],
+                    edge_openings=[dict(keepout="antenna-corner", edge_indices=[0, 1])])
+    document["source"].update(
+        base_asset_sha256=sha256(base).hexdigest(),
+        footprint_provider_revision="7ebfa6b23cc292a56f751b7b5f4a0e12eeef69dd",
+        footprint_adaptation="Pinned managed KiCad geometry; inherited reviewed courtyard/body and EP thermal metadata adaptation",
+        host_corner_requirement="Johanson 36S0021A Rev. 4.0 page 3: the 6500 um square ground clearance opens to two outer board edges; adapted orientation, not tuned vendor CAD")
+    return document
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("archive", type=Path)
-    parser.add_argument("--output", type=Path, default=ROOT / "assets/nrf52832-johanson-six-layer-trial.json")
+    parser.add_argument("--output", type=Path)
+    parser.add_argument("--managed", action="store_true", help="emit the pinned managed-footprint adaptation with host-corner contract")
     args = parser.parse_args()
-    document = generate(args.archive)
+    if args.output is None:
+        args.output = ROOT / "assets" / ("nrf52832-johanson-managed-corner.json" if args.managed
+                                         else "nrf52832-johanson-six-layer-trial.json")
+    document = generate_managed(args.archive) if args.managed else generate(args.archive)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_bytes((json.dumps(document, indent=2, sort_keys=True) + "\n").encode())
     print(f"{args.output}: sha256:{sha256(args.output.read_bytes()).hexdigest()}")
