@@ -7,7 +7,7 @@
 [Complete board example](https://github.com/andenore/CopperAssetTracker)
 
 CopperLib is the generic, provenance-first catalogue of reusable CopperScript
-parts, interfaces, profiles and circuit modules. Board-specific examples and
+parts, interfaces, mechanical/stackup profiles and circuit modules. Board-specific examples and
 device-model research live in the sibling CopperScript repository.
 
 The repository contains source-backed definitions and compact evidence. Each
@@ -27,6 +27,24 @@ Its routed candidate remains a review design; see its
 [current qualification status](https://github.com/andenore/CopperAssetTracker/blob/main/docs/validation.md).
 Application configuration and board-specific measurements stay in the consumer
 repository. Generic compiler algorithms stay in CopperScript.
+
+## Mechanical profiles and physical contracts
+
+CopperLib also supplies reusable mechanical definitions. The
+[CM4 mounting profile](packages/profiles/raspberry_pi/cm4/README.md) contributes
+four mounting holes, two connector pad-anchor poses and front-side placement
+keepouts. A consumer binds its own connector components to the profile's roles
+and supplies its carrier outline and application-specific clearance requirements.
+The profile creates no electrical components or nets.
+
+CopperScript expands these profiles into mechanical geometry with source
+provenance, then uses supported constraints for placement and physical checks.
+Its [mechanical editor](https://github.com/andenore/CopperScript/blob/main/docs/mechanical-editor.md)
+lets the consumer review board-owned geometry and placement intent while imported
+library definitions remain read-only. See
+[profile syntax](https://github.com/andenore/CopperScript/blob/main/docs/mechanical-profiles.md)
+and [placement/routing constraints](https://github.com/andenore/CopperScript/blob/main/docs/language-reference.md#constraints).
+Package evidence and stated qualification limits still apply.
 
 ## Layout
 
