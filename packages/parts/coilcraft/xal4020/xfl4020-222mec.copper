@@ -1,0 +1,19 @@
+// Coilcraft XFL4020-222MEC, 2.2-uH shielded 4.0x4.0x2.1-mm power inductor:
+// the JLCPCB-stocked alternative to the XAL4020-222MEC (C122469).
+// Coilcraft Document 745-3 (revised 2026-03-10): DCR 21.35 typ / 23.50 max
+// mOhm; Isat 3.1 / 3.5 / 3.7 A at 10 / 20 / 30 % drop; Irms 6.0 / 8.0 A at
+// 20 / 40 C rise. Its recommended land pattern is two 0.98 x 3.4 mm pads at
+// 2.37 mm pitch, identical to this package's XAL4020 footprint, so it shares
+// that footprint and the TPS62130A hard macros keep their pinned geometry. The
+// 4.0-mm body sits inside the XAL4020's 4.3-mm courtyard.
+part XFL4020_222MEC {
+    category = "passive.inductor.power";
+    manufacturer = "Coilcraft";
+    footprint = "footprints/Inductor_SMD.pretty/L_Coilcraft_XAL4020-XXX.kicad_mod";
+    source_document = "XFL4020 Series Shielded Power Inductors";
+    source_revision = "Document 745-3, revised 2026-03-10";
+    source_url = "https://www.coilcraft.com/pdfs/xfl4020.pdf";
+    source_location = "page 1 electrical table (XFL4020-222ME_); page 3 recommended land pattern";
+    pin A { number = "1"; domains = "power"; directions = "passive"; }
+    pin B { number = "2"; domains = "power"; directions = "passive"; }
+}

@@ -1,0 +1,19 @@
+// XKB Connection TS-1187A-B-A-B, 5.1 x 5.1 x 1.5 mm SMD tactile switch, SPST,
+// 50 mA / 12 V, 1.6 N (JLCPCB/LCSC C318884). The JLCPCB-stocked alternative to
+// the E-Switch TL3342F160QG (1.6 N), which LCSC lists without stock.
+// KiCad's SW_Push_1P1T_XKB_TS-1187A footprint, drawn from the XKB datasheet
+// TS-1187A-X-X-X, numbers each permanent contact pair with one repeated pad
+// number (1, 1 / 2, 2); actuation bridges the pairs. The XKB sheet itself was
+// not retrievable here (signed link only), so the pairing rests on that footprint.
+// Do NOT declare a group containing both 1 and 2.
+part TS_1187A_B_A_B {
+    category = "switch.momentary";
+    manufacturer = "XKB Connection";
+    footprint = "Button_Switch_SMD:SW_Push_1P1T_XKB_TS-1187A";
+    internal_pad_groups = "1; 2";
+    source_document = "XKB TS-1187A-X-X-X datasheet; KiCad SW_Push_1P1T_XKB_TS-1187A repeated-pad mapping";
+    source_url = "https://jlcpcb.com/partdetail/C318884";
+    source_location = "JLCPCB attributes; KiCad 10.0.6 Button_Switch_SMD footprint description";
+    pin A { number = "1"; domains = "digital"; directions = "passive"; }
+    pin B { number = "2"; domains = "digital"; directions = "passive"; }
+}
