@@ -1,0 +1,19 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "taoglas.fxub16-07-0150aq",
+  "kind": "rf",
+  "matching": "unresolved",
+  "production_publishable": false,
+  "sources": [{
+    "url": "https://www.taoglas.com/datasheets/FXUB16.07.0150AQ.pdf",
+    "revision": "SPE-24-8-235-A, 2024-09-24",
+    "locator": "pp3-7 and 9-12, nominal assembly and reference test conditions",
+    "sha256": "fdf0627f489ee474d70ab60f90a9cb14de2600a2f886ad0ac4bbff774275964d"
+  }],
+  "requirements": [
+    {"id": "matching-review", "stage": "design", "algorithm": "external", "description": "Review complete host port, DC isolation, protection and antenna matching adaptation; nominal 50 ohm is not an omission justification."},
+    {"id": "reference-layout", "stage": "design", "algorithm": "external", "description": "Review actual enclosure, non-metal mounting, battery/metal clearance, cable direction and retention; manufacturer reference setup is not host fit evidence."},
+    {"id": "impedance", "stage": "simulation", "algorithm": "external", "description": "Qualify actual host feed, launches, returns, protection, cable and antenna interface with selected materials and frequency-dependent models."},
+    {"id": "prototype-rf", "stage": "bench", "algorithm": "external", "description": "Measure installed antenna match, radio sensitivity/radiated performance and coexistence across intended bands and operating states."}
+  ]
+}

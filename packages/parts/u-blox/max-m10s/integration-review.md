@@ -31,7 +31,11 @@ Consumer decisions required:
 - For the typical 3.3 V arrangement, VCC/V_IO share supply and VIO_SEL is open
   (B.1, pp93–94). Active-antenna supply and gain configuration are conditional.
 
-This is reusable source guidance, not a reviewed consumer design. Datasheet
-provenance, actual antenna, filter/protection decisions, impedance and bench
+Current datasheet provenance and integer-unit operating/ramp limits are in
+`datasheet-review.json`: UBX-20035208 R08, 30-Jan-2026, exact hash retained.
+The open-VIO_SEL library subset now conservatively requires at least 2700 mV
+on V_IO; a grounded-selector 1800 mV variant needs its own explicit model.
+This is reusable source guidance, not a reviewed consumer design. Actual
+antenna, filter/protection decisions, impedance and bench
 evidence must still be closed in the consumer qualification plan. No pins,
 footprint, values or approval flags are changed by this review.

@@ -1,0 +1,9 @@
+// Physical shunt tuning land, deliberately unpopulated in the default assembly.
+// Populate only through a separately reviewed fitted part/variant and BOM.
+part RF_TUNING_DNP {
+    category = "passive.capacitor";
+    footprint = "Capacitor_SMD:C_0402_1005Metric";
+    assembled = false;
+    pin RF { number = "1"; domains = "rf,analog"; directions = "passive"; }
+    pin RETURN { number = "2"; domains = "ground"; directions = "passive"; }
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "copperlib-rf-point-immunity/v0.1",
+  "id": "ublox.max-m10s-low-gain",
+  "source": {
+    "url": "https://content.u-blox.com/sites/default/files/MAX-M10S_IntegrationManual_UBX-20053088.pdf",
+    "revision": "UBX-20053088 R05",
+    "locator": "p79 Table43; pp77-79 low-gain immunity and coexistence",
+    "sha256": "5a7510ef84f7e2757c57e362a25e3c16bcf8c80af5a4f70790c2e51032dbcd13"
+  },
+  "conditions": "Low-gain mode (manufacturer default, actual configuration must be verified). Typical room-temperature 64QAM/10 MHz interference measurements, not guaranteed immunity bounds. Point samples are not full LTE-band immunity guarantees.",
+  "typical_not_guaranteed": true,
+  "samples": [
+    {"frequency_mhz": 699, "immunity_mdbm": -15000},
+    {"frequency_mhz": 785, "immunity_mdbm": -35000},
+    {"frequency_mhz": 915, "immunity_mdbm": -17000},
+    {"frequency_mhz": 1710, "immunity_mdbm": -25000},
+    {"frequency_mhz": 1880, "immunity_mdbm": -25000},
+    {"frequency_mhz": 1980, "immunity_mdbm": -25000},
+    {"frequency_mhz": 2350, "immunity_mdbm": -18000},
+    {"frequency_mhz": 2440, "immunity_mdbm": -18000},
+    {"frequency_mhz": 2690, "immunity_mdbm": -18000}
+  ],
+  "mdbm_definition": "Integer thousandths of a dBm; not milliwatts.",
+  "allow_interpolation": false,
+  "production_publishable": false
+}

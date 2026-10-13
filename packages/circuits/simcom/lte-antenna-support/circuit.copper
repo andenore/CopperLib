@@ -1,0 +1,23 @@
+// Conditional adaptation of SIM7672X V1.01 Figure30 to a direct coax feed.
+// Initial tuning values only: not an RF-qualified matching network.
+module LTE_ANTENNA_SUPPORT {
+    import passives "github.com/andenore/CopperLib/packages/generic/passives";
+    import tuning "github.com/andenore/CopperLib/packages/generic/rf-tuning-dnp";
+    import esd "github.com/andenore/CopperLib/packages/parts/semtech/rclamp1561pq";
+    port HOST: bidirectional;
+    port ANTENNA: bidirectional;
+    port GND: power_in;
+    component R_LINK: passives.RESISTOR { value = 0ohm; footprint = "Resistor_SMD:R_0402_1005Metric"; }
+    component C_DC: passives.CAPACITOR { value = 100pF; footprint = "Capacitor_SMD:C_0402_1005Metric"; }
+    component C_HOST: tuning.RF_TUNING_DNP;
+    component C_ANT: tuning.RF_TUNING_DNP;
+    component D_ESD: esd.RCLAMP1561PQTCT;
+    net HOST { port.HOST; R_LINK.P1; C_HOST.RF; }
+    net TUNE { R_LINK.P2; C_DC.P1; }
+    net ANTENNA { C_DC.P2; port.ANTENNA; C_ANT.RF; D_ESD.IO; }
+    net GND { port.GND; C_HOST.RETURN; C_ANT.RETURN; D_ESD.RETURN; }
+    // Authored compact-placement bounds, not manufacturer numerical maxima.
+    constraint max_distance(R_LINK.P2, C_DC.P1) { distance = 2.1mm; }
+    constraint max_distance(C_HOST.RF, R_LINK.P1) { distance = 2mm; }
+    constraint max_distance(C_ANT.RF, C_DC.P2) { distance = 2mm; }
+}

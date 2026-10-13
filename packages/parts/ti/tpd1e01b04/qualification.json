@@ -1,0 +1,41 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "ti.tpd1e01b04",
+  "kind": "rf",
+  "matching": "unresolved",
+  "production_publishable": false,
+  "sources": [
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/tpd1e01b04.pdf",
+      "revision": "SLVSDG3C Rev C; DPY0002A 4224561/C July2024",
+      "locator": "Exact part ratings/pin map/land pattern or conditional RF reference topology; see README.md",
+      "sha256": "5222dc8e1a92dd54d3e03765a06bc1338fee12329b745d7db71204609d411447"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "matching-review",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review antenna, component RF ratings, zero-bias loading, mismatch peaks, DC isolation and exact reference adaptation. Default values do not establish matching or system ESD protection."
+    },
+    {
+      "id": "reference-layout",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review connector-first ESD interception and shortest ground return, tuning/DC block lands, surface-only feed and continuous adjacent ground. Authored distance bounds do not establish return inductance."
+    },
+    {
+      "id": "impedance",
+      "stage": "simulation",
+      "algorithm": "external",
+      "description": "Qualify complete launches, all segments and pad discontinuities on selected stackup with component parasitics, fabrication tolerances and actual return copper."
+    },
+    {
+      "id": "prototype-rf",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "Measure installed matching/loss, receiver or transmitter performance, coexistence and system ESD. Verify all selected bands and operating states."
+    }
+  ]
+}

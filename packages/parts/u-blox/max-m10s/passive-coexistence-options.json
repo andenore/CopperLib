@@ -1,0 +1,50 @@
+{
+  "schema": "copperlib-rf-experiment-options/v0.1",
+  "id": "ublox.max-m10s-passive-coexistence",
+  "production_publishable": false,
+  "source": {
+    "url": "https://content.u-blox.com/sites/default/files/MAX-M10S_IntegrationManual_UBX-20053088.pdf",
+    "sha256": "5a7510ef84f7e2757c57e362a25e3c16bcf8c80af5a4f70790c2e51032dbcd13",
+    "revision": "UBX-20053088 R05, 28-Apr-2026",
+    "locator": "pp77-79 internal LNA/coexistence; pp93-94 passive typical design"
+  },
+  "receiver_configuration": {
+    "required_mode": "low_gain",
+    "manufacturer_default_mode": "low_gain",
+    "configuration_key": "CFG-HW-RF_LNA_MODE",
+    "verification": "Read actual RAM/BBR configuration and applicable firmware interface description; setting takes effect after reset. Do not infer actual configuration from default or program OTP for experiments.",
+    "external_gain_db": 0
+  },
+  "options": [
+    {
+      "id": "integrated-front-end-baseline",
+      "external_saw_populated": false,
+      "external_bias_required": false,
+      "purpose": "Characterize passive antenna, integrated matching/DC block/Band13 notch/LNA/SAW, and selected connector ESD adaptation before choosing additional filtering.",
+      "initial_restriction": "Disable co-located transmitters during initial GNSS bring-up. Concurrent radio operation requires a controlled coexistence experiment, not presumed service availability.",
+      "approved_for_concurrent_lte": false
+    },
+    {
+      "id": "b4327-filtered-redesign",
+      "external_saw_populated": null,
+      "implemented": false,
+      "candidate_review": "filter-candidates/b4327-review.json",
+      "prerequisites": [
+        "Measured or justified worst-case antenna coupling over enabled transmit bands",
+        "Complete occupied GNSS passband and sensitivity/loss review",
+        "Source/load S-parameter models and case-specific series-C/shunt-L/series-C ESD network",
+        "Coupled power below frequency/waveform/temperature-specific limits",
+        "Exact component footprints, process and availability review"
+      ],
+      "approval": "Requires new source and routed package; not a solder-population option on an unmodified baseline PCB. No fabricated filter values or branch stubs are prescribed."
+    }
+  ],
+  "post_delivery_evidence": [
+    "Actual receiver gain/firmware and active constellation configuration",
+    "Antenna-to-antenna S21 over every enabled LTE transmit band",
+    "Cold-start/tracking C/N0 and navigation availability versus transmitter-off baseline",
+    "Maximum-power LTE and BLE, charging and battery USB operating states",
+    "Full-path insertion loss/match and system ESD validation"
+  ],
+  "point_immunity_is_guaranteed_band_limit": false
+}

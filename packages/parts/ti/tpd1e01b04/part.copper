@@ -1,0 +1,14 @@
+// DPYR is the DPY 0402 package, not the smaller DPL package.
+// Symmetric bidirectional device: either IO can be tied to ground.
+part TPD1E01B04DPYR {
+    category = "protection.esd";
+    manufacturer = "Texas Instruments";
+    footprint = "TPD1E01B04:TPD1E01B04_DPY";
+    source_document = "TPD1E01B04";
+    source_revision = "SLVSDG3C Rev C";
+    source_location = "Pin functions p3; electrical characteristics p5; DPY0002A board layout";
+    source_url = "https://www.ti.com/lit/ds/symlink/tpd1e01b04.pdf";
+    source_checksum = "sha256:5222dc8e1a92dd54d3e03765a06bc1338fee12329b745d7db71204609d411447";
+    pin IO { number = "1"; domains = "rf,analog,digital"; directions = "passive"; voltage_min = -3.6V; voltage_max = 3.6V; }
+    pin RETURN { number = "2"; domains = "ground"; directions = "passive"; }
+}

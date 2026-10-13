@@ -1,0 +1,10 @@
+(footprint "RClamp1561PQ_SLP1006P2"
+  (version 20240108) (generator "copperlib") (layer "F.Cu")
+  (descr "Semtech Rev2.1 p6 reference lands rotated 90 degrees; assembly review required")
+  (attr smd)
+  (fp_rect (start -0.5 -0.3) (end 0.5 0.3) (stroke (width 0.1) (type default)) (fill none) (layer "F.Fab"))
+  (fp_rect (start -0.95 -0.55) (end 0.95 0.55) (stroke (width 0.05) (type default)) (fill none) (layer "F.CrtYd"))
+  (fp_text reference "REF**" (at 0 -1) (layer "F.Fab") (effects (font (size 0.6 0.6) (thickness 0.1))))
+  (pad "1" smd rect (at -0.425 0) (size 0.55 0.6) (layers "F.Cu" "F.Paste" "F.Mask"))
+  (pad "2" smd rect (at 0.425 0) (size 0.55 0.6) (layers "F.Cu" "F.Paste" "F.Mask"))
+)

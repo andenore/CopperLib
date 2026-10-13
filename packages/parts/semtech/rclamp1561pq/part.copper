@@ -1,0 +1,13 @@
+// Electrically symmetric bidirectional RF TVS; pin orientation is interchangeable.
+part RCLAMP1561PQTCT {
+    category = "protection.esd";
+    manufacturer = "Semtech";
+    footprint = "RCLAMP1561PQ:RClamp1561PQ_SLP1006P2";
+    source_document = "RClamp1561PQ Final Datasheet";
+    source_revision = "Rev 2.1, July 24 2017";
+    source_location = "Ratings p2; SLP1006P2 land pattern p6; symmetry/order p7";
+    source_url = "https://datasheet.lcsc.com/datasheet/pdf/363deaf243af6df1a9732e62fcada63e.pdf?productCode=C20336388";
+    source_checksum = "sha256:604561a3ba0b606a4677139097882e5a7e50985246978fa202196ae670d211b7";
+    pin IO { number = "1"; domains = "rf,analog"; directions = "passive"; voltage_min = -15V; voltage_max = 15V; }
+    pin RETURN { number = "2"; domains = "ground"; directions = "passive"; }
+}

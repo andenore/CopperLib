@@ -1,0 +1,41 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "semtech.rclamp1561pq",
+  "kind": "rf",
+  "matching": "unresolved",
+  "production_publishable": false,
+  "sources": [
+    {
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/363deaf243af6df1a9732e62fcada63e.pdf?productCode=C20336388",
+      "revision": "Rev2.1 July24 2017",
+      "locator": "Exact part ratings/pin map/land pattern or conditional RF reference topology; see README.md",
+      "sha256": "604561a3ba0b606a4677139097882e5a7e50985246978fa202196ae670d211b7"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "matching-review",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review antenna, component RF ratings, zero-bias loading, mismatch peaks, DC isolation and exact reference adaptation. Default values do not establish matching or system ESD protection."
+    },
+    {
+      "id": "reference-layout",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review connector-first ESD interception and shortest ground return, tuning/DC block lands, surface-only feed and continuous adjacent ground. Authored distance bounds do not establish return inductance."
+    },
+    {
+      "id": "impedance",
+      "stage": "simulation",
+      "algorithm": "external",
+      "description": "Qualify complete launches, all segments and pad discontinuities on selected stackup with component parasitics, fabrication tolerances and actual return copper."
+    },
+    {
+      "id": "prototype-rf",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "Measure installed matching/loss, receiver or transmitter performance, coexistence and system ESD. Verify all selected bands and operating states."
+    }
+  ]
+}

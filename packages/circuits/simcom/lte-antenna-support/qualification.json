@@ -1,0 +1,41 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "simcom.lte-antenna-support",
+  "kind": "rf",
+  "matching": "required",
+  "production_publishable": false,
+  "sources": [
+    {
+      "url": "https://files.waveshare.com/wiki/SIM7670G-LTE-Cat-1-GNSS-HAT/SIM7672X_Series_Hardware_Design_V1.01.pdf",
+      "revision": "V1.01 conditional SIM7672X applicability; Figure30 pp58-59",
+      "locator": "Exact part ratings/pin map/land pattern or conditional RF reference topology; see README.md",
+      "sha256": "bd198ceb5eecddbafd3d438782cf35c89208e40a8c4b3b1eb19097fdb363706d"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "matching-review",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review antenna, component RF ratings, zero-bias loading, mismatch peaks, DC isolation and exact reference adaptation. Default values do not establish matching or system ESD protection."
+    },
+    {
+      "id": "reference-layout",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review connector-first ESD interception and shortest ground return, tuning/DC block lands, surface-only feed and continuous adjacent ground. Authored distance bounds do not establish return inductance."
+    },
+    {
+      "id": "impedance",
+      "stage": "simulation",
+      "algorithm": "external",
+      "description": "Qualify complete launches, all segments and pad discontinuities on selected stackup with component parasitics, fabrication tolerances and actual return copper."
+    },
+    {
+      "id": "prototype-rf",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "Measure installed matching/loss, receiver or transmitter performance, coexistence and system ESD. Verify all selected bands and operating states."
+    }
+  ]
+}

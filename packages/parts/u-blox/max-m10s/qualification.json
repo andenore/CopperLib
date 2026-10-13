@@ -5,9 +5,9 @@
   "sources": [
     {
       "url": "https://content.u-blox.com/sites/default/files/MAX-M10S_DataSheet_UBX-20035208.pdf",
-      "revision": "UBX-20035208 R05 (datasheet bytes/hash still pending)",
-      "locator": "Model electrical limits and pin provenance; integration review is separately sourced",
-      "sha256": null
+      "revision": "UBX-20035208 R08, 30-Jan-2026; MAX-M10S-00B-01 ROM SPG 5.10",
+      "locator": "Table 10/pin drawing p9; pin-off-state p10; Tables 12-14 pp11-12; startup current p13; see datasheet-review.json. Operating and absolute limits are distinct.",
+      "sha256": "e36d9c8585809c0dc486804d2634c66cd1888ad71af0f28ce0b830ffa8df6bec"
     },
     {
       "url": "https://content.u-blox.com/sites/default/files/MAX-M10S_IntegrationManual_UBX-20053088.pdf",

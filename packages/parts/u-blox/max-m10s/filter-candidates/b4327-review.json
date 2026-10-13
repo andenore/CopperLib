@@ -1,0 +1,42 @@
+{
+  "schema": "copperlib-rf-filter-candidate-review/v0.1",
+  "mpn": "B39162B4327P810",
+  "status": "not_implemented_not_qualified",
+  "source": {
+    "url": "https://datasheet.datasheetarchive.com/originals/dk/DKDS-25/485012.pdf",
+    "revision": "EPCOS B4327 Rev2.1, August4 2015; RF360 wrapper",
+    "locator": "Physical pp5-6 electrical limits; p8 ESD circuit; p9 S-parameter filenames",
+    "sha256": "dbfe1cf2681a011431dc32124cd18e2d75cf7205ee5053166abf062f757159f6"
+  },
+  "source_temperature_min_c": -40,
+  "source_temperature_max_c": 85,
+  "nominal_port_impedance_ohms": 50,
+  "passband_limits": [
+    {"signal": "GPS", "lower_khz": 1574420, "upper_khz": 1576420, "insertion_loss_max_mdb": 1400},
+    {"signal": "BeiDou", "lower_khz": 1559050, "upper_khz": 1563150, "insertion_loss_max_mdb": 2000},
+    {"signal": "Galileo", "lower_khz": 1573370, "upper_khz": 1577470, "insertion_loss_max_mdb": 2000},
+    {"signal": "GLONASS", "lower_khz": 1597780, "upper_khz": 1605660, "insertion_loss_max_mdb": 2000}
+  ],
+  "rejection_minimum_ranges": [
+    {"lower_mhz": 50, "upper_mhz": 824, "rejection_min_mdb": 40000},
+    {"lower_mhz": 824, "upper_mhz": 925, "rejection_min_mdb": 39000},
+    {"lower_mhz": 1427, "upper_mhz": 1453, "rejection_min_mdb": 43000},
+    {"lower_mhz": 1710, "upper_mhz": 1785, "rejection_min_mdb": 34000},
+    {"lower_mhz": 1850, "upper_mhz": 1910, "rejection_min_mdb": 38000},
+    {"lower_mhz": 1920, "upper_mhz": 1980, "rejection_min_mdb": 39000},
+    {"lower_mhz": 2400, "upper_mhz": 2500, "rejection_min_mdb": 43000},
+    {"lower_mhz": 2500, "upper_mhz": 2570, "rejection_min_mdb": 38000},
+    {"lower_mhz": 2600, "upper_mhz": 3000, "rejection_min_mdb": 34000}
+  ],
+  "unresolved": [
+    "Source is an older reference; current manufacturer availability and applicable revision not confirmed",
+    "Not a guaranteed continuous GNSS passband or LTE rejection sweep; unlisted ranges remain unknown",
+    "ESD notice requires case-specific Cs1/shunt Lp2/Cs3 high-pass network with TVS/varistor and effectiveness testing; do not assume TVS alone protects this SAW",
+    "Insertion loss affects passive receiver sensitivity; exact active constellations and occupied spectra require review",
+    "Power handling is frequency/waveform-specific; actual coupled maximum power is unknown",
+    "Actual S-parameter models, source/load network and final layout not available/qualified",
+    "Exact JLCPCB PCBA stock not confirmed; LCSC distributor stock is not assembly availability"
+  ],
+  "allow_interpolation": false,
+  "production_publishable": false
+}

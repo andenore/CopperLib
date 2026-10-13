@@ -1,0 +1,16 @@
+{
+  "schema": "copperlib-rf-conditional-transmitter-limits/v0.1",
+  "id": "simcom.sim7672x-v1.01-transmitter",
+  "source": {
+    "url": "https://files.waveshare.com/wiki/SIM7670G-LTE-Cat-1-GNSS-HAT/SIM7672X_Series_Hardware_Design_V1.01.pdf",
+    "revision": "V1.01; conditional consumer applicability to SIM7670G-LNGV",
+    "locator": "p54 Table40; use actual maximum including positive tolerance",
+    "sha256": "bd198ceb5eecddbafd3d438782cf35c89208e40a8c4b3b1eb19097fdb363706d"
+  },
+  "nominal_power_mdbm": 23000,
+  "positive_tolerance_mdb": 2700,
+  "maximum_power_mdbm": 25700,
+  "host_feed_maximum_length_um": 20000,
+  "mdbm_definition": "Integer thousandths of a dBm; not milliwatts.",
+  "production_publishable": false
+}

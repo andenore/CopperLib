@@ -1,0 +1,39 @@
+{
+  "schema": "copperlib-supplier-calculator-model/v0.1",
+  "selected_profile": "JLC06161H-3313",
+  "material": "Nan Ya Plastics NP-155F",
+  "copper_layers": 6,
+  "nominal_order_thickness_um": 1600,
+  "calculator_standard_finished_label_um": 1540,
+  "calculator_standard_finished_tolerance_percent": 10,
+  "outer_copper_weight": "1 oz",
+  "inner_copper_weight": "1/2 oz",
+  "outer_copper_model_thickness_nm": 40640,
+  "inner_copper_model_thickness_nm": 15240,
+  "mask_base_thickness_nm": 30480,
+  "mask_over_trace_thickness_nm": 15240,
+  "mask_between_traces_thickness_nm": 30480,
+  "mask_relative_permittivity": "3.8",
+  "trace_top_narrower_than_base_nm": 17780,
+  "source": {
+    "url": "https://jlcpcb.com/help/article/user-guide-to-the-jlcpcb-impedance-calculator",
+    "revision": "2026-09-16, retrieved 2026-10-12",
+    "locator": "Material for 4-8 layers; exterior/interior copper, green solder mask and etch model parameters",
+    "sha256": "769e65dcbca041a48782d058c59e2908ce4e835ff3b8ab9ff9e5072e199a9743"
+  },
+  "construction_recheck": {
+    "url": "https://jlcpcb.com/impedance",
+    "retrieved": "2026-10-12",
+    "locator": "6 layers / nominal 1600 um / JLC06161H-3313",
+    "sha256": "2070532b0c8281806635e600284c8428f821707a2bf2b275db7e7b5c1b8c1b42"
+  },
+  "frequency_dependent_material_model_exported": false,
+  "loss_tangent": null,
+  "production_publishable": false,
+  "limitations": [
+    "Companion calculator assumptions do not overwrite the exact published construction in stackup.json",
+    "Construction copper and calculator finished-trace models differ; neither is an order-specific measured conductor profile",
+    "Require supplier confirmation of exact material, construction and achievable controlled impedance before fabrication",
+    "No full-path field solution, supplier acceptance or measured impedance is represented"
+  ]
+}

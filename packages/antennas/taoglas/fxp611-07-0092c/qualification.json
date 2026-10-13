@@ -1,0 +1,19 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "taoglas.fxp611-07-0092c",
+  "kind": "rf",
+  "matching": "unresolved",
+  "production_publishable": false,
+  "sources": [{
+    "url": "https://www.taoglas.com/datasheets/FXP611.07.0092C.pdf",
+    "revision": "SPE-13-8-010-G",
+    "locator": "pp1-4 and p10; band, clearance footnotes, reference setup and mechanical drawing",
+    "sha256": "50f19b6f7e965b1910fdc041f94316c4ec46a72a9bac95b88b7f2cf7e391220d"
+  }],
+  "requirements": [
+    {"id": "matching-review", "stage": "design", "algorithm": "external", "description": "Review the actual receiver's port/DC block, passive operation, RF ESD and coexistence/filter adaptation. Nominal 50 ohm does not establish host qualification or an antenna-specific tuning network."},
+    {"id": "reference-layout", "stage": "design", "algorithm": "external", "description": "Verify plastic mounting, 40 mm square installation provision, at least 10 mm separation from metal/main device ground, cable retention and supplied connector compatibility; preserve grounded host feed while clearing the external radiator."},
+    {"id": "impedance", "stage": "simulation", "algorithm": "external", "description": "Qualify complete host feed/launch/returns, selected stackup, support circuits, cable and installed antenna interface; quantify transmitter coupling and receiver rejection requirements."},
+    {"id": "prototype-rf", "stage": "bench", "algorithm": "external", "description": "Measure installed match, acquisition/tracking sensitivity and transmitter desensitization in actual enclosure and power/charging states."}
+  ]
+}
