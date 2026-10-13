@@ -1,0 +1,15 @@
+// KENTO KT-0603Y, yellow 0603 LED (JLCPCB/LCSC C2287): 584-594 nm dominant,
+// 2.4 V forward, 175 mcd. Same KENTO 0603 package as the KT-0603R, so it shares
+// that footprint. Polarity: terminal 1 anode, terminal 2 cathode, as for the
+// KT-0603R; JITX's KT_0603Y model maps A to pad 1 and K to pad 2 independently.
+// The C2287 manufacturer sheet itself was not retrievable (signed link only).
+part KENTO_KT0603Y {
+    category = "optoelectronics.led";
+    manufacturer = "Hubei KENTO Elec";
+    footprint = "KENTO:KENTO_KT0603R";
+    source_document = "KENTO KT-0603Y listing (JLCPCB C2287); JITX KT_0603Y component model";
+    source_url = "https://jlcpcb.com/partdetail/C2287";
+    source_location = "JLCPCB attributes; https://docs.jitx.com/en/4.0/_modules/jitxexamples/components/leds/KT_0603Y.html pad mapping";
+    pin A { number = "1"; domains = "analog"; directions = "passive"; }
+    pin K { number = "2"; domains = "analog"; directions = "passive"; }
+}

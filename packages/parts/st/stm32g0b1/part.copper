@@ -1,0 +1,90 @@
+// STM32G0B1RET6, the JLCPCB-stocked twin of the STM32G0C1RET6 (C2829307).
+// ST builds the G0B1 and G0C1 lines on the same silicon; the G0C1 adds the AES
+// peripheral, which has no pins.
+//
+// Verified 2026-10-13 against STM32G0B1xB/xC/xE datasheet DS13560 Rev 6,
+// sha256 8433e47bc5da5cac459a1d3d5a6add183655061f5655d3c653248de65ca535c9:
+// all 64 LQFP64-GP pin numbers (Table 12, LQFP64 - GP column) and every mux row
+// below (Tables 13-17, AF0-AF15). KiCad's ST-generated symbols agree: the
+// STM32G0B1RETx and STM32G0C1RETx tables match in all 64 pins and all 536
+// alternate-function names.
+//
+// USB is not an alternate function on this part. PA11/PA12 list USB_DM/USB_DP
+// under "Additional functions" (Table 12) and have no entry in AF8-AF15
+// (Table 14); the USB peripheral takes the pads when enabled. The STM32G0C1
+// model this was derived from declares them on AF10, which DS13560 does not
+// support; here they carry selector "additional".
+part STM32G0B1RET6 {
+    category = "semiconductor.mcu";
+    manufacturer = "STMicroelectronics";
+    footprint = "Package_QFP:LQFP-64_10x10mm_P0.5mm";
+    device = STM32G0B1;
+    source_document = "STM32G0B1xB/xC/xE datasheet";
+    source_revision = "DS13560 Rev 6";
+    source_url = "https://www.st.com/resource/en/datasheet/stm32g0b1re.pdf";
+
+    pin VDD { number = "8"; bond = VDD; }
+    pin VSS { number = "9"; bond = VSS; }
+    pin NRST { number = "12"; bond = NRST; }
+    pin PA2 { number = "19"; bond = PA2; }
+    pin PA3 { number = "20"; bond = PA3; }
+    pin PA4 { number = "21"; bond = PA4; }
+    pin PA5 { number = "22"; bond = PA5; }
+    pin PA6 { number = "23"; bond = PA6; }
+    pin PA7 { number = "24"; bond = PA7; }
+    pin PC4 { number = "25"; bond = PC4; }
+    pin PC5 { number = "26"; bond = PC5; }
+    pin PA11 { number = "43"; bond = PA11; }
+    pin PA12 { number = "44"; bond = PA12; }
+    pin PA13 { number = "45"; bond = PA13; }
+    pin PA14 { number = "46"; bond = PA14; }
+    pin PB6 { number = "60"; bond = PB6; }
+    pin PB7 { number = "61"; bond = PB7; }
+    pin PB8 { number = "62"; bond = PB8; }
+    pin PB9 { number = "63"; bond = PB9; }
+    pin PC0 { number = "13"; bond = PC0; }
+    pin PC1 { number = "14"; bond = PC1; }
+    pin PC2 { number = "15"; bond = PC2; }
+    pin PC3 { number = "16"; bond = PC3; }
+    pin PC6 { number = "38"; bond = PC6; }
+    pin PC7 { number = "39"; bond = PC7; }
+    pin PC13 { number = "3"; bond = PC13; }
+    pin PC11 { number = "1"; bond = PC11; }
+    pin PC12 { number = "2"; bond = PC12; }
+    pin PC14_OSC32_IN { number = "4"; bond = PC14; }
+    pin PC15_OSC32_OUT { number = "5"; bond = PC15; }
+    pin VBAT { number = "6"; bond = VBAT; }
+    pin VREF_PLUS { number = "7"; bond = VREF_PLUS; }
+    pin PF0_OSC_IN { number = "10"; bond = PF0; }
+    pin PF1_OSC_OUT { number = "11"; bond = PF1; }
+    pin PA0 { number = "17"; bond = PA0; }
+    pin PA1 { number = "18"; bond = PA1; }
+    pin PB0 { number = "27"; bond = PB0; }
+    pin PB1 { number = "28"; bond = PB1; }
+    pin PB2 { number = "29"; bond = PB2; }
+    pin PB10 { number = "30"; bond = PB10; }
+    pin PB11 { number = "31"; bond = PB11; }
+    pin PB12 { number = "32"; bond = PB12; }
+    pin PB13 { number = "33"; bond = PB13; }
+    pin PB14 { number = "34"; bond = PB14; }
+    pin PB15 { number = "35"; bond = PB15; }
+    pin PA8 { number = "36"; bond = PA8; }
+    pin PA9 { number = "37"; bond = PA9; }
+    pin PD8 { number = "40"; bond = PD8; }
+    pin PD9 { number = "41"; bond = PD9; }
+    pin PA10 { number = "42"; bond = PA10; }
+    pin PA15 { number = "47"; bond = PA15; }
+    pin PC8 { number = "48"; bond = PC8; }
+    pin PC9 { number = "49"; bond = PC9; }
+    pin PD0 { number = "50"; bond = PD0; }
+    pin PD1 { number = "51"; bond = PD1; }
+    pin PD2 { number = "52"; bond = PD2; }
+    pin PD3 { number = "53"; bond = PD3; }
+    pin PD4 { number = "54"; bond = PD4; }
+    pin PD5 { number = "55"; bond = PD5; }
+    pin PD6 { number = "56"; bond = PD6; }
+    pin PB3 { number = "57"; bond = PB3; }
+    pin PB4 { number = "58"; bond = PB4; }
+    pin PB5 { number = "59"; bond = PB5; }
+    pin PC10 { number = "64"; bond = PC10; }
+}
