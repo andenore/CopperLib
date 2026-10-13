@@ -24,7 +24,7 @@ KICAD_FOOTPRINTS = Path("/usr/share/kicad/footprints")
 MODULE = "github.com/andenore/CopperLib/packages/parts/adi"
 
 PARTS = {
-    "max96792a": ("MAX96792AGTM_VY", "TQFN-48-1EP_7x7mm_P0.5mm_EP5.1x5.1mm", 48),
+    "max96792a": ("MAX96792AGTM_VY", "QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm", 48),
     "max96793": ("MAX96793GTJ_VY", "QFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm", 32),
 }
 

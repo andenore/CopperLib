@@ -57,7 +57,7 @@ part MAX96792AGTM_VY {
     footprint = "Package_DFN_QFN:QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm";
     device = MAX96792A;
     source_document = "MAX96792A Dual GMSL3/2 to CSI-2 Deserializer data sheet";
-    source_revision = "19-101426 Rev 1 (1/24); pin map re-verified against Rev 2 (4/26)";
+    source_revision = "19-101426 Rev 1 (1/24)";
     source_location = "p.23 Pin Configuration; pp.23-27 Pin Descriptions; p.10 Absolute Maximum Ratings; p.29 Table 2; pp.29-30 Table 3; p.56 CSI-2 Output Interface";
     source_url = "https://www.analog.com/media/en/technical-documentation/data-sheets/max96792a.pdf";
     source_checksum = "sha256:0896b8aa91ecfcf985e08ac3b5e63fcc2e15e601ba07b5b78aa6476971eb122a";
