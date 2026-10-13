@@ -24,7 +24,7 @@ KICAD_FOOTPRINTS = Path("/usr/share/kicad/footprints")
 MODULE = "github.com/andenore/CopperLib/packages/parts/adi"
 
 PARTS = {
-    "max96792a": ("MAX96792AGTM_VY", "TQFN-48-1EP_7x7mm_P0.5mm_EP5.1x5.1mm", 48),
+    "max96792a": ("MAX96792AGTM_VY", "QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm", 48),
     "max96793": ("MAX96793GTJ_VY", "QFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm", 32),
 }
 
@@ -237,7 +237,11 @@ def test_independent_pin_spot_checks_and_evidence(tmp_path, package):
     assert evidence["footprint"]["exposed_pad_number"] == EP_NUMBERS[package]
     assert part.source.checksum == "sha256:" + evidence["source"]["sha256"]
     assert device.source.checksum == part.source.checksum
-    assert device.source.revision == part.source.revision
+    if package == "max96792a":
+        assert device.source.revision == "19-101426 Rev 1 (1/24)"
+        assert part.source.revision == "19-101426 Rev 1 (1/24); pin map re-verified against Rev 2 (4/26)"
+    else:
+        assert device.source.revision == part.source.revision
     unresolved = {item["item"] for item in evidence["unresolved"]}
     assert {"exposed_pad_and_land_pattern", "cphy_lane2_lane3_function", "cphy_trio_grouping"} <= unresolved
     assert "cphy_mode_not_modeled" not in unresolved
