@@ -11,9 +11,9 @@
 //
 // USB is not an alternate function on this part. PA11/PA12 list USB_DM/USB_DP
 // under "Additional functions" (Table 12) and have no entry in AF8-AF15
-// (Table 14); the USB peripheral takes the pads when enabled. The STM32G0C1
-// model this was derived from declares them on AF10, which DS13560 does not
-// support; here they carry selector "additional".
+// (Table 14); the USB peripheral takes the pads when enabled, so they carry
+// selector "additional". DS13564 Rev 5 says the same for the STM32G0C1, whose
+// model this was derived from and which now matches.
 part STM32G0B1RET6 {
     category = "semiconductor.mcu";
     manufacturer = "STMicroelectronics";

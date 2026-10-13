@@ -1,9 +1,10 @@
-// LQFP64-GP pad identities from STM32G0C1xC/xE datasheet DS13564 Rev 5,
-// Table 12 (pages 48-56). Peripheral/mux coverage remains a subset.
-// I2C1/I2C2/I2C3 mux rows: DS13564 Rev 2 (November 2021), Tables 13-16
-// (pages 57-60), AF0-AF15 columns; Fm+ (FT_f) pin types from Table 12.
-// Rev 2 copy: LCSC mirror of C3029185, sha256:
-// d2d20689e01ea6679dcf18afdc8e52b7a228d79551ec6e9601da2ff7b33a1887.
+// LQFP64-GP pad identities (Table 12, pages 48-56) and every mux row
+// (Tables 13-16, pages 57-60, AF0-AF15 columns) checked against the
+// STM32G0C1xC/xE datasheet DS13564 Rev 5, sha256:
+// 769fac4816f041bcea8ed62bdb041a94960eb8763137ae1a320045755f85c097.
+// Peripheral/mux coverage remains a subset. USB_DM/USB_DP on PA11/PA12 are
+// Table 12 "additional functions", not an AF column (AF8-AF15 are empty for
+// both pins in Table 14), so their selector is "additional".
 device STM32G0C1 {
     vendor = "STMicroelectronics";
     family = "STM32G0";
@@ -113,6 +114,6 @@ device STM32G0C1 {
     mux PA7: I2C3.SCL { selector = "AF9"; }
     mux PC5: FDCAN1.TX { selector = "AF3"; }
     mux PC4: FDCAN1.RX { selector = "AF3"; }
-    mux PA12: USB_FS.DP { selector = "AF10"; }
-    mux PA11: USB_FS.DM { selector = "AF10"; }
+    mux PA12: USB_FS.DP { selector = "additional"; }
+    mux PA11: USB_FS.DM { selector = "additional"; }
 }

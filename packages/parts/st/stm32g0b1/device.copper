@@ -11,17 +11,9 @@
 //
 // USB is not an alternate function on this part. PA11/PA12 list USB_DM/USB_DP
 // under "Additional functions" (Table 12) and have no entry in AF8-AF15
-// (Table 14); the USB peripheral takes the pads when enabled. The STM32G0C1
-// model this was derived from declares them on AF10, which DS13560 does not
-// support; here they carry selector "additional".
-//
-// Original provenance (STM32G0C1):
-// LQFP64-GP pad identities from STM32G0C1xC/xE datasheet DS13564 Rev 5,
-// Table 12 (pages 48-56). Peripheral/mux coverage remains a subset.
-// I2C1/I2C2/I2C3 mux rows: DS13564 Rev 2 (November 2021), Tables 13-16
-// (pages 57-60), AF0-AF15 columns; Fm+ (FT_f) pin types from Table 12.
-// Rev 2 copy: LCSC mirror of C3029185, sha256:
-// d2d20689e01ea6679dcf18afdc8e52b7a228d79551ec6e9601da2ff7b33a1887.
+// (Table 14); the USB peripheral takes the pads when enabled, so they carry
+// selector "additional". DS13564 Rev 5 says the same for the STM32G0C1, whose
+// model this was derived from and which now matches.
 device STM32G0B1 {
     vendor = "STMicroelectronics";
     family = "STM32G0";
