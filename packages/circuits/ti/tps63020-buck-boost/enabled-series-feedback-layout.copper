@@ -1,0 +1,872 @@
+// Declarative migration of reviewed, unqualified geometry.
+macro TPS63020_SIX_LAYER_ENABLED_SERIES_FEEDBACK {
+    source = {
+        datasheet_locator = "SLVS916I Rev I, section 10.1, Figure 31, p23; DSJ land drawings pp31-33";
+        datasheet_sha256 = "d117773bb7370fd79377bc70ce987eec3469ea5979547a09df52fca5f95b2e69";
+        datasheet_url = "https://www.ti.com/lit/ds/symlink/tps63020.pdf";
+        evm_locator = "SLVU365 March 2010, Figures 6-8, pp6-7";
+        evm_sha256 = "a164c060584f238a27553efe054ad47916d90fcf4ca5739bf0d01c8e35c5c221";
+        evm_url = "https://www.ti.com/lit/ug/slvu365/slvu365.pdf";
+        geometry_status = "authored adaptation, not digitized/extracted TI CAD; Bourns inductor, 0805 outputs, six layers, off-pad vias and shielded feedback";
+    };
+    unresolved = ["input/output conductor, neckdown and via current capacity at actual copper weight", "MLCC effective capacitance and inductor saturation/temperature at minimum battery voltage", "loop stability, EMI, thermal and modem-transient bench qualification", "six-layer stackup, assembly paste and off-pad thermal-via suitability", "author adaptation differs from TI CAD; native geometry checks are not production approval"];
+    anchor = U;
+    allowed_rotations = [0 deg, 90 deg, 180 deg, 270 deg];
+    required_layers = ["F.Cu", "In1.Cu", "In2.Cu", "In3.Cu", "In4.Cu", "B.Cu"];
+    internal_clearance = 0 mm;
+
+    net EN;
+    net FB;
+    net FB_SERIES;
+    net GND;
+    net L1;
+    net L2;
+    net VIN;
+    net VOUT;
+
+    member C_IN {
+        footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod";
+        at = (3.55 mm, -0.1 mm);
+        rotation = 90 deg;
+        edge_clearance = 0.25 mm;
+    }
+
+    member C_OUT1 {
+        footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod";
+        at = (-3.55 mm, 0.2 mm);
+        rotation = 90 deg;
+        edge_clearance = 0.25 mm;
+    }
+
+    member C_OUT2 {
+        footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod";
+        at = (-5.75 mm, 0.2 mm);
+        rotation = 90 deg;
+        edge_clearance = 0.25 mm;
+    }
+
+    member C_OUT3 {
+        footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod";
+        at = (-8.05 mm, 0.2 mm);
+        rotation = 90 deg;
+        edge_clearance = 0.25 mm;
+    }
+
+    member C_VINA {
+        footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod";
+        at = (-3 mm, -2 mm);
+        rotation = 180 deg;
+        edge_clearance = 0.25 mm;
+    }
+
+    member L {
+        footprint = "github.com/andenore/CopperLib/packages/parts/bourns/srp4020ta/footprints/Bourns_SRP4020TA.kicad_mod";
+        at = (0 mm, 5 mm);
+        rotation = 180 deg;
+        edge_clearance = 0.25 mm;
+    }
+
+    member R_BOT {
+        footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod";
+        at = (-0.7 mm, -3.9 mm);
+        rotation = 0 deg;
+        edge_clearance = 0.25 mm;
+    }
+
+    member R_EN_PD {
+        footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod";
+        at = (5 mm, -4.5 mm);
+        rotation = 0 deg;
+        edge_clearance = 0.25 mm;
+    }
+
+    member R_TOP {
+        footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod";
+        at = (-4.5 mm, -3.9 mm);
+        rotation = 0 deg;
+        edge_clearance = 0.25 mm;
+    }
+
+    member R_TOP2 {
+        footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod";
+        at = (-2.6 mm, -3.9 mm);
+        rotation = 0 deg;
+        edge_clearance = 0.25 mm;
+    }
+
+    member U {
+        footprint = "github.com/andenore/CopperLib/packages/parts/ti/tps63020/footprints/TI_DSJ0014_TPS63020.kicad_mod";
+        at = (0 mm, 0 mm);
+        rotation = 0 deg;
+        edge_clearance = 0.25 mm;
+    }
+
+    pad U."1" = VIN;
+    pad U."10" = VIN;
+    pad U."11" = VIN;
+    pad U."2" = GND;
+    pad U."13" = GND;
+    pad U."15" = GND;
+    pad U."3" = FB;
+    pad U."4" = VOUT;
+    pad U."5" = VOUT;
+    pad U."6" = L2;
+    pad U."7" = L2;
+    pad U."8" = L1;
+    pad U."9" = L1;
+    pad U."12" = EN;
+    pad L."1" = L1;
+    pad L."2" = L2;
+    pad C_IN."1" = VIN;
+    pad C_IN."2" = GND;
+    pad C_VINA."1" = VIN;
+    pad C_VINA."2" = GND;
+    pad C_OUT1."1" = VOUT;
+    pad C_OUT1."2" = GND;
+    pad C_OUT2."1" = VOUT;
+    pad C_OUT2."2" = GND;
+    pad C_OUT3."1" = VOUT;
+    pad C_OUT3."2" = GND;
+    pad R_TOP."1" = VOUT;
+    pad R_TOP."2" = FB_SERIES;
+    pad R_TOP2."1" = FB_SERIES;
+    pad R_TOP2."2" = FB;
+    pad R_EN_PD."1" = EN;
+    pad R_EN_PD."2" = GND;
+    pad R_BOT."1" = FB;
+    pad R_BOT."2" = GND;
+    isolated U."14";
+
+    track track_0 {
+        net = FB_SERIES;
+        layer = "F.Cu";
+        width = 0.2 mm;
+        points = [R_TOP."2", R_TOP2."1"];
+    }
+
+    track track_1 {
+        net = L1;
+        layer = "F.Cu";
+        width = 0.24 mm;
+        points = [U."8", (2.25 mm, 1.5 mm)];
+    }
+
+    track track_2 {
+        net = L1;
+        layer = "F.Cu";
+        width = 0.24 mm;
+        points = [U."9", (2.25 mm, 1 mm)];
+    }
+
+    track track_3 {
+        net = L2;
+        layer = "F.Cu";
+        width = 0.24 mm;
+        points = [U."6", (-2.25 mm, 1 mm)];
+    }
+
+    track track_4 {
+        net = L2;
+        layer = "F.Cu";
+        width = 0.24 mm;
+        points = [U."7", (-2.25 mm, 1.5 mm)];
+    }
+
+    track track_5 {
+        net = VIN;
+        layer = "F.Cu";
+        width = 0.24 mm;
+        points = [U."10", (2.1 mm, 0.5 mm)];
+    }
+
+    track track_6 {
+        net = VIN;
+        layer = "F.Cu";
+        width = 0.24 mm;
+        points = [U."11", (2.1 mm, 0 mm)];
+    }
+
+    track track_7 {
+        net = VOUT;
+        layer = "F.Cu";
+        width = 0.24 mm;
+        points = [U."4", (-2.1 mm, 0 mm)];
+    }
+
+    track track_8 {
+        net = VOUT;
+        layer = "F.Cu";
+        width = 0.24 mm;
+        points = [U."5", (-2.1 mm, 0.5 mm)];
+    }
+
+    track track_9 {
+        net = VIN;
+        layer = "F.Cu";
+        width = 0.8 mm;
+        points = [(5.7 mm, 0.85 mm), (8.2 mm, 0.85 mm)];
+    }
+
+    track track_10 {
+        net = VOUT;
+        layer = "F.Cu";
+        width = 0.8 mm;
+        points = [(-8.7 mm, 1.15 mm), (-10.2 mm, 1.15 mm)];
+    }
+
+    track track_11 {
+        net = VIN;
+        layer = "F.Cu";
+        width = 0.2 mm;
+        points = [U."1", C_VINA."1", (-2.49 mm, -2.5 mm), (-3 mm, -3 mm)];
+    }
+
+    track track_12 {
+        net = VIN;
+        layer = "B.Cu";
+        width = 0.2 mm;
+        points = [(-3 mm, -3 mm), (-2.6 mm, -3 mm), (-2.6 mm, -5.8 mm), (9.4 mm, -5.8 mm), (9.4 mm, 0.85 mm), (8.2 mm, 0.85 mm)];
+    }
+
+    track track_13 {
+        net = VOUT;
+        layer = "F.Cu";
+        width = 0.2 mm;
+        points = [R_TOP."1", (-5.01 mm, -5 mm)];
+    }
+
+    track track_14 {
+        net = VOUT;
+        layer = "B.Cu";
+        width = 0.8 mm;
+        points = [(-10.2 mm, 1.15 mm), (-4.6 mm, 1.15 mm)];
+    }
+
+    track track_15 {
+        net = VOUT;
+        layer = "B.Cu";
+        width = 0.2 mm;
+        points = [(-4.6 mm, 1.15 mm), (-4.6 mm, -5 mm), (-5.01 mm, -5 mm)];
+    }
+
+    track track_16 {
+        net = FB;
+        layer = "F.Cu";
+        width = 0.2 mm;
+        points = [U."3", (-2.4 mm, -0.55 mm)];
+    }
+
+    track track_17 {
+        net = FB;
+        layer = "In2.Cu";
+        width = 0.2 mm;
+        points = [(-2.4 mm, -0.55 mm), (-1.35 mm, -0.55 mm), (-1.35 mm, -3.2 mm), (-1.95 mm, -3.2 mm)];
+    }
+
+    track track_18 {
+        net = FB;
+        layer = "F.Cu";
+        width = 0.2 mm;
+        points = [(-1.95 mm, -3.2 mm), R_TOP2."2", R_BOT."1"];
+    }
+
+    track track_19 {
+        net = EN;
+        layer = "F.Cu";
+        width = 0.2 mm;
+        points = [U."12", (2.35 mm, -0.6 mm)];
+    }
+
+    track track_20 {
+        net = EN;
+        layer = "In2.Cu";
+        width = 0.2 mm;
+        points = [(2.35 mm, -0.6 mm), (6 mm, -0.6 mm), (8.2 mm, -3 mm)];
+    }
+
+    track track_21 {
+        net = EN;
+        layer = "F.Cu";
+        width = 0.2 mm;
+        points = [(8.2 mm, -3 mm), (8.8 mm, -3 mm)];
+    }
+
+    track track_22 {
+        net = EN;
+        layer = "F.Cu";
+        width = 0.2 mm;
+        points = [R_EN_PD."1", (4.49 mm, -5.15 mm)];
+    }
+
+    track track_23 {
+        net = EN;
+        layer = "In2.Cu";
+        width = 0.2 mm;
+        points = [(4.49 mm, -5.15 mm), (4.49 mm, -0.6 mm)];
+    }
+
+    track track_24 {
+        net = GND;
+        layer = "F.Cu";
+        width = 0.6 mm;
+        points = [(0 mm, 0 mm), (0 mm, -2.75 mm)];
+    }
+
+    track track_25 {
+        net = GND;
+        layer = "F.Cu";
+        width = 0.6 mm;
+        points = [(0 mm, 0 mm), (0 mm, 2.75 mm)];
+    }
+
+    track track_26 {
+        net = GND;
+        layer = "F.Cu";
+        width = 0.6 mm;
+        points = [(-0.6 mm, -2.75 mm), (0.6 mm, -2.75 mm)];
+    }
+
+    track track_27 {
+        net = GND;
+        layer = "F.Cu";
+        width = 0.6 mm;
+        points = [(-0.6 mm, 2.75 mm), (0.6 mm, 2.75 mm)];
+    }
+
+    track track_28 {
+        net = GND;
+        layer = "F.Cu";
+        width = 0.2 mm;
+        points = [U."2", (0 mm, -1 mm), (0 mm, 0 mm)];
+    }
+
+    track track_29 {
+        net = GND;
+        layer = "F.Cu";
+        width = 0.2 mm;
+        points = [R_BOT."2", (0 mm, -2.75 mm)];
+    }
+
+    track track_30 {
+        net = GND;
+        layer = "F.Cu";
+        width = 0.2 mm;
+        points = [U."13", (2.1 mm, -1.3 mm), (2.7 mm, -2 mm)];
+    }
+
+    track track_31 {
+        net = GND;
+        layer = "F.Cu";
+        width = 0.4 mm;
+        points = [C_IN."2", (3.55 mm, -2.4 mm)];
+    }
+
+    track track_32 {
+        net = GND;
+        layer = "F.Cu";
+        width = 0.2 mm;
+        points = [C_VINA."2", (-4 mm, -2.4 mm)];
+    }
+
+    track track_33 {
+        net = GND;
+        layer = "F.Cu";
+        width = 0.4 mm;
+        points = [C_OUT1."2", (-3.75 mm, -3 mm)];
+    }
+
+    track track_34 {
+        net = GND;
+        layer = "F.Cu";
+        width = 0.4 mm;
+        points = [C_OUT2."2", (-5.75 mm, -1.95 mm)];
+    }
+
+    track track_35 {
+        net = GND;
+        layer = "F.Cu";
+        width = 0.4 mm;
+        points = [C_OUT3."2", (-8.05 mm, -1.95 mm)];
+    }
+
+    track track_36 {
+        net = GND;
+        layer = "F.Cu";
+        width = 0.2 mm;
+        points = [R_EN_PD."2", (6.4 mm, -4.5 mm)];
+    }
+
+    via via_0 {
+        net = VIN;
+        at = (8.2 mm, 0.85 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_1 {
+        net = VOUT;
+        at = (-10.2 mm, 1.15 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_2 {
+        net = VIN;
+        at = (-3 mm, -3 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_3 {
+        net = VOUT;
+        at = (-5.01 mm, -5 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_4 {
+        net = VOUT;
+        at = (-4.6 mm, 1.15 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_5 {
+        net = FB;
+        at = (-2.4 mm, -0.55 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_6 {
+        net = FB;
+        at = (-1.95 mm, -3.2 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_7 {
+        net = EN;
+        at = (2.35 mm, -0.6 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_8 {
+        net = EN;
+        at = (8.2 mm, -3 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_9 {
+        net = EN;
+        at = (4.49 mm, -5.15 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_10 {
+        net = GND;
+        at = (0 mm, -2.75 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_11 {
+        net = GND;
+        at = (0.6 mm, -2.75 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_12 {
+        net = GND;
+        at = (-0.6 mm, -2.75 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_13 {
+        net = GND;
+        at = (0 mm, 2.75 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_14 {
+        net = GND;
+        at = (0.6 mm, 2.75 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_15 {
+        net = GND;
+        at = (-0.6 mm, 2.75 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_16 {
+        net = GND;
+        at = (2.7 mm, -2 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_17 {
+        net = GND;
+        at = (3.55 mm, -2.4 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_18 {
+        net = GND;
+        at = (-4 mm, -2.4 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_19 {
+        net = GND;
+        at = (-3.75 mm, -3 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_20 {
+        net = GND;
+        at = (-5.75 mm, -1.95 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_21 {
+        net = GND;
+        at = (-8.05 mm, -1.95 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_22 {
+        net = GND;
+        at = (6.4 mm, -4.5 mm);
+        size = 0.6 mm;
+        drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    port VIN {
+        net = VIN;
+        layer = "F.Cu";
+        point = (8.2 mm, 0.85 mm);
+        pads = [U."1", U."10", U."11", C_IN."1", C_VINA."1"];
+    }
+
+    port VOUT {
+        net = VOUT;
+        layer = "F.Cu";
+        point = (-10.2 mm, 1.15 mm);
+        pads = [U."4", U."5", C_OUT1."1", C_OUT2."1", C_OUT3."1", R_TOP."1"];
+    }
+
+    port EN {
+        net = EN;
+        layer = "F.Cu";
+        point = (8.8 mm, -3 mm);
+        pads = [U."12", R_EN_PD."1"];
+    }
+
+    protected_region converter-private {
+        layers = ["F.Cu", "In2.Cu", "B.Cu"];
+        vertices = [(-9.3 mm, -6.2 mm), (7.3 mm, -6.2 mm), (7.3 mm, 7.5 mm), (-9.3 mm, 7.5 mm)];
+        block_tracks = true;
+        block_vias = true;
+        block_zones = false;
+    }
+
+    keepout converter-fill-exclusion {
+        layers = ["In2.Cu", "In3.Cu", "B.Cu"];
+        vertices = [(-9.3 mm, -6.2 mm), (7.3 mm, -6.2 mm), (7.3 mm, 7.5 mm), (-9.3 mm, 7.5 mm)];
+        block_tracks = false;
+        block_vias = false;
+        block_zones = true;
+    }
+
+    zone local-ground-return {
+        net = GND;
+        layers = ["F.Cu"];
+        vertices = [(-9.3 mm, -6.2 mm), (7.3 mm, -6.2 mm), (7.3 mm, 7.5 mm), (-9.3 mm, 7.5 mm)];
+        priority = 2;
+        clearance = 0.09 mm;
+        minimum_width = 0.15 mm;
+        pad_connection = "solid";
+    }
+
+    polygon switch-l1 {
+        net = L1;
+        layer = "F.Cu";
+        vertices = [(1.9 mm, 0.85 mm), (2.65 mm, 0.85 mm), (2.65 mm, 6.2 mm), (0.95 mm, 6.2 mm), (0.95 mm, 3.8 mm), (1.9 mm, 3.8 mm)];
+    }
+
+    polygon switch-l2 {
+        net = L2;
+        layer = "F.Cu";
+        vertices = [(-1.9 mm, 3.8 mm), (-0.95 mm, 3.8 mm), (-0.95 mm, 6.2 mm), (-2.65 mm, 6.2 mm), (-2.65 mm, 0.85 mm), (-1.9 mm, 0.85 mm)];
+    }
+
+    polygon input-lobe {
+        net = VIN;
+        layer = "F.Cu";
+        vertices = [(1.8 mm, -0.12 mm), (2.3 mm, -0.12 mm), (2.3 mm, 0.3 mm), (6 mm, 0.3 mm), (6 mm, 1.55 mm), (2.85 mm, 1.55 mm), (2.85 mm, 0.62 mm), (1.8 mm, 0.62 mm)];
+    }
+
+    polygon output-lobe {
+        net = VOUT;
+        layer = "F.Cu";
+        vertices = [(-1.8 mm, -0.12 mm), (-2.3 mm, -0.12 mm), (-2.3 mm, 0.3 mm), (-9 mm, 0.3 mm), (-9 mm, 1.85 mm), (-2.85 mm, 1.85 mm), (-2.85 mm, 0.62 mm), (-1.8 mm, 0.62 mm)];
+    }
+
+    plane_return return_0 {
+        net = GND;
+        layers = ["In1.Cu", "In4.Cu"];
+        pads = [U."2", U."13", U."15", C_IN."2", C_VINA."2", C_OUT1."2", C_OUT2."2", C_OUT3."2", R_EN_PD."2", R_BOT."2"];
+        contact contact_0 {
+            pad = C_IN."2";
+            at = (3.55 mm, -2.4 mm);
+        }
+        contact contact_1 {
+            pad = C_VINA."2";
+            at = (-4 mm, -2.4 mm);
+        }
+        contact contact_2 {
+            pad = C_OUT1."2";
+            at = (-3.75 mm, -3 mm);
+        }
+        contact contact_3 {
+            pad = C_OUT2."2";
+            at = (-5.75 mm, -1.95 mm);
+        }
+        contact contact_4 {
+            pad = C_OUT3."2";
+            at = (-8.05 mm, -1.95 mm);
+        }
+        contact contact_5 {
+            pad = R_EN_PD."2";
+            at = (6.4 mm, -4.5 mm);
+        }
+    }
+
+    width_contract width_0 {
+        track = track_1;
+        minimum_width = 0.24 mm;
+        purpose = "pin_entry";
+        evidence = "Authored 0.24 mm individual DSJ land entry into owned power/switch polygon; see physical-layout.md. Peak/RMS neckdown capacity remains unresolved.";
+    }
+
+    width_contract width_1 {
+        track = track_2;
+        minimum_width = 0.24 mm;
+        purpose = "pin_entry";
+        evidence = "Authored 0.24 mm individual DSJ land entry into owned power/switch polygon; see physical-layout.md. Peak/RMS neckdown capacity remains unresolved.";
+    }
+
+    width_contract width_2 {
+        track = track_3;
+        minimum_width = 0.24 mm;
+        purpose = "pin_entry";
+        evidence = "Authored 0.24 mm individual DSJ land entry into owned power/switch polygon; see physical-layout.md. Peak/RMS neckdown capacity remains unresolved.";
+    }
+
+    width_contract width_3 {
+        track = track_4;
+        minimum_width = 0.24 mm;
+        purpose = "pin_entry";
+        evidence = "Authored 0.24 mm individual DSJ land entry into owned power/switch polygon; see physical-layout.md. Peak/RMS neckdown capacity remains unresolved.";
+    }
+
+    width_contract width_4 {
+        track = track_5;
+        minimum_width = 0.24 mm;
+        purpose = "pin_entry";
+        evidence = "Authored 0.24 mm individual DSJ land entry into owned power/switch polygon; see physical-layout.md. Peak/RMS neckdown capacity remains unresolved.";
+    }
+
+    width_contract width_5 {
+        track = track_6;
+        minimum_width = 0.24 mm;
+        purpose = "pin_entry";
+        evidence = "Authored 0.24 mm individual DSJ land entry into owned power/switch polygon; see physical-layout.md. Peak/RMS neckdown capacity remains unresolved.";
+    }
+
+    width_contract width_6 {
+        track = track_7;
+        minimum_width = 0.24 mm;
+        purpose = "pin_entry";
+        evidence = "Authored 0.24 mm individual DSJ land entry into owned power/switch polygon; see physical-layout.md. Peak/RMS neckdown capacity remains unresolved.";
+    }
+
+    width_contract width_7 {
+        track = track_8;
+        minimum_width = 0.24 mm;
+        purpose = "pin_entry";
+        evidence = "Authored 0.24 mm individual DSJ land entry into owned power/switch polygon; see physical-layout.md. Peak/RMS neckdown capacity remains unresolved.";
+    }
+
+    width_contract width_8 {
+        track = track_11;
+        minimum_width = 0.2 mm;
+        purpose = "control_supply";
+        evidence = "Authored 0.2 mm VINA control supply/decoupler feed, not VIN main current distribution; TI SLVS916I section 10.1 intent, adaptation in physical-layout.md.";
+    }
+
+    width_contract width_9 {
+        track = track_12;
+        minimum_width = 0.2 mm;
+        purpose = "control_supply";
+        evidence = "Authored 0.2 mm VINA control supply/decoupler feed, not VIN main current distribution; TI SLVS916I section 10.1 intent, adaptation in physical-layout.md.";
+    }
+
+    width_contract width_10 {
+        track = track_13;
+        minimum_width = 0.2 mm;
+        purpose = "output_sense";
+        evidence = "Authored 0.2 mm low-current Kelvin feedback sense from output-capacitor copper, not load-current distribution; TI SLVS916I section 10.1 intent, adaptation in physical-layout.md.";
+    }
+
+    width_contract width_11 {
+        track = track_15;
+        minimum_width = 0.2 mm;
+        purpose = "output_sense";
+        evidence = "Authored 0.2 mm low-current Kelvin feedback sense from output-capacitor copper, not load-current distribution; TI SLVS916I section 10.1 intent, adaptation in physical-layout.md.";
+    }
+
+    width_contract width_12 {
+        track = track_19;
+        minimum_width = 0.2 mm;
+        purpose = "enable";
+        evidence = "Authored 0.2 mm EN control branch, not the VIN main current path; physical-layout.md and TI SLVS916I pin functions.";
+    }
+
+    width_contract width_13 {
+        track = track_20;
+        minimum_width = 0.2 mm;
+        purpose = "enable";
+        evidence = "Authored 0.2 mm EN control branch, not the VIN main current path; physical-layout.md and TI SLVS916I pin functions.";
+    }
+
+    width_contract width_14 {
+        track = track_21;
+        minimum_width = 0.2 mm;
+        purpose = "enable";
+        evidence = "Authored 0.2 mm EN control branch, not the VIN main current path; physical-layout.md and TI SLVS916I pin functions.";
+    }
+
+    width_contract width_15 {
+        track = track_22;
+        minimum_width = 0.2 mm;
+        purpose = "enable";
+        evidence = "Authored 0.2 mm EN control branch, not the VIN main current path; physical-layout.md and TI SLVS916I pin functions.";
+    }
+
+    width_contract width_16 {
+        track = track_23;
+        minimum_width = 0.2 mm;
+        purpose = "enable";
+        evidence = "Authored 0.2 mm EN control branch, not the VIN main current path; physical-layout.md and TI SLVS916I pin functions.";
+    }
+
+}

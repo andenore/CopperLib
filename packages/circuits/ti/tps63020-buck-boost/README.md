@@ -38,3 +38,20 @@ python packages/circuits/ti/tps63020-buck-boost/generate_layout.py
 See [physical layout and evidence](physical-layout.md). Both assets deliberately
 have `production_publishable=false`. Passing geometry checks does not qualify
 current capacity, converter performance, EMI, thermal behavior or assembly.
+
+## Copper macro exports
+
+The current declarative authoring inputs export:
+
+- `TPS63020_SIX_LAYER_ALWAYS_ON` (`always-on-layout.copper`).
+- `TPS63020_SIX_LAYER_ENABLED_SERIES_FEEDBACK` (`enabled-series-feedback-layout.copper`).
+- `TPS63020_SIX_LAYER_ENABLED_POWER_OUTPUT` (`enabled-power-output-layout.copper`).
+
+Import the package normally and use `physical_macro NAME: layout.EXPORT { ... }`.
+All exact copper, net roles, isolated lands, local pours, dedicated returns,
+ports and named width contracts are preserved. Members name exact managed
+footprint URLs; footprint/asset digests are generated under the consumer's
+dependency pins. Structured source evidence and unresolved obligations remain.
+JSON snapshots and the former generator remain historical compatibility inputs,
+not code executed while resolving a Copper definition. These exports remain
+experimental and unqualified.

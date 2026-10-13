@@ -134,3 +134,21 @@ disconnected internal SS copper, removed owner copper and same-net intrusion.
 Native KiCad 10.0.6 accepts the eight rotated/variant external-access
 fixtures with zero violations and zero unconnected items. Full-board placement,
 current distribution, assembly and powered hardware validation remain separate.
+
+## Managed Copper macro exports
+
+The package now exports `TPS62130A_MANAGED_ALWAYS_ON` and
+`TPS62130A_MANAGED_ENABLED` in `.copper`. These preserve the reviewed managed
+footprint adaptation formerly carried in CopperScript example assets, including
+all tracks, vias/finishes, zones, fixed polygons, plane returns, dedicated
+contacts, isolated pads and ports. They retain the original source-document
+locators, hashes and unresolved adaptation notes.
+
+Use `physical_macro NAME: buck.TPS62130A_MANAGED_ALWAYS_ON { ... }` after an
+ordinary package import. EN maps to VIN in that variant; the enabled variant
+requires a separate EN role. Exact independent footprint URLs replace manually
+authored member digests. Provider revisions belong in the consumer manifest.
+Legacy JSON assets/generators and their installed-footprint probe remain
+historical compatibility inputs. The current managed example/probe belongs in
+CopperScript's `examples/tps62130a_macro/`. No circuit values, package facts or
+power/thermal/assembly qualification change in this format migration.

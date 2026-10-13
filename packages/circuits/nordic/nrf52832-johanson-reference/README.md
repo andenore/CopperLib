@@ -61,3 +61,28 @@ ground-clearance reference. The managed adaptation changes no local copper,
 matching returns, isolated pads or layer exclusions. CopperScript checks host
 geometry, not antenna tuning; evaluation tee values, actual laminate/feed
 impedance, ground shape/via fence and enclosure performance remain unresolved.
+
+## Copper macro exports
+
+Import this package normally and bind a named layout:
+
+```copper
+import rf_layout "github.com/andenore/CopperLib/packages/circuits/nordic/nrf52832-johanson-reference";
+physical_macro RADIO: rf_layout.NRF52832_JOHANSON_SIX_LAYER_TRIAL {
+    // Explicit member and net mappings for existing circuitry.
+}
+```
+
+- `NRF52832_JOHANSON_SIX_LAYER_TRIAL` preserves the source-compatible trial
+  footprint set used by the nRF antenna and coin-cell examples.
+- `NRF52832_JOHANSON_MANAGED_SIX_LAYER` preserves the reviewed managed footprint
+  adaptation used by full-vertical and the active asset-tracker source.
+- `NRF52832_JOHANSON_MANAGED_CORNER` additionally retains the existing reviewed
+  two-edge opening contract used by the RF-layout board revision.
+
+The `.copper` files are the current declarative authoring inputs. Members name
+exact managed footprint URLs, while consumer manifests pin provider revisions.
+All fixed geometry, pad roles, isolated contacts, transformations and evidence
+locators survive the JSON-to-source migration. Legacy JSON assets and extraction
+scripts remain historical compatibility/reference inputs. These exports remain
+unqualified; they do not instantiate the electrical circuit.
