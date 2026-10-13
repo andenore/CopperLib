@@ -20,13 +20,32 @@
 // The PDF was retrieved from the mirror https://www.datasheetall.com/pdf/max96792a.pdf
 // (analog.com unreachable); source_checksum is the SHA-256 of that mirror copy
 // (cache/adi/max96792a-19-101426-rev1.pdf), not of the analog.com file.
-// Data sheet Rev 2 (4/26) exists but was not obtainable; this pinout is from Rev 1 and
-// must be re-checked against Rev 2 before production publication.
+// Pin map verified against data sheet Rev 2 (4/26) on 2026-10-12: all 48 signal
+// pins match Rev 1 exactly. The only differences are this file's
+// identifier-safe renaming (MFP2/CFG0 -> MFP2_CFG0, MFP3/CFG1 -> MFP3_CFG1,
+// X1/OSC -> X1_OSC) and disambiguating the two VDD18 pins (7, 16). Rev 2 also
+// confirms EP is internally connected to device ground and must reach the
+// ground plane through a via array.
 //
-// Footprint is PROVISIONAL: KiCad's TQFN-48 7x7 EP5.1 follows Maxim outline
-// 21-0144 (non-side-wettable 48TQFN family). The orderable part uses outline
-// 21-100045 / land pattern 90-100016, which was not available. Exposed-pad and
-// land dimensions are unresolved; see evidence/package-audit.json.
+// Footprint CORRECTED 2026-10-12 against the obtained drawings. The previous
+// choice, KiCad's TQFN-48 7x7 EP5.1, follows Maxim outline 21-0144 -- the
+// NON-side-wettable 48TQFN family -- and its 5.1 mm thermal land is smaller
+// than this package's exposed pad at EVERY tolerance: outline 21-100045 rev G
+// gives D2/E2 = 5.40/5.50/5.60 and land pattern 90-100016 rev D recommends a
+// 5.60 mm land. The EP would have overhung its land by >= 0.15 mm per side on
+// this chip's ONLY ground connection, which also carries its D-PHY return
+// current and all of its heat.
+//
+// Now uses the EP5.6 variant, whose land matches 90-100016 exactly and whose
+// lead lands are identical to the previous footprint's. The larger pad also
+// improves the D-032 via array: the default pitch scales with the pad, so the
+// 4x4 array spreads at 1.40 mm instead of 1.27 mm, still 16 vias.
+//
+// Residual deviation: both KiCad variants give 0.875 x 0.25 mm lead lands where
+// 90-100016 recommends 0.80 x 0.30 mm. Terminal b is 0.20/0.25/0.30, so the
+// land matches the terminal nominal but is 0.05 mm narrower than recommended,
+// which reduces the side fillet this side-wettable package exists to expose.
+// See evidence/package-audit.json.
 //
 // Supply envelopes: Table 2 gives VDD as two bands (0.95-1.05 V LDO bypass,
 // 1.14-1.26 V internal LDO) and VDDIO as two bands (1.7-1.9 V, 3.0-3.6 V).
@@ -35,10 +54,10 @@
 part MAX96792AGTM_VY {
     category = "interface.serdes.deserializer";
     manufacturer = "Analog Devices";
-    footprint = "Package_DFN_QFN:TQFN-48-1EP_7x7mm_P0.5mm_EP5.1x5.1mm";
+    footprint = "Package_DFN_QFN:QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm";
     device = MAX96792A;
     source_document = "MAX96792A Dual GMSL3/2 to CSI-2 Deserializer data sheet";
-    source_revision = "19-101426 Rev 1 (1/24)";
+    source_revision = "19-101426 Rev 1 (1/24); pin map re-verified against Rev 2 (4/26)";
     source_location = "p.23 Pin Configuration; pp.23-27 Pin Descriptions; p.10 Absolute Maximum Ratings; p.29 Table 2; pp.29-30 Table 3; p.56 CSI-2 Output Interface";
     source_url = "https://www.analog.com/media/en/technical-documentation/data-sheets/max96792a.pdf";
     source_checksum = "sha256:0896b8aa91ecfcf985e08ac3b5e63fcc2e15e601ba07b5b78aa6476971eb122a";

@@ -33,16 +33,27 @@
     "orderable_outline": "21-100045",
     "orderable_land_pattern": "90-100016",
     "non_side_wettable_listing": {"package_code": "T4877+11", "outline": "21-0144", "land_pattern": "90-0130"},
-    "drawings_obtained": false
+    "drawings_obtained": true,
+    "outline_drawing": {"document": "21-100045", "revision": "G", "sha256": "5ef6d2df4edca03c44e0443d411a11222df6a3a2b6681e15b4584d7135cbddab",
+      "exposed_pad_d2_e2_mm": {"min": 5.4, "nom": 5.5, "max": 5.6},
+      "terminal_width_b_mm": {"min": 0.2, "nom": 0.25, "max": 0.3},
+      "terminal_length_l_mm": {"min": 0.3, "nom": 0.4, "max": 0.5},
+      "body_mm": {"d": 7.0, "e": 7.0, "pitch": 0.5}},
+    "land_pattern_drawing": {"document": "90-100016", "revision": "D", "sha256": "0c45a394dfc60b9f4a43babe53ec103d6d8fee4ff958032aaf78d981d7cb3c54",
+      "exposed_pad_mm": [5.6, 5.6], "lead_land_mm": [0.8, 0.3], "pitch_mm": 0.5,
+      "complies_to": "IPC7351A", "tolerance_mm": 0.02}
   },
   "footprint": {
-    "id": "Package_DFN_QFN:TQFN-48-1EP_7x7mm_P0.5mm_EP5.1x5.1mm",
-    "status": "provisional",
-    "kicad_reference": "descr cites Maxim 21-0144; tags T4877+3 T4877+3C",
+    "id": "Package_DFN_QFN:QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm",
+    "status": "verified-with-deviation",
+    "kicad_reference": "generic KiCad QFN-48 7x7 mm, 0.5 mm pitch, EP 5.6 mm; land matches 90-100016 exactly",
     "kicad_library": "kicad-footprints 10.0.6",
-    "kicad_mod_sha256": "6159576ecc8c14f8ce20a7d9abe71ee47eca8273c9e794e2570dc3b181ca44f8",
     "exposed_pad_number": "49",
-    "exposed_pad_copper_mm": [5.1, 5.1],
+    "exposed_pad_copper_mm": [5.6, 5.6],
+    "previous": {"id": "Package_DFN_QFN:TQFN-48-1EP_7x7mm_P0.5mm_EP5.1x5.1mm",
+      "rejected_because": "follows the non-side-wettable outline 21-0144; its 5.1 mm thermal land is smaller than the package exposed pad at every tolerance (5.40/5.50/5.60), so the EP overhung its land by >= 0.15 mm per side on the chip's only ground connection"},
+    "via_in_pad_effect": "the D-032 4x4 array keeps 16 vias and spreads at 1.40 mm default pitch on the 5.6 mm pad, against 1.27 mm on the 5.1 mm pad",
+    "deviations": ["lead land 0.875 x 0.25 mm vs 0.80 x 0.30 mm recommended by 90-100016; matches terminal nominal b=0.25 but 0.05 mm narrower than recommended, reducing the side fillet"],
     "copperscript_export": "export-kicad-pcb succeeds with --footprint-root /usr/share/kicad/footprints"
   },
   "coverage": {
