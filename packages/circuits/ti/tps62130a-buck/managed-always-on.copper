@@ -9,6 +9,7 @@ macro TPS62130A_MANAGED_ALWAYS_ON {
         evm_sha256 = "b8e09708c6e866ee1c7f99993dd430967e1b3d1055678873452f3af0d8402237";
         evm_url = "https://www.ti.com/lit/pdf/SLVU437";
         footprint_adaptation = "CopperScript full-vertical pinned KiCad footprints 7ebfa6b23cc292a56f751b7b5f4a0e12eeef69dd; copper pads match installed KiCad 10.0.6; courtyard/body and EP thermal metadata rebound";
+        footprint_provider = "KiCad footprints moved from the archived GitHub mirror 7ebfa6b23cc292a56f751b7b5f4a0e12eeef69dd to gitlab.com/kicad/libraries/kicad-footprints (KiCad 10 releases); member pads parse identically in 10.0.6, exposed-pad heatsink attribute now set";
         geometry_status = "authored adaptation; different inductor, two output capacitors and six-layer stack; not extracted TI CAD";
         gerber_status = "SLVC394 public URLs returned HTTP 401 on 2026-10-06; archive not consumed";
     };
@@ -26,35 +27,35 @@ macro TPS62130A_MANAGED_ALWAYS_ON {
     net VOUT;
 
     member C_AVIN {
-        footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod";
+        footprint = "gitlab.com/kicad/libraries/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod";
         at = (3.4 mm, 0.9 mm);
         rotation = 0 deg;
         edge_clearance = 0.25 mm;
     }
 
     member C_OUT1 {
-        footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod";
+        footprint = "gitlab.com/kicad/libraries/kicad-footprints/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod";
         at = (-4.2 mm, -2.7 mm);
         rotation = 0 deg;
         edge_clearance = 0.25 mm;
     }
 
     member C_OUT2 {
-        footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod";
+        footprint = "gitlab.com/kicad/libraries/kicad-footprints/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod";
         at = (-8 mm, -2.7 mm);
         rotation = 180 deg;
         edge_clearance = 0.25 mm;
     }
 
     member C_PVIN {
-        footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod";
+        footprint = "gitlab.com/kicad/libraries/kicad-footprints/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod";
         at = (3.2 mm, -1.9 mm);
         rotation = 90 deg;
         edge_clearance = 0.25 mm;
     }
 
     member C_SS {
-        footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod";
+        footprint = "gitlab.com/kicad/libraries/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod";
         at = (2.9 mm, 2.6 mm);
         rotation = 180 deg;
         edge_clearance = 0.25 mm;
@@ -68,21 +69,21 @@ macro TPS62130A_MANAGED_ALWAYS_ON {
     }
 
     member R_FB_BOT {
-        footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod";
+        footprint = "gitlab.com/kicad/libraries/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod";
         at = (0.3 mm, 3 mm);
         rotation = 0 deg;
         edge_clearance = 0.25 mm;
     }
 
     member R_FB_TOP {
-        footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod";
+        footprint = "gitlab.com/kicad/libraries/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod";
         at = (-1.6 mm, 3 mm);
         rotation = 0 deg;
         edge_clearance = 0.25 mm;
     }
 
     member U {
-        footprint = "github.com/KiCad/kicad-footprints/Package_DFN_QFN.pretty/VQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm.kicad_mod";
+        footprint = "gitlab.com/kicad/libraries/kicad-footprints/Package_DFN_QFN.pretty/VQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm.kicad_mod";
         at = (0 mm, 0 mm);
         rotation = 0 deg;
         edge_clearance = 0.25 mm;

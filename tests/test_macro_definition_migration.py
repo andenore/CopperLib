@@ -35,7 +35,8 @@ def test_copper_export_preserves_fixed_geometry_and_source_facts(package, source
         before = {**before, 'rotation_degrees': decimal_text(Decimal(str(before['rotation_degrees'])))}
         assert {k:v for k,v in before.items() if k not in {'footprint', 'footprint_digest'}} == {
             k:v for k,v in after.items() if k not in {'footprint', 'footprint_digest'}}
-        assert after['footprint'].startswith(('github.com/andenore/CopperLib/', 'github.com/KiCad/kicad-footprints/'))
+        assert after['footprint'].startswith(('github.com/andenore/CopperLib/', 'github.com/KiCad/kicad-footprints/',
+                                            'gitlab.com/kicad/libraries/kicad-footprints/'))
     for key, value in prior['source'].items():
         assert actual['source'][key] == value
     assert actual['production_publishable'] is False
