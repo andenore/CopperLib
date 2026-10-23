@@ -1,0 +1,12 @@
+part SN74LVC1G125DBVR {
+    manufacturer = "Texas Instruments";
+    footprint = "Package_TO_SOT_SMD:SOT-23-5";
+    source_url = "https://www.ti.com/lit/ds/symlink/sn74lvc1g125.pdf";
+    source_location = "SCES223U, DBV pin functions p3; Ioff supports partial power down";
+    source_checksum = "sha256:1098d46e4565695e9823a08309bc581e2c9ead26b19e99a43a011a38642b27ca";
+    pin OE { number = "1"; domains = "digital"; directions = "input";  }
+    pin A { number = "2"; domains = "digital"; directions = "input";  }
+    pin GND { number = "3"; domains = "ground"; directions = "input";  }
+    pin Y { number = "4"; domains = "digital"; directions = "output";  }
+    pin VCC { number = "5"; domains = "power"; directions = "input"; voltage_min = 1.65V; voltage_max = 5.5V; }
+}

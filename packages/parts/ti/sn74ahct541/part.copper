@@ -1,0 +1,27 @@
+part SN74AHCT541PWR {
+    manufacturer = "Texas Instruments";
+    footprint = "Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm";
+    source_url = "https://www.ti.com/lit/ds/symlink/sn74ahct541.pdf";
+    source_location = "SCLS269Q, pin functions p3; operating range p4; PW package";
+    source_checksum = "sha256:2f5aace668966be9ec16f42769bb2d80fd8fd30c2e4f41d06444ca41426fc745";
+    pin OE1 { number = "1"; domains = "digital"; directions = "input";  }
+    pin OE2 { number = "19"; domains = "digital"; directions = "input";  }
+    pin VCC { number = "20"; domains = "power"; directions = "input"; voltage_min = 4.5V; voltage_max = 5.5V; connection = required; }
+    pin GND { number = "10"; domains = "ground"; directions = "input"; connection = required; }
+    pin A1 { number = "2"; domains = "digital"; directions = "input";  }
+    pin Y1 { number = "18"; domains = "digital"; directions = "output"; drive_modes = "push_pull,high_impedance"; }
+    pin A2 { number = "3"; domains = "digital"; directions = "input";  }
+    pin Y2 { number = "17"; domains = "digital"; directions = "output"; drive_modes = "push_pull,high_impedance"; }
+    pin A3 { number = "4"; domains = "digital"; directions = "input";  }
+    pin Y3 { number = "16"; domains = "digital"; directions = "output"; drive_modes = "push_pull,high_impedance"; }
+    pin A4 { number = "5"; domains = "digital"; directions = "input";  }
+    pin Y4 { number = "15"; domains = "digital"; directions = "output"; drive_modes = "push_pull,high_impedance"; }
+    pin A5 { number = "6"; domains = "digital"; directions = "input";  }
+    pin Y5 { number = "14"; domains = "digital"; directions = "output"; drive_modes = "push_pull,high_impedance"; }
+    pin A6 { number = "7"; domains = "digital"; directions = "input";  }
+    pin Y6 { number = "13"; domains = "digital"; directions = "output"; drive_modes = "push_pull,high_impedance"; }
+    pin A7 { number = "8"; domains = "digital"; directions = "input";  }
+    pin Y7 { number = "12"; domains = "digital"; directions = "output"; drive_modes = "push_pull,high_impedance"; }
+    pin A8 { number = "9"; domains = "digital"; directions = "input";  }
+    pin Y8 { number = "11"; domains = "digital"; directions = "output"; drive_modes = "push_pull,high_impedance"; }
+}

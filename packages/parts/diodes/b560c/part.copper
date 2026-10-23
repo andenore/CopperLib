@@ -1,0 +1,9 @@
+part B560C_13_F {
+    manufacturer = "Diodes Incorporated";
+    footprint = "Diode_SMD:D_SMC";
+    source_url = "https://www.lcsc.com/datasheet/C85100.pdf";
+    source_location = "Manufacturer datasheet, 60V 5A SMC; band identifies cathode";
+    source_checksum = "sha256:1b1de94df0a7729f4a69a885edd54213594acdce3cd6d4fa072961431ddf71ff";
+    pin K { number = "1"; domains = "power,analog"; directions = "passive";  }
+    pin A { number = "2"; domains = "power,analog"; directions = "passive";  }
+}

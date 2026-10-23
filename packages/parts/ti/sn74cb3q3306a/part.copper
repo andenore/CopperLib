@@ -1,0 +1,18 @@
+// TI DCU package; bidirectional pass switches, NOT logic buffers.
+part SN74CB3Q3306ADCUR {
+    manufacturer = "Texas Instruments";
+    category = "interface.bus_switch";
+    footprint = "Package_SO:VSSOP-8_2.3x2mm_P0.5mm";
+    source_document = "SN74CB3Q3306A SCDS113F, September 2026";
+    source_location = "p1 power-off isolation and OE pullup; p3 Table 3-1 DCU pin functions";
+    source_url = "https://www.ti.com/lit/ds/symlink/sn74cb3q3306a.pdf";
+    source_checksum = "sha256:62aeae643798b52722c86305a8943f1f9000d726b51ccc0b6d1dac3ea77e77b7";
+    pin OE1 { number = "1"; domains = "digital"; directions = "input"; }
+    pin A1 { number = "2"; domains = "digital,analog"; directions = "passive"; }
+    pin B1 { number = "3"; domains = "digital,analog"; directions = "passive"; }
+    pin GND { number = "4"; domains = "ground"; directions = "input"; connection = "required"; }
+    pin A2 { number = "5"; domains = "digital,analog"; directions = "passive"; }
+    pin B2 { number = "6"; domains = "digital,analog"; directions = "passive"; }
+    pin OE2 { number = "7"; domains = "digital"; directions = "input"; }
+    pin VCC { number = "8"; domains = "power"; directions = "input"; connection = "required"; voltage_min = 2.3V; voltage_max = 3.6V; }
+}

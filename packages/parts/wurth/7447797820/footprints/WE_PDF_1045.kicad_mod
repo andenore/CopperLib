@@ -1,0 +1,6 @@
+(footprint "WE_PDF_1045" (version 20240108) (generator "CopperLib") (layer "F.Cu")
+(fp_rect (start -5.3 -5.3) (end 5.3 5.3) (stroke (width 0.1) (type default)) (fill none) (layer "F.Fab"))
+(fp_rect (start -5.8 -5.8) (end 5.8 5.8) (stroke (width 0.05) (type default)) (fill none) (layer "F.CrtYd"))
+(pad "1" smd rect (at 0 -4.1) (size 3.4 2.4) (layers "F.Cu" "F.Mask" "F.Paste"))
+(pad "2" smd rect (at 0 4.1) (size 3.4 2.4) (layers "F.Cu" "F.Mask" "F.Paste"))
+)
