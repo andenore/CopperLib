@@ -1,0 +1,10 @@
+// TI SBOS863D, page 3. DCK has no ENABLE pin.
+device INA190_DIE {
+    vendor = "Texas Instruments";
+    pad INP { domains = "analog"; directions = "input"; }
+    pad INN { domains = "analog"; directions = "input"; }
+    pad OUT { domains = "analog"; directions = "output"; }
+    pad REF { domains = "analog"; directions = "input"; }
+    pad VS { domains = "power"; directions = "input"; }
+    pad GND { domains = "ground"; directions = "input"; }
+}

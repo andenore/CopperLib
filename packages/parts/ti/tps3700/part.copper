@@ -1,0 +1,9 @@
+part TPS3700DDCR {
+ footprint = "Package_TO_SOT_SMD:SOT-23-6"; source_url = "https://www.ti.com/lit/ds/symlink/tps3700.pdf";
+ pin OUTA { number = "1"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; }
+ pin GND { number = "2"; domains = "ground"; directions = "input"; }
+ pin INA_P { number = "3"; domains = "analog"; directions = "input"; }
+ pin INB_N { number = "4"; domains = "analog"; directions = "input"; }
+ pin VDD { number = "5"; domains = "power"; directions = "input"; }
+ pin OUTB { number = "6"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; }
+}

@@ -1,0 +1,6 @@
+part SMAJ58A_E3_61 {
+ footprint = "Diode_SMD:D_SMA";
+ source_url = "https://www.vishay.com/docs/88390/smaj50a.pdf"; source_revision = "09-Jan-2024"; source_location = "Polarity and package drawing; KiCad pad 1 cathode";
+ pin K { number = "1"; domains = "analog"; directions = "passive"; }
+ pin A { number = "2"; domains = "analog"; directions = "passive"; }
+}

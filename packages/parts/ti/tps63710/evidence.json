@@ -1,0 +1,87 @@
+{
+  "source_url": "https://www.ti.com/lit/ds/symlink/tps63710.pdf",
+  "pins": [
+    [
+      1,
+      "VAUX",
+      "analog",
+      "output"
+    ],
+    [
+      2,
+      "EN",
+      "digital",
+      "input"
+    ],
+    [
+      3,
+      "PG",
+      "digital",
+      "output"
+    ],
+    [
+      4,
+      "VREF",
+      "analog",
+      "output"
+    ],
+    [
+      5,
+      "FB",
+      "analog",
+      "input"
+    ],
+    [
+      6,
+      "CAP",
+      "analog",
+      "output"
+    ],
+    [
+      7,
+      "VOUT",
+      "analog",
+      "input"
+    ],
+    [
+      8,
+      "SW",
+      "power",
+      "output"
+    ],
+    [
+      9,
+      "GND1",
+      "ground",
+      "input"
+    ],
+    [
+      10,
+      "GND2",
+      "ground",
+      "input"
+    ],
+    [
+      11,
+      "CP",
+      "power",
+      "output"
+    ],
+    [
+      12,
+      "VIN",
+      "power",
+      "input"
+    ],
+    [
+      13,
+      "EP",
+      "ground",
+      "input"
+    ]
+  ],
+  "package": "TI_DRR0012_TPS63710:TI_DRR0012_TPS63710",
+  "qualification": "Land dimensions compared with manufacturer drawing; switched-power physical macro and filled/tented thermal vias still required.",
+  "local_source_sha256": "0adb68014dda081f0a74806b9a3d82d1426fec3fdc81720baaf886a426537d16",
+  "pin_notes": "VOUT is voltage sense; CP and CAP are driven outputs; PG is open drain. Table 1 page 3."
+}

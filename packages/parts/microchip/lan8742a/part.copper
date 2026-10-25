@@ -1,0 +1,29 @@
+part LAN8742ACZTR {
+ footprint = "Package_DFN_QFN:QFN-24-1EP_4x4mm_P0.5mm_EP2.6x2.6mm";
+ source_url = "https://www.microchip.com/content/dam/mchp/documents/OTH/ProductDocuments/DataSheets/DS_LAN8742_00001989A.pdf"; source_revision = "DS00001989A"; source_location = "Figure 2-1 and section 2, pages 6-14";
+ pin VDD2A { number = "1"; domains = "power"; directions = "input"; }
+ pin LED2_INTSEL { number = "2"; domains = "digital"; directions = "bidirectional"; }
+ pin LED1_REGOFF { number = "3"; domains = "digital"; directions = "bidirectional"; }
+ pin XTAL2 { number = "4"; domains = "analog"; directions = "output"; }
+ pin CLKIN { number = "5"; domains = "clock"; directions = "input"; }
+ pin VDDCR { number = "6"; domains = "analog"; directions = "output"; }
+ pin RXD1_MODE1 { number = "7"; domains = "digital"; directions = "bidirectional"; }
+ pin RXD0_MODE0 { number = "8"; domains = "digital"; directions = "bidirectional"; }
+ pin VDDIO { number = "9"; domains = "power"; directions = "input"; }
+ pin RXER_PHYAD0 { number = "10"; domains = "digital"; directions = "bidirectional"; }
+ pin CRSDV_MODE2 { number = "11"; domains = "digital"; directions = "bidirectional"; }
+ pin MDIO { number = "12"; domains = "digital"; directions = "bidirectional"; }
+ pin MDC { number = "13"; domains = "digital"; directions = "input"; }
+ pin INT_N_REFCLKO { number = "14"; domains = "digital"; directions = "output"; }
+ pin RESET_N { number = "15"; domains = "digital"; directions = "input"; }
+ pin TXEN { number = "16"; domains = "digital"; directions = "input"; }
+ pin TXD0 { number = "17"; domains = "digital"; directions = "input"; }
+ pin TXD1 { number = "18"; domains = "digital"; directions = "input"; }
+ pin VDD1A { number = "19"; domains = "power"; directions = "input"; }
+ pin TXN { number = "20"; domains = "analog"; directions = "output"; }
+ pin TXP { number = "21"; domains = "analog"; directions = "output"; }
+ pin RXN { number = "22"; domains = "analog"; directions = "input"; }
+ pin RXP { number = "23"; domains = "analog"; directions = "input"; }
+ pin RBIAS { number = "24"; domains = "analog"; directions = "input"; }
+ pin EP { number = "25"; domains = "ground"; directions = "input"; }
+}

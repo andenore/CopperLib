@@ -1,0 +1,7 @@
+part TSW10207GS {
+ category = "connector.header";
+ manufacturer = "Samtec";
+ footprint = "footprints/TSW102_1.02mm.kicad_mod";
+ pin 1 { number = "1"; domains = "analog,power,ground,digital"; directions = "passive"; }
+ pin 2 { number = "2"; domains = "analog,power,ground,digital"; directions = "passive"; }
+}

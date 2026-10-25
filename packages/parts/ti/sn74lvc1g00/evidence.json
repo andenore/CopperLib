@@ -1,0 +1,36 @@
+{
+  "source": "https://www.ti.com/lit/gpn/sn74lvc1g00",
+  "pins": [
+    [
+      1,
+      "A",
+      "digital",
+      "input"
+    ],
+    [
+      2,
+      "B",
+      "digital",
+      "input"
+    ],
+    [
+      3,
+      "GND",
+      "ground",
+      "input"
+    ],
+    [
+      4,
+      "Y",
+      "digital",
+      "output"
+    ],
+    [
+      5,
+      "VCC",
+      "power",
+      "input"
+    ]
+  ],
+  "status": "Pin contract sourced; physical support and exact orderable BOM pending review"
+}

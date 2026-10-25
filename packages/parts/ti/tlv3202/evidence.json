@@ -1,0 +1,58 @@
+{
+  "source_url": "https://www.ti.com/lit/ds/symlink/tlv3202.pdf",
+  "pins": [
+    [
+      1,
+      "OUTA",
+      "digital",
+      "output"
+    ],
+    [
+      2,
+      "INA_N",
+      "analog",
+      "input"
+    ],
+    [
+      3,
+      "INA_P",
+      "analog",
+      "input"
+    ],
+    [
+      4,
+      "GND",
+      "ground",
+      "input"
+    ],
+    [
+      5,
+      "INB_P",
+      "analog",
+      "input"
+    ],
+    [
+      6,
+      "INB_N",
+      "analog",
+      "input"
+    ],
+    [
+      7,
+      "OUTB",
+      "digital",
+      "output"
+    ],
+    [
+      8,
+      "VCC",
+      "power",
+      "input"
+    ]
+  ],
+  "qualification": "Pin table verified; package native DRC and assembly checks pending.",
+  "local_source_sha256": "1777bba814c74772bb54c6f1f56702985039043ce2fb2affaf996a83eaf1076e",
+  "orderable_mpn": "TLV3202AIDR",
+  "ordering_source": "https://www.ti.com/product/TLV3202/part-details/TLV3202AIDR",
+  "correction": "Previous symbol omitted the A in the orderable MPN; SOIC-8 pad mapping unchanged."
+}

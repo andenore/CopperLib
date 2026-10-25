@@ -1,0 +1,30 @@
+{
+  "source_url": "https://recom-power.com/pdf/Innoline/R-78B-1.0.pdf",
+  "pins": [
+    [
+      1,
+      "VIN",
+      "power",
+      "input"
+    ],
+    [
+      2,
+      "GND",
+      "ground",
+      "input"
+    ],
+    [
+      3,
+      "VOUT",
+      "power",
+      "output"
+    ]
+  ],
+  "package": "RECOM_R78B_1A:RECOM_R78B_1A",
+  "mpn": "R-78B6.5-1.0",
+  "output_V": 6.5,
+  "minimum_load_mA": 10,
+  "maximum_output_capacitance_uF": 470,
+  "qualification": "Source-backed electrical/package definition; THT assembly exception; 10 percent preload for specified ripple.",
+  "local_source_sha256": "31d83a8bc1c41fba79f00128b00dc963b0a17d7c15393fc39c2e3933c75eb2a6"
+}

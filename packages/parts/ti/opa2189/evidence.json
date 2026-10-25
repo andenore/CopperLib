@@ -1,0 +1,58 @@
+{
+  "source_url": "https://www.ti.com/lit/ds/symlink/opa2189.pdf",
+  "revision": "SBOS830I",
+  "locator": "OPA2189 D package pin configuration",
+  "package": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+  "local_source_sha256": null,
+  "pins": [
+    [
+      1,
+      "OUTA",
+      "analog",
+      "output"
+    ],
+    [
+      2,
+      "INA_N",
+      "analog",
+      "input"
+    ],
+    [
+      3,
+      "INA_P",
+      "analog",
+      "input"
+    ],
+    [
+      4,
+      "VM",
+      "power",
+      "input"
+    ],
+    [
+      5,
+      "INB_P",
+      "analog",
+      "input"
+    ],
+    [
+      6,
+      "INB_N",
+      "analog",
+      "input"
+    ],
+    [
+      7,
+      "OUTB",
+      "analog",
+      "output"
+    ],
+    [
+      8,
+      "VP",
+      "power",
+      "input"
+    ]
+  ],
+  "qualification": "Electrical pin contract only; selected standard footprint requires package drawing comparison before fabrication"
+}

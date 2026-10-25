@@ -1,0 +1,12 @@
+part TLV3202AIDR {
+ footprint = "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm";
+ source_url = "https://www.ti.com/lit/ds/symlink/tlv3202.pdf"; source_revision = "SBOS561C May 2024"; source_location = "Pin Functions page 3; SOIC D package; orderable TLV3202AIDR confirmed at TI part-details page 2026-10-20";
+ pin OUTA { number = "1"; domains = "digital"; directions = "output"; }
+ pin INA_N { number = "2"; domains = "analog"; directions = "input"; }
+ pin INA_P { number = "3"; domains = "analog"; directions = "input"; }
+ pin GND { number = "4"; domains = "ground"; directions = "input"; }
+ pin INB_P { number = "5"; domains = "analog"; directions = "input"; }
+ pin INB_N { number = "6"; domains = "analog"; directions = "input"; }
+ pin OUTB { number = "7"; domains = "digital"; directions = "output"; }
+ pin VCC { number = "8"; domains = "power"; directions = "input"; }
+}

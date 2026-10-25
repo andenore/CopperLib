@@ -1,0 +1,32 @@
+// USB4105 drawing ordering table: -060 uses 0.60mm shell stakes; XY pattern unchanged.
+part GCT_USB4105_GF_A_060 {
+    category = "connector.usb_c.usb2";
+    manufacturer = "GCT";
+    footprint = "footprints/Connector_USB.pretty/USB_C_Receptacle_GCT_USB4105-GF-A_16P_TopMnt_Horizontal.kicad_mod";
+    source_document = "GCT USB4105 product drawing, USB Type C Receptacle for USB 2.0, SMT Type, PCB Top Mount";
+    source_revision = "B4, 18/12/23 (drawing date 4 Oct 2019)";
+    source_url = "https://gct.co/files/drawings/usb4105.pdf";
+    source_location = "Sheet 1/2: pin/signal table, electrical specifications, recommended PCB layout, ordering grid";
+    source_checksum = "sha256:fb331fbabee8392ed2937ed757c1610cb0f174b84625147c0b580a18eea8c0e5";
+
+    pin GND_A1 { number = "A1"; domains = "ground"; directions = "passive"; }
+    pin VBUS_A4 { number = "A4"; domains = "power"; directions = "passive"; }
+    pin CC1 { number = "A5"; domains = "analog"; directions = "passive"; traits = "usb_cc"; }
+    pin DP1 { number = "A6"; domains = "digital"; directions = "passive"; traits = "usb_dp"; }
+    pin DN1 { number = "A7"; domains = "digital"; directions = "passive"; traits = "usb_dm"; }
+    // Sideband use; not used by USB 2.0 operation.
+    pin SBU1 { number = "A8"; domains = "analog,digital"; directions = "passive"; connection = optional; }
+    pin VBUS_A9 { number = "A9"; domains = "power"; directions = "passive"; }
+    pin GND_A12 { number = "A12"; domains = "ground"; directions = "passive"; }
+
+    pin GND_B1 { number = "B1"; domains = "ground"; directions = "passive"; }
+    pin VBUS_B4 { number = "B4"; domains = "power"; directions = "passive"; }
+    pin CC2 { number = "B5"; domains = "analog"; directions = "passive"; traits = "usb_cc"; }
+    pin DP2 { number = "B6"; domains = "digital"; directions = "passive"; traits = "usb_dp"; }
+    pin DN2 { number = "B7"; domains = "digital"; directions = "passive"; traits = "usb_dm"; }
+    pin SBU2 { number = "B8"; domains = "analog,digital"; directions = "passive"; connection = optional; }
+    pin VBUS_B9 { number = "B9"; domains = "power"; directions = "passive"; }
+    pin GND_B12 { number = "B12"; domains = "ground"; directions = "passive"; }
+
+    pin SHIELD { number = "SH"; domains = "ground"; directions = "passive"; }
+}

@@ -1,0 +1,8 @@
+part VO617A_3X017T {
+ footprint = "VO617A_OPTION7:VO617A_OPTION7";
+ source_url = "https://www.vishay.com/docs/83430/vo617a.pdf"; source_revision = "2.8 22-Jan-2025"; source_location = "Page1 pins, Figure17 option7";
+ pin A { number = "1"; domains = "analog"; directions = "passive"; }
+ pin K { number = "2"; domains = "analog"; directions = "passive"; }
+ pin E { number = "3"; domains = "analog"; directions = "passive"; }
+ pin C { number = "4"; domains = "analog"; directions = "passive"; }
+}

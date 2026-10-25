@@ -1,0 +1,40 @@
+{
+  "source_url": "https://www.vishay.com/docs/88751/ss32.pdf",
+  "source_revision": "23-Apr-2020",
+  "local_source_sha256": "6042805475958630851bf8f949f4c0c3d9aa672c8c0a321645b7626177660288",
+  "pins": [
+    [
+      1,
+      "K",
+      "power",
+      "output"
+    ],
+    [
+      2,
+      "A",
+      "power",
+      "input"
+    ]
+  ],
+  "limits": {
+    "VRRM_V": 40,
+    "IF_AV_A": 3,
+    "VF_max_at_3A_25C_V": "0.5",
+    "TJ_max_C": 150
+  },
+  "thermal": {
+    "typical_RthetaJA_K_per_W": 55,
+    "typical_RthetaJL_K_per_W": 17,
+    "copper_per_terminal_mm": [
+      14,
+      14
+    ],
+    "source_location": "page 2"
+  },
+  "layout": {
+    "footprint": "Diode_SMD:D_SMC",
+    "mapping": "KiCad pad 1 cathode, pad 2 anode; compare managed lands with page 3 minimum mounting layout before assembly approval"
+  },
+  "qualification": "Source transcription; actual filled copper, land-pattern comparison, startup and reverse leakage require host validation.",
+  "interface_scope": "Forward-feed power view: requires a sourced anode; cathode is the fed output. This is an authored operational interface, not a claim that a passive diode generates power."
+}

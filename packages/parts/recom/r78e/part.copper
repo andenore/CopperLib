@@ -1,0 +1,7 @@
+part R78E3V3_1A {
+ footprint = "RECOM_R78E_1A:RECOM_R78E_1A";
+ source_url = "https://recom-power.com/pdf/Innoline/R-78E-1.0.pdf"; source_revision = "9/2024"; source_location = "Selection Guide and Dimension and Physical Characteristics";
+ pin VIN { number = "1"; domains = "power"; directions = "input"; }
+ pin GND { number = "2"; domains = "ground"; directions = "input"; }
+ pin VOUT { number = "3"; domains = "power"; directions = "output"; }
+}

@@ -1,0 +1,11 @@
+// Forward-feed interface view: source must be present at A; K feeds the load.
+// ERC directions describe this operating connection, not an active power generator.
+// Reverse leakage, startup and voltage drop are outside ERC.
+part SS34_E3_57T_FORWARD_FEED {
+ footprint = "Diode_SMD:D_SMC";
+ source_url = "https://www.vishay.com/docs/88751/ss32.pdf";
+ source_revision = "23-Apr-2020";
+ source_location = "Pages 1-3; cathode band and SMC mounting pad layout";
+ pin K { number = "1"; domains = "power"; directions = "output"; }
+ pin A { number = "2"; domains = "power"; directions = "input"; }
+}

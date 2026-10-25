@@ -1,0 +1,71 @@
+part STM32G071RBT6 {
+    manufacturer = "STMicroelectronics";
+    footprint = "Package_QFP:LQFP-64_10x10mm_P0.5mm";
+    source_url = "https://www.st.com/resource/en/datasheet/stm32g071rb.pdf";
+    source_location = "DS12232 Rev 4, Figure 3 p36, power scheme Figure 13 p53; GPIO-only interface, alternate functions not modeled";
+    source_checksum = "sha256:5f6d9bac3422cd51664d456bebea5deccfd15db380a80fccb20bbc2b6498231d";
+    pin PC11 { number = "1"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PC12 { number = "2"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PC13 { number = "3"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PC14 { number = "4"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PC15 { number = "5"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin VBAT { number = "6"; domains = "power"; directions = "input"; voltage_min = 1.7V; voltage_max = 3.6V; connection = required; }
+    pin VREF_PLUS { number = "7"; domains = "power"; directions = "input"; voltage_min = 1.7V; voltage_max = 3.6V; connection = required; }
+    pin VDD { number = "8"; domains = "power"; directions = "input"; voltage_min = 1.7V; voltage_max = 3.6V; connection = required; }
+    pin VSS { number = "9"; domains = "ground"; directions = "input"; connection = required; }
+    pin PF0 { number = "10"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PF1 { number = "11"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin NRST { number = "12"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PC0 { number = "13"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PC1 { number = "14"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PC2 { number = "15"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PC3 { number = "16"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PA0 { number = "17"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PA1 { number = "18"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PA2 { number = "19"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PA3 { number = "20"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PA4 { number = "21"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PA5 { number = "22"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PA6 { number = "23"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PA7 { number = "24"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PC4 { number = "25"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PC5 { number = "26"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PB0 { number = "27"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PB1 { number = "28"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PB2 { number = "29"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PB10 { number = "30"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PB11 { number = "31"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PB12 { number = "32"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PB13 { number = "33"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PB14 { number = "34"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PB15 { number = "35"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PA8 { number = "36"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PA9 { number = "37"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PC6 { number = "38"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PC7 { number = "39"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PD8 { number = "40"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PD9 { number = "41"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PA10 { number = "42"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PA11 { number = "43"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PA12 { number = "44"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PA13 { number = "45"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PA14 { number = "46"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PA15 { number = "47"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PC8 { number = "48"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PC9 { number = "49"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PD0 { number = "50"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PD1 { number = "51"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PD2 { number = "52"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PD3 { number = "53"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PD4 { number = "54"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PD5 { number = "55"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PD6 { number = "56"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PB3 { number = "57"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PB4 { number = "58"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PB5 { number = "59"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PB6 { number = "60"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PB7 { number = "61"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PB8 { number = "62"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PB9 { number = "63"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+    pin PC10 { number = "64"; domains = "digital,analog"; directions = "bidirectional"; connection = optional; }
+}

@@ -1,0 +1,10 @@
+part BLM18AG601SN1D {
+ footprint = "Inductor_SMD:L_0603_1608Metric";
+ source_url = "https://www.murata.com/en-global/products/productdata/8796738650142/ENFA0003.pdf";
+ source_revision = "JENF243A_0003AM-01";
+ source_location = "BLM18AG601SN1D specification row; two-terminal nonpolar bead";
+ dc_power_path = "P1,P2";
+ pin P1 { number = "1"; domains = "power"; directions = "passive"; }
+ pin P2 { number = "2"; domains = "power"; directions = "passive"; }
+}
+

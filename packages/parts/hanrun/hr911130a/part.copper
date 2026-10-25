@@ -1,0 +1,22 @@
+part HR911130A {
+    manufacturer = "Hanrun";
+    footprint = "footprints/Hanrun_HR911130A.kicad_mod";
+    source_url = "https://atta.szlcsc.com/upload/public/pdf/source/20250812/A9B443FB770AA42A34C92B1A15093C54.pdf";
+    source_location = "RevB pp1-3 circuit, body and component-side drill pattern; P1=common PHY CT; P10=cable termination node";
+    source_checksum = "sha256:99bd6ac77d8b46bbf4764056c3fba8b18b5180de9488052ed1204c85b27fd3b0";
+    pin P1 { number = "1"; domains = "analog,digital"; directions = "passive";  }
+    pin P2 { number = "2"; domains = "analog,digital"; directions = "passive";  }
+    pin P3 { number = "3"; domains = "analog,digital"; directions = "passive";  }
+    pin P4 { number = "4"; domains = "analog,digital"; directions = "passive";  }
+    pin P5 { number = "5"; domains = "analog,digital"; directions = "passive";  }
+    pin P6 { number = "6"; domains = "analog,digital"; directions = "passive";  }
+    pin P7 { number = "7"; domains = "analog,digital"; directions = "passive";  }
+    pin P8 { number = "8"; domains = "analog,digital"; directions = "passive";  }
+    pin P9 { number = "9"; domains = "analog,digital"; directions = "passive";  }
+    pin P10 { number = "10"; domains = "analog,digital"; directions = "passive";  }
+    pin P11 { number = "11"; domains = "analog"; directions = "passive";  }
+    pin P12 { number = "12"; domains = "analog"; directions = "passive";  }
+    pin P13 { number = "13"; domains = "analog"; directions = "passive";  }
+    pin P14 { number = "14"; domains = "analog"; directions = "passive";  }
+    pin SH { number = "15"; domains = "ground"; directions = "passive";  }
+}

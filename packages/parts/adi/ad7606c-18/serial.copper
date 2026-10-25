@@ -1,0 +1,72 @@
+// Interface view: serial SOFTWARE mode with EXTERNAL reference only.
+// Exact physical silicon AD7606C-18BSTZ. Not a parallel-mode pin contract.
+part AD7606C18BSTZ_SERIAL_EXTERNAL_REF {
+ category = "converter.adc"; manufacturer = "Analog Devices";
+ footprint = "Package_QFP:LQFP-64_10x10mm_P0.5mm";
+ source_url = "https://www.analog.com/media/en/technical-documentation/data-sheets/ad7606c-18.pdf";
+ source_revision = "Rev. B, December 2025"; source_location = "Table 9, pages 15-17; Figure 123, page 58";
+ pin AVCC_1 { number = "1"; domains = "power"; directions = "input"; voltage_min = 4.75 V; voltage_max = 5.25 V; }
+ pin AGND_2 { number = "2"; domains = "ground"; directions = "input"; }
+ pin OS0 { number = "3"; domains = "digital"; directions = "input"; }
+ pin OS1 { number = "4"; domains = "digital"; directions = "input"; }
+ pin OS2 { number = "5"; domains = "digital"; directions = "input"; }
+ pin PAR_SER { number = "6"; domains = "digital"; directions = "input"; }
+ pin STBY { number = "7"; domains = "digital"; directions = "input"; }
+ pin RANGE { number = "8"; domains = "digital"; directions = "input"; }
+ pin CONVST { number = "9"; domains = "digital"; directions = "input"; }
+ pin WR { number = "10"; domains = "digital"; directions = "input"; }
+ pin RESET { number = "11"; domains = "digital"; directions = "input"; }
+ pin SCLK { number = "12"; domains = "digital"; directions = "input"; }
+ pin CS_N { number = "13"; domains = "digital"; directions = "input"; }
+ pin BUSY { number = "14"; domains = "digital"; directions = "output"; }
+ pin FRSTDATA { number = "15"; domains = "digital"; directions = "output"; }
+ pin DB2 { number = "16"; domains = "digital"; directions = "input"; }
+ pin DB3 { number = "17"; domains = "digital"; directions = "input"; }
+ pin DB4 { number = "18"; domains = "digital"; directions = "input"; }
+ pin DOUTE { number = "19"; domains = "digital"; directions = "output"; }
+ pin DOUTF { number = "20"; domains = "digital"; directions = "output"; }
+ pin DOUTG { number = "21"; domains = "digital"; directions = "output"; }
+ pin DOUTH { number = "22"; domains = "digital"; directions = "output"; }
+ pin VDRIVE { number = "23"; domains = "power"; directions = "input"; voltage_min = 1.71 V; voltage_max = 5.25 V; }
+ pin DOUTA { number = "24"; domains = "digital"; directions = "output"; }
+ pin DOUTB { number = "25"; domains = "digital"; directions = "output"; }
+ pin AGND_26 { number = "26"; domains = "ground"; directions = "input"; }
+ pin DOUTC { number = "27"; domains = "digital"; directions = "output"; }
+ pin DOUTD { number = "28"; domains = "digital"; directions = "output"; }
+ pin SDI { number = "29"; domains = "digital"; directions = "input"; }
+ pin DB14 { number = "30"; domains = "digital"; directions = "input"; }
+ pin DB15 { number = "31"; domains = "digital"; directions = "input"; }
+ pin DB16 { number = "32"; domains = "digital"; directions = "input"; }
+ pin DB17 { number = "33"; domains = "digital"; directions = "input"; }
+ pin REF_SELECT { number = "34"; domains = "digital"; directions = "input"; }
+ pin AGND_35 { number = "35"; domains = "ground"; directions = "input"; }
+ pin REGCAP_36 { number = "36"; domains = "analog"; directions = "output"; }
+ pin AVCC_37 { number = "37"; domains = "power"; directions = "input"; voltage_min = 4.75 V; voltage_max = 5.25 V; }
+ pin AVCC_38 { number = "38"; domains = "power"; directions = "input"; voltage_min = 4.75 V; voltage_max = 5.25 V; }
+ pin REGCAP_39 { number = "39"; domains = "analog"; directions = "output"; }
+ pin AGND_40 { number = "40"; domains = "ground"; directions = "input"; }
+ pin AGND_41 { number = "41"; domains = "ground"; directions = "input"; }
+ pin REFIN { number = "42"; domains = "analog"; directions = "input"; }
+ pin REFGND_43 { number = "43"; domains = "ground"; directions = "input"; }
+ pin REFCAPA { number = "44"; domains = "analog"; directions = "output"; }
+ pin REFCAPB { number = "45"; domains = "analog"; directions = "input"; }
+ pin REFGND_46 { number = "46"; domains = "ground"; directions = "input"; }
+ pin AGND_47 { number = "47"; domains = "ground"; directions = "input"; }
+ pin AVCC_48 { number = "48"; domains = "power"; directions = "input"; voltage_min = 4.75 V; voltage_max = 5.25 V; }
+ pin V1P { number = "49"; domains = "analog"; directions = "input"; }
+ pin V1N { number = "50"; domains = "analog"; directions = "input"; }
+ pin V2P { number = "51"; domains = "analog"; directions = "input"; }
+ pin V2N { number = "52"; domains = "analog"; directions = "input"; }
+ pin V3P { number = "53"; domains = "analog"; directions = "input"; }
+ pin V3N { number = "54"; domains = "analog"; directions = "input"; }
+ pin V4P { number = "55"; domains = "analog"; directions = "input"; }
+ pin V4N { number = "56"; domains = "analog"; directions = "input"; }
+ pin V5P { number = "57"; domains = "analog"; directions = "input"; }
+ pin V5N { number = "58"; domains = "analog"; directions = "input"; }
+ pin V6P { number = "59"; domains = "analog"; directions = "input"; }
+ pin V6N { number = "60"; domains = "analog"; directions = "input"; }
+ pin V7P { number = "61"; domains = "analog"; directions = "input"; }
+ pin V7N { number = "62"; domains = "analog"; directions = "input"; }
+ pin V8P { number = "63"; domains = "analog"; directions = "input"; }
+ pin V8N { number = "64"; domains = "analog"; directions = "input"; }
+}

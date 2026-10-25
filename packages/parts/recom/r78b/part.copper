@@ -1,0 +1,7 @@
+part R78B6V5_1A {
+ footprint = "RECOM_R78B_1A:RECOM_R78B_1A";
+ source_url = "https://recom-power.com/pdf/Innoline/R-78B-1.0.pdf"; source_revision = "4/2019"; source_location = "I-1 selection and I-5 mechanical top-view footprint";
+ pin VIN { number = "1"; domains = "power"; directions = "input"; }
+ pin GND { number = "2"; domains = "ground"; directions = "input"; }
+ pin VOUT { number = "3"; domains = "power"; directions = "output"; }
+}

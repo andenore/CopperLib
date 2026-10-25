@@ -1,0 +1,13 @@
+{
+  "source_url": "https://www.ti.com/lit/ds/symlink/ina190.pdf",
+  "revision": "SBOS863D",
+  "retrieved": "2026-10-20",
+  "file": "cache/ina190/ina190-sbos863d.pdf",
+  "sha256": "6ed9c2cc41d6c5ba4f36ce33d9d829b2f0c51e376583e94e2c63be4d950b39af",
+  "locators": {
+    "pinout": "page 3, DCK package",
+    "layout": "page 27, Figure 46"
+  },
+  "status": "Pin mapping and layout guidance source; no physical macro qualification.",
+  "file_relative_to": "CopperLib repository root; ignored source cache"
+}

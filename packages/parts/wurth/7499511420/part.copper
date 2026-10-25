@@ -1,0 +1,26 @@
+part WE7499511420 {
+ footprint = "WE_7499511420:WE_7499511420";
+ source_url = "https://www.we-online.com/components/products/datasheet/7499511420.pdf"; source_revision = "004.000 2023-03-02"; source_location = "Pages 1-3; not pin-compatible with 7499811420";
+ pin CD3 { number = "1"; domains = "analog"; directions = "passive"; }
+ pin D3_P { number = "2"; domains = "analog"; directions = "passive"; }
+ pin D3_N { number = "3"; domains = "analog"; directions = "passive"; }
+ pin D2_N { number = "4"; domains = "analog"; directions = "passive"; }
+ pin D2_P { number = "5"; domains = "analog"; directions = "passive"; }
+ pin CD2 { number = "6"; domains = "analog"; directions = "passive"; }
+ pin CD4 { number = "7"; domains = "analog"; directions = "passive"; }
+ pin D4_N { number = "8"; domains = "analog"; directions = "passive"; }
+ pin D4_P { number = "9"; domains = "analog"; directions = "passive"; }
+ pin D1_P { number = "10"; domains = "analog"; directions = "passive"; }
+ pin D1_N { number = "11"; domains = "analog"; directions = "passive"; }
+ pin CD1 { number = "12"; domains = "analog"; directions = "passive"; }
+ pin V1 { number = "13"; domains = "power"; directions = "passive"; }
+ pin V2 { number = "14"; domains = "power"; directions = "passive"; }
+ pin V3 { number = "15"; domains = "power"; directions = "passive"; }
+ pin V4 { number = "16"; domains = "power"; directions = "passive"; }
+ pin LED1_A { number = "17"; domains = "analog"; directions = "passive"; }
+ pin LED1_K { number = "18"; domains = "analog"; directions = "passive"; }
+ pin LED2_YA { number = "19"; domains = "analog"; directions = "passive"; }
+ pin LED2_GA { number = "20"; domains = "analog"; directions = "passive"; }
+ pin SHIELD1 { number = "21"; domains = "analog"; directions = "passive"; }
+ pin SHIELD2 { number = "22"; domains = "analog"; directions = "passive"; }
+}

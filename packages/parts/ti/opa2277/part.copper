@@ -1,0 +1,12 @@
+part OPA2277UA {
+ footprint = "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm";
+ source_url = "https://www.ti.com/lit/ds/symlink/opa277.pdf"; source_revision = "SBOS079C"; source_location = "OPA2277 D package pin configuration";
+ pin OUTA { number = "1"; domains = "analog"; directions = "output"; }
+ pin INA_N { number = "2"; domains = "analog"; directions = "input"; }
+ pin INA_P { number = "3"; domains = "analog"; directions = "input"; }
+ pin VM { number = "4"; domains = "power"; directions = "input"; }
+ pin INB_P { number = "5"; domains = "analog"; directions = "input"; }
+ pin INB_N { number = "6"; domains = "analog"; directions = "input"; }
+ pin OUTB { number = "7"; domains = "analog"; directions = "output"; }
+ pin VP { number = "8"; domains = "power"; directions = "input"; }
+}

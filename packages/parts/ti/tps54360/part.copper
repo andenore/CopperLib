@@ -1,0 +1,16 @@
+part TPS54360DDAR {
+    manufacturer = "Texas Instruments";
+    footprint = "footprints/SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.71x3.7mm_ThermalVias.kicad_mod";
+    source_url = "https://www.ti.com/lit/ds/symlink/tps54360.pdf";
+    source_location = "SLVSBB4G pins p4; DDA exposed-pad package addendum; six physical thermal drill lands retained";
+    source_checksum = "sha256:c2743e51e9f180e3efd7afb2ce1ac792906576207f4e318f9b6075f3ab5c56a8";
+    pin BOOT { number = "1"; domains = "power,analog"; directions = "passive";  }
+    pin VIN { number = "2"; domains = "power"; directions = "input"; voltage_min = 4.5V; voltage_max = 60V; }
+    pin EN { number = "3"; domains = "analog"; directions = "input";  }
+    pin RT { number = "4"; domains = "analog"; directions = "passive";  }
+    pin FB { number = "5"; domains = "analog"; directions = "input";  }
+    pin COMP { number = "6"; domains = "analog"; directions = "passive";  }
+    pin GND { number = "7"; domains = "ground"; directions = "input";  }
+    pin SW { number = "8"; domains = "power"; directions = "output";  }
+    pin EP { number = "9"; domains = "ground"; directions = "input"; connection = required; }
+}

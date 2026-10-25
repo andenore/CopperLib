@@ -1,0 +1,43 @@
+{
+  "source_url": "https://www.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf",
+  "pins": [
+    [
+      1,
+      "B2",
+      "analog",
+      "passive"
+    ],
+    [
+      2,
+      "GND",
+      "ground",
+      "input"
+    ],
+    [
+      3,
+      "B1",
+      "analog",
+      "passive"
+    ],
+    [
+      4,
+      "A",
+      "analog",
+      "passive"
+    ],
+    [
+      5,
+      "VCC",
+      "power",
+      "input"
+    ],
+    [
+      6,
+      "S",
+      "digital",
+      "input"
+    ]
+  ],
+  "qualification": "Pin table verified; package native DRC and assembly checks pending.",
+  "local_source_sha256": "054575a791ba8da81e6d1c7b6c685203adade306cb8d27679cd7aba8f6fce3be"
+}

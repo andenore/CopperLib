@@ -1,0 +1,20 @@
+part SN74AXC4T774PWR {
+ footprint = "Package_SO:TSSOP-16_4.4x5mm_P0.65mm";
+ source_url = "https://www.ti.com/lit/ds/symlink/sn74axc4t774.pdf"; source_revision = "SCES898C"; source_location = "Table 4-1 PW column page 3";
+ pin DIR1 { number = "1"; domains = "digital"; directions = "input"; }
+ pin DIR2 { number = "2"; domains = "digital"; directions = "input"; }
+ pin A1 { number = "3"; domains = "digital"; directions = "bidirectional"; }
+ pin A2 { number = "4"; domains = "digital"; directions = "bidirectional"; }
+ pin A3 { number = "5"; domains = "digital"; directions = "bidirectional"; }
+ pin A4 { number = "6"; domains = "digital"; directions = "bidirectional"; }
+ pin DIR3 { number = "7"; domains = "digital"; directions = "input"; }
+ pin DIR4 { number = "8"; domains = "digital"; directions = "input"; }
+ pin OE_N { number = "9"; domains = "digital"; directions = "input"; }
+ pin GND { number = "10"; domains = "ground"; directions = "input"; }
+ pin B4 { number = "11"; domains = "digital"; directions = "bidirectional"; }
+ pin B3 { number = "12"; domains = "digital"; directions = "bidirectional"; }
+ pin B2 { number = "13"; domains = "digital"; directions = "bidirectional"; }
+ pin B1 { number = "14"; domains = "digital"; directions = "bidirectional"; }
+ pin VCCB { number = "15"; domains = "power"; directions = "input"; }
+ pin VCCA { number = "16"; domains = "power"; directions = "input"; }
+}

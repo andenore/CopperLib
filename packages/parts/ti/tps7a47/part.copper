@@ -1,0 +1,25 @@
+part TPS7A4700RGWR {
+ footprint = "TI_RGW0020A:TI_RGW0020A";
+ source_url = "https://www.ti.com/lit/ds/symlink/tps7a47.pdf"; source_revision = "SBVS204G May 2026"; source_location = "Table 4-1 and RGW0020A land pattern";
+ pin OUT1 { number = "1"; domains = "power"; directions = "output"; }
+ pin NC2 { number = "2"; domains = "analog"; directions = "input"; }
+ pin SENSE { number = "3"; domains = "analog"; directions = "input"; }
+ pin V6P4_2 { number = "4"; domains = "analog"; directions = "input"; }
+ pin V6P4_1 { number = "5"; domains = "analog"; directions = "input"; }
+ pin V3P2 { number = "6"; domains = "analog"; directions = "input"; }
+ pin GND { number = "7"; domains = "ground"; directions = "input"; }
+ pin V1P6 { number = "8"; domains = "analog"; directions = "input"; }
+ pin V0P8 { number = "9"; domains = "analog"; directions = "input"; }
+ pin V0P4 { number = "10"; domains = "analog"; directions = "input"; }
+ pin V0P2 { number = "11"; domains = "analog"; directions = "input"; }
+ pin V0P1 { number = "12"; domains = "analog"; directions = "input"; }
+ pin EN { number = "13"; domains = "analog"; directions = "input"; }
+ pin NR { number = "14"; domains = "analog"; directions = "input"; }
+ pin IN15 { number = "15"; domains = "power"; directions = "input"; }
+ pin IN16 { number = "16"; domains = "power"; directions = "input"; }
+ pin NC17 { number = "17"; domains = "analog"; directions = "input"; }
+ pin NC18 { number = "18"; domains = "analog"; directions = "input"; }
+ pin NC19 { number = "19"; domains = "analog"; directions = "input"; }
+ pin OUT20 { number = "20"; domains = "power"; directions = "passive"; }
+ pin EP { number = "21"; domains = "ground"; directions = "input"; }
+}

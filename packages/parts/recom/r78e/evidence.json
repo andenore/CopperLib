@@ -1,0 +1,29 @@
+{
+  "source_url": "https://recom-power.com/pdf/Innoline/R-78E-1.0.pdf",
+  "pins": [
+    [
+      1,
+      "VIN",
+      "power",
+      "input"
+    ],
+    [
+      2,
+      "GND",
+      "ground",
+      "input"
+    ],
+    [
+      3,
+      "VOUT",
+      "power",
+      "output"
+    ]
+  ],
+  "package": "RECOM_R78E_1A:RECOM_R78E_1A",
+  "mpn": "R-78E3.3-1.0",
+  "output_V": 3.3,
+  "maximum_output_capacitance_uF": 220,
+  "qualification": "Source-backed electrical/package definition; THT assembly exception.",
+  "local_source_sha256": "be80e68802d70d388186dd3621941352e4b530169908882647be59c641afd2dc"
+}

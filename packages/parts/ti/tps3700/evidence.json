@@ -1,0 +1,42 @@
+{
+  "source": "https://www.ti.com/lit/ds/symlink/tps3700.pdf",
+  "pins": [
+    [
+      1,
+      "OUTA",
+      "digital",
+      "output"
+    ],
+    [
+      2,
+      "GND",
+      "ground",
+      "input"
+    ],
+    [
+      3,
+      "INA_P",
+      "analog",
+      "input"
+    ],
+    [
+      4,
+      "INB_N",
+      "analog",
+      "input"
+    ],
+    [
+      5,
+      "VDD",
+      "power",
+      "input"
+    ],
+    [
+      6,
+      "OUTB",
+      "digital",
+      "output"
+    ]
+  ],
+  "status": "Pin contract sourced; physical support and exact orderable BOM pending review"
+}

@@ -1,0 +1,25 @@
+{
+  "source_url": "https://www.vishay.com/docs/30100/wsl.pdf",
+  "document": "30100",
+  "revision": "23-Nov-2023",
+  "sha256": "96c2dc89ae1e3039815ed6c41f566a6e9f6b53035f8e45ea2ada1697935a44dc",
+  "pages": {
+    "ordering_and_rating": 1,
+    "dimensions_and_kelvin_taps": 2
+  },
+  "facts": {
+    "resistance_ohm": "0.05",
+    "tolerance_percent": "1",
+    "rated_power_at_70C_W": "1",
+    "component_tcr_ppm_per_C": "75",
+    "pad_a_mm": "1.65",
+    "pad_b_mm": "3.68",
+    "pad_gap_l_mm": "4.06"
+  },
+  "adaptations": [
+    "Uses published rounded metric lands; courtyard adds 0.25 mm around lands.",
+    "No implied factory stencil, mask expansion or thermal qualification.",
+    "Two electrical terminals; Kelvin branches must be authored by consumer."
+  ],
+  "production_qualified": false
+}

@@ -1,0 +1,10 @@
+part DMN6075S_7 {
+    manufacturer = "Diodes Incorporated";
+    footprint = "Package_TO_SOT_SMD:SOT-23";
+    source_url = "https://www.diodes.com/datasheet/download/DMN6075S.pdf";
+    source_location = "DS37023 Rev 7-2, top-view p1; 60V VDS and 120mOhm max at VGS4.5V";
+    source_checksum = "sha256:3ca54b9ce05adcdf89c22be66808095c1777c2735330227bec4395e57d39d473";
+    pin G { number = "1"; domains = "digital"; directions = "input";  }
+    pin S { number = "2"; domains = "ground"; directions = "passive";  }
+    pin D { number = "3"; domains = "power,analog"; directions = "passive";  }
+}

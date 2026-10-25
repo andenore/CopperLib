@@ -1,0 +1,16 @@
+{
+  "url": "https://suddendocs.samtec.com/prints/tsw-xxx-xx-x-x-xx-xxx-footprint.pdf",
+  "revision": "A",
+  "page": 1,
+  "sha256": "264658121ff2dad25ebd6259e726b123bf1ea31f9145bc695607999181af028f",
+  "hole_mm": "1.02",
+  "pitch_mm": "2.54",
+  "adaptation": "Two-position single row; 1.7 mm annular lands and courtyard chosen by board designer, not specified in hole-only manufacturer drawing.",
+  "origin": "pin 1; factory placement preview must verify origin and rotation",
+  "current_rating_scope": "SNT/TSW: 4.3 A per pin, one pin powered per row; mated SSW/TSW: 4.7 A, one pin powered per row.",
+  "rating_sources": [
+    "https://suddendocs.samtec.com/catalog_english/snt.pdf",
+    "https://suddendocs.samtec.com/productspecs/tsw-ssw.pdf"
+  ],
+  "production_qualified": false
+}

@@ -1,0 +1,11 @@
+part AQV252GAZ {
+ dc_power_path = "LOAD1,LOAD2";
+ footprint = "AQV252GA_SMD:AQV252GA_SMD";
+ source_url = "https://industry.panasonic.com/ac/cdn/e/control/relay/photomos/catalog/semi_eng_he1a_aqv25_g.pdf"; source_revision = "ASCTB144E 202201"; source_location = "Pages 4-5; connection A, pins 3 and 5 unconnected";
+ pin A { number = "1"; domains = "analog"; directions = "passive"; }
+ pin K { number = "2"; domains = "analog"; directions = "passive"; }
+ pin NC { number = "3"; domains = "analog"; directions = "passive"; }
+ pin LOAD1 { number = "4"; domains = "power"; directions = "passive"; }
+ pin COMMON { number = "5"; domains = "analog"; directions = "passive"; }
+ pin LOAD2 { number = "6"; domains = "power"; directions = "passive"; }
+}

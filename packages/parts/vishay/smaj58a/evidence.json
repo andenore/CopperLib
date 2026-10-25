@@ -1,0 +1,19 @@
+{
+  "source_url": "https://www.vishay.com/docs/88390/smaj50a.pdf",
+  "pins": [
+    [
+      1,
+      "K",
+      "analog",
+      "passive"
+    ],
+    [
+      2,
+      "A",
+      "analog",
+      "passive"
+    ]
+  ],
+  "qualification": "Standard package selected; exact land comparison and thermal verification pending.",
+  "local_source_sha256": "b8617e715805bb3293892c4636279eac57c1ef18e8c87a481cec1b802731b72d"
+}

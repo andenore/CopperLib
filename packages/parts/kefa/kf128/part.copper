@@ -1,0 +1,9 @@
+part KF128_5_08_2P_AA {
+    manufacturer = "Cixi Kefa";
+    footprint = "footprints/KEFA_KF128_2P.kicad_mod";
+    source_url = "https://www.lcsc.com/datasheet/C474952.pdf";
+    source_location = "KF128-5.08 RevA 2021-03-13 p1; 1.4mm drill,5.08mm pitch,UL10A/IEC24A";
+    source_checksum = "sha256:4781221a025b068464bce493173984ac1e90efb9db90c1433e1e448ea9bdaead";
+    pin P1 { number = "1"; domains = "power"; directions = "passive";  }
+    pin P2 { number = "2"; domains = "power,ground"; directions = "passive";  }
+}

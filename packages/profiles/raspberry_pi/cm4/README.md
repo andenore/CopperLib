@@ -89,3 +89,5 @@ python -m pytest tests/test_cm4.py
 The deterministic generator renders the two contextual sockets from the
 reviewed compact table. Production device generation still requires a separate
 complete functional CM4 model; these sockets deliberately do not simulate one.
+
+CM4Mounting180 is an exact 180 degree rotation of CM4Mounting about (30 mm, 37.5 mm). It retains the same envelope and hole locations, swaps the socket sides and places the antenna toward the top edge. The consumer must rotate its antenna exclusion too. This named alternative is provided because use-site profile transforms are not implemented.

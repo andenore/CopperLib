@@ -1,0 +1,7 @@
+part SG210STF {
+ footprint = "Oscillator:Oscillator_SMD_SeikoEpson_SG210-4Pin_2.5x2.0mm"; source_url = "https://download.epsondevice.com/td/pdf/app/SG-210STF_en.pdf";
+ pin ST { number = "1"; domains = "digital"; directions = "input"; }
+ pin GND { number = "2"; domains = "ground"; directions = "input"; }
+ pin OUT { number = "3"; domains = "clock"; directions = "output"; }
+ pin VCC { number = "4"; domains = "power"; directions = "input"; }
+}

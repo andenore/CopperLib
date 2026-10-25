@@ -1,0 +1,141 @@
+{
+  "schema": "copperlib.stamp-s3-sockets/v1",
+  "checked_date": "2026-10-23",
+  "module": "M5Stack Stamp-S3 S007 (not S3Bat)",
+  "sources": {
+    "Stamp-S3-DIP.kicad_mod": {
+      "url": "https://raw.githubusercontent.com/m5stack/M5_Hardware/master/KiCad/Footprints/M5Stack.pretty/Stamp-S3-DIP.kicad_mod",
+      "sha256": "1e1a32ffa34603d5b843133f42c25800c0f38130bdd49802faebdd81497105ad"
+    },
+    "Stamp-S3-schematic.pdf": {
+      "url": "https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/522/Sch_M5StampS3_v0.2.pdf",
+      "sha256": "6d92e1aef6577838b9abffcf1adf6c86e1b0c8374fcd372af451bb58ef19eb94"
+    },
+    "dimensions.jpg": {
+      "url": "https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/StampS3/%E5%B0%BA%E5%AF%B8%E5%9B%BE.jpg",
+      "sha256": "29cebb00c9c503e1c31176a0843ae67f1988fa5b1e7f15cd587eede25a429fbd"
+    },
+    "hctl-pm254.pdf": {
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/87e2b5b113f4df247d2b8d5758217346.pdf",
+      "sha256": "b6b002c4b204d95857a0d2db9a678176c7979da89e4b145a08682255073246cd"
+    }
+  },
+  "datum": "Module centre; component side viewed from above, antenna up, USB down",
+  "module_size_mm": [
+    18,
+    24
+  ],
+  "row_separation_mm": "15.24",
+  "pitch_mm": "2.54",
+  "socket_height_mm": "8.5",
+  "left": [
+    {
+      "socket_pin": 1,
+      "module_pad": 1,
+      "signal": "G1",
+      "x_mm": "-7.62",
+      "y_mm": "-10.16"
+    },
+    {
+      "socket_pin": 2,
+      "module_pad": 3,
+      "signal": "G3",
+      "x_mm": "-7.62",
+      "y_mm": "-7.62"
+    },
+    {
+      "socket_pin": 3,
+      "module_pad": 5,
+      "signal": "G5",
+      "x_mm": "-7.62",
+      "y_mm": "-5.08"
+    },
+    {
+      "socket_pin": 4,
+      "module_pad": 7,
+      "signal": "G7",
+      "x_mm": "-7.62",
+      "y_mm": "-2.54"
+    },
+    {
+      "socket_pin": 5,
+      "module_pad": 9,
+      "signal": "G9",
+      "x_mm": "-7.62",
+      "y_mm": "0.00"
+    },
+    {
+      "socket_pin": 6,
+      "module_pad": 11,
+      "signal": "GND",
+      "x_mm": "-7.62",
+      "y_mm": "2.54"
+    },
+    {
+      "socket_pin": 7,
+      "module_pad": 13,
+      "signal": "VIN_5V",
+      "x_mm": "-7.62",
+      "y_mm": "5.08"
+    },
+    {
+      "socket_pin": 8,
+      "module_pad": 15,
+      "signal": "G13",
+      "x_mm": "-7.62",
+      "y_mm": "7.62"
+    },
+    {
+      "socket_pin": 9,
+      "module_pad": 17,
+      "signal": "G15",
+      "x_mm": "-7.62",
+      "y_mm": "10.16"
+    }
+  ],
+  "right": [
+    {
+      "socket_pin": 1,
+      "module_pad": 28,
+      "signal": "V3V3",
+      "x_mm": "7.62",
+      "y_mm": "-2.54"
+    },
+    {
+      "socket_pin": 2,
+      "module_pad": 26,
+      "signal": "G43",
+      "x_mm": "7.62",
+      "y_mm": "0.00"
+    },
+    {
+      "socket_pin": 3,
+      "module_pad": 24,
+      "signal": "G44",
+      "x_mm": "7.62",
+      "y_mm": "2.54"
+    },
+    {
+      "socket_pin": 4,
+      "module_pad": 22,
+      "signal": "EN",
+      "x_mm": "7.62",
+      "y_mm": "5.08"
+    },
+    {
+      "socket_pin": 5,
+      "module_pad": 20,
+      "signal": "G0",
+      "x_mm": "7.62",
+      "y_mm": "7.62"
+    },
+    {
+      "socket_pin": 6,
+      "module_pad": 18,
+      "signal": "GND",
+      "x_mm": "7.62",
+      "y_mm": "10.16"
+    }
+  ],
+  "production_publishable": false
+}

@@ -1,0 +1,12 @@
+part AP2112K_3V3 {
+    manufacturer = "Diodes Incorporated";
+    footprint = "Package_TO_SOT_SMD:SOT-23-5";
+    source_url = "https://www.diodes.com/assets/Datasheets/AP2112.pdf";
+    source_location = "DS39724 Rev2-2, SOT25 pin table p2; 1uF input/output X5R or X7R";
+    source_checksum = "sha256:ef8d376f2ec356e29172eb9e053819a0ebdcc576dba7fc9ab0505c568427920f";
+    pin VIN { number = "1"; domains = "power"; directions = "input"; voltage_min = 2.5V; voltage_max = 6V; }
+    pin GND { number = "2"; domains = "ground"; directions = "input";  }
+    pin EN { number = "3"; domains = "digital"; directions = "input";  }
+    pin NC { number = "4"; domains = "analog"; directions = "passive"; connection = do_not_connect; }
+    pin VOUT { number = "5"; domains = "power"; directions = "output";  }
+}

@@ -1,0 +1,24 @@
+// Exact rigid 180-degree rotation of CM4Mounting about (30 mm,37.5 mm).
+// Same source lands, holes and body envelope. No reflection or electrical changes.
+board_profile CM4Mounting180 {
+    hole H1 { position = (46.5mm, 61.5mm); diameter = 2.7mm; head_clearance_radius = 3mm; }
+    hole H2 { position = (13.5mm, 61.5mm); diameter = 2.7mm; head_clearance_radius = 3mm; }
+    hole H3 { position = (46.5mm, 13.5mm); diameter = 2.7mm; head_clearance_radius = 3mm; }
+    hole H4 { position = (13.5mm, 13.5mm); diameter = 2.7mm; head_clearance_radius = 3mm; }
+    connector gpio {
+        anchor_pad = "1"; position = (48.5mm, 44.8mm); rotation = 90; side = front;
+        footprint = "footprints/Connector_Hirose_DF40.pretty/Hirose_DF40C-100DS-0.4V_2x50_P0.4mm.kicad_mod";
+    }
+    connector high_speed {
+        anchor_pad = "1"; position = (14.58mm, 44.8mm); rotation = 90; side = front;
+        footprint = "footprints/Connector_Hirose_DF40.pretty/Hirose_DF40C-100DS-0.4V_2x50_P0.4mm.kicad_mod";
+    }
+    // 1.5 mm stacking has zero free height under the CM4. Socket corridors
+    // include their courtyards plus 0.3 mm placement tolerance; they are not
+    // permission to add other components there. PCB tracks remain allowed.
+    keepout module_top rectangle { origin = (10mm, 47.1mm); width = 40mm; height = 17.9mm; side = front; }
+    keepout module_bottom rectangle { origin = (10mm, 10mm); width = 40mm; height = 12.9mm; side = front; }
+    keepout module_middle rectangle { origin = (15.73mm, 22.9mm); width = 28.54mm; height = 24.2mm; side = front; }
+    keepout module_left rectangle { origin = (49.65mm, 22.9mm); width = 0.35mm; height = 24.2mm; side = front; }
+    keepout module_right rectangle { origin = (10mm, 22.9mm); width = 0.35mm; height = 24.2mm; side = front; }
+}

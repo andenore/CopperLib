@@ -1,0 +1,30 @@
+{
+  "source": "https://download.epsondevice.com/td/pdf/app/SG-210STF_en.pdf",
+  "pins": [
+    [
+      1,
+      "ST",
+      "digital",
+      "input"
+    ],
+    [
+      2,
+      "GND",
+      "ground",
+      "input"
+    ],
+    [
+      3,
+      "OUT",
+      "clock",
+      "output"
+    ],
+    [
+      4,
+      "VCC",
+      "power",
+      "input"
+    ]
+  ],
+  "status": "Pin contract sourced; physical support and exact orderable BOM pending review"
+}

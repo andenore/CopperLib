@@ -1,0 +1,8 @@
+part XFL4020_472MEC {
+ category = "passive.inductor.power";
+ dc_power_path = "A,B";
+ footprint = "Coilcraft_XFL4020:Coilcraft_XFL4020";
+ source_url = "https://www.coilcraft.com/getmedia/50632d43-da1b-4cdb-8ab4-3029cab51df3/xfl4020.pdf"; source_revision = "Document 745 March 10 2026"; source_location = "4.7 uH electrical row; page 3 recommended land pattern";
+ pin A { number = "1"; domains = "power"; directions = "passive"; }
+ pin B { number = "2"; domains = "power"; directions = "passive"; }
+}

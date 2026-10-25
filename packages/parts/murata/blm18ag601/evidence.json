@@ -1,0 +1,21 @@
+{
+  "part": "BLM18AG601SN1D",
+  "source_url": "https://www.murata.com/en-global/products/productdata/8796738650142/ENFA0003.pdf",
+  "source_revision": "JENF243A_0003AM-01",
+  "retrieved": "2026-10-20",
+  "method": "manufacturer indexed specification; direct PDF download failed",
+  "local_pdf_sha256": null,
+  "facts": {
+    "impedance_at_100MHz_ohm": 600,
+    "tolerance_percent": 25,
+    "rated_current_mA": 500,
+    "dcr_20C_max_ohm": "0.38",
+    "package": "1608 metric / 0603 imperial",
+    "polarity": "none"
+  },
+  "qualification": {
+    "land_pattern": "standard KiCad 0603; manufacturer land-drawing review pending",
+    "bias_temperature_impedance": "not modeled",
+    "release": "unqualified"
+  }
+}

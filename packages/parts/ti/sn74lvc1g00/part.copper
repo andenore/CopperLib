@@ -1,0 +1,8 @@
+part SN74LVC1G00DBVR {
+ footprint = "Package_TO_SOT_SMD:SOT-23-5"; source_url = "https://www.ti.com/lit/gpn/sn74lvc1g00";
+ pin A { number = "1"; domains = "digital"; directions = "input"; }
+ pin B { number = "2"; domains = "digital"; directions = "input"; }
+ pin GND { number = "3"; domains = "ground"; directions = "input"; }
+ pin Y { number = "4"; domains = "digital"; directions = "output"; }
+ pin VCC { number = "5"; domains = "power"; directions = "input"; }
+}

@@ -1,0 +1,12 @@
+part INA190A1IDCKR {
+    category = "amplifier.current_sense";
+    manufacturer = "Texas Instruments";
+    footprint = "Package_TO_SOT_SMD:SOT-363_SC-70-6";
+    device = INA190_DIE;
+    pin REF { number = "1"; bond = REF; }
+    pin GND { number = "2"; bond = GND; }
+    pin VS { number = "3"; bond = VS; }
+    pin INP { number = "4"; bond = INP; }
+    pin INN { number = "5"; bond = INN; }
+    pin OUT { number = "6"; bond = OUT; }
+}

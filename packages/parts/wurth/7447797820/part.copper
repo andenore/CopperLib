@@ -1,0 +1,10 @@
+part WE_7447797820 {
+    manufacturer = "Wurth Elektronik";
+    footprint = "footprints/WE_PDF_1045.kicad_mod";
+    source_url = "https://www.we-online.com/components/products/datasheet/7447797820.pdf";
+    source_location = "003.008 p1 land 3.4x2.4mm centres 8.2mm; 8.2uH20%, 5.05Arms, Isat5.8A typical at10% drop";
+    source_checksum = "sha256:8afce207e3cc951f4c216e41b06831f1647682a543782502f9c8724345565085";
+    dc_power_path = "P1,P2";
+    pin P1 { number = "1"; domains = "power"; directions = "passive";  }
+    pin P2 { number = "2"; domains = "power"; directions = "passive";  }
+}

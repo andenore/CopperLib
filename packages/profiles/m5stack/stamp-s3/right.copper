@@ -1,0 +1,17 @@
+// Stamp-S3 carrier contact view of HCTL PM254-1-06-Z-8.5.
+// Socket numbering is top-to-bottom; not the module 1.27 mm pad numbering.
+part STAMP_S3_SOCKET_RIGHT {
+    category = "connector.module.stamp_s3";
+    manufacturer = "HCTL";
+    footprint = "footprints/HCTL_PM254_1_06_Z_8_5.kicad_mod";
+    source_document = "M5StampS3 schematic v0.2, M1; HCTL PM254 Rev A";
+    source_location = "M1 pads 1,3,5,7,9,11,13,15,17 / 28,26,24,22,20,18; evidence/connector.json";
+    source_url = "https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/522/Sch_M5StampS3_v0.2.pdf";
+    source_checksum = "sha256:6d92e1aef6577838b9abffcf1adf6c86e1b0c8374fcd372af451bb58ef19eb94";
+    pin V3V3 { number = "1"; domains = "power"; directions = "passive"; connection = "optional"; }
+    pin G43 { number = "2"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin G44 { number = "3"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin EN { number = "4"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin G0 { number = "5"; domains = "digital"; directions = "passive"; connection = "optional"; }
+    pin GND { number = "6"; domains = "ground"; directions = "passive"; connection = "required"; }
+}

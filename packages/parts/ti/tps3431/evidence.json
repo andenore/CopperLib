@@ -1,0 +1,64 @@
+{
+  "pins": [
+    [
+      1,
+      "VDD",
+      "power",
+      "input"
+    ],
+    [
+      2,
+      "CWD",
+      "analog",
+      "passive"
+    ],
+    [
+      3,
+      "EN",
+      "digital",
+      "input"
+    ],
+    [
+      4,
+      "GND",
+      "ground",
+      "input"
+    ],
+    [
+      5,
+      "SET1",
+      "digital",
+      "input"
+    ],
+    [
+      6,
+      "WDI",
+      "digital",
+      "input"
+    ],
+    [
+      7,
+      "WDO_N",
+      "digital",
+      "output"
+    ],
+    [
+      8,
+      "ENOUT",
+      "digital",
+      "output"
+    ],
+    [
+      9,
+      "EP",
+      "ground",
+      "passive"
+    ]
+  ],
+  "timeout_ms": {
+    "CWD_open": 1600,
+    "CWD_10k_to_VDD": 200
+  },
+  "qualification": "EP tied GND; electrical and package review pending.",
+  "local_source_sha256": "99bf5dbfffe06e8f85d9a86cfb777a0151e85b4a103033bc025f4897a0bdc6f3"
+}

@@ -1,0 +1,72 @@
+{
+  "scope": "Manufacturer circuit numbering and package-local land audit; not complete assembly qualification",
+  "part": "JST_S2B_PH_SM4_TB",
+  "orderable": "S2B-PH-SM4-TB(LF)(SN)",
+  "production_publishable": false,
+  "source": {
+    "document": "JST PH connector catalogue, 2.0 mm pitch wire-to-board (ePH.pdf)",
+    "revision": "undated web catalogue; PDF CreationDate 2026-01-27",
+    "locator": "p1 specifications; p2 SMT side-entry land pattern (No. 1 circuit); p4 S2B-PH-SM4-TB: A=2.0 mm, B=7.9 mm",
+    "url": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf",
+    "sha256": "447624f4f2f7d37c58c1eaa7ee314ad757fe7aff48f6186491ef6f69fbc00b96",
+    "cache_path": "cache/parts/ePH.pdf",
+    "verification": "Downloaded checksum verified and rendered pages 2 and 4 visually inspected 2026-10-23"
+  },
+  "semantic_pins": {
+    "P1": "1",
+    "P2": "2",
+    "MP": "MP"
+  },
+  "circuit_1": "leftmost signal land viewed from the mounting surface with reinforcement lands below (toward the mating face)",
+  "footprint": "footprints/JST_PH_S2B-PH-SM4-TB_1x02-1MP_P2.00mm_Horizontal.kicad_mod",
+  "footprint_checks": {
+    "pad_centres_mm": {
+      "1": [
+        -1,
+        -2.85
+      ],
+      "2": [
+        1,
+        -2.85
+      ]
+    },
+    "signal_land_mm": [
+      1,
+      3.5
+    ],
+    "mp_x_mm": [
+      -3.35,
+      3.35
+    ],
+    "mp_y_mm": 2.9,
+    "mp_size_mm": [
+      1.5,
+      3.4
+    ],
+    "note": "MP x = A/2 + 1.6 + 1.5/2. Two independent mechanical tabs; no assumed internal join."
+  },
+  "ratings": {
+    "current": "2 A AC/DC (AWG #24)",
+    "voltage": "100 V AC/DC",
+    "temperature": "-40 to +105 degC including temperature rise",
+    "contact_resistance": "10 mOhm max initial, 20 mOhm after test",
+    "withstanding_voltage": "800 VAC for 1 minute",
+    "pcb_thickness": "0.8 to 1.6 mm"
+  },
+  "internal_pad_groups": "none: the two reinforcement tabs have no stated electrical function or continuity",
+  "procurement": {
+    "jlcpcb_lcsc": "C295747",
+    "catalog_url": "https://jlcpcb.com/partdetail/JST-S2B_PH_SM4_TB_LF_SN/C295747"
+  },
+  "unresolved": [
+    "Consumer assigns harness polarity, wire length/gauge and installed thermal/environment limits.",
+    "Native paste, courtyard and assembly orientation review remains required."
+  ],
+  "footprint_source": {
+    "origin": "KiCad 10 installed Connector_JST library, generator format 20260206",
+    "sha256": "57261c42d07b35ddb8d0b9049e24dbeadae7011f1a7aec2584d1e44b2d584c2a",
+    "upstream": "https://gitlab.com/kicad/libraries/kicad-footprints/-/blob/master/Connector_JST.pretty/JST_PH_S2B-PH-SM4-TB_1x02-1MP_P2.00mm_Horizontal.kicad_mod",
+    "license": "CC-BY-SA-4.0 with KiCad library exception; https://www.kicad.org/libraries/license/",
+    "modifications": "None; exact file copy."
+  }
+}

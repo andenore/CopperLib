@@ -1,0 +1,55 @@
+{
+  "source_url": "https://www.ti.com/lit/ds/symlink/sn74lvc1g74.pdf",
+  "pins": [
+    [
+      1,
+      "CLK",
+      "digital",
+      "input"
+    ],
+    [
+      2,
+      "D",
+      "digital",
+      "input"
+    ],
+    [
+      3,
+      "QN",
+      "digital",
+      "output"
+    ],
+    [
+      4,
+      "GND",
+      "ground",
+      "input"
+    ],
+    [
+      5,
+      "Q",
+      "digital",
+      "output"
+    ],
+    [
+      6,
+      "CLR_N",
+      "digital",
+      "input"
+    ],
+    [
+      7,
+      "PRE_N",
+      "digital",
+      "input"
+    ],
+    [
+      8,
+      "VCC",
+      "power",
+      "input"
+    ]
+  ],
+  "qualification": "Pin table verified; package native DRC and assembly checks pending.",
+  "local_source_sha256": "e46a5a867fec742290000dca5ed3b291535f3c4418ef2ae267acc4ab51b26d8a"
+}

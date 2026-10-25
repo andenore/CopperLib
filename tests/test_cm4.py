@@ -89,3 +89,19 @@ def test_profile_fragment_has_two_explicit_bindings_and_four_holes(tmp_path):
 
 def test_cm4_generator_is_current():
     subprocess.run([sys.executable, str(ROOT / "packages/profiles/raspberry_pi/cm4/generate.py"), "--check"], check=True)
+
+
+def test_rotated_mounting_is_a_rigid_transform_with_unchanged_contact_identity(tmp_path):
+    original=compile_design_source(source(tmp_path),str(tmp_path/'board.copper'),offline=True).mechanical
+    rotated=compile_design_source(source(tmp_path).replace('cm4.CM4Mounting as','cm4.CM4Mounting180 as'),str(tmp_path/'board.copper'),offline=True).mechanical
+    for a,b in zip(original.connectors,rotated.connectors):
+        assert (a.reference,a.anchor_pad,a.footprint,a.side)==(b.reference,b.anchor_pad,b.footprint,b.side)
+        assert a.position.x_nm+b.position.x_nm==60000000
+        assert a.position.y_nm+b.position.y_nm==75000000
+        assert (a.rotation+180)%360==b.rotation
+    for a,b in zip(original.holes,rotated.holes):
+        assert a.position.x_nm+b.position.x_nm==60000000
+        assert a.position.y_nm+b.position.y_nm==75000000
+        assert a.diameter_nm==b.diameter_nm
+    assert len(original.keepouts)==len(rotated.keepouts)==5
+

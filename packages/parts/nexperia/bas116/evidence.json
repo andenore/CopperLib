@@ -1,0 +1,11 @@
+{
+  "source_url": "https://assets.nexperia.com/documents/data-sheet/BAS116.pdf",
+  "source_revision": "5 August 2020",
+  "pins": {
+    "1": "A",
+    "2": "NC",
+    "3": "K"
+  },
+  "source_access": "Manufacturer PDF read through web; local download returned HTML, not cached as PDF.",
+  "qualification": "Pin contract only; no characterized SPICE model supplied."
+}

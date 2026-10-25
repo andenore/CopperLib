@@ -1,0 +1,10 @@
+part FUSE_0451010_MRL {
+    manufacturer = "Littelfuse";
+    footprint = "footprints/Littelfuse_0451.kicad_mod";
+    source_url = "https://www.lcsc.com/datasheet/C44479.pdf";
+    source_location = "451/453 series dimensions and land pattern; 10A,125VDC";
+    source_checksum = "sha256:e6a46c9a12645c68d2004d892bb8b370e3792708fd2d013c8108b7b00f059dd7";
+    dc_power_path = "P1,P2";
+    pin P1 { number = "1"; domains = "power"; directions = "passive";  }
+    pin P2 { number = "2"; domains = "power"; directions = "passive";  }
+}

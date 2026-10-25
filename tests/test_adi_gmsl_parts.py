@@ -10,6 +10,7 @@ MAX96792A p.56 / MAX96793 p.59 and CSI-2 limits from Absolute Maximum Ratings
 (p.10 of both), not copied from the part or device files.
 """
 import json
+import os
 import re
 from pathlib import Path
 
@@ -20,7 +21,7 @@ from pcbir.modes import active_bonded_pads, active_device_pads, condition_active
 from pcbir.serializer import board_to_dict
 
 ROOT = Path(__file__).resolve().parents[1]
-KICAD_FOOTPRINTS = Path("/usr/share/kicad/footprints")
+KICAD_FOOTPRINTS = Path(os.environ.get("KICAD10_FOOTPRINT_DIR", "/usr/share/kicad/footprints"))
 MODULE = "github.com/andenore/CopperLib/packages/parts/adi"
 
 PARTS = {

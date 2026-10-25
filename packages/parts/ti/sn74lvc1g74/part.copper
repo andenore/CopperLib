@@ -1,0 +1,12 @@
+part SN74LVC1G74DCUR {
+ footprint = "Package_SO:VSSOP-8_2.3x2mm_P0.5mm";
+ source_url = "https://www.ti.com/lit/ds/symlink/sn74lvc1g74.pdf"; source_revision = "SCES794G September 2021"; source_location = "Pin Functions and package drawing";
+ pin CLK { number = "1"; domains = "digital"; directions = "input"; }
+ pin D { number = "2"; domains = "digital"; directions = "input"; }
+ pin QN { number = "3"; domains = "digital"; directions = "output"; }
+ pin GND { number = "4"; domains = "ground"; directions = "input"; }
+ pin Q { number = "5"; domains = "digital"; directions = "output"; }
+ pin CLR_N { number = "6"; domains = "digital"; directions = "input"; }
+ pin PRE_N { number = "7"; domains = "digital"; directions = "input"; }
+ pin VCC { number = "8"; domains = "power"; directions = "input"; }
+}

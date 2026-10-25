@@ -1,0 +1,43 @@
+{
+  "source_url": "https://www.ti.com/lit/ds/symlink/tps3808.pdf",
+  "pins": [
+    [
+      1,
+      "RESET_N",
+      "digital",
+      "output"
+    ],
+    [
+      2,
+      "GND",
+      "ground",
+      "input"
+    ],
+    [
+      3,
+      "MR_N",
+      "digital",
+      "input"
+    ],
+    [
+      4,
+      "CT",
+      "analog",
+      "passive"
+    ],
+    [
+      5,
+      "SENSE",
+      "analog",
+      "input"
+    ],
+    [
+      6,
+      "VDD",
+      "power",
+      "input"
+    ]
+  ],
+  "qualification": "Pin table verified; package native DRC and assembly checks pending.",
+  "local_source_sha256": "74d889c0f68af88032f1633c26381817cc03e10d9fd3b4c177a044ad3ed86eed"
+}

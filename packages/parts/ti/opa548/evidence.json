@@ -1,0 +1,52 @@
+{
+  "source_url": "https://www.ti.com/lit/ds/symlink/opa548.pdf",
+  "pins": [
+    [
+      1,
+      "INP",
+      "analog",
+      "input"
+    ],
+    [
+      2,
+      "INN",
+      "analog",
+      "input"
+    ],
+    [
+      3,
+      "ILIM",
+      "analog",
+      "input"
+    ],
+    [
+      4,
+      "VM",
+      "power",
+      "input"
+    ],
+    [
+      5,
+      "VP",
+      "power",
+      "input"
+    ],
+    [
+      6,
+      "OUT",
+      "analog",
+      "output"
+    ],
+    [
+      7,
+      "ES",
+      "analog",
+      "bidirectional"
+    ]
+  ],
+  "package": "TI_KVT0007_OPA548:TI_KVT0007_OPA548",
+  "mechanical_source": "https://www.ti.com/lit/pdf/MPZF004",
+  "mechanical_sha256": "c65641a6efbf5fb3470510b804ac120bb5831c17b36bed1f9af355eb2ebf4738",
+  "qualification": "Authored staggered vertical land pattern; mandatory external heatsink referenced to VM. Heatsink clearance and thermal/SOA review pending.",
+  "local_source_sha256": "f6e9034778addcd8dffdf7bcd719f2f9698770b01c1783dc737063914d77adbe"
+}

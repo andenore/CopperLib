@@ -1,0 +1,17 @@
+part TPS63710DRRR {
+ footprint = "TI_DRR0012_TPS63710:TI_DRR0012_TPS63710";
+ source_url = "https://www.ti.com/lit/ds/symlink/tps63710.pdf"; source_revision = "SLVSD44A July 2018"; source_location = "Pin Functions page 3 and DRR0012 package drawing";
+ pin VAUX { number = "1"; domains = "analog"; directions = "output"; }
+ pin EN { number = "2"; domains = "digital"; directions = "input"; }
+ pin PG { number = "3"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; }
+ pin VREF { number = "4"; domains = "analog"; directions = "output"; }
+ pin FB { number = "5"; domains = "analog"; directions = "input"; }
+ pin CAP { number = "6"; domains = "analog"; directions = "output"; }
+ pin VOUT { number = "7"; domains = "analog"; directions = "input"; }
+ pin SW { number = "8"; domains = "power"; directions = "output"; }
+ pin GND1 { number = "9"; domains = "ground"; directions = "input"; }
+ pin GND2 { number = "10"; domains = "ground"; directions = "input"; }
+ pin CP { number = "11"; domains = "power"; directions = "output"; }
+ pin VIN { number = "12"; domains = "power"; directions = "input"; }
+ pin EP { number = "13"; domains = "ground"; directions = "input"; }
+}

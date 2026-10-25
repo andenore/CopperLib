@@ -1,0 +1,41 @@
+{
+  "source_url": "https://www.vishay.com/docs/83430/vo617a.pdf",
+  "pins": [
+    [
+      1,
+      "A",
+      "analog",
+      "passive"
+    ],
+    [
+      2,
+      "K",
+      "analog",
+      "passive"
+    ],
+    [
+      3,
+      "E",
+      "ground",
+      "passive"
+    ],
+    [
+      4,
+      "C",
+      "digital",
+      "output"
+    ]
+  ],
+  "qualification": "Isolation footprint transcribed; CTR at actual LED current requires verification.",
+  "local_source_sha256": "145893b5422f68cc3f2016e2dddfc33f6ee26f0d2444fe8889d0dc0388f805a1",
+  "courtyard_review": {
+    "source_revision": "Vishay 83430 Rev 2.8, 22-Jan-2025",
+    "locator": "Figure 17, Option 7, printed page 8",
+    "source_sha256": "145893b5422f68cc3f2016e2dddfc33f6ee26f0d2444fe8889d0dc0388f805a1",
+    "alignment": "Manufacturer top view rotated 90 degrees clockwise into footprint axes: pins 1/2 left, pins 4/3 right; no mirroring.",
+    "land_pattern": "Unchanged: 11.05 mm overall span, 1.52 mm x 1.78 mm lands, 2.54 mm row pitch and 8.01 mm inside gap (manufacturer minimum 8 mm).",
+    "courtyard": "Authored assembly envelope: +/-5.775 mm X and +/-2.79 mm Y. X is the existing outer land extent +/-5.525 mm plus 0.25 mm margin; Y retains the prior envelope around the 4.88 mm maximum body width.",
+    "prior_error": "Prior +/-3.75 mm X courtyard omitted outer terminal lands and admitted neighboring resistor copper.",
+    "qualification": "Courtyard is an engineering adaptation, not a manufacturer-specified assembly clearance or production approval."
+  }
+}

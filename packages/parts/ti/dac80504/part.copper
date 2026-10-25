@@ -1,0 +1,21 @@
+part DAC80504RTER {
+ footprint = "TI_RTE0016D_EP08:TI_RTE0016D_EP08";
+ source_url = "https://www.ti.com/lit/ds/symlink/dac80504.pdf"; source_revision = "SBAS871C"; source_location = "Pin Functions page 5 and RTE package drawing";
+ pin REF { number = "1"; domains = "analog"; directions = "bidirectional"; }
+ pin OUT0 { number = "2"; domains = "analog"; directions = "output"; }
+ pin OUT1 { number = "3"; domains = "analog"; directions = "output"; }
+ pin OUT2 { number = "4"; domains = "analog"; directions = "output"; }
+ pin OUT3 { number = "5"; domains = "analog"; directions = "output"; }
+ pin GND { number = "6"; domains = "ground"; directions = "input"; }
+ pin VDD { number = "7"; domains = "power"; directions = "input"; }
+ pin GAIN { number = "8"; domains = "digital"; directions = "input"; }
+ pin RSTSEL { number = "9"; domains = "digital"; directions = "input"; }
+ pin REFDIV { number = "10"; domains = "digital"; directions = "input"; }
+ pin LDAC_N { number = "11"; domains = "digital"; directions = "input"; }
+ pin CS_N { number = "12"; domains = "digital"; directions = "input"; }
+ pin SCLK { number = "13"; domains = "digital"; directions = "input"; }
+ pin SDI { number = "14"; domains = "digital"; directions = "input"; }
+ pin SDO_ALARM { number = "15"; domains = "digital"; directions = "output"; }
+ pin VIO { number = "16"; domains = "power"; directions = "input"; }
+ pin EP { number = "17"; domains = "ground"; directions = "input"; }
+}

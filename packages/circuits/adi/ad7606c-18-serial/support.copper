@@ -1,0 +1,69 @@
+module AD7606C18_SERIAL_SUPPORT {
+ use library "tiny";
+ import adc "github.com/andenore/CopperLib/packages/parts/adi/ad7606c-18";
+ port AV5: power_in;
+ port DV3V3: power_in;
+ port GND: power_in;
+ port REF2V5: input;
+ port CONVST: input;
+ port RESET: input;
+ port SCLK: input;
+ port CS_N: input;
+ port SDI: input;
+ port SDO: output;
+ port BUSY: output;
+ port FRSTDATA: output;
+ port AIN1: input;
+ port AIN2: input;
+ port AIN3: input;
+ port AIN4: input;
+ port AIN5: input;
+ port AIN6: input;
+ port AIN7: input;
+ port AIN8: input;
+ component U: adc.AD7606C18BSTZ_SERIAL_EXTERNAL_REF;
+ component C_AV1: CAPACITOR { value = 100 nF; footprint = "Capacitor_SMD:C_0603_1608Metric"; role = decoupling; decouples = "U.AVCC_1"; }
+ constraint max_distance(C_AV1.1, U.AVCC_1) { distance = 2 mm; }
+ component C_AV37: CAPACITOR { value = 100 nF; footprint = "Capacitor_SMD:C_0603_1608Metric"; role = decoupling; decouples = "U.AVCC_37"; }
+ constraint max_distance(C_AV37.1, U.AVCC_37) { distance = 2 mm; }
+ component C_AV38: CAPACITOR { value = 100 nF; footprint = "Capacitor_SMD:C_0603_1608Metric"; role = decoupling; decouples = "U.AVCC_38"; }
+ constraint max_distance(C_AV38.1, U.AVCC_38) { distance = 2 mm; }
+ component C_AV48: CAPACITOR { value = 100 nF; footprint = "Capacitor_SMD:C_0603_1608Metric"; role = decoupling; decouples = "U.AVCC_48"; }
+ constraint max_distance(C_AV48.1, U.AVCC_48) { distance = 2 mm; }
+ component C_DV: CAPACITOR { value = 100 nF; footprint = "Capacitor_SMD:C_0603_1608Metric"; role = decoupling; decouples = "U.VDRIVE"; }
+ constraint max_distance(C_DV.1, U.VDRIVE) { distance = 2 mm; }
+ component C_REG36: CAPACITOR { value = 1 uF; footprint = "Capacitor_SMD:C_0603_1608Metric"; role = decoupling; decouples = "U.REGCAP_36"; }
+ constraint max_distance(C_REG36.1, U.REGCAP_36) { distance = 2 mm; }
+ component C_REG39: CAPACITOR { value = 1 uF; footprint = "Capacitor_SMD:C_0603_1608Metric"; role = decoupling; decouples = "U.REGCAP_39"; }
+ constraint max_distance(C_REG39.1, U.REGCAP_39) { distance = 2 mm; }
+ component C_REF: CAPACITOR { value = 100 nF; footprint = "Capacitor_SMD:C_0603_1608Metric"; role = decoupling; decouples = "U.REFIN"; }
+ constraint max_distance(C_REF.1, U.REFIN) { distance = 2 mm; }
+ component C_REFCAP: CAPACITOR { value = 10 uF; footprint = "Capacitor_SMD:C_0805_2012Metric"; role = decoupling; decouples = "U.REFCAPA"; }
+ // Reference requires closest feasible placement; 2.5 mm accommodates the 0805 land/courtyard.
+ constraint max_distance(C_REFCAP.1, U.REFCAPA) { distance = 2.5 mm; }
+ component C_BULK: CAPACITOR { value = 10 uF; footprint = "Capacitor_SMD:C_0805_2012Metric"; }
+ net AV5 { port.AV5; U.AVCC_1; U.AVCC_37; U.AVCC_38; U.AVCC_48; C_AV1.1; C_AV37.1; C_AV38.1; C_AV48.1; C_BULK.1; }
+ net DV3V3 { port.DV3V3; U.VDRIVE; C_DV.1; U.OS0; U.OS1; U.OS2; U.PAR_SER; U.STBY; U.WR; }
+ net GND { port.GND; U.AGND_2; U.AGND_26; U.AGND_35; U.AGND_40; U.AGND_41; U.AGND_47; U.REFGND_43; U.REFGND_46; U.V1N; U.V2N; U.V3N; U.V4N; U.V5N; U.V6N; U.V7N; U.V8N; U.DB2; U.DB3; U.DB4; U.DB14; U.DB15; U.DB16; U.DB17; U.RANGE; U.REF_SELECT; C_AV1.2; C_AV37.2; C_AV38.2; C_AV48.2; C_DV.2; C_REG36.2; C_REG39.2; C_REF.2; C_REFCAP.2; C_BULK.2; }
+ net CONVST { port.CONVST; U.CONVST; }
+ net RESET { port.RESET; U.RESET; }
+ net SCLK { port.SCLK; U.SCLK; }
+ net CS_N { port.CS_N; U.CS_N; }
+ net SDI { port.SDI; U.SDI; }
+ net BUSY { port.BUSY; U.BUSY; }
+ net FRSTDATA { port.FRSTDATA; U.FRSTDATA; }
+ net SDO { port.SDO; U.DOUTA; }
+ net REF2V5 { port.REF2V5; U.REFIN; C_REF.1; }
+ net REG36 { U.REGCAP_36; C_REG36.1; }
+ net REG39 { U.REGCAP_39; C_REG39.1; }
+ net REFCAP { U.REFCAPA; U.REFCAPB; C_REFCAP.1; }
+ net AIN1 { port.AIN1; U.V1P; }
+ net AIN2 { port.AIN2; U.V2P; }
+ net AIN3 { port.AIN3; U.V3P; }
+ net AIN4 { port.AIN4; U.V4P; }
+ net AIN5 { port.AIN5; U.V5P; }
+ net AIN6 { port.AIN6; U.V6P; }
+ net AIN7 { port.AIN7; U.V7P; }
+ net AIN8 { port.AIN8; U.V8P; }
+ no_connect U.DOUTB, U.DOUTC, U.DOUTD, U.DOUTE, U.DOUTF, U.DOUTG, U.DOUTH { reason = "Single DOUTA serial read; unused DOUT pins left open per datasheet page 48."; }
+}

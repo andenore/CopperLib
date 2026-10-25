@@ -1,0 +1,62 @@
+{
+  "source_url": "https://silvertel.com/images/datasheets/Ag59600LPB-datasheet-High%20efficiency%20IEEE802_3BT%2051W%20power-over-ethernet%20module.pdf",
+  "pins": [
+    [
+      1,
+      "VIN_N",
+      "power",
+      "input"
+    ],
+    [
+      2,
+      "TYP2DET",
+      "digital",
+      "output"
+    ],
+    [
+      3,
+      "TYP3DET",
+      "digital",
+      "output"
+    ],
+    [
+      4,
+      "VOUT_P",
+      "power",
+      "output"
+    ],
+    [
+      5,
+      "VOUT_N",
+      "ground",
+      "output"
+    ],
+    [
+      6,
+      "ADJ",
+      "analog",
+      "input"
+    ],
+    [
+      7,
+      "VIN_P",
+      "power",
+      "input"
+    ]
+  ],
+  "package": "Ag59600_LPB:Ag59600_LPB",
+  "output_capacitance_uF": [
+    330,
+    470,
+    680
+  ],
+  "isolation_barrier_mm": [
+    7.81,
+    -15.78,
+    10.81,
+    15.78
+  ],
+  "height_clearance_mm": 17.6,
+  "qualification": "Package transcription only; board isolation and thermal validation required.",
+  "local_source_sha256": "d3d4567e46ac9d7caf1871229fec4d39e1cee118a8754454ec5fbfbfa60e154f"
+}

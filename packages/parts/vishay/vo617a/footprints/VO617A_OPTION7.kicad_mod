@@ -1,0 +1,13 @@
+(footprint "VO617A_OPTION7" (version 20240108) (generator "CopperLib") (layer "F.Cu")
+ (descr "Vishay 83430 Rev2.8 Figure17 option7; 8.01mm land gap")
+ (attr smd)
+ (fp_text reference "REF**" (at 0 -3.29) (layer "F.SilkS") (effects (font (size 1 1) (thickness 0.15))))
+ (fp_text value "VO617A_OPTION7" (at 0 3.29) (layer "F.Fab") (effects (font (size 1 1) (thickness 0.15))))
+ (pad "1" smd rect (at -4.765 -1.27) (size 1.52 1.78) (layers "F.Cu" "F.Paste" "F.Mask"))
+ (pad "2" smd rect (at -4.765 1.27) (size 1.52 1.78) (layers "F.Cu" "F.Paste" "F.Mask"))
+ (pad "3" smd rect (at 4.765 1.27) (size 1.52 1.78) (layers "F.Cu" "F.Paste" "F.Mask"))
+ (pad "4" smd rect (at 4.765 -1.27) (size 1.52 1.78) (layers "F.Cu" "F.Paste" "F.Mask"))
+ (fp_rect (start -3.25 -2.29) (end 3.25 2.29) (stroke (width 0.1) (type default)) (fill none) (layer "F.Fab"))
+ (fp_rect (start -5.775 -2.79) (end 5.775 2.79) (stroke (width 0.05) (type default)) (fill none) (layer "F.CrtYd"))
+
+)

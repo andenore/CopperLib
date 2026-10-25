@@ -1,0 +1,6 @@
+{
+  "url": "https://www.st.com/resource/en/datasheet/stm32g071rb.pdf",
+  "sha256": "5f6d9bac3422cd51664d456bebea5deccfd15db380a80fccb20bbc2b6498231d",
+  "location": "DS12232 Rev 4, Figure 3 p36, power scheme Figure 13 p53; GPIO-only interface, alternate functions not modeled",
+  "scope": "Pin mapping and package source facts; electrical, thermal and assembly qualification pending."
+}

@@ -1,0 +1,10 @@
+part TPS3808G33DBVR {
+ footprint = "Package_TO_SOT_SMD:SOT-23-6";
+ source_url = "https://www.ti.com/lit/ds/symlink/tps3808.pdf"; source_revision = "SBVS050N August 2026"; source_location = "Pin Functions and package drawing";
+ pin RESET_N { number = "1"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; }
+ pin GND { number = "2"; domains = "ground"; directions = "input"; }
+ pin MR_N { number = "3"; domains = "digital"; directions = "input"; }
+ pin CT { number = "4"; domains = "analog"; directions = "passive"; }
+ pin SENSE { number = "5"; domains = "analog"; directions = "input"; }
+ pin VDD { number = "6"; domains = "power"; directions = "input"; }
+}

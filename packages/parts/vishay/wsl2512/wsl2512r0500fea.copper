@@ -1,0 +1,8 @@
+// Vishay 30100, 23-Nov-2023: two-terminal 50 mOhm WSL2512.
+part WSL2512R0500FEA {
+    category = "passive.resistor";
+    manufacturer = "Vishay";
+    footprint = "footprints/WSL2512_7m_to_500m.kicad_mod";
+    pin P1 { number = "1"; domains = "analog,power"; directions = "passive"; }
+    pin P2 { number = "2"; domains = "analog,power"; directions = "passive"; }
+}

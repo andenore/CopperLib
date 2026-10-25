@@ -1,0 +1,9 @@
+part SS36 {
+    manufacturer = "MDD";
+    footprint = "Diode_SMD:D_SMA";
+    source_url = "https://www.lcsc.com/datasheet/C16015.pdf";
+    source_location = "SS32-SS3200 SMA family datasheet; SS36 60V3A; cathode band";
+    source_checksum = "sha256:fb4970875779696914d235bcf954240569302fb325399838f2861d474cbf9760";
+    pin K { number = "1"; domains = "power,analog"; directions = "passive";  }
+    pin A { number = "2"; domains = "power,analog"; directions = "passive";  }
+}

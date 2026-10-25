@@ -1,0 +1,51 @@
+{
+  "pins": [
+    [
+      1,
+      "A",
+      "analog",
+      "passive"
+    ],
+    [
+      2,
+      "K",
+      "analog",
+      "passive"
+    ],
+    [
+      3,
+      "NC",
+      "analog",
+      "passive"
+    ],
+    [
+      4,
+      "LOAD1",
+      "power",
+      "passive"
+    ],
+    [
+      5,
+      "COMMON",
+      "analog",
+      "passive"
+    ],
+    [
+      6,
+      "LOAD2",
+      "power",
+      "passive"
+    ]
+  ],
+  "source_mirror": "https://docs.rs-online.com/c7af/A700000009081245.pdf",
+  "qualification": "Reference land and topology visually inspected; leakage at burden voltage, settling and assembly remain bench checks.",
+  "local_source_sha256": "d97857c4b8912e6b6c6ff8b5fbafd780e405c22679f92b4735c2fc82fbc27e37",
+  "courtyard_review": {
+    "source": "Panasonic ASCTB144E 202201 page 4, recommended mounting pad TOP VIEW, rotated 90 degrees",
+    "land_outer_x_mm": 5.1,
+    "courtyard_x_mm": 5.35,
+    "courtyard_y_mm": 4.9,
+    "basis": "8.3 mm row spacing plus 1.9 mm land width gives +/-5.1 mm copper extent. Courtyard adds 0.25 mm horizontally and preserves 0.5 mm body margin vertically. Previous +/-3.7 mm courtyard incorrectly omitted land ends; pad geometry unchanged.",
+    "qualification": "Engineering courtyard margin; assembly preview remains required."
+  }
+}

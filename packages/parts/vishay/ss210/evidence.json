@@ -1,0 +1,19 @@
+{
+  "source_url": "https://www.vishay.com/docs/88749/ss29.pdf",
+  "pins": [
+    [
+      1,
+      "K",
+      "analog",
+      "passive"
+    ],
+    [
+      2,
+      "A",
+      "analog",
+      "passive"
+    ]
+  ],
+  "qualification": "Standard package selected; exact land comparison and thermal verification pending.",
+  "local_source_sha256": "fb7c1d08057254677c38ef8e968a3d0d1f449c4228c5ffe1bfb05841bc91488c"
+}

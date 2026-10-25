@@ -1,0 +1,11 @@
+part OPA548T {
+ footprint = "TI_KVT0007_OPA548:TI_KVT0007_OPA548";
+ source_url = "https://www.ti.com/lit/ds/symlink/opa548.pdf"; source_revision = "SBOS070D December 2019"; source_location = "Pin Functions page 3; KVT drawing MPZF004 4204912/A";
+ pin INP { number = "1"; domains = "analog"; directions = "input"; }
+ pin INN { number = "2"; domains = "analog"; directions = "input"; }
+ pin ILIM { number = "3"; domains = "analog"; directions = "input"; }
+ pin VM { number = "4"; domains = "power"; directions = "input"; }
+ pin VP { number = "5"; domains = "power"; directions = "input"; }
+ pin OUT { number = "6"; domains = "analog"; directions = "output"; }
+ pin ES { number = "7"; domains = "analog"; directions = "bidirectional"; }
+}

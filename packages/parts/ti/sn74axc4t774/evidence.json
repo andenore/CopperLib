@@ -1,0 +1,106 @@
+{
+  "source_url": "https://www.ti.com/lit/ds/symlink/sn74axc4t774.pdf",
+  "revision": "SCES898C",
+  "locator": "Table 4-1 PW column page 3",
+  "package": "Package_SO:TSSOP-16_4.4x5mm_P0.65mm",
+  "local_source_sha256": null,
+  "pins": [
+    [
+      1,
+      "DIR1",
+      "digital",
+      "input"
+    ],
+    [
+      2,
+      "DIR2",
+      "digital",
+      "input"
+    ],
+    [
+      3,
+      "A1",
+      "digital",
+      "bidirectional"
+    ],
+    [
+      4,
+      "A2",
+      "digital",
+      "bidirectional"
+    ],
+    [
+      5,
+      "A3",
+      "digital",
+      "bidirectional"
+    ],
+    [
+      6,
+      "A4",
+      "digital",
+      "bidirectional"
+    ],
+    [
+      7,
+      "DIR3",
+      "digital",
+      "input"
+    ],
+    [
+      8,
+      "DIR4",
+      "digital",
+      "input"
+    ],
+    [
+      9,
+      "OE_N",
+      "digital",
+      "input"
+    ],
+    [
+      10,
+      "GND",
+      "ground",
+      "input"
+    ],
+    [
+      11,
+      "B4",
+      "digital",
+      "bidirectional"
+    ],
+    [
+      12,
+      "B3",
+      "digital",
+      "bidirectional"
+    ],
+    [
+      13,
+      "B2",
+      "digital",
+      "bidirectional"
+    ],
+    [
+      14,
+      "B1",
+      "digital",
+      "bidirectional"
+    ],
+    [
+      15,
+      "VCCB",
+      "power",
+      "input"
+    ],
+    [
+      16,
+      "VCCA",
+      "power",
+      "input"
+    ]
+  ],
+  "qualification": "Electrical pin contract only; selected standard footprint requires package drawing comparison before fabrication"
+}

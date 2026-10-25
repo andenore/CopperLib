@@ -1,0 +1,11 @@
+part Ag59624_LPB {
+ footprint = "Ag59600_LPB:Ag59600_LPB";
+ source_url = "https://silvertel.com/images/datasheets/Ag59600LPB-datasheet-High%20efficiency%20IEEE802_3BT%2051W%20power-over-ethernet%20module.pdf"; source_revision = "V1.3 May 2026"; source_location = "Figures 2 and 13; Tables 1, 3, 5 and 8";
+ pin VIN_N { number = "1"; domains = "power"; directions = "input"; }
+ pin TYP2DET { number = "2"; domains = "digital"; directions = "output"; }
+ pin TYP3DET { number = "3"; domains = "digital"; directions = "output"; }
+ pin VOUT_P { number = "4"; domains = "power"; directions = "output"; }
+ pin VOUT_N { number = "5"; domains = "ground"; directions = "output"; }
+ pin ADJ { number = "6"; domains = "analog"; directions = "input"; }
+ pin VIN_P { number = "7"; domains = "power"; directions = "input"; }
+}

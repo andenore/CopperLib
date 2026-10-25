@@ -1,0 +1,10 @@
+part SN74LVC1G3157DBVR {
+ footprint = "Package_TO_SOT_SMD:SOT-23-6";
+ source_url = "https://www.ti.com/lit/ds/symlink/sn74lvc1g3157.pdf"; source_revision = "SCES424O June 2025"; source_location = "Pin Functions and package drawing";
+ pin B2 { number = "1"; domains = "analog"; directions = "passive"; }
+ pin GND { number = "2"; domains = "ground"; directions = "input"; }
+ pin B1 { number = "3"; domains = "analog"; directions = "passive"; }
+ pin A { number = "4"; domains = "analog"; directions = "passive"; }
+ pin VCC { number = "5"; domains = "power"; directions = "input"; }
+ pin S { number = "6"; domains = "digital"; directions = "input"; }
+}

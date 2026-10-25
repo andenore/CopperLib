@@ -1,0 +1,13 @@
+part TPS3431SDRBR {
+ footprint = "TI_DRB0008A_TPS3431:TI_DRB0008A_TPS3431";
+ source_url = "https://www.ti.com/lit/ds/symlink/tps3431.pdf"; source_revision = "SNVSB66A October 2021"; source_location = "Table 5-1; DRB0008A recommended land";
+ pin VDD { number = "1"; domains = "power"; directions = "input"; }
+ pin CWD { number = "2"; domains = "analog"; directions = "passive"; }
+ pin EN { number = "3"; domains = "digital"; directions = "input"; }
+ pin GND { number = "4"; domains = "ground"; directions = "input"; }
+ pin SET1 { number = "5"; domains = "digital"; directions = "input"; }
+ pin WDI { number = "6"; domains = "digital"; directions = "input"; }
+ pin WDO_N { number = "7"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; }
+ pin ENOUT { number = "8"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; }
+ pin EP { number = "9"; domains = "ground"; directions = "passive"; }
+}
