@@ -80,6 +80,8 @@ def test_reference_oriented_power_stage_arrangement(tmp_path):
     second_output = poses["B/C_OUT2"].position
     assert input_cap.x_nm < u.x_nm < output_cap.x_nm < l.x_nm < second_output.x_nm
     assert input_cap.y_nm > u.y_nm and output_cap.y_nm > u.y_nm
+    # C_OUT2 sits in C_OUT1's row, so the macro adds no courtyard beyond it.
+    assert second_output.y_nm == output_cap.y_nm
     sw_land = transformed_pad_position(board, poses["B/L"], "1")
     output_land = transformed_pad_position(board, poses["B/L"], "2")
     assert sw_land.y_nm < output_land.y_nm
@@ -114,6 +116,35 @@ def test_input_capacitor_loop_stays_compact(tmp_path):
 
 @pytest.mark.skipif(not FOOTPRINT_ROOT.is_dir(), reason="explicit KiCad footprint installation required")
 @pytest.mark.parametrize("enabled", [False, True])
+def test_quiet_sense_path_keeps_away_from_switch_copper(tmp_path, enabled):
+    # SLVSAG7F 11.1: VOS and FB pick up VOUT at the output capacitor and must
+    # not run near high-dv/dt SW copper. The In2.Cu sense path must not pass
+    # beneath the SW island, the inductor's SW land or the SW pin necks.
+    from pcbir.drc import placed_pad_shape
+    from pcbir.geometry import RoundedConvexShape, shapes_clear
+    from pcbir.placement import transformed_pad_position
+    board = load("layout_trial").make_trial(tmp_path, enabled=enabled, external=False,
+                                             footprint_root=FOOTPRINT_ROOT)
+    sense = [RoundedConvexShape((t.start, t.end), t.width_nm // 2)
+             for t in board.tracks if t.net == "VOUT" and t.layer.value == "In2.Cu"]
+    assert sense
+    switch = [RoundedConvexShape((t.start, t.end), t.width_nm // 2)
+              for t in board.tracks if t.net == "B/SW"]
+    switch += [RoundedConvexShape(p.outline.vertices) for p in board.polygons if p.net == "B/SW"]
+    poses = {p.reference: p for p in board.placements}
+    for pad_net in board.nets:
+        if pad_net.name != "B/SW":
+            continue
+        for ref in pad_net.pads:
+            placement = poses[ref.component]
+            pad = next(p for p in board.footprints[placement.footprint].pads if p.number == ref.pad)
+            switch.append(placed_pad_shape(transformed_pad_position(board, placement, ref.pad), pad, placement))
+    assert len(switch) > 4
+    assert all(shapes_clear(trace, copper, 700_000) for trace in sense for copper in switch)
+
+
+@pytest.mark.skipif(not FOOTPRINT_ROOT.is_dir(), reason="explicit KiCad footprint installation required")
+@pytest.mark.parametrize("enabled", [False, True])
 @pytest.mark.parametrize("rotation", [0,90,180,270])
 def test_materialization_rotates_and_independent_refill_accepts_external_routes(tmp_path,enabled,rotation):
     from pcbir.hard_macros import materialize_hard_macros, validate_hard_macros
@@ -142,6 +173,21 @@ def test_materialization_rotates_and_independent_refill_accepts_external_routes(
     blocks = target.read_text().split("(zone\n")
     assert all(any(f'(name "{zone.id}")' in block and "(filled_polygon" in block
                    for block in blocks) for zone in board.hard_macros[0].zones)
+    # The input capacitor's return must reach PGND in the same filled F.Cu
+    # piece; no lead (EN or its VIN tie) may cut the lower return field.
+    import re
+    from pcbir.geometry import point_in_polygon
+    from pcbir.physical import Point
+    from pcbir.placement import transformed_pad_position
+    lower = next(block for block in blocks if '(name "' in block and '/lower-return")' in block)
+    pieces = [tuple(Point(round(float(x)*1e6), round(float(y)*1e6))
+                    for x, y in re.findall(r"\(xy ([-\d.]+) ([-\d.]+)\)", fill))
+              for fill in lower.split("(filled_polygon")[1:]]
+    poses = {p.reference: p for p in routed.placements}
+    def piece(ref, number):
+        land = transformed_pad_position(routed, poses[ref], number)
+        return next(i for i, outline in enumerate(pieces) if point_in_polygon(land, outline))
+    assert piece("B/C_PVIN", "2") == piece("B/U", "15") == piece("B/C_OUT1", "2")
 
 
 @pytest.mark.skipif(not FOOTPRINT_ROOT.is_dir(), reason="explicit KiCad footprint installation required")
@@ -235,8 +281,8 @@ def test_surface_power_fill_connects_at_owner_via_banks(tmp_path):
         return CopperZone(name,net,(CopperLayer.BACK,),PolygonWithHoles(PolygonRing(tuple(
             Point.mm(x,y) for x,y in ((x0,.5),(x1,.5),(x1,39.5),(x0,39.5))))),
             pad_connection=ZoneConnection.SOLID)
-    board = replace(board,zones=(*board.zones,zone("vin-access","VIN",26.8,39.5),
-                                 zone("vout-access","VOUT",.5,9.2)))
+    board = replace(board,zones=(*board.zones,zone("vin-access","VIN",25.5,39.5),
+                                 zone("vout-access","VOUT",.5,10.1)))
     # Ordinary routing first has enough endpoint contacts; explicit surface
     # stitching then proves that no private-pad shortcut is needed for a pour.
     routed = trial.route_trial(board)

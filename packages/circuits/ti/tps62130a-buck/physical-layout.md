@@ -4,8 +4,10 @@ Review this adaptation against the [CopperLib hard-macro checklist](../../../../
 
 The two v0.3 JSON assets preserve nine component poses and their local copper for the
 existing `TPS62130A_BUCK_2U2` circuit, including its board-owned feedback resistors.
-The always-on variant joins EN to VIN locally. The enabled variant exposes a
-separate EN port. Neither asset changes the electrical module or resistor values.
+The always-on variant joins EN to the adjacent VIN pin 12 at the package
+corner. The enabled variant exposes a separate EN port on a via beside pin 13.
+Neither EN connection crosses the lower return field, which would split
+C_PVIN's ground from PGND on F.Cu. Neither asset changes the electrical module or resistor values.
 `production_publishable` remains false; geometric acceptance is not regulator,
 thermal, EMI or assembly qualification.
 
@@ -24,11 +26,17 @@ This authored adaptation uses a Coilcraft XAL4020-222MEC, two 0805 output
 capacitors and a six-layer board. It follows the arrangement in datasheet
 Figure 11-1: viewed at 180° in the probe, VIN and its input capacitor are to
 the left of U; the inductor is to the right with SW above VOUT; C_OUT1 is below
-and between U and L; and the second output capacitor extends the VOUT edge.
+and between U and L, in the position of the reference's single C3; and the
+second output capacitor (the 2 × 22 µF combination of SLVSAG7F Table 9-2) sits
+in C_OUT1's row, 0.05 mm courtyard to courtyard, with its VOUT land beside
+C_OUT1's and its GND via above its ground land. Its return to PGND is about
+6 mm (8 mm before). The row keeps the macro's courtyard edge where hosts
+expect it; stacking the capacitors would move it 2 mm and can remove the only
+legal pose of a host part placed against that edge.
 Three fixed, netted F.Cu polygons form the broad VIN and VOUT lobes and the
 bounded SW island. The VOUT lobe contacts the inductor's lower land, both output
 capacitors and the side access lead. Two locked F.Cu GND zones form the lower
-return field and the exposed-pad area. The lower field extends well below the
+return field and the exposed-pad area. The lower field extends beyond both
 output capacitors; every capacitor also retains its own nearby GND via.
 
 The extra capacitor, larger inductor, side via banks and layer assignment are
@@ -43,7 +51,10 @@ satisfy the rail routing rules.
 AGND, PGND and all thermal-pad lands connect directly to the EP region. Every
 required SW and PVIN contact is individually routed. SW stays on F.Cu without
 vias. VOS and the divider's output pick-up use a separate fixed In2.Cu path to
-C_OUT1, with In1.Cu GND retained above it. Four 0.45/0.20 mm filled-capped thermal
+C_OUT1, with In1.Cu GND retained above it. The pickup runs beneath the lower
+GND return to the VOS via; the divider branch passes the IC's VIN side. No
+sense copper lies under the SW island, the inductor or the SW pin necks; it
+keeps at least 0.7 mm edge clearance from all SW copper in plan. Four 0.45/0.20 mm filled-capped thermal
 vias sit inside EP. The regulator PG land remains present and unconnected.
 
 C_PVIN's individual GND via is on the IC-facing side of the capacitor, 1.10 mm
@@ -57,15 +68,17 @@ quiet VOS/divider pickup point on shielded In2.Cu, separate from the SW island.
 
 The anchor is U at `(0, 0)`; only front-side 0/90/180/270-degree rotations are
 allowed. Component-local coordinates, tracks, vias, ports, polygons, zones and
-keepouts rotate together. The private envelope is x = −10.6…6.6 mm,
-y = −6…5.1 mm. Side access and the enabled EN lead extend to ports outside it;
-the power-port span is 18.4 mm.
+keepouts rotate together. The private envelope is x = −9.7…5.3 mm,
+y = −5.05…4.4 mm (15.0 × 9.45 mm). Short side access leads reach the VIN/VOUT
+via banks 0.8 mm outside it; the power-port span is 16.6 mm. A 0.6 mm offset
+left some host global-routing tiles without a free start beside the envelope.
+The EN via port lies inside the envelope.
 
 | Port | Local position (mm) | Exposed layer | Intended entry |
 | --- | --- | --- | --- |
-| VIN | (7.2, −0.95) | F.Cu; paired through-via bank also reaches B.Cu | Input side |
-| VOUT | (−11.2, 0) | F.Cu; paired through-via bank also reaches B.Cu | Output side |
-| EN, enabled variant only | (2, −6.5) | F.Cu | Logic-control side |
+| VIN | (6.1, −0.95) | F.Cu; paired through-via bank also reaches B.Cu | Input side |
+| VOUT | (−10.5, 0) | F.Cu; paired through-via bank also reaches B.Cu | Output side |
+| EN, enabled variant only | (1.45, −1.6), 0.45/0.20 mm through via beside pin 13 | In3.Cu (F.Cu, In2.Cu and B.Cu are protected) | Host routes on In3.Cu |
 
 Protection on F.Cu/In2.Cu/B.Cu prevents later same-net shortcuts as well as
 foreign routing. Fill exclusions on In2.Cu/In3.Cu/B.Cu keep host pours out of

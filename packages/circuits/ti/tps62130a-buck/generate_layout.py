@@ -23,7 +23,7 @@ FOOTPRINTS = {
 }
 POSES = {"U": (0, 0, 0), "L": (-5.1, 1.05, 90), "C_PVIN": (3.2, -1.9, 90),
          "C_AVIN": (3.4, .9, 0), "C_SS": (2.9, 2.6, 180),
-         "C_OUT1": (-4.2, -2.7, 0), "C_OUT2": (-8, -2.7, 180),
+         "C_OUT1": (-4.2, -2.7, 0), "C_OUT2": (-7.65, -2.7, 180),
          "R_FB_TOP": (-1.6, 3, 0), "R_FB_BOT": (.3, 3, 0)}
 
 
@@ -38,9 +38,9 @@ def generate(enabled=False):
     def track(net, vertices, width=.25, layer="F.Cu"):
         tracks.append(dict(net=net, points=[v if isinstance(v, dict) else point(*v) for v in vertices],
                            width_nm=nm(width), layer=layer))
-    def via(net, xy, thermal=False):
-        data = dict(net=net, position_nm=point(*xy), size_nm=450000 if thermal else 600000,
-                    drill_nm=200000 if thermal else 300000, from_layer="F.Cu", to_layer="B.Cu", technology=None)
+    def via(net, xy, thermal=False, small=False):
+        data = dict(net=net, position_nm=point(*xy), size_nm=450000 if thermal or small else 600000,
+                    drill_nm=200000 if thermal or small else 300000, from_layer="F.Cu", to_layer="B.Cu", technology=None)
         if thermal: data["finish"] = "filled-capped"
         vias.append(data)
     pad_nets = []
@@ -58,8 +58,8 @@ def generate(enabled=False):
     # Every power contact is individually wired; none is an internal-pad exemption.
     for n in (1,2,3): track("SW", [pad("U",n),(-2.25,(-.75,-.25,.25)[n-1])], .25)
     # Fixed, contoured power copper follows TI Figure 11-1's VIN/SW/VOUT
-    # arrangement. The second output capacitor extends the reference's VOUT
-    # edge without enlarging the switching island.
+    # arrangement. The second output capacitor sits in C_OUT1's row with its
+    # VOUT land beside C_OUT1's, so it adds no courtyard beyond that row.
     def polygon(name, net, vertices):
         return dict(id=name, net=net, layer="F.Cu", vertices=[point(*p) for p in vertices])
     polygons = [
@@ -67,32 +67,34 @@ def generate(enabled=False):
                 (-1.9,.35),(-2.3,.35),(-2.3,2.4),(-5.3,2.4),
                 (-5.3,1.8),(-3.1,1.8)]),
         polygon("input-lobe", "VIN", [(1.8,-1),(2.3,-1),(2.3,-1.55),
-                (6.3,-1.55),(6.3,-.35),(2.3,-.35),(2.3,-.05),(1.8,-.05)]),
-        polygon("output-lobe", "VOUT", [(-9.2,.8),(-7.4,.8),(-7.4,.5),
-                (-5.75,.5),(-5.75,-1.9),(-3.9,-1.9),(-3.9,-3.3),
-                (-7.4,-3.3),(-7.4,-1.6),(-9.2,-1.6)]),
+                (4.6,-1.55),(4.6,-.35),(2.3,-.35),(2.3,-.05),(1.8,-.05)]),
+        polygon("output-lobe", "VOUT", [(-7.4,.5),(-5.75,.5),(-5.75,-1.9),
+                (-3.9,-1.9),(-3.9,-3.3),(-7.4,-3.3)]),
     ]
     for n, y in ((11,-.25),(12,-.75)):
         track("VIN", [pad("U",n),(2.25,y)], .25)
     track("VIN", [pad("U",10),(2.1,.25),(2.75,.9),pad("C_AVIN",1)], .25)
     track("VIN", [pad("C_AVIN",1),(2.92,-.95),pad("C_PVIN",1)], .25)
-    track("VIN", [pad("C_PVIN",1),(7.2,-.95)], .8)
-    for xy in ((7.2,-.95),(7.2,-.15)):
+    track("VIN", [pad("C_PVIN",1),(6.1,-.95)], .8)
+    for xy in ((6.1,-.95),(6.1,-.15)):
         via("VIN", xy)
-    track("VIN", [(7.2,-.95),(7.2,-.15)], .8)
-    track("VIN", [(7.2,-.95),(7.2,-.15)], .8,"B.Cu")
-    track("VOUT", [(-8.3,0),(-11.2,0)], .8)
-    for xy in ((-11.2,0),(-11.2,.8)):
+    track("VIN", [(6.1,-.95),(6.1,-.15)], .8)
+    track("VIN", [(6.1,-.95),(6.1,-.15)], .8,"B.Cu")
+    track("VOUT", [(-7.2,0),(-10.5,0)], .8)
+    for xy in ((-10.5,0),(-10.5,.8)):
         via("VOUT", xy)
-    track("VOUT", [(-11.2,0),(-11.2,.8)], .8)
-    track("VOUT", [(-11.2,0),(-11.2,.8)], .8,"B.Cu")
+    track("VOUT", [(-10.5,0),(-10.5,.8)], .8)
+    track("VOUT", [(-10.5,0),(-10.5,.8)], .8,"B.Cu")
     # Quiet sense geometry is owner copper on In2, shielded from SW by In1 GND.
+    # The C_OUT1 pickup runs under the lower GND return to VOS; the divider
+    # branch passes the IC's VIN side, never under the SW island or inductor.
     track("VOUT", [pad("U",14),(.25,-2.6)], .25)
     track("VOUT", [pad("C_OUT1",1),(-5.2,-1.55)], .25)
-    track("VOUT", [pad("R_FB_TOP",1),(-2.11,4.25)], .25)
-    for xy in ((.25,-2.6),(-5.2,-1.55),(-2.11,4.25)):
+    track("VOUT", [pad("R_FB_TOP",1),(-2.11,3.75)], .25)
+    for xy in ((.25,-2.6),(-5.2,-1.55),(-2.11,3.75)):
         via("VOUT",xy)
-    track("VOUT", [(.25,-2.6),(.25,-1.85),(-5.2,-1.55),(-5.2,5),(-2.11,5),(-2.11,4.25)], .25,"In2.Cu")
+    track("VOUT", [(.25,-2.6),(.25,-2),(-4.75,-2),(-5.2,-1.55)], .25,"In2.Cu")
+    track("VOUT", [(.25,-2),(1,-1.25),(1,2),(0,3),(-1.36,3),(-2.11,3.75)], .25,"In2.Cu")
     track("FB", [pad("U",5),(-.75,2.3),(-1.09,2.64),pad("R_FB_TOP",2),pad("R_FB_BOT",1)], .2)
     track("SS", [pad("U",9),(2,.75),(2,1.6),pad("C_SS",1)], .2)
     for n, xy in ((6,(-.25,.65)),(7,(.25,.65)),(8,(.75,.65)),(15,(-.25,-.65)),(16,(-.75,-.65))):
@@ -101,14 +103,18 @@ def generate(enabled=False):
     for xy in ep_vias:
         via("GND",xy,thermal=True)
     grounds = [("C_PVIN",(2.1,-2.85)),("C_AVIN",(4.8,.9)),("C_SS",(1.4,2.6)),
-               ("C_OUT1",(-2.2,-2.7)),("C_OUT2",(-9.85,-2.7)),("R_FB_BOT",(.81,4))]
+               ("C_OUT1",(-2.2,-2.7)),("C_OUT2",(-8.6,-4)),("R_FB_BOT",(.81,3.75))]
     for ref, xy in grounds:
         track("GND",[pad(ref,2),xy],.5 if ref in {"C_PVIN","C_OUT1","C_OUT2"} else .25)
         via("GND",xy)
+    # EN stays at the package corner: a surface lead from pin 13 through the
+    # lower return field would split C_PVIN's ground from PGND.
     if enabled:
-        track("EN",[pad("U",13),(1,-1.7125),(1,-6.5),(2,-6.5)],.2)
+        # A via beside pin 13 is the port; the host connects on In3.Cu.
+        track("EN",[pad("U",13),(.75,-1.6),(1.45,-1.6)],.2)
+        via("EN",(1.45,-1.6),small=True)
     else:
-        track("VIN",[pad("U",13),(1,-1.7125),(1,-3.8),(4.3,-3.8),(4.3,-1.55)],.25)
+        track("VIN",[pad("U",13),(1.3,-1.4625),(1.3,-.75)],.25)
 
     # One broad lower GND return complements the fixed VIN/VOUT conductors;
     # refill clears it around the output lobe and makes the ground contacts.
@@ -117,16 +123,16 @@ def generate(enabled=False):
                     priority=2, clearance_nm=200000, minimum_width_nm=200000,
                     pad_connection="solid")
     zones = [
-        zone("lower-return", "GND", [(-10.3,-5.7),(5.9,-5.7),(5.9,-1.8),
-             (1.3,-1.8),(1.3,-.7),(-3.3,-.7),(-3.3,-1.8),(-10.3,-1.8)]),
+        zone("lower-return", "GND", [(-9.4,-4.75),(4.4,-4.75),(4.4,-1.8),
+             (1.3,-1.8),(1.3,-.7),(-3.3,-.7),(-3.3,-1.8),(-9.4,-1.8)]),
         zone("exposed-pad", "GND", [(-.6,-.6),(.6,-.6),(.6,.6),(-.6,.6)]),
     ]
 
     def region(name,layers,tracks,vias,zones):
-        return dict(id=name,layers=layers,vertices=[point(-10.6,-6),point(6.6,-6),point(6.6,5.1),point(-10.6,5.1)],
+        return dict(id=name,layers=layers,vertices=[point(-9.7,-5.05),point(5.3,-5.05),point(5.3,4.4),point(-9.7,4.4)],
                     block_tracks=tracks,block_vias=vias,block_zones=zones)
     ports = []
-    for role, xy, layer in [("VIN",(7.2,-.95),"F.Cu"),("VOUT",(-11.2,0),"F.Cu")]+([("EN",(2,-6.5),"F.Cu")] if enabled else []):
+    for role, xy, layer in [("VIN",(6.1,-.95),"F.Cu"),("VOUT",(-10.5,0),"F.Cu")]+([("EN",(1.45,-1.6),"In3.Cu")] if enabled else []):
         ports.append(dict(name=role,net=role,point=point(*xy),layer=layer,pads=[[r,p] for r,p,n in pad_nets if n==role]))
     plane_returns = [dict(net="GND", layers=["In1.Cu","In4.Cu"],
                           pads=[[r,p] for r,p,n in pad_nets if n=="GND"],

@@ -1,7 +1,7 @@
 // Declarative migration of reviewed, unqualified geometry.
 macro TPS62130A_MANAGED_ENABLED {
     source = {
-        base_asset_sha256 = "3a2f429bda9f85d7b1563fb46d2dde24ec63101cb7229510b22b5d84b784fe66";
+        base_asset_sha256 = "c7aeffbd6b83c4e19e68754be2b7c1be230438e665f0c62838c0a6b6f9c22328";
         datasheet_locator = "SLVSAG7F Rev F, Table 6-1, sections 11.1–11.3, Figure 11-1, pages 3 and 28–29";
         datasheet_sha256 = "f9b1af285622c0cf1a5991f9641a6e64c5e6d899e52cc0b1632808742019579f";
         datasheet_url = "https://www.ti.com/lit/ds/symlink/tps62130a.pdf";
@@ -43,7 +43,7 @@ macro TPS62130A_MANAGED_ENABLED {
 
     member C_OUT2 {
         footprint = "gitlab.com/kicad/libraries/kicad-footprints/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod";
-        at = (-8 mm, -2.7 mm);
+        at = (-7.65 mm, -2.7 mm);
         rotation = 180 deg;
         edge_clearance = 0.25 mm;
     }
@@ -177,42 +177,42 @@ macro TPS62130A_MANAGED_ENABLED {
         net = VIN;
         layer = "F.Cu";
         width = 0.8 mm;
-        points = [C_PVIN."1", (7.2 mm, -0.95 mm)];
+        points = [C_PVIN."1", (6.1 mm, -0.95 mm)];
     }
 
     track track_8 {
         net = VIN;
         layer = "F.Cu";
         width = 0.8 mm;
-        points = [(7.2 mm, -0.95 mm), (7.2 mm, -0.15 mm)];
+        points = [(6.1 mm, -0.95 mm), (6.1 mm, -0.15 mm)];
     }
 
     track track_9 {
         net = VIN;
         layer = "B.Cu";
         width = 0.8 mm;
-        points = [(7.2 mm, -0.95 mm), (7.2 mm, -0.15 mm)];
+        points = [(6.1 mm, -0.95 mm), (6.1 mm, -0.15 mm)];
     }
 
     track track_10 {
         net = VOUT;
         layer = "F.Cu";
         width = 0.8 mm;
-        points = [(-8.3 mm, 0 mm), (-11.2 mm, 0 mm)];
+        points = [(-7.2 mm, 0 mm), (-10.5 mm, 0 mm)];
     }
 
     track track_11 {
         net = VOUT;
         layer = "F.Cu";
         width = 0.8 mm;
-        points = [(-11.2 mm, 0 mm), (-11.2 mm, 0.8 mm)];
+        points = [(-10.5 mm, 0 mm), (-10.5 mm, 0.8 mm)];
     }
 
     track track_12 {
         net = VOUT;
         layer = "B.Cu";
         width = 0.8 mm;
-        points = [(-11.2 mm, 0 mm), (-11.2 mm, 0.8 mm)];
+        points = [(-10.5 mm, 0 mm), (-10.5 mm, 0.8 mm)];
     }
 
     track track_13 {
@@ -233,117 +233,124 @@ macro TPS62130A_MANAGED_ENABLED {
         net = VOUT;
         layer = "F.Cu";
         width = 0.25 mm;
-        points = [R_FB_TOP."1", (-2.11 mm, 4.25 mm)];
+        points = [R_FB_TOP."1", (-2.11 mm, 3.75 mm)];
     }
 
     track track_16 {
         net = VOUT;
         layer = "In2.Cu";
         width = 0.25 mm;
-        points = [(0.25 mm, -2.6 mm), (0.25 mm, -1.85 mm), (-5.2 mm, -1.55 mm), (-5.2 mm, 5 mm), (-2.11 mm, 5 mm), (-2.11 mm, 4.25 mm)];
+        points = [(0.25 mm, -2.6 mm), (0.25 mm, -2 mm), (-4.75 mm, -2 mm), (-5.2 mm, -1.55 mm)];
     }
 
     track track_17 {
+        net = VOUT;
+        layer = "In2.Cu";
+        width = 0.25 mm;
+        points = [(0.25 mm, -2 mm), (1 mm, -1.25 mm), (1 mm, 2 mm), (0 mm, 3 mm), (-1.36 mm, 3 mm), (-2.11 mm, 3.75 mm)];
+    }
+
+    track track_18 {
         net = FB;
         layer = "F.Cu";
         width = 0.2 mm;
         points = [U."5", (-0.75 mm, 2.3 mm), (-1.09 mm, 2.64 mm), R_FB_TOP."2", R_FB_BOT."1"];
     }
 
-    track track_18 {
+    track track_19 {
         net = SS;
         layer = "F.Cu";
         width = 0.2 mm;
         points = [U."9", (2 mm, 0.75 mm), (2 mm, 1.6 mm), C_SS."1"];
     }
 
-    track track_19 {
+    track track_20 {
         net = GND;
         layer = "F.Cu";
         width = 0.25 mm;
         points = [U."6", (-0.25 mm, 0.65 mm)];
     }
 
-    track track_20 {
+    track track_21 {
         net = GND;
         layer = "F.Cu";
         width = 0.25 mm;
         points = [U."7", (0.25 mm, 0.65 mm)];
     }
 
-    track track_21 {
+    track track_22 {
         net = GND;
         layer = "F.Cu";
         width = 0.25 mm;
         points = [U."8", (0.75 mm, 0.65 mm)];
     }
 
-    track track_22 {
+    track track_23 {
         net = GND;
         layer = "F.Cu";
         width = 0.25 mm;
         points = [U."15", (-0.25 mm, -0.65 mm)];
     }
 
-    track track_23 {
+    track track_24 {
         net = GND;
         layer = "F.Cu";
         width = 0.25 mm;
         points = [U."16", (-0.75 mm, -0.65 mm)];
     }
 
-    track track_24 {
+    track track_25 {
         net = GND;
         layer = "F.Cu";
         width = 0.5 mm;
         points = [C_PVIN."2", (2.1 mm, -2.85 mm)];
     }
 
-    track track_25 {
+    track track_26 {
         net = GND;
         layer = "F.Cu";
         width = 0.25 mm;
         points = [C_AVIN."2", (4.8 mm, 0.9 mm)];
     }
 
-    track track_26 {
+    track track_27 {
         net = GND;
         layer = "F.Cu";
         width = 0.25 mm;
         points = [C_SS."2", (1.4 mm, 2.6 mm)];
     }
 
-    track track_27 {
+    track track_28 {
         net = GND;
         layer = "F.Cu";
         width = 0.5 mm;
         points = [C_OUT1."2", (-2.2 mm, -2.7 mm)];
     }
 
-    track track_28 {
-        net = GND;
-        layer = "F.Cu";
-        width = 0.5 mm;
-        points = [C_OUT2."2", (-9.85 mm, -2.7 mm)];
-    }
-
     track track_29 {
         net = GND;
         layer = "F.Cu";
-        width = 0.25 mm;
-        points = [R_FB_BOT."2", (0.81 mm, 4 mm)];
+        width = 0.5 mm;
+        points = [C_OUT2."2", (-8.6 mm, -4 mm)];
     }
 
     track track_30 {
+        net = GND;
+        layer = "F.Cu";
+        width = 0.25 mm;
+        points = [R_FB_BOT."2", (0.81 mm, 3.75 mm)];
+    }
+
+    track track_31 {
         net = EN;
         layer = "F.Cu";
         width = 0.2 mm;
-        points = [U."13", (1 mm, -1.7125 mm), (1 mm, -6.5 mm), (2 mm, -6.5 mm)];
+        points = [U."13", (0.75 mm, -1.6 mm), (1.45 mm, -1.6 mm)];
     }
 
     via via_0 {
         net = VIN;
-        at = (7.2 mm, -0.95 mm);
+        at = (6.1 mm, -0.95 mm);
         size = 0.6 mm;
         drill = 0.3 mm;
         from_layer = "F.Cu";
@@ -354,7 +361,7 @@ macro TPS62130A_MANAGED_ENABLED {
 
     via via_1 {
         net = VIN;
-        at = (7.2 mm, -0.15 mm);
+        at = (6.1 mm, -0.15 mm);
         size = 0.6 mm;
         drill = 0.3 mm;
         from_layer = "F.Cu";
@@ -365,7 +372,7 @@ macro TPS62130A_MANAGED_ENABLED {
 
     via via_2 {
         net = VOUT;
-        at = (-11.2 mm, 0 mm);
+        at = (-10.5 mm, 0 mm);
         size = 0.6 mm;
         drill = 0.3 mm;
         from_layer = "F.Cu";
@@ -376,7 +383,7 @@ macro TPS62130A_MANAGED_ENABLED {
 
     via via_3 {
         net = VOUT;
-        at = (-11.2 mm, 0.8 mm);
+        at = (-10.5 mm, 0.8 mm);
         size = 0.6 mm;
         drill = 0.3 mm;
         from_layer = "F.Cu";
@@ -409,7 +416,7 @@ macro TPS62130A_MANAGED_ENABLED {
 
     via via_6 {
         net = VOUT;
-        at = (-2.11 mm, 4.25 mm);
+        at = (-2.11 mm, 3.75 mm);
         size = 0.6 mm;
         drill = 0.3 mm;
         from_layer = "F.Cu";
@@ -508,7 +515,7 @@ macro TPS62130A_MANAGED_ENABLED {
 
     via via_15 {
         net = GND;
-        at = (-9.85 mm, -2.7 mm);
+        at = (-8.6 mm, -4 mm);
         size = 0.6 mm;
         drill = 0.3 mm;
         from_layer = "F.Cu";
@@ -519,9 +526,20 @@ macro TPS62130A_MANAGED_ENABLED {
 
     via via_16 {
         net = GND;
-        at = (0.81 mm, 4 mm);
+        at = (0.81 mm, 3.75 mm);
         size = 0.6 mm;
         drill = 0.3 mm;
+        from_layer = "F.Cu";
+        to_layer = "B.Cu";
+        technology = none;
+        finish = "standard";
+    }
+
+    via via_17 {
+        net = EN;
+        at = (1.45 mm, -1.6 mm);
+        size = 0.45 mm;
+        drill = 0.2 mm;
         from_layer = "F.Cu";
         to_layer = "B.Cu";
         technology = none;
@@ -531,27 +549,27 @@ macro TPS62130A_MANAGED_ENABLED {
     port VIN {
         net = VIN;
         layer = "F.Cu";
-        point = (7.2 mm, -0.95 mm);
+        point = (6.1 mm, -0.95 mm);
         pads = [U."10", U."11", U."12", C_PVIN."1", C_AVIN."1"];
     }
 
     port VOUT {
         net = VOUT;
         layer = "F.Cu";
-        point = (-11.2 mm, 0 mm);
+        point = (-10.5 mm, 0 mm);
         pads = [U."14", L."2", C_OUT1."1", C_OUT2."1", R_FB_TOP."1"];
     }
 
     port EN {
         net = EN;
-        layer = "F.Cu";
-        point = (2 mm, -6.5 mm);
+        layer = "In3.Cu";
+        point = (1.45 mm, -1.6 mm);
         pads = [U."13"];
     }
 
     protected_region regulator-private {
         layers = ["F.Cu", "In2.Cu", "B.Cu"];
-        vertices = [(-10.6 mm, -6 mm), (6.6 mm, -6 mm), (6.6 mm, 5.1 mm), (-10.6 mm, 5.1 mm)];
+        vertices = [(-9.7 mm, -5.05 mm), (5.3 mm, -5.05 mm), (5.3 mm, 4.4 mm), (-9.7 mm, 4.4 mm)];
         block_tracks = true;
         block_vias = true;
         block_zones = false;
@@ -559,7 +577,7 @@ macro TPS62130A_MANAGED_ENABLED {
 
     keepout regulator-fill-exclusion {
         layers = ["In2.Cu", "In3.Cu", "B.Cu"];
-        vertices = [(-10.6 mm, -6 mm), (6.6 mm, -6 mm), (6.6 mm, 5.1 mm), (-10.6 mm, 5.1 mm)];
+        vertices = [(-9.7 mm, -5.05 mm), (5.3 mm, -5.05 mm), (5.3 mm, 4.4 mm), (-9.7 mm, 4.4 mm)];
         block_tracks = false;
         block_vias = false;
         block_zones = true;
@@ -568,7 +586,7 @@ macro TPS62130A_MANAGED_ENABLED {
     zone lower-return {
         net = GND;
         layers = ["F.Cu"];
-        vertices = [(-10.3 mm, -5.7 mm), (5.9 mm, -5.7 mm), (5.9 mm, -1.8 mm), (1.3 mm, -1.8 mm), (1.3 mm, -0.7 mm), (-3.3 mm, -0.7 mm), (-3.3 mm, -1.8 mm), (-10.3 mm, -1.8 mm)];
+        vertices = [(-9.4 mm, -4.75 mm), (4.4 mm, -4.75 mm), (4.4 mm, -1.8 mm), (1.3 mm, -1.8 mm), (1.3 mm, -0.7 mm), (-3.3 mm, -0.7 mm), (-3.3 mm, -1.8 mm), (-9.4 mm, -1.8 mm)];
         priority = 2;
         clearance = 0.2 mm;
         minimum_width = 0.2 mm;
@@ -594,13 +612,13 @@ macro TPS62130A_MANAGED_ENABLED {
     polygon input-lobe {
         net = VIN;
         layer = "F.Cu";
-        vertices = [(1.8 mm, -1 mm), (2.3 mm, -1 mm), (2.3 mm, -1.55 mm), (6.3 mm, -1.55 mm), (6.3 mm, -0.35 mm), (2.3 mm, -0.35 mm), (2.3 mm, -0.05 mm), (1.8 mm, -0.05 mm)];
+        vertices = [(1.8 mm, -1 mm), (2.3 mm, -1 mm), (2.3 mm, -1.55 mm), (4.6 mm, -1.55 mm), (4.6 mm, -0.35 mm), (2.3 mm, -0.35 mm), (2.3 mm, -0.05 mm), (1.8 mm, -0.05 mm)];
     }
 
     polygon output-lobe {
         net = VOUT;
         layer = "F.Cu";
-        vertices = [(-9.2 mm, 0.8 mm), (-7.4 mm, 0.8 mm), (-7.4 mm, 0.5 mm), (-5.75 mm, 0.5 mm), (-5.75 mm, -1.9 mm), (-3.9 mm, -1.9 mm), (-3.9 mm, -3.3 mm), (-7.4 mm, -3.3 mm), (-7.4 mm, -1.6 mm), (-9.2 mm, -1.6 mm)];
+        vertices = [(-7.4 mm, 0.5 mm), (-5.75 mm, 0.5 mm), (-5.75 mm, -1.9 mm), (-3.9 mm, -1.9 mm), (-3.9 mm, -3.3 mm), (-7.4 mm, -3.3 mm)];
     }
 
     plane_return return_0 {
@@ -625,11 +643,11 @@ macro TPS62130A_MANAGED_ENABLED {
         }
         contact contact_4 {
             pad = C_OUT2."2";
-            at = (-9.85 mm, -2.7 mm);
+            at = (-8.6 mm, -4 mm);
         }
         contact contact_5 {
             pad = R_FB_BOT."2";
-            at = (0.81 mm, 4 mm);
+            at = (0.81 mm, 3.75 mm);
         }
     }
 
