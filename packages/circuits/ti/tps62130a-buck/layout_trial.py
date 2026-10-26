@@ -90,12 +90,12 @@ def make_trial(directory, *, enabled=False, rotation=0, footprint_root=Path("/us
 
 def route_trial(board):
     from pcbir.routing import GlobalRouterOptions, route_global
-    from pcbir.detailed import DetailedRouterOptions, route_detailed
+    from pcbir.unified_router import UnifiedRouterOptions, route_unified
     from pcbir.plane import stitch_zone_pads
     guides = route_global(board, GlobalRouterOptions(maximum_iterations=2, tile_size_nm=1000000))
     board = stitch_zone_pads(board).board
-    result = route_detailed(board, guides, DetailedRouterOptions(maximum_passes=1,
-        maximum_search_states=20000))
+    # CopperScript's only ordinary router; the macro copper is fixed source copper.
+    result = route_unified(board, guides, UnifiedRouterOptions(direct=True))
     zone_nets = {zone.net for zone in board.zones}
     if any(not net.connected and net.net not in zone_nets for net in result.nets):
         raise ValueError("external macro access failed: " + str([(n.net,n.diagnostics) for n in result.nets if not n.connected]))
