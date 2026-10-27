@@ -72,7 +72,7 @@ def test_minimal_board_with_all_four_parts_checks_clean():
 def test_pin_numbers_equal_footprint_pad_numbers():
     if not KICAD_FOOTPRINTS.is_dir():
         pytest.skip(f"KiCad footprint library not installed: {KICAD_FOOTPRINTS}")
-    audit = audit_footprints(BOARD, KICAD_FOOTPRINTS)
+    audit = audit_footprints(BOARD, KICAD_FOOTPRINTS, strict=False)
     assert audit["passed"], [entry["errors"] for entry in audit["entries"]]
     assert audit["total"] == len(PARTS)
 

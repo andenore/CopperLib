@@ -146,16 +146,18 @@ def endpoint(text: str) -> tuple[str, str]:
 
 
 @functools.cache
-def _audit(source: str, roots: tuple[str, ...]) -> str:
+def _audit(source: str, roots: tuple[str, ...], strict: bool) -> str:
     arguments = [argument for root in roots for argument in ("--footprint-root", root)]
-    return json.dumps(_json(run("audit-footprints", str(board_file(source)), "--strict", "--offline",
-                                "--json", *arguments)))
+    return json.dumps(_json(run("audit-footprints", str(board_file(source)), *(["--strict"] if strict else []),
+                                "--offline", "--json", *arguments)))
 
 
-def audit_footprints(source: str, *roots: Path) -> dict:
-    """`copper audit-footprints --strict --json`: each selected footprint resolves
-    and its numbered pads equal its part's pin numbers."""
-    return json.loads(_audit(source, tuple(str(root) for root in roots)))
+def audit_footprints(source: str, *roots: Path, strict: bool = True) -> dict:
+    """`copper audit-footprints --json`: each selected footprint resolves and its
+    numbered pads equal its part's pin numbers. Installed KiCad library
+    footprints carry lossy-import warnings (ignored user text), so audit them
+    with strict=False."""
+    return json.loads(_audit(source, tuple(str(root) for root in roots), strict))
 
 
 @functools.cache
