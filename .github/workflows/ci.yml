@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: andenore/CopperScript
-          ref: 7fc76641029ffff97f185a8f7dad5c77c5900531
+          ref: eb926375f2318ea15c89ec92873c3263af730609
           path: cache/ci/CopperScript
       - uses: actions/setup-python@v5
         with: {python-version: '3.11'}
