@@ -64,9 +64,9 @@
   ],
   "footprint_source": {
     "origin": "KiCad 10 installed Connector_JST library, generator format 20260206",
-    "sha256": "57261c42d07b35ddb8d0b9049e24dbeadae7011f1a7aec2584d1e44b2d584c2a",
+    "sha256": "47c7b317c6e5f13694f33abcd6383353999e07e54c02739b006a9a771f436e3c",
     "upstream": "https://gitlab.com/kicad/libraries/kicad-footprints/-/blob/master/Connector_JST.pretty/JST_PH_S2B-PH-SM4-TB_1x02-1MP_P2.00mm_Horizontal.kicad_mod",
     "license": "CC-BY-SA-4.0 with KiCad library exception; https://www.kicad.org/libraries/license/",
-    "modifications": "None; exact file copy."
+    "modifications": "None; exact file copy, stored with LF line endings (.gitattributes)."
   }
 }

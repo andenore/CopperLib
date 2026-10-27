@@ -127,25 +127,23 @@ CopperLib checkout:
 .venv/bin/python -m examples.tps62130a_macro.trial
 ```
 
-For all rotation and external-access checks, from CopperLib:
+To check that the committed assets reproduce and bind every required pad, from
+CopperLib:
 
 ```sh
 ../CopperScript/.venv/bin/python packages/circuits/ti/tps62130a-buck/generate_layout.py
-PYTHONPATH=../CopperScript ../CopperScript/.venv/bin/python \
+COPPERSCRIPT_SOURCE=../CopperScript ../CopperScript/.venv/bin/python \
   -m pytest tests/test_tps62130a_hard_macro.py
 ```
 
-`layout_trial.py` invokes CopperScript APIs; it does not duplicate compiler code.
-Its generic test terminals exercise external access. It writes only to the
-selected probe directory. Keep probes outside the CopperLib checkout: generated
-JSON under `work/` can otherwise enter a local dependency's content inventory.
-The bounded acceptance suite checks both enable
-variants and all four rotations, external routing with owner preservation,
-native refill/connectivity including both filled owner zones and all three
-fixed polygons, surface power landing, a missing dedicated GND via, changed footprint/rail rejection,
-disconnected internal SS copper, removed owner copper and same-net intrusion.
-Native KiCad 10.0.6 accepts the eight rotated/variant external-access
-fixtures with zero violations and zero unconnected items. Full-board placement,
+The rotation and external-access trial harness (`layout_trial.py`) drove
+CopperScript's internal Python APIs and was removed: CopperLib tests only use
+the `copper` CLI. Its last run covered both enable variants and all four
+rotations, external routing with owner preservation, native refill and
+connectivity, surface power landing, a missing dedicated GND via, changed
+footprint/rail rejection, disconnected internal SS copper, removed owner copper
+and same-net intrusion; native KiCad 10.0.6 accepted the eight rotated/variant
+external-access fixtures with zero violations and zero unconnected items. Full-board placement,
 current distribution, assembly and powered hardware validation remain separate.
 
 ## Managed Copper macro exports
