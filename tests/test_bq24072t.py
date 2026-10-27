@@ -2,18 +2,14 @@
 import json
 from pathlib import Path
 
-from pcbir import compile_source
-from pcbir.elaborate import elaborate
-from pcbir.engineering_qualification import load_contract
+from contracts import load_contract
+from copper_cli import compile_board, flat_nets, part
 
 ROOT = Path(__file__).parents[1]
 
 
-def test_t_variant_mapping_and_bias_connections(tmp_path):
-    (tmp_path / "copper.mod").write_text(
-        "module ts-test\nrequire github.com/andenore/CopperLib v0.1.0\n"
-        f"replace github.com/andenore/CopperLib => {ROOT.as_posix()}\n")
-    board = compile_source('''board Test {
+def test_t_variant_mapping_and_bias_connections():
+    source = '''board Test {
         import charger "github.com/andenore/CopperLib/packages/parts/ti/bq24072t";
         import bias "github.com/andenore/CopperLib/packages/circuits/ti/bq24072t-ts-43k-39k";
         component U: charger.BQ24072TRGTR;
@@ -22,14 +18,13 @@ def test_t_variant_mapping_and_bias_connections(tmp_path):
         net TS { U.TS; TEMP.TS; }
         net NTC { TEMP.NTC; }
         net GND { U.VSS; U.EP; TEMP.GND; }
-    }''', str(tmp_path / "board.copper"), offline=True)
-    flat = elaborate(board)
-    part = board.library["charger.BQ24072TRGTR"]
-    assert part.pins["TS"].number == "1"
-    assert part.pins["TMR"].number == "14"
-    assert part.pins["EP"].number == "17"
-    assert len(part.pins) == 17
-    nets = {n.name: {(e.component, e.pin) for e in n.endpoints} for n in flat.nets}
+    }'''
+    pins = part(compile_board(source), "charger.BQ24072TRGTR")["pins"]
+    assert pins["TS"]["number"] == "1"
+    assert pins["TMR"]["number"] == "14"
+    assert pins["EP"]["number"] == "17"
+    assert len(pins) == 17
+    nets = flat_nets(source)
     assert nets["TS"] == {("U", "TS"), ("TEMP/R_ISOLATION", "P2")}
     assert nets["NTC"] == {("TEMP/R_TOP", "P2"), ("TEMP/R_SHUNT", "P1"), ("TEMP/R_ISOLATION", "P1")}
     assert ("TEMP/R_SHUNT", "P2") in nets["GND"]
