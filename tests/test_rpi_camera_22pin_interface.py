@@ -5,11 +5,8 @@ The expected pin table was transcribed from the Raspberry Pi camera pinout
 numbers its connector like Raspberry Pi pins; the host port is mirrored (pin k
 on standard pad 23 - k), so a flat cable between them joins like signals.
 """
-from pathlib import Path
+from copper_cli import check, compile_board, endpoint, part
 
-from pcbir import check, compile_source
-
-ROOT = Path(__file__).resolve().parents[1]
 INTERFACE = "github.com/andenore/CopperLib/packages/interfaces/raspberry-pi/camera-22pin"
 PI_PINOUT = {
     1: "GND", 2: "D0_N", 3: "D0_P", 4: "GND", 5: "D1_N", 6: "D1_P", 7: "GND",
@@ -20,12 +17,9 @@ PI_PINOUT = {
 SIGNALS = sorted({name for name in PI_PINOUT.values() if name != "GND"})
 
 
-def _board(tmp_path):
-    (tmp_path / "copper.mod").write_text(
-        "module rpi-camera-interface-test\nrequire github.com/andenore/CopperLib v0.1.0\n"
-        f"replace github.com/andenore/CopperLib => {ROOT.as_posix()}\n")
+def _board() -> str:
     nets = "\n".join(f"            net {name} {{ CAM.{name}; HOST.{name}; }}" for name in SIGNALS)
-    return compile_source(f'''
+    return f'''
         board CameraLoop {{
             import rpi "{INTERFACE}";
             module CAM: rpi.RPI_CAMERA_22PIN_CAMERA_END;
@@ -35,41 +29,42 @@ def _board(tmp_path):
             net GND {{ CAM.GND; HOST.GND; }}
 {nets}
         }}
-    ''', str(tmp_path / "board.copper"), offline=True)
+    '''
 
 
-def _pad_map(board, module: str, part_suffix: str) -> dict[str, str]:
+def _pad_map(module: str, part_suffix: str) -> dict[str, str]:
     """Connector land number -> module port, from the hierarchical IR."""
-    definition = board.module_definitions[f"rpi.{module}"]
-    (connector,) = definition.components
-    part = definition.library[connector.part]
-    assert part.name.endswith(part_suffix)
+    (definition,) = [item for item in compile_board(_board())["module_definitions"]
+                     if item["name"] == f"rpi.{module}"]
+    (connector,) = definition["components"]
+    connector_part = part(definition, connector["part"])
+    assert connector_part["name"].endswith(part_suffix)
     mapping: dict[str, str] = {}
-    for net in definition.nets:
-        (port,) = [endpoint.pin for endpoint in net.endpoints if endpoint.component == "port"]
-        for endpoint in net.endpoints:
-            if endpoint.component == connector.ref:
-                number = part.pins[endpoint.pin].number
+    for net in definition["nets"]:
+        endpoints = [endpoint(item) for item in net["endpoints"]]
+        (port,) = [pin for component, pin in endpoints if component == "port"]
+        for component, pin in endpoints:
+            if component == connector["ref"]:
+                number = connector_part["pins"][pin]["number"]
                 assert number not in mapping, number
                 mapping[number] = port
     return mapping
 
 
-def test_camera_end_numbers_its_connector_like_raspberry_pi_pins(tmp_path):
-    pads = _pad_map(_board(tmp_path), "RPI_CAMERA_22PIN_CAMERA_END", "GUOCONN_0_5K_GX_22PWB_R")
+def test_camera_end_numbers_its_connector_like_raspberry_pi_pins():
+    pads = _pad_map("RPI_CAMERA_22PIN_CAMERA_END", "GUOCONN_0_5K_GX_22PWB_R")
     assert pads == {**{str(pin): name for pin, name in PI_PINOUT.items()}, "MP": "GND"}
 
 
-def test_host_port_mirrors_raspberry_pi_pins_onto_standard_pads(tmp_path):
-    pads = _pad_map(_board(tmp_path), "RPI_CAMERA_22PIN_HOST_PORT", "HIROSE_FH12_22S_0_5SH")
+def test_host_port_mirrors_raspberry_pi_pins_onto_standard_pads():
+    pads = _pad_map("RPI_CAMERA_22PIN_HOST_PORT", "HIROSE_FH12_22S_0_5SH")
     assert pads == {**{str(23 - pin): name for pin, name in PI_PINOUT.items()}, "MP": "GND"}
 
 
-def test_flat_cable_joins_camera_end_to_host_port_signal_for_signal(tmp_path):
+def test_flat_cable_joins_camera_end_to_host_port_signal_for_signal():
     # A flat, untwisted FFC between two boards both component side up joins
     # pad j at one end to the pad in the mirrored position (23 - j) at the other.
-    board = _board(tmp_path)
-    camera = _pad_map(board, "RPI_CAMERA_22PIN_CAMERA_END", "GUOCONN_0_5K_GX_22PWB_R")
-    host = _pad_map(board, "RPI_CAMERA_22PIN_HOST_PORT", "HIROSE_FH12_22S_0_5SH")
+    camera = _pad_map("RPI_CAMERA_22PIN_CAMERA_END", "GUOCONN_0_5K_GX_22PWB_R")
+    host = _pad_map("RPI_CAMERA_22PIN_HOST_PORT", "HIROSE_FH12_22S_0_5SH")
     assert all(camera[str(j)] == host[str(23 - j)] for j in range(1, 23))
-    assert check(board) == []
+    assert check(_board()) == []
