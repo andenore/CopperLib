@@ -1,0 +1,40 @@
+// Hirose FH12-22S-0.5SH(55): 22-position, 0.5 mm pitch FPC connector, bottom
+// contact, flip lock, 2.0 mm high. LCSC C597981 (extended).
+// Hirose FH12 catalogue (2020-05-01) recommended land, 22P: signal pads
+// 0.3 x 1.3 at 0.5 pitch, mounting lands 1.8 x 2.2 at +/-7.15; KiCad's
+// standard Hirose_FH12-22S-0.5SH footprint matches it exactly, with pad 1 on
+// the left and the cable entering from the front (+Y). Positions carry no
+// signal meaning here; an interface module assigns them.
+part HIROSE_FH12_22S_0_5SH {
+    category = "connector.fpc";
+    manufacturer = "Hirose";
+    footprint = "Connector_FFC-FPC:Hirose_FH12-22S-0.5SH_1x22-1MP_P0.50mm_Horizontal";
+    source_document = "FH12 series catalogue";
+    source_revision = "2020-05-01";
+    source_location = "p. 10 recommended PCB mounting pattern (22P row)";
+    source_url = "https://datasheet.lcsc.com/datasheet/pdf/b87be22e0cecc59ab77d96f3dce601d5.pdf?productCode=C597981";
+    source_checksum = "sha256:ed14d17173fac1340292e511e9ad725c3e0240441751d8031f894178b1c65f99";
+    pin P1 { number = "1"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P2 { number = "2"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P3 { number = "3"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P4 { number = "4"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P5 { number = "5"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P6 { number = "6"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P7 { number = "7"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P8 { number = "8"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P9 { number = "9"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P10 { number = "10"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P11 { number = "11"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P12 { number = "12"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P13 { number = "13"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P14 { number = "14"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P15 { number = "15"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P16 { number = "16"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P17 { number = "17"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P18 { number = "18"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P19 { number = "19"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P20 { number = "20"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P21 { number = "21"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P22 { number = "22"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin MP { number = "MP"; domains = "ground"; directions = "passive"; }
+}

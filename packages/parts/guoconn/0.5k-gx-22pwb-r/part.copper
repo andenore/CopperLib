@@ -1,0 +1,43 @@
+// GUOCONN 0.5K-GX-22PWB-R: 22-position, 0.5 mm pitch FPC/FFC connector, dual
+// contact (top and bottom), front insertion, rear flip lock, 2.0 mm high.
+// LCSC C53223210 (extended).
+// Drawing 0.5K-GX-NPWB-R rev A ("NEW DRAWING"): signal pads 0.30 x 1.20 at
+// 0.5 pitch, mounting pads 1.80 x 2.00 at +/-6.90, 3.15 mm forward of the
+// signal-pad centres; circuit 1 on the left looking down with the cable
+// entering from the front (+Y in the footprint). The EasyEDA footprint
+// FPC-SMD_22P-P0.50_0.5K-GX-22PWB-R matches these numbers.
+// Dual contact accepts same-side and opposite-side cables. Positions carry no
+// signal meaning here; an interface module assigns them.
+part GUOCONN_0_5K_GX_22PWB_R {
+    category = "connector.fpc";
+    manufacturer = "GUOCONN";
+    footprint = "footprints/Connector_GUOCONN.pretty/GUOCONN_0.5K-GX-22PWB-R.kicad_mod";
+    source_document = "0.5K-GX-NPWB-R FPC connector drawing";
+    source_revision = "rev A";
+    source_location = "land pattern, dimension table (22P) and circuit-1 marking";
+    source_url = "https://datasheet.lcsc.com/datasheet/pdf/8e44912e5203b7c80c9c7b2af63ab5bf.pdf?productCode=C53223210";
+    source_checksum = "sha256:52cba0f116520b4ed99bf348f9b1591367d9c1dc162ac81f9ee8c576fd292631";
+    pin P1 { number = "1"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P2 { number = "2"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P3 { number = "3"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P4 { number = "4"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P5 { number = "5"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P6 { number = "6"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P7 { number = "7"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P8 { number = "8"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P9 { number = "9"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P10 { number = "10"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P11 { number = "11"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P12 { number = "12"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P13 { number = "13"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P14 { number = "14"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P15 { number = "15"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P16 { number = "16"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P17 { number = "17"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P18 { number = "18"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P19 { number = "19"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P20 { number = "20"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P21 { number = "21"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin P22 { number = "22"; domains = "analog,digital,power,ground"; directions = "passive"; }
+    pin MP { number = "MP"; domains = "ground"; directions = "passive"; }
+}

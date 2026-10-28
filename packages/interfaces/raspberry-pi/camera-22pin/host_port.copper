@@ -1,0 +1,57 @@
+// Raspberry Pi 22-pin, 0.5 mm, 4-lane camera interface, host port: the
+// connector on a Raspberry Pi board that a camera plugs into. Hirose
+// FH12-22S-0.5SH(55), bottom contact, the part on the CM4 IO board's camera
+// and display ports. Raspberry Pi's CM4IO KiCad footprint is KiCad's
+// standard land pattern, unrotated, with the numbering mirrored: Raspberry Pi
+// pin k sits on standard pad 23 - k, so pin 1 (GND) is on the right looking
+// down with the cable entering from the front. A camera plugs in exactly as
+// into a Raspberry Pi, for example with the official Standard-Mini cable.
+// Raspberry Pi 22-pin camera pinout (Raspberry Pi camera documentation, CM5
+// IO schematic), by Raspberry Pi pin; N is the lower pin of every pair:
+//   GND 1 4 7 10 13 16 19   D0 2(N)/3(P)   D1 5/6   CLK 8/9   D2 11/12
+//   D3 14/15   CAM_IO0 17   CAM_IO1 18   SCL 20   SDA 21   3V3 22
+// The Jetson Orin Nano developer kit numbers the same connector in reverse
+// (its pin n is Raspberry Pi pin 23 - n), so it uses the same layout.
+//
+// Lanes are passive pass-through contacts. The board behind this port
+// supplies the camera's 3.3 V on pin 22, drives CAM_IO0 (camera power enable)
+// and CAM_IO1 (LED / GPIO), and is the I2C controller with pull-ups.
+module RPI_CAMERA_22PIN_HOST_PORT {
+    import hirose "github.com/andenore/CopperLib/packages/parts/hirose/fh12-22s-0.5sh";
+
+    port D0_P: passive;
+    port D0_N: passive;
+    port D1_P: passive;
+    port D1_N: passive;
+    port CLK_P: passive;
+    port CLK_N: passive;
+    port D2_P: passive;
+    port D2_N: passive;
+    port D3_P: passive;
+    port D3_N: passive;
+    port IO0: passive;
+    port IO1: passive;
+    port SCL: passive;
+    port SDA: passive;
+    port V3V3: power_in;
+    port GND: power_in;
+
+    component J: hirose.HIROSE_FH12_22S_0_5SH;
+
+    net D0_N { port.D0_N; J.P21; }
+    net D0_P { port.D0_P; J.P20; }
+    net D1_N { port.D1_N; J.P18; }
+    net D1_P { port.D1_P; J.P17; }
+    net CLK_N { port.CLK_N; J.P15; }
+    net CLK_P { port.CLK_P; J.P14; }
+    net D2_N { port.D2_N; J.P12; }
+    net D2_P { port.D2_P; J.P11; }
+    net D3_N { port.D3_N; J.P9; }
+    net D3_P { port.D3_P; J.P8; }
+    net IO0 { port.IO0; J.P6; }
+    net IO1 { port.IO1; J.P5; }
+    net SCL { port.SCL; J.P3; }
+    net SDA { port.SDA; J.P2; }
+    net V3V3 { port.V3V3; J.P1; }
+    net GND { port.GND; J.P22; J.P19; J.P16; J.P13; J.P10; J.P7; J.P4; J.MP; }
+}
