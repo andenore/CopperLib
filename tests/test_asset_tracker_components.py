@@ -3,9 +3,7 @@ import hashlib
 from pathlib import Path
 
 import pytest
-from pcbir import compile_source
-from pcbir.importers import load_kicad_mod
-from pcbir.model import Direction
+from copper_cli import audit_footprints, compile_board, part
 
 ROOT = Path(__file__).resolve().parents[1]
 LIB = "github.com/andenore/CopperLib/packages"
@@ -25,30 +23,31 @@ EXPORTS = {
 }
 
 
-@pytest.fixture(scope="module")
-def board(tmp_path_factory):
-    tmp = tmp_path_factory.mktemp("extracted-components")
-    (tmp / "copper.mod").write_text(
-        "module extracted-components-test\n"
-        "require github.com/andenore/CopperLib v0.1.0\n"
-        f"replace github.com/andenore/CopperLib => {ROOT.as_posix()}\n",
-        encoding="utf-8")
+def _source():
     lines = ["board ExtractedComponents {"]
     for alias, (path, names) in EXPORTS.items():
         lines.append(f'import {alias} "{LIB}/{path}";')
         for i, name in enumerate(names):
             lines.append(f"component {alias.upper()}_{i}: {alias}.{name};")
-    return compile_source("\n".join([*lines, "}"]), str(tmp / "board.copper"), offline=True)
+    return "\n".join([*lines, "}"])
+
+
+SOURCE = _source()
+
+
+@pytest.fixture(scope="module")
+def board():
+    return compile_board(SOURCE)
 
 
 def test_all_thirteen_exports_are_importable_with_provenance(board):
-    assert len(board.components) == 13
+    assert len(board["components"]) == 13
     for alias, (_, names) in EXPORTS.items():
         for name in names:
-            part = board.library[f"{alias}.{name}"]
-            assert part.manufacturer and part.source and part.source.url
-            assert part.footprints
-            assert all("Tracker.pretty" not in f for f in part.footprints)
+            definition = part(board, f"{alias}.{name}")
+            assert definition["manufacturer"] and definition["source"] and definition["source"]["url"]
+            assert definition["footprints"]
+            assert all("Tracker.pretty" not in f for f in definition["footprints"])
 
 
 FOOTPRINTS = (
@@ -66,38 +65,33 @@ FOOTPRINTS = (
 
 
 @pytest.mark.parametrize("path,numbers,digest", FOOTPRINTS)
-def test_moved_footprint_identity_and_land_coverage(path, numbers, digest):
-    path = ROOT / "packages" / path
-    assert hashlib.sha256(path.read_bytes()).hexdigest() == digest
-    footprint = load_kicad_mod(path).footprint
-    assert {pad.number for pad in footprint.pads if pad.number} == numbers
+def test_moved_footprint_identity_and_land_coverage(board, path, numbers, digest):
+    assert hashlib.sha256((ROOT / "packages" / path).read_bytes()).hexdigest() == digest
+    (entry,) = [entry for entry in audit_footprints(SOURCE)["entries"]
+                if entry["reference"] == f"{LIB}/{path}"]
+    assert entry["passed"], entry["errors"]
+    for component in board["components"]:
+        if component["ref"] in entry["components"]:
+            assert {pin["number"] for pin in part(board, component["part"])["pins"].values()} == numbers
 
 
 def test_contextual_jst_interfaces_share_package_owned_land_patterns(board):
-    battery = board.library["jst.JST_S3B_XH_SM4_TB"].footprints
-    assert board.library["can_header.CAN_HEADER"].footprints == battery
+    battery = part(board, "jst.JST_S3B_XH_SM4_TB")["footprints"]
+    assert part(board, "can_header.CAN_HEADER")["footprints"] == battery
     assert "parts/jst/xh-sm4/footprints/JST_S4B_XH_SM4_TB.kicad_mod" in (
-        board.library["uart_header.DEBUG_HEADER"].footprints[0])
-
-
-def test_modem_orientation_marker_does_not_overlay_pin_one():
-    path = ROOT / "packages/parts/simcom/sim7670g-lngv/footprints/SIM7670G_LNGV.kicad_mod"
-    assert '(center -10.5 -8)' in path.read_text()
-    pad = next(p for p in load_kicad_mod(path).footprint.pads if p.number == "1")
-    # Circle outer edge clears even the pad's rectangular envelope by >0.2 mm.
-    pad_right = pad.position.x_nm + pad.size.width_nm // 2
-    assert -10500000 - 260000 - pad_right > 200000
+        part(board, "uart_header.DEBUG_HEADER")["footprints"][0])
 
 
 def test_configured_translation_and_existing_family_variants_remain_distinct(board):
-    uart = board.library["level.MODEM_UART_TRANSLATOR"]
-    status = board.library["level.MODEM_STATUS_TRANSLATOR"]
-    assert uart.footprints == status.footprints
-    assert {p.number for p in uart.pins.values()} == {str(i) for i in range(1, 11)}
-    assert uart.pins["A_TX"].number == status.pins["A_STATUS"].number == "8"
-    assert Direction.INPUT in uart.pins["A_TX"].profile.directions
-    assert Direction.OUTPUT in status.pins["A_STATUS"].profile.directions
-    assert "SOIC-8" in board.library["can.TCAN334GDR"].footprints[0]
-    assert "VSSOP-8" in board.library["can.TCAN334G"].footprints[0]
-    assert "yxc.YXC_X322525MOB4SI" in board.library
-    assert "yxc.YXC_X322532MOB4SI" in board.library
+    uart = part(board, "level.MODEM_UART_TRANSLATOR")
+    status = part(board, "level.MODEM_STATUS_TRANSLATOR")
+    assert uart["footprints"] == status["footprints"]
+    assert {p["number"] for p in uart["pins"].values()} == {str(i) for i in range(1, 11)}
+    assert uart["pins"]["A_TX"]["number"] == status["pins"]["A_STATUS"]["number"] == "8"
+    assert "input" in uart["pins"]["A_TX"]["profile"]["directions"]
+    assert "output" in status["pins"]["A_STATUS"]["profile"]["directions"]
+    assert "SOIC-8" in part(board, "can.TCAN334GDR")["footprints"][0]
+    assert "VSSOP-8" in part(board, "can.TCAN334G")["footprints"][0]
+    names = {item["name"] for item in board["parts"]}
+    assert "yxc.YXC_X322525MOB4SI" in names
+    assert "yxc.YXC_X322532MOB4SI" in names

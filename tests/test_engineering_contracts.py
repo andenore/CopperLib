@@ -3,7 +3,7 @@ from pathlib import Path
 import json
 
 import pytest
-from pcbir.engineering_qualification import load_contract, REQUIRED
+from contracts import REQUIRED, load_contract
 
 ROOT = Path(__file__).parents[1]
 CONTRACTS = (

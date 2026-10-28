@@ -2,27 +2,24 @@
 import json
 from pathlib import Path
 
-from pcbir import check, compile_source
+from copper_cli import check, compile_board, part
 
 ROOT = Path(__file__).resolve().parents[1]
+BOARD = '''
+    board ChokeAudit {
+        import filter "github.com/andenore/CopperLib/packages/parts/coilcraft/0603usb";
+        component FL: filter.COILCRAFT_0603USB_601MLC;
+        net DP_IN { FL.DP_IN; }
+        net DM_IN { FL.DM_IN; }
+        net DP_OUT { FL.DP_OUT; }
+        net DM_OUT { FL.DM_OUT; }
+    }
+'''
 
 
-def test_usb_lanes_traverse_distinct_windings_with_matching_dot_polarity(tmp_path):
-    (tmp_path / "copper.mod").write_text(
-        "module choke-test\nrequire github.com/andenore/CopperLib v0.1.0\n"
-        f"replace github.com/andenore/CopperLib => {ROOT.as_posix()}\n")
-    board = compile_source('''
-        board ChokeAudit {
-            import filter "github.com/andenore/CopperLib/packages/parts/coilcraft/0603usb";
-            component FL: filter.COILCRAFT_0603USB_601MLC;
-            net DP_IN { FL.DP_IN; }
-            net DM_IN { FL.DM_IN; }
-            net DP_OUT { FL.DP_OUT; }
-            net DM_OUT { FL.DM_OUT; }
-        }
-    ''', str(tmp_path / "choke.copper"), offline=True)
-    part = board.library["filter.COILCRAFT_0603USB_601MLC"]
-    pins = {name: pin.number for name, pin in part.pins.items()}
+def test_usb_lanes_traverse_distinct_windings_with_matching_dot_polarity():
+    choke = part(compile_board(BOARD), "filter.COILCRAFT_0603USB_601MLC")
+    pins = {name: pin["number"] for name, pin in choke["pins"].items()}
     # Independently transcribed physical topology from page 1's schematic.
     windings = {frozenset({"1", "2"}), frozenset({"4", "3"})}
     lanes = {frozenset({pins[f"{lane}_IN"], pins[f"{lane}_OUT"]}) for lane in ("DP", "DM")}
@@ -34,7 +31,7 @@ def test_usb_lanes_traverse_distinct_windings_with_matching_dot_polarity(tmp_pat
     assert pins == evidence["semantic_pins"]
     assert {frozenset(pair) for pair in evidence["windings"]} == windings
     assert set(evidence["dotted_ends"]) == {"1", "4"}
-    assert part.source.checksum == "sha256:" + evidence["source"]["sha256"]
-    assert part.footprints == (evidence["footprint"],)
+    assert choke["source"]["checksum"] == "sha256:" + evidence["source"]["sha256"]
+    assert choke["footprints"] == [evidence["footprint"]]
     assert evidence["production_publishable"] is False
-    assert check(board) == []
+    assert check(BOARD) == []
