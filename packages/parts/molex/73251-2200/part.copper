@@ -1,0 +1,12 @@
+// Molex 73251-2200 SMA jack, 50 ohm, right angle, through-hole PCB mount.
+// Centre contact pad 1; the four body posts share pad number 2 (GND).
+// Placed at a board edge the jack's nose overhangs it: the host declares that.
+part MOLEX_73251_2200 {
+    category = "connector.coaxial";
+    manufacturer = "Molex";
+    footprint = "Connector_Coaxial:SMA_Molex_73251-2200_Horizontal";
+    source_document = "SMA RF coaxial connectors, 73251-2200";
+    source_url = "https://www.molex.com/webdocs/datasheets/pdf/en-us/0732512200_RF_COAX_CONNECTORS.pdf";
+    pin SIGNAL { number = "1"; domains = "rf"; directions = "passive"; }
+    pin GND { number = "2"; domains = "ground"; directions = "input"; }
+}
