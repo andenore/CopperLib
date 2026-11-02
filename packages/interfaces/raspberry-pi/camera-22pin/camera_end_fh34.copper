@@ -1,0 +1,44 @@
+// The same camera end on a Hirose FH34SRJ-22S-0.5SH(50), dual contact, which
+// distributors stock (the GUOCONN part is LCSC-only). Its contact 1 is on the
+// right looking down with the cable entering from the front, so Raspberry Pi
+// pin k is on contact 23 - k: every signal sits where it does on the GUOCONN
+// end, and the module mates with HOST_PORT the same way.
+module RPI_CAMERA_22PIN_CAMERA_END_FH34 {
+    import hirose "github.com/andenore/CopperLib/packages/parts/hirose/fh34srj-22s-0.5sh";
+
+    port D0_P: passive;
+    port D0_N: passive;
+    port D1_P: passive;
+    port D1_N: passive;
+    port CLK_P: passive;
+    port CLK_N: passive;
+    port D2_P: passive;
+    port D2_N: passive;
+    port D3_P: passive;
+    port D3_N: passive;
+    port IO0: passive;
+    port IO1: passive;
+    port SCL: passive;
+    port SDA: passive;
+    port V3V3: power_out;
+    port GND: power_in;
+
+    component J: hirose.HIROSE_FH34SRJ_22S_0_5SH;
+
+    net D0_N { port.D0_N; J.P21; }
+    net D0_P { port.D0_P; J.P20; }
+    net D1_N { port.D1_N; J.P18; }
+    net D1_P { port.D1_P; J.P17; }
+    net CLK_N { port.CLK_N; J.P15; }
+    net CLK_P { port.CLK_P; J.P14; }
+    net D2_N { port.D2_N; J.P12; }
+    net D2_P { port.D2_P; J.P11; }
+    net D3_N { port.D3_N; J.P9; }
+    net D3_P { port.D3_P; J.P8; }
+    net IO0 { port.IO0; J.P6; }
+    net IO1 { port.IO1; J.P5; }
+    net SCL { port.SCL; J.P3; }
+    net SDA { port.SDA; J.P2; }
+    net V3V3 { port.V3V3; J.P1; }
+    net GND { port.GND; J.P22; J.P19; J.P16; J.P13; J.P10; J.P7; J.P4; J.MP; }
+}
