@@ -1,0 +1,12 @@
+part OPA2182IDR {
+ footprint = "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm";
+ source_url = "https://www.ti.com/lit/ds/symlink/opa2182.pdf"; source_revision = "SBOS936E"; source_location = "Table 6-2 Pin Functions: OPA2182; Figure 6-3 D package";
+ pin OUTA { number = "1"; domains = "analog"; directions = "output"; }
+ pin INA_N { number = "2"; domains = "analog"; directions = "input"; }
+ pin INA_P { number = "3"; domains = "analog"; directions = "input"; }
+ pin VM { number = "4"; domains = "power"; directions = "input"; }
+ pin INB_P { number = "5"; domains = "analog"; directions = "input"; }
+ pin INB_N { number = "6"; domains = "analog"; directions = "input"; }
+ pin OUTB { number = "7"; domains = "analog"; directions = "output"; }
+ pin VP { number = "8"; domains = "power"; directions = "input"; }
+}

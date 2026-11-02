@@ -1,0 +1,58 @@
+{
+  "source_url": "https://www.ti.com/lit/ds/symlink/opa2182.pdf",
+  "revision": "SBOS936E",
+  "locator": "Table 6-2 Pin Functions: OPA2182; Figure 6-3 D package",
+  "package": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+  "local_source_sha256": "5a08afa29fcebdb216bc5b6e7368a10c37deb26f31eb935fe88e7e92c50275c0",
+  "pins": [
+    [
+      1,
+      "OUTA",
+      "analog",
+      "output"
+    ],
+    [
+      2,
+      "INA_N",
+      "analog",
+      "input"
+    ],
+    [
+      3,
+      "INA_P",
+      "analog",
+      "input"
+    ],
+    [
+      4,
+      "VM",
+      "power",
+      "input"
+    ],
+    [
+      5,
+      "INB_P",
+      "analog",
+      "input"
+    ],
+    [
+      6,
+      "INB_N",
+      "analog",
+      "input"
+    ],
+    [
+      7,
+      "OUTB",
+      "analog",
+      "output"
+    ],
+    [
+      8,
+      "VP",
+      "power",
+      "input"
+    ]
+  ],
+  "qualification": "Electrical pin contract only; pin-compatible with OPA2189IDR (same supply and input common-mode range, 5 MHz instead of 14 MHz GBW). Selected standard footprint requires package drawing comparison before fabrication"
+}
