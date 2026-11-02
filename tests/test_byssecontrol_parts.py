@@ -36,3 +36,8 @@ def test_custom_land_patterns_have_correct_polarity_drills_and_spacing():
  buck=load_kicad_mod(base/'ti/tps54360/footprints/SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.71x3.7mm_ThermalVias.kicad_mod').footprint
  drills=[p for p in buck.pads if p.number=='9' and p.drill is not None]
  assert len(drills)==6 and all(p.drill.width_nm==200000 for p in drills)
+
+def test_phoenix_terminal_land_pattern_matches_drilling_plan():
+ fp=load_kicad_mod(ROOT/'packages/parts/phoenix/mkds-1.5-5.08/footprints/Phoenix_MKDS_1_5_2_5_08.kicad_mod').footprint
+ assert [(p.number,p.position.x_nm,p.position.y_nm) for p in fp.pads]==[('1',0,0),('2',5080000,0)]
+ assert all(p.drill.width_nm==1300000 and p.size.width_nm==2600000 for p in fp.pads)
