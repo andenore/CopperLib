@@ -18,6 +18,14 @@
     "hctl-pm254.pdf": {
       "url": "https://datasheet.lcsc.com/datasheet/pdf/87e2b5b113f4df247d2b8d5758217346.pdf",
       "sha256": "b6b002c4b204d95857a0d2db9a678176c7979da89e4b145a08682255073246cd"
+    },
+    "we-61300611821.pdf": {
+      "url": "https://www.we-online.com/components/products/datasheet/61300611821.pdf",
+      "sha256": "194b8aebe8bfbdaec35ba0c6a54f846983704b41230a7db7a7b08d1a85ddf8b8"
+    },
+    "we-61300911821.pdf": {
+      "url": "https://www.we-online.com/components/products/datasheet/61300911821.pdf",
+      "sha256": "68030d89cceb4476998418c67433658de18e40132f1d064f98f621a13bb9e35c"
     }
   },
   "datum": "Module centre; component side viewed from above, antenna up, USB down",
