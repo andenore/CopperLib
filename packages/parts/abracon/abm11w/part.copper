@@ -1,0 +1,27 @@
+// Abracon ABM11W-25.0000MHZ-8-D1X-T3: 25 MHz AT-cut fundamental crystal,
+// 2.0 x 1.6 x 0.5 mm seam-sealed SMD, 4 pads, 3k reel. Ordering code (page 2):
+// CL 8 pF ("8"), operating -40 to +85 degC ("D"), tolerance +/-10 ppm at
+// 25 degC ("1"), stability +/-20 ppm over temperature ("X").
+// Page 1: ESR 50 Ohm max at 24.0000-29.9999 MHz for CL 6-8 pF; C0 2.0 pF max;
+// drive level 10 uW typ, 100 uW max; aging +/-2 ppm in the first year.
+// Page 5 mechanical drawing (bottom view): #1 and #3 are the crystal
+// (diagonal), #2 and #4 GND. Seen from the top and turned 180 degrees this is
+// #1 lower-left, #2 lower-right, #3 upper-right, #4 upper-left, the numbering
+// of KiCad Crystal_SMD_2016-4Pin_2.0x1.6mm. KiCad's 0.9 x 0.8 mm lands at
+// (+/-0.7, +/-0.55) sit within 0.05 mm of Abracon's recommended 0.875 x
+// 0.775 mm lands at 1.275 x 0.975 mm pitch.
+part ABRACON_ABM11W_25_0000MHZ_8_D1X_T3 {
+    category = "passive.crystal";
+    manufacturer = "Abracon";
+    footprint = "Crystal:Crystal_SMD_2016-4Pin_2.0x1.6mm";
+    source_document = "Abracon ABM11W series datasheet";
+    source_revision = "REVISED: 10.06.2020";
+    source_url = "https://abracon.com/Resonators/ABM11W.pdf";
+    source_location = "Page 1 standard specifications; page 2 options and part identification; page 5 mechanical dimensions and recommended land pattern";
+    source_checksum = "sha256:8f1b6c4d65228997ef4c9291cbdb0ab10e625e16e244367fbac74f2acc47a9f7";
+
+    pin XTAL1 { number = "1"; domains = "analog,clock"; directions = "passive"; }
+    pin GND_2 { number = "2"; domains = "ground"; directions = "passive"; }
+    pin XTAL2 { number = "3"; domains = "analog,clock"; directions = "passive"; }
+    pin GND_4 { number = "4"; domains = "ground"; directions = "passive"; }
+}

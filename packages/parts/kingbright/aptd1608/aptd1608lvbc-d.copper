@@ -1,0 +1,19 @@
+// Kingbright APTD1608LVBC/D: Blue (InGaN) 1.6 x 0.8 x 0.95 mm SMD chip LED, water clear,
+// low-current series characterised at 2 mA. Datasheet page 1: terminal 1 is
+// the cathode (the polarity-mark triangle points to it), terminal 2 the anode;
+// the same numbering as KiCad LED_0603_1608Metric (K=1, A=2). The package
+// footprint uses the datasheet's recommended soldering pattern.
+// Ratings (page 1-2, Ta=25 degC): VF 2.2 min / 2.65 typ / 3.0 max V and Iv 30-65 mcd at IF = 2 mA; lambda_d 470 nm; IF 30 mA max; Pd 120 mW.
+// Reverse voltage 5 V is a test condition, not for reverse operation.
+part KINGBRIGHT_APTD1608LVBC_D {
+    category = "optoelectronics.led";
+    manufacturer = "Kingbright";
+    footprint = "footprints/Kingbright_APTD1608.kicad_mod";
+    source_document = "Kingbright datasheet APTD1608LVBC/D, spec no. DSAN8408 / 1203014442";
+    source_revision = "Rev No: V.11B, 03/18/2025";
+    source_url = "https://www.kingbrightusa.com/images/catalog/SPEC/APTD1608LVBC-D.pdf";
+    source_location = "Page 1 package dimensions, polarity and recommended soldering pattern; pages 1-2 ratings and electro-optical characteristics";
+    source_checksum = "sha256:e6054b5b38c08104cc207977fcab16bba21cf4674a5b10b4be3f7ba757426e64";
+    pin K { number = "1"; domains = "analog"; directions = "passive"; }
+    pin A { number = "2"; domains = "analog"; directions = "passive"; }
+}

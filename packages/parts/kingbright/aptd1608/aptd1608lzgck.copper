@@ -1,0 +1,19 @@
+// Kingbright APTD1608LZGCK: Green (InGaN) 1.6 x 0.8 x 0.95 mm SMD chip LED, water clear,
+// low-current series characterised at 2 mA. Datasheet page 1: terminal 1 is
+// the cathode (the polarity-mark triangle points to it), terminal 2 the anode;
+// the same numbering as KiCad LED_0603_1608Metric (K=1, A=2). The package
+// footprint uses the datasheet's recommended soldering pattern.
+// Ratings (page 1-2, Ta=25 degC): VF 2.2 min / 2.65 typ / 3.1 max V and Iv 250-420 mcd at IF = 2 mA; lambda_d 525 nm; IF 25 mA max; Pd 102.5 mW.
+// Reverse voltage 5 V is a test condition, not for reverse operation.
+part KINGBRIGHT_APTD1608LZGCK {
+    category = "optoelectronics.led";
+    manufacturer = "Kingbright";
+    footprint = "footprints/Kingbright_APTD1608.kicad_mod";
+    source_document = "Kingbright datasheet APTD1608LZGCK, spec no. DSAN8410 / 1203015400";
+    source_revision = "Rev No: V.10B, 03/18/2025";
+    source_url = "https://www.kingbrightusa.com/images/catalog/SPEC/APTD1608LZGCK.pdf";
+    source_location = "Page 1 package dimensions, polarity and recommended soldering pattern; pages 1-2 ratings and electro-optical characteristics";
+    source_checksum = "sha256:0c4f8cefb73e2d122531eafcc4ab9d28a0b80f447940c679903d971f01719880";
+    pin K { number = "1"; domains = "analog"; directions = "passive"; }
+    pin A { number = "2"; domains = "analog"; directions = "passive"; }
+}

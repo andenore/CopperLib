@@ -1,0 +1,19 @@
+// Kingbright APTD1608LSURCK: Hyper Red (AlGaInP) 1.6 x 0.8 x 0.95 mm SMD chip LED, water clear,
+// low-current series characterised at 2 mA. Datasheet page 1: terminal 1 is
+// the cathode (the polarity-mark triangle points to it), terminal 2 the anode;
+// the same numbering as KiCad LED_0603_1608Metric (K=1, A=2). The package
+// footprint uses the datasheet's recommended soldering pattern.
+// Ratings (page 1-2, Ta=25 degC): VF 1.5 min / 1.75 typ / 2.1 max V and Iv 50-110 mcd at IF = 2 mA; lambda_d 630 nm; IF 30 mA max; Pd 75 mW.
+// Reverse voltage 5 V is a test condition, not for reverse operation.
+part KINGBRIGHT_APTD1608LSURCK {
+    category = "optoelectronics.led";
+    manufacturer = "Kingbright";
+    footprint = "footprints/Kingbright_APTD1608.kicad_mod";
+    source_document = "Kingbright datasheet APTD1608LSURCK, spec no. DSAO7433 / 1203015403";
+    source_revision = "Rev No: V.6A, 04/01/2025";
+    source_url = "https://www.kingbrightusa.com/images/catalog/SPEC/APTD1608LSURCK.pdf";
+    source_location = "Page 1 package dimensions, polarity and recommended soldering pattern; pages 1-2 ratings and electro-optical characteristics";
+    source_checksum = "sha256:8c4ae4d0cb2cb9c243b6590250d76933ace91d20c86683a6f1d713c93b0e1865";
+    pin K { number = "1"; domains = "analog"; directions = "passive"; }
+    pin A { number = "2"; domains = "analog"; directions = "passive"; }
+}

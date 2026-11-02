@@ -1,0 +1,50 @@
+{
+  "schema": "copperlib-led-audit/v0.1",
+  "footprint": "footprints/Kingbright_APTD1608.kicad_mod",
+  "polarity": {
+    "1": "cathode (polarity-mark triangle points to terminal 1)",
+    "2": "anode"
+  },
+  "land": {
+    "pad_mm": [
+      0.8,
+      0.8
+    ],
+    "gap_mm": 0.85,
+    "centres_mm": [
+      -0.825,
+      0.825
+    ],
+    "source": "page 1 recommended soldering pattern"
+  },
+  "parts": {
+    "KINGBRIGHT_APTD1608LSURCK": {
+      "mpn": "APTD1608LSURCK",
+      "url": "https://www.kingbrightusa.com/images/catalog/SPEC/APTD1608LSURCK.pdf",
+      "sha256": "8c4ae4d0cb2cb9c243b6590250d76933ace91d20c86683a6f1d713c93b0e1865",
+      "spec": "DSAO7433 / 1203015403",
+      "revision": "V.6A, 04/01/2025"
+    },
+    "KINGBRIGHT_APTD1608LSYCK": {
+      "mpn": "APTD1608LSYCK",
+      "url": "https://www.kingbrightusa.com/images/catalog/SPEC/APTD1608LSYCK.pdf",
+      "sha256": "9fe32571563b01358ea2c85ce392879cae46ed2b6dd0cd90c2754bb820d3a319",
+      "spec": "DSAO7434 / 1203015402",
+      "revision": "V.6B, 03/18/2025"
+    },
+    "KINGBRIGHT_APTD1608LZGCK": {
+      "mpn": "APTD1608LZGCK",
+      "url": "https://www.kingbrightusa.com/images/catalog/SPEC/APTD1608LZGCK.pdf",
+      "sha256": "0c4f8cefb73e2d122531eafcc4ab9d28a0b80f447940c679903d971f01719880",
+      "spec": "DSAN8410 / 1203015400",
+      "revision": "V.10B, 03/18/2025"
+    },
+    "KINGBRIGHT_APTD1608LVBC_D": {
+      "mpn": "APTD1608LVBC/D",
+      "url": "https://www.kingbrightusa.com/images/catalog/SPEC/APTD1608LVBC-D.pdf",
+      "sha256": "e6054b5b38c08104cc207977fcab16bba21cf4674a5b10b4be3f7ba757426e64",
+      "spec": "DSAN8408 / 1203014442",
+      "revision": "V.11B, 03/18/2025"
+    }
+  }
+}
