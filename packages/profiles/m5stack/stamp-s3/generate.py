@@ -1,4 +1,4 @@
-"""Regenerate the sourced HCTL and Wurth socket views and footprints; --check is read-only."""
+"""Regenerate the sourced HCTL, Wurth and Harwin socket views and footprints; --check is read-only."""
 from pathlib import Path
 import json, sys, tempfile
 real=Path(__file__).resolve().parent
@@ -13,9 +13,12 @@ right = [('V3V3',28),('G43',26),('G44',24),('EN',22),('G0',20),('GND',18)]
 # Per socket vendor: footprint name, part suffix, file prefix, manufacturer, drawing, and the
 # body overhang beyond the end pins (nominal for fab, max + 0.25 mm courtyard, silk).
 # HCTL Rev A: L = 2.54*N+0.40 +/- 0.30, width 2.50 +/- 0.15. Wurth WR-PHD 6130xx11821
-# (2024-04-10): L = 2.54*N+0.50 +/- 0.25, width 2.5 +/- 0.2. Both: 1.02 mm hole, 8.5 mm height.
+# (2024-04-10): L = 2.54*N+0.50 +/- 0.25, width 2.5 +/- 0.2. Harwin M20-782 (DRG-00385 rev 11,
+# 2026-08-03; 42 = gold contact area, tin tails): L = 2.54*N+0.40 +/- 0.35, width 2.50 +/- 0.15.
+# All: 1.02 mm hole, 8.5 mm height.
 vendors=[('HCTL_PM254_1_{n:02}_Z_8_5','','','HCTL','HCTL PM254-1-{n:02}-Z-8.5','HCTL PM254 Rev A',1.47,1.87,1.67),
-         ('WE_6130{n:02}11821','_WE','we_','Wurth Elektronik','Wurth 6130{n:02}11821','Wurth WR-PHD 6130{n:02}11821, 2024-04-10',1.52,1.90,1.72)]
+         ('WE_6130{n:02}11821','_WE','we_','Wurth Elektronik','Wurth 6130{n:02}11821','Wurth WR-PHD 6130{n:02}11821, 2024-04-10',1.52,1.90,1.72),
+         ('Harwin_M20_782{n:02}42','_HARWIN','harwin_','Harwin','Harwin M20-782{n:02}42','Harwin M20-782 DRG-00385 rev 11, 2026-08-03',1.47,1.90,1.67)]
 for side, pins, count, y0 in [('left',left,9,-10.16),('right',right,6,-2.54)]:
  for n,(signal,mpad) in enumerate(pins,1):
   derived[side].append({'socket_pin':n,'module_pad':mpad,'signal':signal,'x_mm':'-7.62' if side=='left' else '7.62','y_mm':f'{y0+(n-1)*2.54:.2f}'})

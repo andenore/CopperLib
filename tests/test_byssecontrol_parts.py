@@ -9,6 +9,7 @@ PARTS=[
  ('ti/sn74lvc1g125','SN74LVC1G125DBVR',{'OE':'1','A':'2','GND':'3','Y':'4','VCC':'5'}),
  ('nexperia/74lvc1g125','NEXPERIA_74LVC1G125GW',{'OE':'1','A':'2','GND':'3','Y':'4','VCC':'5'}),
  ('mcc/sk36a','SK36A_LTP',{'K':'1','A':'2'}),
+ ('diodes/b360a','B360A_13_F',{'K':'1','A':'2'}),
  ('littelfuse/smbj30a','SMBJ30A',{'K':'1','A':'2'}),
  ('phoenix/mkds-1.5-5.08','MKDS_1_5_2_5_08',{'P1':'1','P2':'2'}),
  ('phoenix/mkds-1-3.5','MKDS_1_2_3_5',{'P1':'1','P2':'2'}),

@@ -15,6 +15,10 @@
       "url": "https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/StampS3/%E5%B0%BA%E5%AF%B8%E5%9B%BE.jpg",
       "sha256": "29cebb00c9c503e1c31176a0843ae67f1988fa5b1e7f15cd587eede25a429fbd"
     },
+    "harwin-m20-782.pdf": {
+      "url": "https://content.harwin.com/asset/53851ba8-b32e-4ac5-a0c5-09d9271c0c0a/DRG-00385-Technical-Drawing-Datasheet-M20-782-pdf.pdf",
+      "sha256": "dc63950fd4db62272f85d19d3c48739909c6909ae21502f38542ba9acfd2fcf5"
+    },
     "hctl-pm254.pdf": {
       "url": "https://datasheet.lcsc.com/datasheet/pdf/87e2b5b113f4df247d2b8d5758217346.pdf",
       "sha256": "b6b002c4b204d95857a0d2db9a678176c7979da89e4b145a08682255073246cd"

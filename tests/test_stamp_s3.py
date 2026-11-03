@@ -9,7 +9,7 @@ def test_source_generation_and_physical_header_geometry():
     subprocess.run([sys.executable,str(PKG/'generate.py'),'--check'],check=True)
     data=json.loads((PKG/'evidence/connector.json').read_text())
     for side,n in [('left',9),('right',6)]:
-      for name in (f'HCTL_PM254_1_{n:02}_Z_8_5', f'WE_6130{n:02}11821'):
+      for name in (f'HCTL_PM254_1_{n:02}_Z_8_5', f'WE_6130{n:02}11821', f'Harwin_M20_782{n:02}42'):
         fp=load_kicad_mod(PKG/f'footprints/{name}.kicad_mod').footprint
         assert len(fp.pads)==n
         for pad in fp.pads:
