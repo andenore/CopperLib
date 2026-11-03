@@ -1,5 +1,7 @@
 part Ag59624_LPB {
  footprint = "Ag59600_LPB:Ag59600_LPB";
+ // evidence.json height_clearance_mm; not a datasheet body height.
+ height = 17.6 mm;
  source_url = "https://silvertel.com/images/datasheets/Ag59600LPB-datasheet-High%20efficiency%20IEEE802_3BT%2051W%20power-over-ethernet%20module.pdf"; source_revision = "V1.3 May 2026"; source_location = "Figures 2 and 13; Tables 1, 3, 5 and 8";
  pin VIN_N { number = "1"; domains = "power"; directions = "input"; }
  pin TYP2DET { number = "2"; domains = "digital"; directions = "output"; }

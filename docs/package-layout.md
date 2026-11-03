@@ -27,6 +27,14 @@ providers; automatic transitive version selection is not established. Do not
 create parallel canonical geometry under repository-wide footprint directories.
 Generators and their outputs must be deterministic and reviewed together.
 
+3D bodies: a part may name a model with `model = "github.com/KiCad/kicad-packages3D/<Lib>.3dshapes/<file>.step";`
+only where KiCad models the same package (or the same outline, noted beside the
+field). The consumer requires `kicad-packages3D` in its `copper.mod`; without it
+the compiler warns and uses a generated approximate body. `height` is set only
+from recorded evidence. Parts with neither keep the generated body, which is
+for fit and clearance review only. These fields need a CopperScript that
+supports them.
+
 The standalone Johanson antenna and the nRF52832/Johanson RF circuit remain
 separate reusable definitions with canonical dependencies. Preserve the RF
 trial's six-layer contract, isolated antenna land, immutable copper, protected

@@ -3,6 +3,8 @@ part GCT_USB4105_GF_A_060 {
     category = "connector.usb_c.usb2";
     manufacturer = "GCT";
     footprint = "footprints/Connector_USB.pretty/USB_C_Receptacle_GCT_USB4105-GF-A_16P_TopMnt_Horizontal.kicad_mod";
+    // KiCad models the whole USB4105-xx-A family with one body.
+    model = "github.com/KiCad/kicad-packages3D/Connector_USB.3dshapes/USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal.step";
     source_document = "GCT USB4105 product drawing, USB Type C Receptacle for USB 2.0, SMT Type, PCB Top Mount";
     source_revision = "B4, 18/12/23 (drawing date 4 Oct 2019)";
     source_url = "https://gct.co/files/drawings/usb4105.pdf";

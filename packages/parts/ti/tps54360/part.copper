@@ -1,6 +1,8 @@
 part TPS54360DDAR {
     manufacturer = "Texas Instruments";
     footprint = "footprints/SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.71x3.7mm_ThermalVias.kicad_mod";
+    // Same 3.9 x 4.9 mm SOIC-8 body as KiCad's model; its exposed pad (under the body) is 2.41 x 3.81 mm, not 2.71 x 3.7 mm.
+    model = "github.com/KiCad/kicad-packages3D/Package_SO.3dshapes/SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.41x3.81mm.step";
     source_url = "https://www.ti.com/lit/ds/symlink/tps54360.pdf";
     source_location = "SLVSBB4G pins p4; DDA exposed-pad package addendum; six physical thermal drill lands retained";
     source_checksum = "sha256:c2743e51e9f180e3efd7afb2ce1ac792906576207f4e318f9b6075f3ab5c56a8";
