@@ -15,6 +15,8 @@ PARTS=[
  ('ti/sn74cb3t3306','SN74CB3T3306DCUR',{'OE1':'1','A1':'2','B1':'3','GND':'4','A2':'5','B2':'6','OE2':'7','VCC':'8'}),
  ('diodes/ap2112','AP2112K_3V3',{'VIN':'1','GND':'2','EN':'3','NC':'4','VOUT':'5'}),
  ('ti/tps54360','TPS54360DDAR',dict(zip(('BOOT','VIN','EN','RT','FB','COMP','GND','SW','EP'),map(str,range(1,10))))),
+ ('ti/tps1h200a','TPS1H200AQDGNRQ1',dict(zip(('IN','DIAG_EN','FAULT','CL','DELAY','GND','OUT','VS','EP'),map(str,range(1,10))))),
+ ('recom/r78k','R78K12_1A',{'VIN':'1','GND':'2','VOUT':'3'}),
  ('ti/sn74ahct541','SN74AHCT541PWR',{'OE1':'1','OE2':'19','VCC':'20','GND':'10',**{f'A{i}':str(i+1) for i in range(1,9)},**{f'Y{i}':str(19-i) for i in range(1,9)}}),
 ]
 @pytest.mark.parametrize('path,symbol,pins',PARTS)
@@ -47,3 +49,15 @@ def test_phoenix_mkds1_land_pattern_matches_drilling_plan():
  fp=load_kicad_mod(ROOT/'packages/parts/phoenix/mkds-1-3.5/footprints/Phoenix_MKDS_1_2_3_5.kicad_mod').footprint
  assert [(p.number,p.position.x_nm,p.position.y_nm) for p in fp.pads]==[('1',0,0),('2',3500000,0)]
  assert all(p.drill.width_nm==1100000 and p.size.width_nm==2000000 for p in fp.pads)
+
+def test_high_side_switch_land_pattern_matches_dgn0008k():
+ fp=load_kicad_mod(ROOT/'packages/parts/ti/tps1h200a/footprints/HVSSOP-8-1EP_3x3mm_P0.65mm_EP1.57x1.89mm.kicad_mod').footprint
+ lands={p.number:(p.position.x_nm,p.position.y_nm,p.size.width_nm,p.size.height_nm) for p in fp.pads if p.number}
+ assert lands['1']==(-2200000,-975000,1400000,450000) and lands['8']==(2200000,-975000,1400000,450000)
+ assert lands['4']==(-2200000,975000,1400000,450000) and lands['5']==(2200000,975000,1400000,450000)
+ assert lands['9']==(0,0,1570000,1890000)
+
+def test_r78k_land_pattern_matches_pinning():
+ fp=load_kicad_mod(ROOT/'packages/parts/recom/r78k/footprints/RECOM_R78K_1A.kicad_mod').footprint
+ assert [(p.number,p.position.x_nm,p.position.y_nm) for p in fp.pads]==[('1',-2540000,0),('2',0,0),('3',2540000,0)]
+ assert all(p.drill.width_nm==1100000 for p in fp.pads)
