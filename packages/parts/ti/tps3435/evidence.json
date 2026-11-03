@@ -1,0 +1,58 @@
+{
+  "source_url": "https://www.ti.com/lit/ds/symlink/tps3435.pdf",
+  "revision": "SNVSCF7A",
+  "locator": "Table 4-1 TPS3435CAIEGDDFR (pinout C); Figure 5-3 and Table 5-1 pinout C",
+  "package": "Package_TO_SOT_SMD:SOT-23-8",
+  "local_source_sha256": "2d9098c033dddb8999e0142dffee60bbaafd0ba6626bd7292da4b51aa8e319de",
+  "pins": [
+    [
+      1,
+      "SET0",
+      "digital",
+      "input"
+    ],
+    [
+      2,
+      "MR_N",
+      "digital",
+      "input"
+    ],
+    [
+      3,
+      "WDI",
+      "digital",
+      "input"
+    ],
+    [
+      4,
+      "GND",
+      "ground",
+      "input"
+    ],
+    [
+      5,
+      "SET1",
+      "digital",
+      "input"
+    ],
+    [
+      6,
+      "WD_EN",
+      "digital",
+      "input"
+    ],
+    [
+      7,
+      "WDO_N",
+      "digital",
+      "output"
+    ],
+    [
+      8,
+      "VDD",
+      "power",
+      "input"
+    ]
+  ],
+  "qualification": "Electrical pin contract only. Factory variant: 1 s watchdog timeout at SET[1:0] = 00 (x32/x64 scaling at 10/11), no startup delay, 200 ms open-drain WDO pulse. MR has an internal 100 kOhm pull-up and may float. Selected standard SOT-23-8 footprint requires DDF package drawing comparison before fabrication"
+}
