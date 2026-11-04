@@ -1,0 +1,40 @@
+// TI TPS27S100APWPR, 40-V 80-mOhm 4-A single-channel industrial high-side
+// switch with open-drain status (A version), PWP0014K HTSSOP-14 PowerPAD.
+// SLVSE42B (Sep 2019): pin functions p3, ratings pp4-7, current limit p17,
+// typical application p25, PWP0014K outline and land pattern pp35-36.
+// IN is the supply; EN (500 kOhm pull-down) and DIAG_EN (150 kOhm pull-down)
+// are the logic inputs, so the output is off while the controller is in
+// reset. VIH 2 V suits 3.3-V logic; ROC limits EN, DIAG_EN and FLT to 5 V.
+// Current limit R_ILIM = 1.233 V x 2000 / I_limit (+-20 % at >= 0.5 A,
+// 25-150 C); tie ILIM to device GND for the internal limit only. Overload
+// and thermal shutdown recover by themselves: there is no latch-off pin, so
+// the controller turns EN off on FLT. FLT also reports an open load
+// (< 2-10 mA with EN high, or a floating output with EN low).
+// IN, OUT and NC each have several lands; no internal connection between
+// them is stated, so no internal_pad_groups, and only one OUT land is the
+// driver. The thermal pad may be grounded or left floating.
+part TPS27S100APWPR {
+    category = "power.switch.high_side";
+    manufacturer = "Texas Instruments";
+    footprint = "footprints/HTSSOP-14-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.6x2.59mm.kicad_mod";
+    // Same 4.4 x 5 mm HTSSOP-14 body as KiCad's model; its exposed pad is drawn 2.94 x 3.34 mm, not 2.6 x 2.59 mm.
+    model = "github.com/KiCad/kicad-packages3D/Package_SO.3dshapes/Texas_HTSSOP-14-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.94x3.34mm.step";
+    source_url = "https://www.ti.com/lit/ds/symlink/tps27s100.pdf";
+    source_location = "SLVSE42B p3 pin functions; pp4-7 ratings; p17 current limit; p25 typical application; pp35-36 PWP0014K land pattern";
+    source_checksum = "sha256:b07c1d7ff9ec6eae1440367f4880c656600823580d7fcb4f3b87f1e693d86ef5";
+    pin NC_1 { number = "1"; domains = "analog"; directions = "passive"; connection = do_not_connect; }
+    pin GND { number = "2"; domains = "ground"; directions = "input"; }
+    pin EN { number = "3"; domains = "digital"; directions = "input"; voltage_min = 0V; voltage_max = 7V; }
+    pin NC_4 { number = "4"; domains = "analog"; directions = "passive"; connection = do_not_connect; }
+    pin OUT_5 { number = "5"; domains = "power"; directions = "output"; }
+    pin OUT_6 { number = "6"; domains = "power"; directions = "passive"; }
+    pin OUT_7 { number = "7"; domains = "power"; directions = "passive"; }
+    pin IN_8 { number = "8"; domains = "power"; directions = "input"; voltage_min = 5V; voltage_max = 40V; }
+    pin IN_9 { number = "9"; domains = "power"; directions = "input"; voltage_min = 5V; voltage_max = 40V; }
+    pin IN_10 { number = "10"; domains = "power"; directions = "input"; voltage_min = 5V; voltage_max = 40V; }
+    pin NC_11 { number = "11"; domains = "analog"; directions = "passive"; connection = do_not_connect; }
+    pin DIAG_EN { number = "12"; domains = "digital"; directions = "input"; voltage_min = 0V; voltage_max = 7V; }
+    pin ILIM { number = "13"; domains = "analog"; directions = "passive"; voltage_min = 0V; voltage_max = 7V; }
+    pin FLT { number = "14"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; voltage_min = 0V; voltage_max = 7V; }
+    pin EP { number = "15"; domains = "ground"; directions = "passive"; }
+}

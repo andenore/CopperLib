@@ -1,0 +1,6 @@
+{
+  "url": "https://www.ti.com/lit/ds/symlink/tps27s100.pdf",
+  "sha256": "b07c1d7ff9ec6eae1440367f4880c656600823580d7fcb4f3b87f1e693d86ef5",
+  "location": "SLVSE42B p3 pin functions; pp4-7 ratings; p17 current limit; p25 typical application; pp35-36 PWP0014K land pattern",
+  "scope": "Pin mapping and package source facts; electrical, thermal and assembly qualification pending."
+}

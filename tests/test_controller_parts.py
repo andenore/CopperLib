@@ -17,6 +17,7 @@ PARTS=[
  ('diodes/ap2112','AP2112K_3V3',{'VIN':'1','GND':'2','EN':'3','NC':'4','VOUT':'5'}),
  ('ti/tps54360','TPS54360DDAR',dict(zip(('BOOT','VIN','EN','RT','FB','COMP','GND','SW','EP'),map(str,range(1,10))))),
  ('ti/tps1h200a','TPS1H200AQDGNRQ1',dict(zip(('IN','DIAG_EN','FAULT','CL','DELAY','GND','OUT','VS','EP'),map(str,range(1,10))))),
+ ('ti/tps27s100','TPS27S100APWPR',{'NC_1':'1','GND':'2','EN':'3','NC_4':'4','OUT_5':'5','OUT_6':'6','OUT_7':'7','IN_8':'8','IN_9':'9','IN_10':'10','NC_11':'11','DIAG_EN':'12','ILIM':'13','FLT':'14','EP':'15'}),
  ('recom/r78k','R78K12_1A',{'VIN':'1','GND':'2','VOUT':'3'}),
  ('ti/sn74ahct541','SN74AHCT541PWR',{'OE1':'1','OE2':'19','VCC':'20','GND':'10',**{f'A{i}':str(i+1) for i in range(1,9)},**{f'Y{i}':str(19-i) for i in range(1,9)}}),
  ('hanrun/hr911130a','HR911130A',{**{f'P{i}':str(i) for i in range(1,15)},'SH':'15'}),
@@ -47,6 +48,14 @@ def test_high_side_switch_land_pattern_matches_dgn0008k():
  assert pads['1']==[-2.2,-0.975,1.4,0.45,None] and pads['8']==[2.2,-0.975,1.4,0.45,None]
  assert pads['4']==[-2.2,0.975,1.4,0.45,None] and pads['5']==[2.2,0.975,1.4,0.45,None]
  assert pads['9'][:4]==[0,0,1.57,1.89]
+
+def test_tps27s100_land_pattern_matches_pwp0014k():
+ path='ti/tps27s100/footprints/HTSSOP-14-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.6x2.59mm.kicad_mod'
+ numbered=lands(path)
+ assert [p[:3] for p in numbered[:14]]==[(str(n),-2.9 if n<=7 else 2.9,round((-1.95+0.65*(n-1)) if n<=7 else (1.95-0.65*(n-8)),2)) for n in range(1,15)]
+ assert all(p[3:5]==(1.5,0.45) for p in numbered[:14])
+ assert numbered[14][1:5]==(0,0,3.4,5)
+ assert '(pad "" smd rect (at 0 0) (size 2.6 2.59) (layers "F.Mask"))' in (ROOT/'packages/parts'/path).read_text()
 
 def test_r78k_land_pattern_matches_pinning():
  assert [(n,x,y,d) for n,x,y,_,_,d in lands('recom/r78k/footprints/RECOM_R78K_1A.kicad_mod')]==[('1',-2.54,0,1.1),('2',0,0,1.1),('3',2.54,0,1.1)]
