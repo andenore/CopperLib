@@ -1,0 +1,27 @@
+{
+  "schema": "copperprobe-parts-layout-contract/v1",
+  "contract_version": "1.0.0-candidate",
+  "part": "AMPHENOL_12401610E4_2A",
+  "qualified_release": false,
+  "destination": "CopperLib/packages/parts/amphenol/12401610e4/layout-contract.json",
+  "source": {
+    "url": "https://www.amphenol-cs.com/product/12401610e42a.html",
+    "path": null,
+    "applicability": "exact product12401610E4#2A; PCB thickness1.00mm/tail1.00mm nominal; mechanical tolerance unverified",
+    "sha256": null,
+    "status": "Web retrieval read; direct binary/HTML archival request HTTP403 Cloudflare. Source observations are paraphrases, not original page bytes."
+  },
+  "drawing": {
+    "url": "https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/c12401610_c.pdf",
+    "status": "HTTP403; binary download and dimensional drawing unavailable; no alternate footprint inferred",
+    "sha256": null
+  },
+  "pin_bindings": "existing exact namedA/B receptacle footprint/pins retained; noalternative inferred",
+  "nominal_pcb_thickness_mm": "1.00",
+  "nominal_tail_length_mm": "1.00",
+  "nominal_centerline_height_mm": "1.58",
+  "nominal_speed": "10Gb/s",
+  "mechanical_qualification": "Unresolved exact dimensional drawing, mounting-tail projection and board-thickness tolerance fit. Published nominal PCB thickness is1.00mm; no fabricator stack is chosen by this reusable connector contract.",
+  "electrical_qualification": "nominal speed listing does not certify actual launch, padantipad/ESD/cap/wholechannelGen2electrical performance",
+  "wiring_role": "USB-C contact roles: TX1=A2/A3, TX2=B2/B3, RX1=B11/B10, RX2=A11/A10. A specific PHY mux/channel composition belongs to its consumer; exact connector drawing remains unreviewed."
+}

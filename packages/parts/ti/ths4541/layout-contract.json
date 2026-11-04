@@ -1,0 +1,28 @@
+{
+  "schema": "copperprobe-driver-layout-contract/v1",
+  "source_url": "https://www.ti.com/lit/ds/symlink/ths4541.pdf",
+  "source_sha256": "89116b7887557237335675481ed80c5f3570b4d920d0b882393a877fb1796765",
+  "source_location": "SLOS375B pp3,35,50-51; RGT0016A land pattern",
+  "internal_pad_groups": [
+    [
+      "1",
+      "11"
+    ],
+    [
+      "4",
+      "10"
+    ]
+  ],
+  "facts": [
+    "FB- pin1 is internally connected to OUT- pin11; FB+ pin4 to OUT+ pin10 (p35 block diagram).",
+    "External feedback resistors connect FB- to IN+ and FB+ to IN- in RGT (8.3.1).",
+    "Thermal pad is electrically isolated; connect for heat spreading; it is not an internal signal return."
+  ],
+  "host_obligations": [
+    "Keep both feedback loops local and symmetric.",
+    "Place bypasses close to power pins with short ground return paths.",
+    "Remove ground/power copper beneath sensitive input/output nodes; maintain reference continuity for longer interconnects.",
+    "Review all-plane openings, return loops, actual response, noise, stability and assembly."
+  ],
+  "qualification": "Manufacturer topology facts; consumer geometry adaptation remains unqualified."
+}

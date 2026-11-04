@@ -1,0 +1,51 @@
+{
+  "AMPHENOL_12401610E4_2A": {
+    "package": "usb",
+    "footprint": "Connector_USB:USB_C_Receptacle_Amphenol_12401610E4-2A",
+    "source": {
+      "url": "https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/c12401610_c.pdf",
+      "sha256": null
+    },
+    "locator": "Amphenol C12401610 drawing; USB Type-C receptacle pin table; KiCad footprint drawing link",
+    "pins": {
+      "A1": "A1",
+      "A2": "A2",
+      "A3": "A3",
+      "A4": "A4",
+      "A5": "A5",
+      "A6": "A6",
+      "A7": "A7",
+      "A8": "A8",
+      "A9": "A9",
+      "A10": "A10",
+      "A11": "A11",
+      "A12": "A12",
+      "B1": "B1",
+      "B2": "B2",
+      "B3": "B3",
+      "B4": "B4",
+      "B5": "B5",
+      "B6": "B6",
+      "B7": "B7",
+      "B8": "B8",
+      "B9": "B9",
+      "B10": "B10",
+      "B11": "B11",
+      "B12": "B12",
+      "SHIELD": "S1"
+    },
+    "notes": "24-contact USB-C Gen2 receptacle; drawing download returned403; footprint and exact dimensional review pending.",
+    "layout_contract": {
+      "path": "parts/usb/layout-contract.json",
+      "sha256": "b85ac5454ffe2d3c8318923fb5291e48be82d65b2fe81c796f41651771aa6ec5",
+      "contract_version": "1.0.0-candidate",
+      "machine_enforced": false
+    },
+    "footprint_inventory": {
+      "identifier": "Connector_USB:USB_C_Receptacle_Amphenol_12401610E4-2A",
+      "sha256": "4aa3bec7fb70a4c75d6fc9fa7563133fb755b4cda6d0b269cec3313dcc78b385",
+      "source": "KiCad7ebfa6b23cc292a56f751b7b5f4a0e12eeef69dd",
+      "qualified": false
+    }
+  }
+}

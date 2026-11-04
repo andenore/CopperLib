@@ -1,0 +1,53 @@
+{
+  "status": "Research complete; design changes and qualification not performed",
+  "sources": {
+    "kit": "https://www.infineon.com/assets/row/public/documents/30/60/infineon-hardware-design-file-kit-fx10-fmc-001-pcbdesigndata-en.zip",
+    "guidelines": "https://www.infineon.com/assets/row/public/documents/24/42/infineon-hardware-design-guidelines-and-schematic-checklist-for-ez-usb-fx5-fx5n-fx10-fx20-applicationnotes-en.pdf",
+    "datasheet": "https://www.infineon.com/dgdl/Infineon-CYUSB401x_EZ-USB_FX10_USB_10_Gbps_peripheral_controller-DataSheet-v02_00-EN.pdf?fileId=8ac78c8c956a0a4701959618c62d4947",
+    "bga_general": "https://www.ti.com/lit/an/spma056/spma056.pdf",
+    "importer": "https://raw.githubusercontent.com/KiCad/kicad/10.0.6/pcbnew/pcb_io/allegro/allegro_builder.cpp"
+  },
+  "reference": "KIT_FX10_FMC_001, archive PCB Design Data01_00, schematic630-60643-01 Rev03 (2025-02-13), CYUSB4014-FCAXI",
+  "scope": "Same FCA169 family package; CopperProbe uses CYUSB4013-FCAXI. Kit firmware/FMC circuitry not copied.",
+  "findings": [
+    "Six copper layers: TOP / GND1 / SIG1 / SIG2 / PWR1 / BOTTOM.",
+    "169 imported circular lands are 0.25 mm on 0.75 mm pitch. CopperProbe currently uses 0.40 mm lands.",
+    "102 direct short top-layer BGA-pad-to-via connections; 101 have absolute dx=dy=0.3328 mm, one has 0.3306 mm.",
+    "Within a 12 mm square centered on U1:104 vias use0.4064 mm copper pads /0.2032 mm drills, one uses0.508/0.254 mm.",
+    "All1025 imported via coordinates match one original Allegro0x33 record. Seven referenced0x1C padstacks each specify six copper layers; drills and first-layer pad widths match the import.",
+    "Unused padstack names that suggest small or blind vias do not establish instantiated use. No such stack is referenced by the1025 matched via instances.",
+    "TX1 and RX2 use TOP for the IC-side nets; RX1 and TX2 use TOP and BOTTOM. USB2 also uses SIG1. TX1 caps C6/C7 are front; TX2 caps C98/C99 are back.",
+    "M12 escapes diagonally0.470650 mm to a via, then reaches C86(10 nF) and C85(100 nF) on BOTTOM. Centerline to C86 supply pad is about1.193 mm, excluding via barrel length.",
+    "Kit USB bank faces its adjacent USB connector. CopperProbe USB bank currently faces toward the lower board edge while the connector is to the right."
+  ],
+  "proposed_consumer_actions": [
+    "Review and replace the authored0.40 mm FCA169 land pattern against the0.25 mm reference land, including solder mask/paste and assembly acceptance. Make reusable footprint changes in CopperProbeParts with a new dependency version.",
+    "Define a reusable source-backed quadrant dogbone breakout with package-local coordinates and explicit supply/return ownership; keep signal corridors open. Apply transformations with exact ball/net mapping.",
+    "Evaluate FX10 rotation/location to face the USB bank toward the connector, and reserve paired USB paths before general power/ordinary routes.",
+    "Place bypass pairs around the corresponding short vias, especially M12; preserve both VCCD output contacts and manufacturer VSS returns.",
+    "Evaluate separate front/back USB pair corridors and TX-cap placement. Recompute impedance and transition returns for the actual CopperProbe stack; reference widths are not directly transferable.",
+    "Use normal bounded route-board integration and fresh native checks after source changes; this research does not demonstrate CopperProbe closure."
+  ],
+  "geometry_inference": {
+    "description": "Illustrative centered dogbone geometry, ignoring mask/assembly tolerances and routing interference.",
+    "current_land_to_via_clearance_mm": 0.10533,
+    "reference_land_to_via_clearance_mm": 0.20213,
+    "interpretation": "Current geometry leaves about0.105 mm clearance at the ideal cell center, only0.005 mm above the0.1 mm rule. Reference dimensions leave about0.202 mm. The actual reference via offset is0.3328 mm per axis, not the cell-center assumption."
+  },
+  "limitations": [
+    "KiCad10.0.6 importer hardcodes through-via spans; via-span conclusion is instead based on original matched padstack records.",
+    "The importer is reverse-engineered. Land size and routing observations are reference-design evidence; source package/assembly and mask/paste review still required before modifying manufacturing geometry.",
+    "No imported-board refill, DRC, SI/PDN extraction, or electrical qualification was performed.",
+    "AN238422 figures show FX20 examples despite family-wide applicability. The displayed board images here are the actual FX10 kit file.",
+    "Infineon AN79938 direct web retrieval unavailable; no unverified contents were used. TI SPMA056 provides general dogbone/escape context, not FX10-specific dimensions."
+  ],
+  "protected_inputs_unchanged": true,
+  "protected_input_sha256": {
+    "C:\\Users\\anden\\Documents\\dev\\CopperProbe\\board.copper": "da551904bf2d1c6aaf99d7a101304600c7459cc807e7ffecebc42561ec6d8e09",
+    "C:\\Users\\anden\\Documents\\dev\\CopperProbe\\copper.mod": "edaace77aee7981edce23b6b090e613234e91d8e09e3d6f64cc7c868831f0544",
+    "C:\\Users\\anden\\Documents\\dev\\CopperProbe\\copper.lock": "e040f056bbc08ef555fc261b582b9ed1bf61c50737f178a66f639a229caf76ac",
+    "C:\\Users\\anden\\Documents\\dev\\CopperProbe\\docs\\validation.md": "bdf3546ff99f7570b1fd478e5816de3c5a982ec433f4e381119b884704c18018",
+    "C:\\Users\\anden\\Documents\\dev\\CopperProbe\\docs\\toolchain.json": "42ddc30ccb6454b9a322e9731c2c3d286f8c4ce711f67843b5f631654e491555",
+    "C:\\Users\\anden\\Documents\\dev\\CopperProbeParts\\parts\\fx10\\footprints\\FX10_FCA169.kicad_mod": "9021df4cc9647c1b525903683e4b29d0afeeaa59cf991a1c444d5c5b0e75c083"
+  }
+}

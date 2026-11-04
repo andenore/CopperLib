@@ -1,0 +1,32 @@
+// 24-contact USB-C Gen2 receptacle; drawing download returned403; footprint and exact dimensional review pending.
+part AMPHENOL_12401610E4_2A {
+    category = "usb";
+    footprint = "footprints/USB_C_Receptacle_Amphenol_12401610E4-2A.kicad_mod";
+    source_url = "https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/c12401610_c.pdf";
+    source_location = "Amphenol C12401610 drawing; USB Type-C receptacle pin table; KiCad footprint drawing link";
+    pin A1 { number = "A1"; domains = "ground"; directions = "passive";  }
+    pin A2 { number = "A2"; domains = "digital"; directions = "passive";  }
+    pin A3 { number = "A3"; domains = "digital"; directions = "passive";  }
+    pin A4 { number = "A4"; domains = "power"; directions = "passive";  }
+    pin A5 { number = "A5"; domains = "analog"; directions = "passive";  }
+    pin A6 { number = "A6"; domains = "digital"; directions = "passive";  }
+    pin A7 { number = "A7"; domains = "digital"; directions = "passive";  }
+    pin A8 { number = "A8"; domains = "analog"; directions = "passive";  }
+    pin A9 { number = "A9"; domains = "power"; directions = "passive";  }
+    pin A10 { number = "A10"; domains = "digital"; directions = "passive";  }
+    pin A11 { number = "A11"; domains = "digital"; directions = "passive";  }
+    pin A12 { number = "A12"; domains = "ground"; directions = "passive";  }
+    pin B1 { number = "B1"; domains = "ground"; directions = "passive";  }
+    pin B2 { number = "B2"; domains = "digital"; directions = "passive";  }
+    pin B3 { number = "B3"; domains = "digital"; directions = "passive";  }
+    pin B4 { number = "B4"; domains = "power"; directions = "passive";  }
+    pin B5 { number = "B5"; domains = "analog"; directions = "passive";  }
+    pin B6 { number = "B6"; domains = "digital"; directions = "passive";  }
+    pin B7 { number = "B7"; domains = "digital"; directions = "passive";  }
+    pin B8 { number = "B8"; domains = "analog"; directions = "passive";  }
+    pin B9 { number = "B9"; domains = "power"; directions = "passive";  }
+    pin B10 { number = "B10"; domains = "digital"; directions = "passive";  }
+    pin B11 { number = "B11"; domains = "digital"; directions = "passive";  }
+    pin B12 { number = "B12"; domains = "ground"; directions = "passive";  }
+    pin SHIELD { number = "S1"; domains = "ground"; directions = "passive";  }
+}

@@ -1,0 +1,14 @@
+// Standby option, LVDS, 3.3 V, 125 MHz; exact jitter at selected frequency must be confirmed.
+part SIT9121AI_1C2_33S125 {
+    category = "clock";
+    footprint = "footprints/SiT9121_5032.kicad_mod";
+    source_url = "https://www.sitime.com/datasheet/SiT9121";
+    source_location = "SiT9121 Rev1.08 p2 pins; mechanical 5032 drawing; p8 ordering";
+    source_checksum = "sha256:94fef641cf8801e0f3ae48db88ae157b7ae2be9fc1d93924d6229847bab81a00";
+    pin ST { number = "1"; domains = "digital"; directions = "input";  }
+    pin NC { number = "2"; connection = do_not_connect;  }
+    pin GND { number = "3"; domains = "ground"; directions = "input";  }
+    pin OUTP { number = "4"; domains = "clock"; directions = "output";  }
+    pin OUTM { number = "5"; domains = "clock"; directions = "output";  }
+    pin VDD { number = "6"; domains = "power"; directions = "input";  }
+}

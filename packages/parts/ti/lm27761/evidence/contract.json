@@ -1,0 +1,31 @@
+{
+  "LM27761DSGR": {
+    "package": "negative",
+    "footprint": "Package_SON:Texas_DSG0008A_WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm",
+    "source": {
+      "id": "negative",
+      "url": "https://www.ti.com/lit/ds/symlink/lm27761.pdf",
+      "sha256": "0724ce35e920e1350907de9f8a70f0e40257cff907fc0c9331609cf0267a6814",
+      "pages": 27
+    },
+    "locator": "SNVSA85D p3 Table4-1; pp12-17 support and layout",
+    "pins": {
+      "VIN": "1",
+      "GND": "2",
+      "CPOUT": "3",
+      "VOUT": "4",
+      "VFB": "5",
+      "EN": "6",
+      "C1M": "7",
+      "C1P": "8",
+      "EP": "9"
+    },
+    "notes": "Negative regulator 1.22 V reference; flying, reservoir and output capacitors mandatory.",
+    "footprint_inventory": {
+      "identifier": "Package_SON:Texas_DSG0008A_WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm",
+      "sha256": "fa30bcd3829c456865f0f79f87e2ae74d7b92912ab9e6a3d4026eec63f8a895a",
+      "source": "KiCad10.0 installed library; embedded descr/tags retained",
+      "qualified": false
+    }
+  }
+}

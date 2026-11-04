@@ -1,0 +1,24 @@
+{
+  "ABM8_24MHZ": {
+    "package": "crystal",
+    "footprint": "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm",
+    "source": {
+      "url": "https://abracon.com/Resonators/ABM8.pdf",
+      "sha256": null
+    },
+    "locator": "ABM8 pin diagram; 24 MHz B2 18 pF load ordering code",
+    "pins": {
+      "X1": "1",
+      "X2": "3",
+      "GND2": "2",
+      "GND4": "4"
+    },
+    "notes": "Load capacitors are provisional until installed stray capacitance is established.",
+    "footprint_inventory": {
+      "identifier": "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm",
+      "sha256": "0efc1a86f641a5e4d27a4483811386c23ddfa5b416c628f65cef963ef7edbb62",
+      "source": "KiCad10.0 installed library; embedded descr/tags retained",
+      "qualified": false
+    }
+  }
+}
