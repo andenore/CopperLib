@@ -1,5 +1,5 @@
 from pathlib import Path
-import json, subprocess, sys
+import json, re, subprocess, sys
 from decimal import Decimal
 ROOT=Path(__file__).resolve().parents[1]
 PKG=ROOT/'packages/profiles/m5stack/stamp-s3'
@@ -8,7 +8,10 @@ def test_source_generation_and_header_rows():
     subprocess.run([sys.executable,str(PKG/'generate.py'),'--check'],check=True)
     data=json.loads((PKG/'evidence/connector.json').read_text())
     for side,n in [('left',9),('right',6)]:
-        assert (PKG/f'footprints/HCTL_PM254_1_{n:02}_Z_8_5.kicad_mod').is_file()
+        for name in (f'HCTL_PM254_1_{n:02}_Z_8_5', f'WE_6130{n:02}11821', f'Harwin_M20_782{n:02}42'):
+            text=(PKG/f'footprints/{name}.kicad_mod').read_text()
+            pads=re.findall(r'\(pad "(\d+)" thru_hole \w+ \(at 0 ([\d.]+)\) \(size 2 2\) \(drill 1\.02\)', text)
+            assert [(int(p),Decimal(y)) for p,y in pads]==[(i,Decimal('2.54')*(i-1)) for i in range(1,n+1)], name
         rows=data[side]
         assert len(rows)==n
         for a,b in zip(rows,rows[1:]):

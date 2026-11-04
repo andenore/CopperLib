@@ -6,6 +6,19 @@ Both are listed for wave-soldered PCBA. The separately purchased M5Stack S007
 module and its supplied 9/6-pin male headers are installed after carrier assembly.
 These are configured contact views, not a silicon model or a soldered module.
 
+`STAMP_S3_SOCKET_LEFT_WE` / `STAMP_S3_SOCKET_RIGHT_WE` are the same contact
+views on Wurth WR-PHD 61300911821 / 61300611821 sockets, stocked by western
+distributors. Wurth's 2024-04-10 drawings give the same 2.54 mm pitch, 1.02 mm
+recommended hole and 8.5 mm height, with body length 2.54*N+0.50 +/- 0.25 mm
+and width 2.5 +/- 0.2 mm; their footprints are authored the same way.
+
+`STAMP_S3_SOCKET_LEFT_HARWIN` / `STAMP_S3_SOCKET_RIGHT_HARWIN` are the same
+contact views on Harwin M20-7820942 / M20-7820642 sockets (gold contact area,
+tin tails). Harwin drawing DRG-00385 rev 11 gives the same 2.54 mm pitch,
+1.02 mm recommended hole and 8.50 +/- 0.15 mm height, with body length
+2.54*N+0.40 +/- 0.35 mm and width 2.50 +/- 0.15 mm, so a Harwin socket can
+face a Wurth socket of the other row at the same height.
+
 Top view: antenna up, USB down. Left socket pin 1 is module pad 1 (G1);
 right socket pin 1 is module pad 28 (3V3). Rows are 15.24 mm apart; right pin 1
 is 7.62 mm below left pin 1. The 2.54 mm mounting uses alternating module pads;
