@@ -2,6 +2,8 @@ part XFL4020_472MEC {
  category = "passive.inductor.power";
  dc_power_path = "A,B";
  footprint = "Coilcraft_XFL4020:Coilcraft_XFL4020";
+ // KiCad models the XAL4020; the XFL4020 shares its 4.0 x 4.0 mm outline and land pattern.
+ model = "github.com/KiCad/kicad-packages3D/Inductor_SMD.3dshapes/L_Coilcraft_XAL4020-XXX.step";
  source_url = "https://www.coilcraft.com/getmedia/50632d43-da1b-4cdb-8ab4-3029cab51df3/xfl4020.pdf"; source_revision = "Document 745 March 10 2026"; source_location = "4.7 uH electrical row; page 3 recommended land pattern";
  pin A { number = "1"; domains = "power"; directions = "passive"; }
  pin B { number = "2"; domains = "power"; directions = "passive"; }

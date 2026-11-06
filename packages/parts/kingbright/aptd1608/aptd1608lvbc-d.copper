@@ -9,6 +9,8 @@ part KINGBRIGHT_APTD1608LVBC_D {
     category = "optoelectronics.led";
     manufacturer = "Kingbright";
     footprint = "footprints/Kingbright_APTD1608.kicad_mod";
+    // Body height from the 1.6 x 0.8 x 0.95 mm package size above.
+    height = 0.95 mm;
     source_document = "Kingbright datasheet APTD1608LVBC/D, spec no. DSAN8408 / 1203014442";
     source_revision = "Rev No: V.11B, 03/18/2025";
     source_url = "https://www.kingbrightusa.com/images/catalog/SPEC/APTD1608LVBC-D.pdf";

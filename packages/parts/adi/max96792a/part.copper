@@ -55,6 +55,8 @@ part MAX96792AGTM_VY {
     category = "interface.serdes.deserializer";
     manufacturer = "Analog Devices";
     footprint = "Package_DFN_QFN:QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm";
+    // Same 7 x 7 mm 48-TQFN outline as KiCad's model, which follows the non-side-wettable 21-0144 family (not 21-100045); its exposed pad (under the body) is 5.1 mm, not 5.5 mm.
+    model = "github.com/KiCad/kicad-packages3D/Package_DFN_QFN.3dshapes/TQFN-48-1EP_7x7mm_P0.5mm_EP5.1x5.1mm.step";
     device = MAX96792A;
     source_document = "MAX96792A Dual GMSL3/2 to CSI-2 Deserializer data sheet";
     source_revision = "19-101426 Rev 1 (1/24)";
