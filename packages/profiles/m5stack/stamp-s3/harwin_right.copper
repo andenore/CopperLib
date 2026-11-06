@@ -4,6 +4,8 @@ part STAMP_S3_SOCKET_RIGHT_HARWIN {
     category = "connector.module.stamp_s3";
     manufacturer = "Harwin";
     footprint = "footprints/Harwin_M20_7820642.kicad_mod";
+    // KiCad's generic 1x06 2.54 mm socket: same outline and 8.5 mm height as the drawing.
+    model = "github.com/KiCad/kicad-packages3D/Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x06_P2.54mm_Vertical.step";
     source_document = "M5StampS3 schematic v0.2, M1; Harwin M20-782 DRG-00385 rev 11, 2026-08-03";
     source_location = "M1 pads 1,3,5,7,9,11,13,15,17 / 28,26,24,22,20,18; evidence/connector.json";
     source_url = "https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/522/Sch_M5StampS3_v0.2.pdf";
