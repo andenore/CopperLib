@@ -1,0 +1,9342 @@
+{
+  "scope": "Manufacturer FX10 kit reference research; imported geometry plus raw via-record cross-check. No CopperProbe edits or qualification.",
+  "source_url": "https://www.infineon.com/assets/row/public/documents/30/60/infineon-hardware-design-file-kit-fx10-fmc-001-pcbdesigndata-en.zip",
+  "reference_part": "CYUSB4014-FCAXI, schematic 630-60643-01 Rev03; CopperProbe uses CYUSB4013-FCAXI",
+  "kicad_version": "10.0.6",
+  "input_hashes": {
+    "C:\\Users\\anden\\Documents\\dev\\CopperScript\\build\\manufacturer-research\\fx10\\KIT_FX10_FMC_001_PCB.brd": "e19be5cf29b7922ec30895eaeb4ce1c2563ef54096aaa70fad18fd55619e0144",
+    "C:\\Users\\anden\\Documents\\dev\\CopperScript\\build\\manufacturer-research\\fx10\\kit-hardware.zip": "6b7d809118948fa75f4b492e990568a1aee4a45b02282b92a47ad51c81dab022",
+    "C:\\Users\\anden\\Documents\\dev\\CopperScript\\build\\fx10-escape-research-20261015\\fx10-dvk.kicad_pcb": "0048ab472f58ceb4c9013a0dce9bc1d15f0445a03b4d96df2023e039a921d3a2",
+    "C:\\Users\\anden\\Documents\\dev\\CopperProbe\\board.copper": "da551904bf2d1c6aaf99d7a101304600c7459cc807e7ffecebc42561ec6d8e09",
+    "C:\\Users\\anden\\Documents\\dev\\CopperProbeParts\\parts\\fx10\\footprints\\FX10_FCA169.kicad_mod": "9021df4cc9647c1b525903683e4b29d0afeeaa59cf991a1c444d5c5b0e75c083"
+  },
+  "copper_layers_top_to_bottom": [
+    "TOP",
+    "GND1",
+    "SIG1",
+    "SIG2",
+    "PWR1",
+    "BOTTOM"
+  ],
+  "statistics": {
+    "footprints": 334,
+    "tracks": 12786,
+    "vias": 1025,
+    "zones": 127
+  },
+  "bga": {
+    "reference": "U1",
+    "position_nm": [
+      14416400,
+      -29500000
+    ],
+    "rotation_degrees": -90.0,
+    "side": "front",
+    "pads": [
+      {
+        "number": "A1",
+        "net": "P0CP_P0CLK_P0CTL8",
+        "position_nm": [
+          18916400,
+          -34000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "A2",
+        "net": "P0CN_P0CTL9",
+        "position_nm": [
+          18916400,
+          -33250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "A3",
+        "net": "V3P3_FX",
+        "position_nm": [
+          18916400,
+          -32500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "A4",
+        "net": "P1D0P_P1D8",
+        "position_nm": [
+          18916400,
+          -31750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "A5",
+        "net": "P1D1P_P1CLK_P1D9",
+        "position_nm": [
+          18916400,
+          -31000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "A6",
+        "net": "P1D2P_P1D10",
+        "position_nm": [
+          18916400,
+          -30250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "A7",
+        "net": "P1D3P_P1D11",
+        "position_nm": [
+          18916400,
+          -29500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "A8",
+        "net": "P1CLKP_P1D9_P1CLK",
+        "position_nm": [
+          18916400,
+          -28750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "A9",
+        "net": "P1D4P_P1D12",
+        "position_nm": [
+          18916400,
+          -28000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "A10",
+        "net": "P1D5P_P1D13",
+        "position_nm": [
+          18916400,
+          -27250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "A11",
+        "net": "P1D6P_P1D14",
+        "position_nm": [
+          18916400,
+          -26500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "A12",
+        "net": "P1D7P_P1D15",
+        "position_nm": [
+          18916400,
+          -25750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "A13",
+        "net": "P1CP_P1CTL8",
+        "position_nm": [
+          18916400,
+          -25000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "B1",
+        "net": "P0D7P_P0D15",
+        "position_nm": [
+          18166400,
+          -34000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "B2",
+        "net": "P0D7N_P0D7",
+        "position_nm": [
+          18166400,
+          -33250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "B3",
+        "net": "GND",
+        "position_nm": [
+          18166400,
+          -32500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "B4",
+        "net": "P1D0N_P1D0",
+        "position_nm": [
+          18166400,
+          -31750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "B5",
+        "net": "P1D1N_P1D1",
+        "position_nm": [
+          18166400,
+          -31000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "B6",
+        "net": "P1D2N_P1D2",
+        "position_nm": [
+          18166400,
+          -30250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "B7",
+        "net": "P1D3N_P1D3",
+        "position_nm": [
+          18166400,
+          -29500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "B8",
+        "net": "P1CLKN_P1CTL7",
+        "position_nm": [
+          18166400,
+          -28750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "B9",
+        "net": "P1D4N_P1D4",
+        "position_nm": [
+          18166400,
+          -28000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "B10",
+        "net": "P1D5N_P1D5",
+        "position_nm": [
+          18166400,
+          -27250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "B11",
+        "net": "P1D6N_P1D6",
+        "position_nm": [
+          18166400,
+          -26500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "B12",
+        "net": "P1D7N_P1D7",
+        "position_nm": [
+          18166400,
+          -25750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "B13",
+        "net": "P1CN_P1CTL9",
+        "position_nm": [
+          18166400,
+          -25000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "C1",
+        "net": "P0D6P_P0D14",
+        "position_nm": [
+          17416400,
+          -34000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "C2",
+        "net": "P0D6N_P0D6",
+        "position_nm": [
+          17416400,
+          -33250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "C3",
+        "net": "VDDI0_P0",
+        "position_nm": [
+          17416400,
+          -32500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "C4",
+        "net": "GND",
+        "position_nm": [
+          17416400,
+          -31750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "C5",
+        "net": "VDDI0_P1",
+        "position_nm": [
+          17416400,
+          -31000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "C6",
+        "net": "GND",
+        "position_nm": [
+          17416400,
+          -30250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "C7",
+        "net": "VDDIO_CTRL",
+        "position_nm": [
+          17416400,
+          -29500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "C8",
+        "net": "GND",
+        "position_nm": [
+          17416400,
+          -28750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "C9",
+        "net": "VDDI0_P1",
+        "position_nm": [
+          17416400,
+          -28000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "C10",
+        "net": "GND",
+        "position_nm": [
+          17416400,
+          -27250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "C11",
+        "net": "N21761069",
+        "position_nm": [
+          17416400,
+          -26500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "C12",
+        "net": "GND",
+        "position_nm": [
+          17416400,
+          -25750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "C13",
+        "net": "PROG#",
+        "position_nm": [
+          17416400,
+          -25000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "D1",
+        "net": "P0D5P_P0D13",
+        "position_nm": [
+          16666400,
+          -34000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "D2",
+        "net": "P0D5N_P0D5",
+        "position_nm": [
+          16666400,
+          -33250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "D3",
+        "net": "GND",
+        "position_nm": [
+          16666400,
+          -32500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "D4",
+        "net": "P0CTL6",
+        "position_nm": [
+          16666400,
+          -31750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "D5",
+        "net": "P1CTL0",
+        "position_nm": [
+          16666400,
+          -31000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "D6",
+        "net": "P1CTL1",
+        "position_nm": [
+          16666400,
+          -30250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "D7",
+        "net": "P1CTL2",
+        "position_nm": [
+          16666400,
+          -29500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "D8",
+        "net": "P1CTL3",
+        "position_nm": [
+          16666400,
+          -28750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "D9",
+        "net": "P1CTL4",
+        "position_nm": [
+          16666400,
+          -28000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "D10",
+        "net": "P1CTL5",
+        "position_nm": [
+          16666400,
+          -27250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "D11",
+        "net": "P1CTL6",
+        "position_nm": [
+          16666400,
+          -26500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "D12",
+        "net": "FPGA_SSN",
+        "position_nm": [
+          16666400,
+          -25750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "D13",
+        "net": "SPI_NCS1",
+        "position_nm": [
+          16666400,
+          -25000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "E1",
+        "net": "P0D4P_P0D12",
+        "position_nm": [
+          15916400,
+          -34000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "E2",
+        "net": "P0D4N_P0D4",
+        "position_nm": [
+          15916400,
+          -33250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "E3",
+        "net": "VDDIO_CTRL",
+        "position_nm": [
+          15916400,
+          -32500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "E4",
+        "net": "P0CTL5",
+        "position_nm": [
+          15916400,
+          -31750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "E5",
+        "net": "SPIDAT2",
+        "position_nm": [
+          15916400,
+          -31000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "E6",
+        "net": "SPIDAT3",
+        "position_nm": [
+          15916400,
+          -30250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "E7",
+        "net": "SPIDAT4",
+        "position_nm": [
+          15916400,
+          -29500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "E8",
+        "net": "SPIDAT5",
+        "position_nm": [
+          15916400,
+          -28750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "E9",
+        "net": "SPIDAT6",
+        "position_nm": [
+          15916400,
+          -28000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "E10",
+        "net": "SPIDAT7",
+        "position_nm": [
+          15916400,
+          -27250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "E11",
+        "net": "SPI_SCK",
+        "position_nm": [
+          15916400,
+          -26500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "E12",
+        "net": "SPI_NCS0",
+        "position_nm": [
+          15916400,
+          -25750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "E13",
+        "net": "P1SCL",
+        "position_nm": [
+          15916400,
+          -25000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "F1",
+        "net": "P0CLKP_P0D9_P0CLK",
+        "position_nm": [
+          15166400,
+          -34000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "F2",
+        "net": "P0CLKN_P0CTL7",
+        "position_nm": [
+          15166400,
+          -33250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "F3",
+        "net": "GND",
+        "position_nm": [
+          15166400,
+          -32500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "F4",
+        "net": "P0CTL4",
+        "position_nm": [
+          15166400,
+          -31750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "F5",
+        "net": "SPIDAT0",
+        "position_nm": [
+          15166400,
+          -31000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "F6",
+        "net": "SPIDAT1",
+        "position_nm": [
+          15166400,
+          -30250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "F7",
+        "net": "N22558184",
+        "position_nm": [
+          15166400,
+          -29500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "F8",
+        "net": "GND",
+        "position_nm": [
+          15166400,
+          -28750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "F9",
+        "net": "N22691773",
+        "position_nm": [
+          15166400,
+          -28000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "F10",
+        "net": "CDONE",
+        "position_nm": [
+          15166400,
+          -27250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "F11",
+        "net": "PMODE",
+        "position_nm": [
+          15166400,
+          -26500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "F12",
+        "net": "GPIO4_GA0",
+        "position_nm": [
+          15166400,
+          -25750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "F13",
+        "net": "P1SDA",
+        "position_nm": [
+          15166400,
+          -25000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "G1",
+        "net": "P0D3P_P0D11",
+        "position_nm": [
+          14416400,
+          -34000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "G2",
+        "net": "P0D3N_P0D3",
+        "position_nm": [
+          14416400,
+          -33250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "G3",
+        "net": "VDDI0_P0",
+        "position_nm": [
+          14416400,
+          -32500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "G4",
+        "net": "P0CTL3",
+        "position_nm": [
+          14416400,
+          -31750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "G5",
+        "net": "VBUSDETECTN",
+        "position_nm": [
+          14416400,
+          -31000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "G6",
+        "net": "MIC_BCLK",
+        "position_nm": [
+          14416400,
+          -30250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "G7",
+        "net": "N22691911",
+        "position_nm": [
+          14416400,
+          -29500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "G8",
+        "net": "GND",
+        "position_nm": [
+          14416400,
+          -28750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "G9",
+        "net": "N22691911",
+        "position_nm": [
+          14416400,
+          -28000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "G10",
+        "net": "MIC_DATA",
+        "position_nm": [
+          14416400,
+          -27250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "G11",
+        "net": "INIT#_RST",
+        "position_nm": [
+          14416400,
+          -26500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "G12",
+        "net": "I2C_SDA",
+        "position_nm": [
+          14416400,
+          -25750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "G13",
+        "net": "P0SCL",
+        "position_nm": [
+          14416400,
+          -25000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "H1",
+        "net": "P0D2P_P0D10",
+        "position_nm": [
+          13666400,
+          -34000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "H2",
+        "net": "P0D2N_P0D2",
+        "position_nm": [
+          13666400,
+          -33250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "H3",
+        "net": "GND",
+        "position_nm": [
+          13666400,
+          -32500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "H4",
+        "net": "P0CTL2",
+        "position_nm": [
+          13666400,
+          -31750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "H5",
+        "net": "UART-RX",
+        "position_nm": [
+          13666400,
+          -31000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "H6",
+        "net": "UART-TX",
+        "position_nm": [
+          13666400,
+          -30250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "H7",
+        "net": "UART-RTS",
+        "position_nm": [
+          13666400,
+          -29500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "H8",
+        "net": "GND",
+        "position_nm": [
+          13666400,
+          -28750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "H9",
+        "net": "UART-CTS",
+        "position_nm": [
+          13666400,
+          -28000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "H10",
+        "net": "CAN_RX",
+        "position_nm": [
+          13666400,
+          -27250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "H11",
+        "net": "CAN_TX_GA1",
+        "position_nm": [
+          13666400,
+          -26500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "H12",
+        "net": "I2C_SCL",
+        "position_nm": [
+          13666400,
+          -25750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "H13",
+        "net": "P0SDA",
+        "position_nm": [
+          13666400,
+          -25000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "J1",
+        "net": "P0D1P_P0CTL8_P0D9",
+        "position_nm": [
+          12916400,
+          -34000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "J2",
+        "net": "P0D1N_P0D1",
+        "position_nm": [
+          12916400,
+          -33250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "J3",
+        "net": "V3P3_FX",
+        "position_nm": [
+          12916400,
+          -32500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "J4",
+        "net": "P0CTL1",
+        "position_nm": [
+          12916400,
+          -31750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "J5",
+        "net": "I2S_SCKOUT",
+        "position_nm": [
+          12916400,
+          -31000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "J6",
+        "net": "RX_SCK",
+        "position_nm": [
+          12916400,
+          -30250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "J7",
+        "net": "I2S_TXWS",
+        "position_nm": [
+          12916400,
+          -29500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "J8",
+        "net": "I2S_TXMCLK",
+        "position_nm": [
+          12916400,
+          -28750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "J9",
+        "net": "RX_I2S0",
+        "position_nm": [
+          12916400,
+          -28000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "J10",
+        "net": "I2S_SDO",
+        "position_nm": [
+          12916400,
+          -27250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "J11",
+        "net": "RX_WS",
+        "position_nm": [
+          12916400,
+          -26500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "J12",
+        "net": "RX_MCLK",
+        "position_nm": [
+          12916400,
+          -25750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "J13",
+        "net": "FX_CC2",
+        "position_nm": [
+          12916400,
+          -25000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "K1",
+        "net": "P0D0P_P0D8",
+        "position_nm": [
+          12166400,
+          -34000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "K2",
+        "net": "P0D0N_P0D0",
+        "position_nm": [
+          12166400,
+          -33250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "K3",
+        "net": "GND",
+        "position_nm": [
+          12166400,
+          -32500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "K4",
+        "net": "P0CTL0",
+        "position_nm": [
+          12166400,
+          -31750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "K5",
+        "net": "N22038339",
+        "position_nm": [
+          12166400,
+          -31000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "K6",
+        "net": "RST",
+        "position_nm": [
+          12166400,
+          -30250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "K7",
+        "net": "TDO",
+        "position_nm": [
+          12166400,
+          -29500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "K8",
+        "net": "TDI",
+        "position_nm": [
+          12166400,
+          -28750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "K9",
+        "net": "TMS_SWDIO",
+        "position_nm": [
+          12166400,
+          -28000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "K10",
+        "net": "TCLK_SWDCLK",
+        "position_nm": [
+          12166400,
+          -27250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "K11",
+        "net": "SWDRST_P11",
+        "position_nm": [
+          12166400,
+          -26500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "K12",
+        "net": "GPIO5",
+        "position_nm": [
+          12166400,
+          -25750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "K13",
+        "net": "FX_CC1",
+        "position_nm": [
+          12166400,
+          -25000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "L1",
+        "net": "GND",
+        "position_nm": [
+          11416400,
+          -34000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "L2",
+        "net": "GND",
+        "position_nm": [
+          11416400,
+          -33250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "L3",
+        "net": "N22690611",
+        "position_nm": [
+          11416400,
+          -32500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "L4",
+        "net": "GND",
+        "position_nm": [
+          11416400,
+          -31750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "L5",
+        "net": "N22690611",
+        "position_nm": [
+          11416400,
+          -31000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "L6",
+        "net": "GND",
+        "position_nm": [
+          11416400,
+          -30250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "L7",
+        "net": "N22690611",
+        "position_nm": [
+          11416400,
+          -29500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "L8",
+        "net": "GND",
+        "position_nm": [
+          11416400,
+          -28750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "L9",
+        "net": "GND",
+        "position_nm": [
+          11416400,
+          -28000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "L10",
+        "net": "V3P3_FX",
+        "position_nm": [
+          11416400,
+          -27250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "L11",
+        "net": "N22691773",
+        "position_nm": [
+          11416400,
+          -26500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "L12",
+        "net": "GND",
+        "position_nm": [
+          11416400,
+          -25750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "L13",
+        "net": "N22558184",
+        "position_nm": [
+          11416400,
+          -25000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "M1",
+        "net": "N22557816",
+        "position_nm": [
+          10666400,
+          -34000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "M2",
+        "net": "N22690611",
+        "position_nm": [
+          10666400,
+          -33250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "M3",
+        "net": "USB3RX1P",
+        "position_nm": [
+          10666400,
+          -32500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "M4",
+        "net": "N22690611",
+        "position_nm": [
+          10666400,
+          -31750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "M5",
+        "net": "USB3TX1P",
+        "position_nm": [
+          10666400,
+          -31000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "M6",
+        "net": "N22690611",
+        "position_nm": [
+          10666400,
+          -30250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "M7",
+        "net": "USB3TX2P",
+        "position_nm": [
+          10666400,
+          -29500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "M8",
+        "net": "N22690611",
+        "position_nm": [
+          10666400,
+          -28750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "M9",
+        "net": "USB3RX2P",
+        "position_nm": [
+          10666400,
+          -28000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "M10",
+        "net": "N22691773",
+        "position_nm": [
+          10666400,
+          -27250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "M11",
+        "net": "USB2DN1",
+        "position_nm": [
+          10666400,
+          -26500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "M12",
+        "net": "N21716821",
+        "position_nm": [
+          10666400,
+          -25750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "M13",
+        "net": "N21716451",
+        "position_nm": [
+          10666400,
+          -25000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "N1",
+        "net": "N22557808",
+        "position_nm": [
+          9916400,
+          -34000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "N2",
+        "net": "GND",
+        "position_nm": [
+          9916400,
+          -33250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "N3",
+        "net": "USB3RX1N",
+        "position_nm": [
+          9916400,
+          -32500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "N4",
+        "net": "GND",
+        "position_nm": [
+          9916400,
+          -31750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "N5",
+        "net": "USB3TX1N",
+        "position_nm": [
+          9916400,
+          -31000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "N6",
+        "net": "GND",
+        "position_nm": [
+          9916400,
+          -30250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "N7",
+        "net": "USB3TX2N",
+        "position_nm": [
+          9916400,
+          -29500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "N8",
+        "net": "GND",
+        "position_nm": [
+          9916400,
+          -28750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "N9",
+        "net": "USB3RX2N",
+        "position_nm": [
+          9916400,
+          -28000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "N10",
+        "net": "GND",
+        "position_nm": [
+          9916400,
+          -27250000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "N11",
+        "net": "USB2DP1",
+        "position_nm": [
+          9916400,
+          -26500000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "N12",
+        "net": "GND",
+        "position_nm": [
+          9916400,
+          -25750000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      },
+      {
+        "number": "N13",
+        "net": "N21716253",
+        "position_nm": [
+          9916400,
+          -25000000
+        ],
+        "size_nm": [
+          250000,
+          250000
+        ]
+      }
+    ]
+  },
+  "selected_balls": {
+    "M3": {
+      "net": "USB3RX1P",
+      "pad_position_nm": [
+        10666400,
+        -32500000
+      ],
+      "tracks_by_layer": {
+        "TOP": 16,
+        "BOTTOM": 12
+      },
+      "widths_nm": [
+        100000,
+        114300
+      ],
+      "vias": [
+        {
+          "record_offset": 369192,
+          "key": 49444,
+          "padstack_key": 4502,
+          "position_nm": [
+            7240000,
+            -33832000
+          ],
+          "net": "USB3RX1P",
+          "name": "VIA_08D_018P",
+          "layer_count": 6,
+          "drill_nm": 203200,
+          "copper_pads": [
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            }
+          ]
+        }
+      ]
+    },
+    "N3": {
+      "net": "USB3RX1N",
+      "pad_position_nm": [
+        9916400,
+        -32500000
+      ],
+      "tracks_by_layer": {
+        "TOP": 14,
+        "BOTTOM": 18
+      },
+      "widths_nm": [
+        100000,
+        114300
+      ],
+      "vias": [
+        {
+          "record_offset": 369192,
+          "key": 49453,
+          "padstack_key": 4502,
+          "position_nm": [
+            7240000,
+            -33026600
+          ],
+          "net": "USB3RX1N",
+          "name": "VIA_08D_018P",
+          "layer_count": 6,
+          "drill_nm": 203200,
+          "copper_pads": [
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            }
+          ]
+        }
+      ]
+    },
+    "M5": {
+      "net": "USB3TX1P",
+      "pad_position_nm": [
+        10666400,
+        -31000000
+      ],
+      "tracks_by_layer": {
+        "TOP": 12
+      },
+      "widths_nm": [
+        100000,
+        114300
+      ],
+      "vias": []
+    },
+    "N5": {
+      "net": "USB3TX1N",
+      "pad_position_nm": [
+        9916400,
+        -31000000
+      ],
+      "tracks_by_layer": {
+        "TOP": 11
+      },
+      "widths_nm": [
+        100000,
+        114300
+      ],
+      "vias": []
+    },
+    "M7": {
+      "net": "USB3TX2P",
+      "pad_position_nm": [
+        10666400,
+        -29500000
+      ],
+      "tracks_by_layer": {
+        "TOP": 13,
+        "BOTTOM": 16
+      },
+      "widths_nm": [
+        100000,
+        114300
+      ],
+      "vias": [
+        {
+          "record_offset": 369192,
+          "key": 49460,
+          "padstack_key": 4502,
+          "position_nm": [
+            7300000,
+            -28900000
+          ],
+          "net": "USB3TX2P",
+          "name": "VIA_08D_018P",
+          "layer_count": 6,
+          "drill_nm": 203200,
+          "copper_pads": [
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            }
+          ]
+        }
+      ]
+    },
+    "N7": {
+      "net": "USB3TX2N",
+      "pad_position_nm": [
+        9916400,
+        -29500000
+      ],
+      "tracks_by_layer": {
+        "TOP": 14,
+        "BOTTOM": 15
+      },
+      "widths_nm": [
+        100000,
+        114300
+      ],
+      "vias": [
+        {
+          "record_offset": 369192,
+          "key": 49462,
+          "padstack_key": 4502,
+          "position_nm": [
+            7300000,
+            -28094600
+          ],
+          "net": "USB3TX2N",
+          "name": "VIA_08D_018P",
+          "layer_count": 6,
+          "drill_nm": 203200,
+          "copper_pads": [
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            }
+          ]
+        }
+      ]
+    },
+    "M9": {
+      "net": "USB3RX2P",
+      "pad_position_nm": [
+        10666400,
+        -28000000
+      ],
+      "tracks_by_layer": {
+        "TOP": 21
+      },
+      "widths_nm": [
+        100000,
+        114300
+      ],
+      "vias": []
+    },
+    "N9": {
+      "net": "USB3RX2N",
+      "pad_position_nm": [
+        9916400,
+        -28000000
+      ],
+      "tracks_by_layer": {
+        "TOP": 23
+      },
+      "widths_nm": [
+        100000,
+        114300
+      ],
+      "vias": []
+    },
+    "M11": {
+      "net": "USB2DN1",
+      "pad_position_nm": [
+        10666400,
+        -26500000
+      ],
+      "tracks_by_layer": {
+        "TOP": 19,
+        "BOTTOM": 17,
+        "SIG1": 12
+      },
+      "widths_nm": [
+        100000,
+        114300
+      ],
+      "vias": [
+        {
+          "record_offset": 369192,
+          "key": 103865,
+          "padstack_key": 4502,
+          "position_nm": [
+            6981600,
+            -25761500
+          ],
+          "net": "USB2DN1",
+          "name": "VIA_08D_018P",
+          "layer_count": 6,
+          "drill_nm": 203200,
+          "copper_pads": [
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            }
+          ]
+        },
+        {
+          "record_offset": 369192,
+          "key": 39864,
+          "padstack_key": 4502,
+          "position_nm": [
+            5184300,
+            -29099000
+          ],
+          "net": "USB2DN1",
+          "name": "VIA_08D_018P",
+          "layer_count": 6,
+          "drill_nm": 203200,
+          "copper_pads": [
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            }
+          ]
+        }
+      ]
+    },
+    "N11": {
+      "net": "USB2DP1",
+      "pad_position_nm": [
+        9916400,
+        -26500000
+      ],
+      "tracks_by_layer": {
+        "TOP": 20,
+        "BOTTOM": 19,
+        "SIG1": 14
+      },
+      "widths_nm": [
+        100000,
+        114300
+      ],
+      "vias": [
+        {
+          "record_offset": 369192,
+          "key": 39866,
+          "padstack_key": 4502,
+          "position_nm": [
+            5157400,
+            -29765700
+          ],
+          "net": "USB2DP1",
+          "name": "VIA_08D_018P",
+          "layer_count": 6,
+          "drill_nm": 203200,
+          "copper_pads": [
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            }
+          ]
+        },
+        {
+          "record_offset": 369192,
+          "key": 103867,
+          "padstack_key": 4502,
+          "position_nm": [
+            7787000,
+            -25761500
+          ],
+          "net": "USB2DP1",
+          "name": "VIA_08D_018P",
+          "layer_count": 6,
+          "drill_nm": 203200,
+          "copper_pads": [
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            }
+          ]
+        }
+      ]
+    },
+    "M12": {
+      "net": "N21716821",
+      "pad_position_nm": [
+        10666400,
+        -25750000
+      ],
+      "tracks_by_layer": {
+        "TOP": 1,
+        "BOTTOM": 3
+      },
+      "widths_nm": [
+        300000
+      ],
+      "vias": [
+        {
+          "record_offset": 233292,
+          "key": 112443,
+          "padstack_key": 4427,
+          "position_nm": [
+            10333600,
+            -25417200
+          ],
+          "net": "N21716821",
+          "name": "VIA_08D_016P_TEST_BOT",
+          "layer_count": 6,
+          "drill_nm": 203200,
+          "copper_pads": [
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            }
+          ]
+        },
+        {
+          "record_offset": 369192,
+          "key": 100043,
+          "padstack_key": 4502,
+          "position_nm": [
+            4430000,
+            -18605000
+          ],
+          "net": "N21716821",
+          "name": "VIA_08D_018P",
+          "layer_count": 6,
+          "drill_nm": 203200,
+          "copper_pads": [
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            }
+          ]
+        },
+        {
+          "record_offset": 369192,
+          "key": 103710,
+          "padstack_key": 4502,
+          "position_nm": [
+            4440000,
+            -19225000
+          ],
+          "net": "N21716821",
+          "name": "VIA_08D_018P",
+          "layer_count": 6,
+          "drill_nm": 203200,
+          "copper_pads": [
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            }
+          ]
+        }
+      ]
+    },
+    "G7": {
+      "net": "N22691911",
+      "pad_position_nm": [
+        14416400,
+        -29500000
+      ],
+      "tracks_by_layer": {
+        "TOP": 4,
+        "BOTTOM": 2
+      },
+      "widths_nm": [
+        149900,
+        300000
+      ],
+      "vias": [
+        {
+          "record_offset": 233292,
+          "key": 17987,
+          "padstack_key": 4427,
+          "position_nm": [
+            14749200,
+            -27667200
+          ],
+          "net": "N22691911",
+          "name": "VIA_08D_016P_TEST_BOT",
+          "layer_count": 6,
+          "drill_nm": 203200,
+          "copper_pads": [
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            }
+          ]
+        },
+        {
+          "record_offset": 369192,
+          "key": 39061,
+          "padstack_key": 4502,
+          "position_nm": [
+            13619500,
+            -23211900
+          ],
+          "net": "N22691911",
+          "name": "VIA_08D_018P",
+          "layer_count": 6,
+          "drill_nm": 203200,
+          "copper_pads": [
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            }
+          ]
+        },
+        {
+          "record_offset": 233292,
+          "key": 17867,
+          "padstack_key": 4427,
+          "position_nm": [
+            14749200,
+            -29167200
+          ],
+          "net": "N22691911",
+          "name": "VIA_08D_016P_TEST_BOT",
+          "layer_count": 6,
+          "drill_nm": 203200,
+          "copper_pads": [
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            }
+          ]
+        }
+      ]
+    },
+    "G9": {
+      "net": "N22691911",
+      "pad_position_nm": [
+        14416400,
+        -28000000
+      ],
+      "tracks_by_layer": {
+        "TOP": 4,
+        "BOTTOM": 2
+      },
+      "widths_nm": [
+        149900,
+        300000
+      ],
+      "vias": [
+        {
+          "record_offset": 233292,
+          "key": 17987,
+          "padstack_key": 4427,
+          "position_nm": [
+            14749200,
+            -27667200
+          ],
+          "net": "N22691911",
+          "name": "VIA_08D_016P_TEST_BOT",
+          "layer_count": 6,
+          "drill_nm": 203200,
+          "copper_pads": [
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            }
+          ]
+        },
+        {
+          "record_offset": 369192,
+          "key": 39061,
+          "padstack_key": 4502,
+          "position_nm": [
+            13619500,
+            -23211900
+          ],
+          "net": "N22691911",
+          "name": "VIA_08D_018P",
+          "layer_count": 6,
+          "drill_nm": 203200,
+          "copper_pads": [
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            },
+            {
+              "type": 2,
+              "width_nm": 457200,
+              "height_nm": 457200
+            }
+          ]
+        },
+        {
+          "record_offset": 233292,
+          "key": 17867,
+          "padstack_key": 4427,
+          "position_nm": [
+            14749200,
+            -29167200
+          ],
+          "net": "N22691911",
+          "name": "VIA_08D_016P_TEST_BOT",
+          "layer_count": 6,
+          "drill_nm": 203200,
+          "copper_pads": [
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            },
+            {
+              "type": 2,
+              "width_nm": 406400,
+              "height_nm": 406400
+            }
+          ]
+        }
+      ]
+    },
+    "H10": {
+      "net": "CAN_RX",
+      "pad_position_nm": [
+        13666400,
+        -27250000
+      ],
+      "tracks_by_layer": {
+        "TOP": 33
+      },
+      "widths_nm": [
+        100000,
+        104000
+      ],
+      "vias": []
+    },
+    "H11": {
+      "net": "CAN_TX_GA1",
+      "pad_position_nm": [
+        13666400,
+        -26500000
+      ],
+      "tracks_by_layer": {
+        "TOP": 57
+      },
+      "widths_nm": [
+        100000,
+        104000
+      ],
+      "vias": []
+    }
+  },
+  "direct_short_dogbones": [
+    {
+      "ball": "A3",
+      "net": "V3P3_FX",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "B3",
+      "net": "GND",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "C3",
+      "net": "VDDI0_P0",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "C4",
+      "net": "GND",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "C5",
+      "net": "VDDI0_P1",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "C6",
+      "net": "GND",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "C7",
+      "net": "VDDIO_CTRL",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "C8",
+      "net": "GND",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "C9",
+      "net": "VDDI0_P1",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "C10",
+      "net": "GND",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "C11",
+      "net": "N21761069",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "C12",
+      "net": "GND",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "D3",
+      "net": "GND",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "D4",
+      "net": "P0CTL6",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "D5",
+      "net": "P1CTL0",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "D6",
+      "net": "P1CTL1",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "D7",
+      "net": "P1CTL2",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "D8",
+      "net": "P1CTL3",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "D9",
+      "net": "P1CTL4",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "D10",
+      "net": "P1CTL5",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "D11",
+      "net": "P1CTL6",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "D12",
+      "net": "FPGA_SSN",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "D13",
+      "net": "SPI_NCS1",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "E3",
+      "net": "VDDIO_CTRL",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "E4",
+      "net": "P0CTL5",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "E5",
+      "net": "SPIDAT2",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "E6",
+      "net": "SPIDAT3",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "E7",
+      "net": "SPIDAT4",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "E8",
+      "net": "SPIDAT5",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "E9",
+      "net": "SPIDAT6",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "E10",
+      "net": "SPIDAT7",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "E11",
+      "net": "SPI_SCK",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "E12",
+      "net": "SPI_NCS0",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "F3",
+      "net": "GND",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "F4",
+      "net": "P0CTL4",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "F5",
+      "net": "SPIDAT0",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "F6",
+      "net": "SPIDAT1",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "F7",
+      "net": "N22558184",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "F8",
+      "net": "GND",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "F9",
+      "net": "N22691773",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "F10",
+      "net": "CDONE",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "F11",
+      "net": "PMODE",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "F12",
+      "net": "GPIO4_GA0",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "G3",
+      "net": "VDDI0_P0",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "G4",
+      "net": "P0CTL3",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "G5",
+      "net": "VBUSDETECTN",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "G6",
+      "net": "MIC_BCLK",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "G7",
+      "net": "N22691911",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "G8",
+      "net": "GND",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "G9",
+      "net": "N22691911",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "G10",
+      "net": "MIC_DATA",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "G11",
+      "net": "INIT#_RST",
+      "delta_nm": [
+        332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "H3",
+      "net": "GND",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "H4",
+      "net": "P0CTL2",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "H5",
+      "net": "UART-RX",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "H6",
+      "net": "UART-TX",
+      "delta_nm": [
+        332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "H7",
+      "net": "UART-RTS",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "H8",
+      "net": "GND",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "H9",
+      "net": "UART-CTS",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "H12",
+      "net": "I2C_SCL",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "J3",
+      "net": "V3P3_FX",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "J4",
+      "net": "P0CTL1",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "J5",
+      "net": "I2S_SCKOUT",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "J6",
+      "net": "RX_SCK",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "J7",
+      "net": "I2S_TXWS",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "J8",
+      "net": "I2S_TXMCLK",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "J9",
+      "net": "RX_I2S0",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "J10",
+      "net": "I2S_SDO",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "J11",
+      "net": "RX_WS",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "J12",
+      "net": "RX_MCLK",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "K3",
+      "net": "GND",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "K4",
+      "net": "P0CTL0",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "K5",
+      "net": "N22038339",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "K6",
+      "net": "RST",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "K7",
+      "net": "TDO",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "K8",
+      "net": "TDI",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "K9",
+      "net": "TMS_SWDIO",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "K10",
+      "net": "TCLK_SWDCLK",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "K11",
+      "net": "SWDRST_P11",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "K12",
+      "net": "GPIO5",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "L1",
+      "net": "GND",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 200000
+    },
+    {
+      "ball": "L2",
+      "net": "GND",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "L3",
+      "net": "N22690611",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "L4",
+      "net": "GND",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "L5",
+      "net": "N22690611",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "L6",
+      "net": "GND",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "L7",
+      "net": "N22690611",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "L8",
+      "net": "GND",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "L9",
+      "net": "GND",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "L10",
+      "net": "V3P3_FX",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "L11",
+      "net": "N22691773",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "L12",
+      "net": "GND",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "M2",
+      "net": "N22690611",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "M4",
+      "net": "N22690611",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "M6",
+      "net": "N22690611",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "M8",
+      "net": "N22690611",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "M10",
+      "net": "N22691773",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 149900
+    },
+    {
+      "ball": "M12",
+      "net": "N21716821",
+      "delta_nm": [
+        -332800,
+        332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 300000
+    },
+    {
+      "ball": "N2",
+      "net": "GND",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 200000
+    },
+    {
+      "ball": "N4",
+      "net": "GND",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 200000
+    },
+    {
+      "ball": "N6",
+      "net": "GND",
+      "delta_nm": [
+        -332800,
+        -332800
+      ],
+      "length_nm": 470650.27355776605,
+      "track_width_nm": 200000
+    },
+    {
+      "ball": "N8",
+      "net": "GND",
+      "delta_nm": [
+        -330600,
+        330600
+      ],
+      "length_nm": 467539.00372054527,
+      "track_width_nm": 300000
+    }
+  ],
+  "u1_12mm_square_vias": [
+    {
+      "record_offset": 233292,
+      "key": 177630,
+      "padstack_key": 4427,
+      "position_nm": [
+        14749200,
+        -26167200
+      ],
+      "net": "INIT#_RST",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 175961,
+      "padstack_key": 4427,
+      "position_nm": [
+        15499200,
+        -26917200
+      ],
+      "net": "CDONE",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 171923,
+      "padstack_key": 4427,
+      "position_nm": [
+        11833600,
+        -26167200
+      ],
+      "net": "SWDRST_P11",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 171840,
+      "padstack_key": 4427,
+      "position_nm": [
+        16249200,
+        -32832800
+      ],
+      "net": "VDDIO_CTRL",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 171785,
+      "padstack_key": 4427,
+      "position_nm": [
+        17749200,
+        -29167200
+      ],
+      "net": "VDDIO_CTRL",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 171501,
+      "padstack_key": 4427,
+      "position_nm": [
+        11833600,
+        -30582800
+      ],
+      "net": "RST",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 171106,
+      "padstack_key": 4427,
+      "position_nm": [
+        17749200,
+        -31332800
+      ],
+      "net": "VDDI0_P1",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 171105,
+      "padstack_key": 4427,
+      "position_nm": [
+        17749200,
+        -27667200
+      ],
+      "net": "VDDI0_P1",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 170930,
+      "padstack_key": 4427,
+      "position_nm": [
+        14749200,
+        -32832800
+      ],
+      "net": "VDDI0_P0",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 49450,
+      "padstack_key": 4427,
+      "position_nm": [
+        17749200,
+        -32832800
+      ],
+      "net": "VDDI0_P0",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17991,
+      "padstack_key": 4427,
+      "position_nm": [
+        19249200,
+        -32832800
+      ],
+      "net": "V3P3_FX",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17912,
+      "padstack_key": 4427,
+      "position_nm": [
+        12583600,
+        -32832800
+      ],
+      "net": "V3P3_FX",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17910,
+      "padstack_key": 4427,
+      "position_nm": [
+        11083600,
+        -26917200
+      ],
+      "net": "V3P3_FX",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18114,
+      "padstack_key": 4427,
+      "position_nm": [
+        14749200,
+        -31332800
+      ],
+      "net": "VBUSDETECTN",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 112503,
+      "padstack_key": 4427,
+      "position_nm": [
+        15499200,
+        -29167200
+      ],
+      "net": "N22558184",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 112443,
+      "padstack_key": 4427,
+      "position_nm": [
+        10333600,
+        -25417200
+      ],
+      "net": "N21716821",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17987,
+      "padstack_key": 4427,
+      "position_nm": [
+        14749200,
+        -27667200
+      ],
+      "net": "N22691911",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17867,
+      "padstack_key": 4427,
+      "position_nm": [
+        14749200,
+        -29167200
+      ],
+      "net": "N22691911",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18026,
+      "padstack_key": 4427,
+      "position_nm": [
+        11833600,
+        -27667200
+      ],
+      "net": "TMS_SWDIO",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 28708,
+      "padstack_key": 4427,
+      "position_nm": [
+        11833600,
+        -28417200
+      ],
+      "net": "TDI",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 100205,
+      "padstack_key": 4427,
+      "position_nm": [
+        13333600,
+        -25417200
+      ],
+      "net": "I2C_SCL",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 38549,
+      "padstack_key": 4427,
+      "position_nm": [
+        12583600,
+        -26917200
+      ],
+      "net": "I2S_SDO",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 28950,
+      "padstack_key": 4427,
+      "position_nm": [
+        12583600,
+        -28417200
+      ],
+      "net": "I2S_TXMCLK",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29919,
+      "padstack_key": 4427,
+      "position_nm": [
+        12583600,
+        -29167200
+      ],
+      "net": "I2S_TXWS",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17936,
+      "padstack_key": 4427,
+      "position_nm": [
+        12583600,
+        -31332800
+      ],
+      "net": "I2S_SCKOUT",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17994,
+      "padstack_key": 4427,
+      "position_nm": [
+        11833600,
+        -25417200
+      ],
+      "net": "GPIO5",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18140,
+      "padstack_key": 4427,
+      "position_nm": [
+        15499200,
+        -25417200
+      ],
+      "net": "GPIO4_GA0",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18079,
+      "padstack_key": 4427,
+      "position_nm": [
+        11833600,
+        -26917200
+      ],
+      "net": "TCLK_SWDCLK",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29875,
+      "padstack_key": 4427,
+      "position_nm": [
+        11833600,
+        -29167200
+      ],
+      "net": "TDO",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17895,
+      "padstack_key": 4427,
+      "position_nm": [
+        10333600,
+        -28417200
+      ],
+      "net": "N22690611",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29932,
+      "padstack_key": 4427,
+      "position_nm": [
+        11083600,
+        -29167200
+      ],
+      "net": "N22690611",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18161,
+      "padstack_key": 4427,
+      "position_nm": [
+        10333600,
+        -33582800
+      ],
+      "net": "N22690611",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29938,
+      "padstack_key": 4427,
+      "position_nm": [
+        10333600,
+        -32082800
+      ],
+      "net": "N22690611",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17898,
+      "padstack_key": 4427,
+      "position_nm": [
+        11083600,
+        -32832800
+      ],
+      "net": "N22690611",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29918,
+      "padstack_key": 4427,
+      "position_nm": [
+        10333600,
+        -30582800
+      ],
+      "net": "N22690611",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29930,
+      "padstack_key": 4427,
+      "position_nm": [
+        11083600,
+        -31332800
+      ],
+      "net": "N22690611",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18054,
+      "padstack_key": 4427,
+      "position_nm": [
+        17749200,
+        -26167200
+      ],
+      "net": "N21761069",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18063,
+      "padstack_key": 4427,
+      "position_nm": [
+        15499200,
+        -26167200
+      ],
+      "net": "PMODE",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 38566,
+      "padstack_key": 4427,
+      "position_nm": [
+        11083600,
+        -26167200
+      ],
+      "net": "N22691773",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18148,
+      "padstack_key": 4427,
+      "position_nm": [
+        15499200,
+        -27667200
+      ],
+      "net": "N22691773",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 111957,
+      "padstack_key": 4427,
+      "position_nm": [
+        10333600,
+        -26917200
+      ],
+      "net": "N22691773",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18021,
+      "padstack_key": 4427,
+      "position_nm": [
+        13333600,
+        -29167200
+      ],
+      "net": "UART-RTS",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 47387,
+      "padstack_key": 4427,
+      "position_nm": [
+        13999200,
+        -31332800
+      ],
+      "net": "UART-RX",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 28859,
+      "padstack_key": 4427,
+      "position_nm": [
+        13333600,
+        -27667200
+      ],
+      "net": "UART-CTS",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 47408,
+      "padstack_key": 4427,
+      "position_nm": [
+        13999200,
+        -30582800
+      ],
+      "net": "UART-TX",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29929,
+      "padstack_key": 4427,
+      "position_nm": [
+        11833600,
+        -31332800
+      ],
+      "net": "N22038339",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29922,
+      "padstack_key": 4427,
+      "position_nm": [
+        15499200,
+        -31332800
+      ],
+      "net": "SPIDAT0",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 50133,
+      "padstack_key": 4427,
+      "position_nm": [
+        16999200,
+        -26167200
+      ],
+      "net": "P1CTL6",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 50176,
+      "padstack_key": 4427,
+      "position_nm": [
+        16999200,
+        -26917200
+      ],
+      "net": "P1CTL5",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 50148,
+      "padstack_key": 4427,
+      "position_nm": [
+        16999200,
+        -27667200
+      ],
+      "net": "P1CTL4",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29901,
+      "padstack_key": 4427,
+      "position_nm": [
+        16999200,
+        -28417200
+      ],
+      "net": "P1CTL3",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 50137,
+      "padstack_key": 4427,
+      "position_nm": [
+        16999200,
+        -29167200
+      ],
+      "net": "P1CTL2",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 50156,
+      "padstack_key": 4427,
+      "position_nm": [
+        16999200,
+        -30582800
+      ],
+      "net": "P1CTL1",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 38374,
+      "padstack_key": 4427,
+      "position_nm": [
+        16999200,
+        -31332800
+      ],
+      "net": "P1CTL0",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 50149,
+      "padstack_key": 4427,
+      "position_nm": [
+        16249200,
+        -32082800
+      ],
+      "net": "P0CTL5",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 50143,
+      "padstack_key": 4427,
+      "position_nm": [
+        16999200,
+        -32082800
+      ],
+      "net": "P0CTL6",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 50151,
+      "padstack_key": 4427,
+      "position_nm": [
+        15499200,
+        -32082800
+      ],
+      "net": "P0CTL4",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29925,
+      "padstack_key": 4427,
+      "position_nm": [
+        14749200,
+        -32082800
+      ],
+      "net": "P0CTL3",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 50145,
+      "padstack_key": 4427,
+      "position_nm": [
+        13999200,
+        -32082800
+      ],
+      "net": "P0CTL2",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 49804,
+      "padstack_key": 4427,
+      "position_nm": [
+        11833600,
+        -32082800
+      ],
+      "net": "P0CTL0",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17923,
+      "padstack_key": 4427,
+      "position_nm": [
+        12583600,
+        -25417200
+      ],
+      "net": "RX_MCLK",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29924,
+      "padstack_key": 4427,
+      "position_nm": [
+        12583600,
+        -30582800
+      ],
+      "net": "RX_SCK",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17840,
+      "padstack_key": 4427,
+      "position_nm": [
+        12583600,
+        -26167200
+      ],
+      "net": "RX_WS",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29824,
+      "padstack_key": 4427,
+      "position_nm": [
+        12583600,
+        -27667200
+      ],
+      "net": "RX_I2S0",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17904,
+      "padstack_key": 4427,
+      "position_nm": [
+        14749200,
+        -30582800
+      ],
+      "net": "MIC_BCLK",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 28960,
+      "padstack_key": 4427,
+      "position_nm": [
+        14749200,
+        -26917200
+      ],
+      "net": "MIC_DATA",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 49557,
+      "padstack_key": 4427,
+      "position_nm": [
+        12583600,
+        -32082800
+      ],
+      "net": "P0CTL1",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29706,
+      "padstack_key": 4427,
+      "position_nm": [
+        16249200,
+        -31332800
+      ],
+      "net": "SPIDAT2",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 100403,
+      "padstack_key": 4427,
+      "position_nm": [
+        16999200,
+        -24667200
+      ],
+      "net": "SPI_NCS1",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18122,
+      "padstack_key": 4427,
+      "position_nm": [
+        16249200,
+        -26167200
+      ],
+      "net": "SPI_SCK",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17992,
+      "padstack_key": 4427,
+      "position_nm": [
+        16249200,
+        -25417200
+      ],
+      "net": "SPI_NCS0",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17864,
+      "padstack_key": 4427,
+      "position_nm": [
+        16249200,
+        -29167200
+      ],
+      "net": "SPIDAT4",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17916,
+      "padstack_key": 4427,
+      "position_nm": [
+        15499200,
+        -30582800
+      ],
+      "net": "SPIDAT1",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17679,
+      "padstack_key": 4427,
+      "position_nm": [
+        16249200,
+        -30582800
+      ],
+      "net": "SPIDAT3",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18078,
+      "padstack_key": 4427,
+      "position_nm": [
+        16249200,
+        -26917200
+      ],
+      "net": "SPIDAT7",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 5089,
+      "padstack_key": 4427,
+      "position_nm": [
+        16249200,
+        -27667200
+      ],
+      "net": "SPIDAT6",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18087,
+      "padstack_key": 4427,
+      "position_nm": [
+        16249200,
+        -28417200
+      ],
+      "net": "SPIDAT5",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18048,
+      "padstack_key": 4427,
+      "position_nm": [
+        16999200,
+        -25417200
+      ],
+      "net": "FPGA_SSN",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18022,
+      "padstack_key": 4427,
+      "position_nm": [
+        11833600,
+        -32832800
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29820,
+      "padstack_key": 4427,
+      "position_nm": [
+        11083600,
+        -33582800
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29921,
+      "padstack_key": 4427,
+      "position_nm": [
+        17749200,
+        -28417200
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17340,
+      "padstack_key": 4427,
+      "position_nm": [
+        9585800,
+        -28419400
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29882,
+      "padstack_key": 4427,
+      "position_nm": [
+        11083600,
+        -32082800
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29884,
+      "padstack_key": 4427,
+      "position_nm": [
+        16999200,
+        -32832800
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17858,
+      "padstack_key": 4427,
+      "position_nm": [
+        18499200,
+        -32832800
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29885,
+      "padstack_key": 4427,
+      "position_nm": [
+        15499200,
+        -32832800
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29923,
+      "padstack_key": 4427,
+      "position_nm": [
+        9583600,
+        -30582800
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29818,
+      "padstack_key": 4427,
+      "position_nm": [
+        11083600,
+        -34332800
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29822,
+      "padstack_key": 4427,
+      "position_nm": [
+        13333600,
+        -32832800
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17903,
+      "padstack_key": 4427,
+      "position_nm": [
+        9583600,
+        -33582800
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17997,
+      "padstack_key": 4427,
+      "position_nm": [
+        11083600,
+        -27667200
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29931,
+      "padstack_key": 4427,
+      "position_nm": [
+        9583600,
+        -32082800
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18142,
+      "padstack_key": 4427,
+      "position_nm": [
+        14749200,
+        -28417200
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17721,
+      "padstack_key": 4427,
+      "position_nm": [
+        17749200,
+        -26917200
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17965,
+      "padstack_key": 4427,
+      "position_nm": [
+        15499200,
+        -28417200
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17995,
+      "padstack_key": 4427,
+      "position_nm": [
+        17749200,
+        -30582800
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 5993,
+      "padstack_key": 4427,
+      "position_nm": [
+        17749200,
+        -25417200
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 17942,
+      "padstack_key": 4427,
+      "position_nm": [
+        11083600,
+        -28417200
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18064,
+      "padstack_key": 4427,
+      "position_nm": [
+        13333600,
+        -28417200
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 29644,
+      "padstack_key": 4427,
+      "position_nm": [
+        9102800,
+        -27250000
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 28952,
+      "padstack_key": 4427,
+      "position_nm": [
+        11083600,
+        -30582800
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 38564,
+      "padstack_key": 4427,
+      "position_nm": [
+        11083600,
+        -25417200
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18065,
+      "padstack_key": 4427,
+      "position_nm": [
+        17749200,
+        -32082800
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    },
+    {
+      "record_offset": 318456,
+      "key": 38734,
+      "padstack_key": 4474,
+      "position_nm": [
+        13553200,
+        -23843500
+      ],
+      "net": "GND",
+      "name": "VIA20_10",
+      "layer_count": 6,
+      "drill_nm": 254000,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        },
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        },
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        },
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        },
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        },
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        }
+      ]
+    },
+    {
+      "record_offset": 233292,
+      "key": 18175,
+      "padstack_key": 4427,
+      "position_nm": [
+        9583600,
+        -25417200
+      ],
+      "net": "GND",
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ]
+    }
+  ],
+  "used_padstacks": [
+    {
+      "record_offset": 175284,
+      "name": "VIA-8X16",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ],
+      "key": 4393,
+      "instance_count": 5
+    },
+    {
+      "record_offset": 220608,
+      "name": "VIA-8X16_NM",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ],
+      "key": 4420,
+      "instance_count": 436
+    },
+    {
+      "record_offset": 233292,
+      "name": "VIA_08D_016P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        },
+        {
+          "type": 2,
+          "width_nm": 406400,
+          "height_nm": 406400
+        }
+      ],
+      "key": 4427,
+      "instance_count": 104
+    },
+    {
+      "record_offset": 235104,
+      "name": "VIA_08D_018P_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 457200,
+          "height_nm": 457200
+        },
+        {
+          "type": 2,
+          "width_nm": 457200,
+          "height_nm": 457200
+        },
+        {
+          "type": 2,
+          "width_nm": 457200,
+          "height_nm": 457200
+        },
+        {
+          "type": 2,
+          "width_nm": 457200,
+          "height_nm": 457200
+        },
+        {
+          "type": 2,
+          "width_nm": 457200,
+          "height_nm": 457200
+        },
+        {
+          "type": 2,
+          "width_nm": 457200,
+          "height_nm": 457200
+        }
+      ],
+      "key": 4428,
+      "instance_count": 1
+    },
+    {
+      "record_offset": 236916,
+      "name": "VIA20_10_TEST_BOT",
+      "layer_count": 6,
+      "drill_nm": 254000,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        },
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        },
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        },
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        },
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        },
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        }
+      ],
+      "key": 4429,
+      "instance_count": 11
+    },
+    {
+      "record_offset": 318456,
+      "name": "VIA20_10",
+      "layer_count": 6,
+      "drill_nm": 254000,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        },
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        },
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        },
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        },
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        },
+        {
+          "type": 2,
+          "width_nm": 508000,
+          "height_nm": 508000
+        }
+      ],
+      "key": 4474,
+      "instance_count": 266
+    },
+    {
+      "record_offset": 369192,
+      "name": "VIA_08D_018P",
+      "layer_count": 6,
+      "drill_nm": 203200,
+      "copper_pads": [
+        {
+          "type": 2,
+          "width_nm": 457200,
+          "height_nm": 457200
+        },
+        {
+          "type": 2,
+          "width_nm": 457200,
+          "height_nm": 457200
+        },
+        {
+          "type": 2,
+          "width_nm": 457200,
+          "height_nm": 457200
+        },
+        {
+          "type": 2,
+          "width_nm": 457200,
+          "height_nm": 457200
+        },
+        {
+          "type": 2,
+          "width_nm": 457200,
+          "height_nm": 457200
+        },
+        {
+          "type": 2,
+          "width_nm": 457200,
+          "height_nm": 457200
+        }
+      ],
+      "key": 4502,
+      "instance_count": 202
+    }
+  ],
+  "usb_capacitors": [
+    {
+      "reference": "C6",
+      "position_nm": [
+        7818000,
+        -31050500
+      ],
+      "rotation_degrees": 180.0,
+      "side": "front",
+      "pads": [
+        {
+          "number": "1",
+          "net": "USB3TX1N",
+          "position_nm": [
+            8267600,
+            -31050500
+          ],
+          "size_nm": [
+            619800,
+            619800
+          ]
+        },
+        {
+          "number": "2",
+          "net": "TX1-",
+          "position_nm": [
+            7368400,
+            -31050500
+          ],
+          "size_nm": [
+            619800,
+            619800
+          ]
+        }
+      ]
+    },
+    {
+      "reference": "C7",
+      "position_nm": [
+        7818000,
+        -31939500
+      ],
+      "rotation_degrees": 180.0,
+      "side": "front",
+      "pads": [
+        {
+          "number": "1",
+          "net": "USB3TX1P",
+          "position_nm": [
+            8267600,
+            -31939500
+          ],
+          "size_nm": [
+            619800,
+            619800
+          ]
+        },
+        {
+          "number": "2",
+          "net": "TX1+",
+          "position_nm": [
+            7368400,
+            -31939500
+          ],
+          "size_nm": [
+            619800,
+            619800
+          ]
+        }
+      ]
+    },
+    {
+      "reference": "C98",
+      "position_nm": [
+        5517400,
+        -26287300
+      ],
+      "rotation_degrees": 0.0,
+      "side": "back",
+      "pads": [
+        {
+          "number": "1",
+          "net": "USB3TX2P",
+          "position_nm": [
+            5967000,
+            -26287300
+          ],
+          "size_nm": [
+            619800,
+            619800
+          ]
+        },
+        {
+          "number": "2",
+          "net": "TX2+",
+          "position_nm": [
+            5067800,
+            -26287300
+          ],
+          "size_nm": [
+            619800,
+            619800
+          ]
+        }
+      ]
+    },
+    {
+      "reference": "C99",
+      "position_nm": [
+        5517400,
+        -27176300
+      ],
+      "rotation_degrees": 0.0,
+      "side": "back",
+      "pads": [
+        {
+          "number": "1",
+          "net": "USB3TX2N",
+          "position_nm": [
+            5967000,
+            -27176300
+          ],
+          "size_nm": [
+            619800,
+            619800
+          ]
+        },
+        {
+          "number": "2",
+          "net": "TX2-",
+          "position_nm": [
+            5067800,
+            -27176300
+          ],
+          "size_nm": [
+            619800,
+            619800
+          ]
+        }
+      ]
+    }
+  ],
+  "m12_capacitors": [
+    {
+      "reference": "C85",
+      "position_nm": [
+        9707000,
+        -23846200
+      ],
+      "rotation_degrees": 0.0,
+      "side": "back",
+      "pads": [
+        {
+          "number": "1",
+          "net": "N21716821",
+          "position_nm": [
+            10156600,
+            -23846200
+          ],
+          "size_nm": [
+            619800,
+            619800
+          ]
+        },
+        {
+          "number": "2",
+          "net": "GND",
+          "position_nm": [
+            9257400,
+            -23846200
+          ],
+          "size_nm": [
+            619800,
+            619800
+          ]
+        }
+      ]
+    },
+    {
+      "reference": "C86",
+      "position_nm": [
+        9707000,
+        -24768400
+      ],
+      "rotation_degrees": 0.0,
+      "side": "back",
+      "pads": [
+        {
+          "number": "1",
+          "net": "N21716821",
+          "position_nm": [
+            10156600,
+            -24768400
+          ],
+          "size_nm": [
+            619800,
+            619800
+          ]
+        },
+        {
+          "number": "2",
+          "net": "GND",
+          "position_nm": [
+            9257400,
+            -24768400
+          ],
+          "size_nm": [
+            619800,
+            619800
+          ]
+        }
+      ]
+    }
+  ],
+  "m12_dogbone_centerline_nm": 470650.27355776605,
+  "copperprobe_geometry": {
+    "pitch_nm": 750000,
+    "bga_land_nm": 400000,
+    "via_pad_nm": 450000,
+    "via_drill_nm": 200000,
+    "clearance_nm": 100000
+  },
+  "simple_geometry_comparison": {
+    "reference_between_ball_copper_gap_nm": 500000,
+    "copperprobe_between_ball_copper_gap_nm": 350000,
+    "reference_centered_cell_via_to_ball_edge_clearance_nm": 202130.08588991058,
+    "copperprobe_centered_cell_via_to_ball_edge_clearance_nm": 105330.08588991058
+  },
+  "import_limitations": [
+    "KiCad10.0.6 buildVia hardcodes F.Cu/B.Cu; original padstack copper-layer counts and all matching drill/first-pad widths independently checked here.",
+    "Imported footprint pad/paste/mask expansion and complete constraint fidelity need native manufacturing review.",
+    "No refill or native DRC of reference board; imported polygons are for inspection. No claim of SI or assembly qualification."
+  ],
+  "source_inputs_unchanged": true
+}

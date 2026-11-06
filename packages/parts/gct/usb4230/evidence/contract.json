@@ -1,0 +1,15 @@
+{
+  "GCT_USB4230_03_A": {
+    "package": "usb_hybrid",
+    "footprint": "footprints/USB4230_03_A.kicad_mod",
+    "layout_contract": "parts/usb_hybrid/layout-contract.json",
+    "source": {
+      "url": "https://gct.co/files/drawings/USB4230.pdf",
+      "path": "evidence/manufacturer/USB4230-RevA.pdf",
+      "sha256": "7e8c58eee83ce4cd827b20c8065dd46e89dd81449186b1850a0d2c10c8c57014",
+      "revision": "A",
+      "date": "2024-08-21"
+    },
+    "qualified_release": false
+  }
+}

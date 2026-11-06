@@ -1,0 +1,40 @@
+{
+  "schema": "copperprobe-ferrite-layout/v1",
+  "qualified_release": false,
+  "source": {
+    "url": "https://www.infineon.com/assets/row/public/documents/30/60/infineon-hardware-design-file-kit-fx10-fmc-001-pcbdesigndata-en.zip",
+    "schematic_sha256": "f6f5a93f8f8b90731fd13fd58611390bed9f10d11abf077f0b6dba052e533c79",
+    "revision": "630-60643-01 Rev03, 2025-02-13",
+    "sheets": [
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "bead": {
+    "mpn": "BLM15PX221SN1D",
+    "nominal_impedance": "220 ohm at 100 MHz",
+    "reference_spec": "JENF243A_0018AP-01 p3/p8",
+    "spec_url": "https://www.mouser.com/datasheet/3/76/1/ENFA0018.pdf",
+    "spec_binary_sha256": null,
+    "spec_retrieval": "Manufacturer site returned maintenance/HTTP500; mirror readable through web PDF extraction, direct download returned HTML. Do not treat the HTML as PDF evidence.",
+    "rated_current_mA": {
+      "ambient_85_C": 1400,
+      "ambient_125_C": 800
+    },
+    "DCR_max_ohm": {
+      "initial": "0.10",
+      "after_tests": "0.115"
+    },
+    "DC_bias_impedance": "unresolved; nominal impedance is not a loaded guarantee",
+    "footprint": "kit FB3 copper lands 0.6198 mm squares at +/-0.4496 mm; authored courtyard; stencil/assembly not qualified"
+  },
+  "requirements": [
+    "Separate upstream and downstream nets",
+    "Place local bulk and pin bypasses downstream",
+    "Preserve continuous ground",
+    "Host must establish load/drop/bias/inrush/resonance bounds before acceptance"
+  ],
+  "simulation": "No pure-inductor model is assigned to this lossy ferrite."
+}

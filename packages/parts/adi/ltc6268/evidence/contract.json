@@ -1,0 +1,26 @@
+{
+  "LTC6268IS6": {
+    "package": "buffer",
+    "footprint": "Package_TO_SOT_SMD:SOT-23-6",
+    "source": {
+      "url": "https://www.analog.com/media/en/technical-documentation/data-sheets/62689f.pdf",
+      "sha256": null
+    },
+    "locator": "62689f p2 TSOT23 diagram; p3 ordering; input-node layout pp14-17",
+    "pins": {
+      "OUT": "1",
+      "VN": "2",
+      "INP": "3",
+      "INN": "4",
+      "SHDN": "5",
+      "VP": "6"
+    },
+    "notes": "Unity-gain stable version; input capacitance 0.45 pF typical, not a complete probe capacitance guarantee.",
+    "footprint_inventory": {
+      "identifier": "Package_TO_SOT_SMD:SOT-23-6",
+      "sha256": "ea29040bed73e5dfa455e36f2c9324b0de7782c5a6cf79040b7d885ff766fdb4",
+      "source": "KiCad10.0 installed library; embedded descr/tags retained",
+      "qualified": false
+    }
+  }
+}

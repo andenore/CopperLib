@@ -1,0 +1,873 @@
+{
+  "schema": "copperprobe-parts-layout-contract/v1",
+  "contract_version": "1.1.0-candidate",
+  "part": "CYUSB4013_FCAXI",
+  "qualified_release": false,
+  "destination": "CopperLib/packages/parts/infineon/cyusb4013/layout-contract.json",
+  "sources": {
+    "fx10_ds": {
+      "url": "https://www.infineon.com/dgdl/Infineon-CYUSB401x_EZ-USB_FX10_USB_10_Gbps_peripheral_controller-DataSheet-v02_00-EN.pdf?fileId=8ac78c8c956a0a4701959618c62d4947",
+      "revision": "002-40837 Rev*C, 2026-03-10",
+      "path": "cache/cyusb4013/fx10-datasheet.pdf",
+      "sha256": "ae766cd737acb84a7829da8579526cb6fca1031999510bfb3024c0d7bf9113ba",
+      "applicability": "exact CYUSB4013-FCAXI"
+    },
+    "an238422": {
+      "url": "https://www.infineon.com/dgdl/Infineon-Hardware_design_guidelines_and_schematic_checklist_for_EZ_USB_FX5_FX5N_FX10_FX20-ApplicationNotes-v01_00-EN.pdf?fileId=8ac78c8c956a0a470195a515eb6f16eb",
+      "revision": "002-38422 Rev**, 2025-03-13",
+      "path": "cache/cyusb4013/an238422-hardware-guidelines.pdf",
+      "sha256": "9cac2beb6f23555233f9c9132629c50763667e1c99fd99b95ce70d9b3f703296",
+      "applicability": "p3 explicitly FX10; photographs/layout examples FX20"
+    },
+    "fx10_kit": {
+      "url": "https://www.infineon.com/assets/row/public/documents/30/60/infineon-hardware-design-file-kit-fx10-fmc-001-pcbdesigndata-en.zip",
+      "revision": "PCB design data01_00 released2025-04-07; schematic630-60643-01 Rev03, 2025-02-13",
+      "path": "cache/cyusb4013/KIT_FX10_FMC_001_SCH.pdf",
+      "sha256": "f6f5a93f8f8b90731fd13fd58611390bed9f10d11abf077f0b6dba052e533c79",
+      "applicability": "CYUSB4014-FCAXI same package family. Actual six-layer board imported; all 1025 instantiated via records independently matched to original six-layer padstacks."
+    },
+    "fx_cc_response": {
+      "url": "https://community.infineon.com/t5/USB-superspeed-peripherals/FX10-FX20-using-Pins-CC1-and-CC2-for-power-delivery/td-p/1044658",
+      "revision": "Infineon accepted moderator response2025-06-27",
+      "path": null,
+      "applicability": "manufacturer support statement, not numerical electrical specification",
+      "sha256": null,
+      "status": "Web retrieval read; direct binary/HTML archival request HTTP403 Cloudflare. Source observations are paraphrases, not original page bytes."
+    }
+  },
+  "package": {
+    "manufacturer_ball_nominal_mm": "0.30",
+    "manufacturer_ball_range_mm": [
+      "0.25",
+      "0.35"
+    ],
+    "body_mm": [
+      10,
+      10
+    ],
+    "pitch_mm": "0.75",
+    "pcb_land_mm": "0.25",
+    "pcb_land_basis": "All 169 copper lands measured in the original manufacturer KIT_FX10_FMC_001 PCB Design Data01_00, CYUSB4014-FCAXI family package. CopperProbe uses exact CYUSB4013-FCAXI pin mapping. Mask/paste apertures and assembly remain unqualified."
+  },
+  "supply_associations": [
+    {
+      "ball": "M2",
+      "pin": "USB3V18_M2",
+      "domain": "USB3V18",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "M4",
+      "pin": "USB3V18_M4",
+      "domain": "USB3V18",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "M6",
+      "pin": "USB3V18_M6",
+      "domain": "USB3V18",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "M8",
+      "pin": "USB3V18_M8",
+      "domain": "USB3V18",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "L3",
+      "pin": "USB3V18_L3",
+      "domain": "USB3V18",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "L5",
+      "pin": "USB3V18_L5",
+      "domain": "USB3V18",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "L7",
+      "pin": "USB3V18_L7",
+      "domain": "USB3V18",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "A3",
+      "pin": "V33_A3",
+      "domain": "V33",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "J3",
+      "pin": "V33_J3",
+      "domain": "V33",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "L10",
+      "pin": "V33_L10",
+      "domain": "V33",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "L11",
+      "pin": "VDDD_L11",
+      "domain": "VDDD",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "F9",
+      "pin": "VDDD_F9",
+      "domain": "VDDD",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "M10",
+      "pin": "VDDD_M10",
+      "domain": "VDDD",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "C11",
+      "pin": "VDDIOQSPI_C11",
+      "domain": "VDDIOQSPI",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "M12",
+      "pin": "VDDIOXTAL_M12",
+      "domain": "VDDIOXTAL",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "C3",
+      "pin": "VDDIO_P0_C3",
+      "domain": "VDDIO_P0",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "E3",
+      "pin": "VDDIO_P0_CTRL_E3",
+      "domain": "VDDIO_P0",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "G3",
+      "pin": "VDDIO_P0_G3",
+      "domain": "VDDIO_P0",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "C5",
+      "pin": "VDDIO_P1_C5",
+      "domain": "VDDIO_P1",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "C7",
+      "pin": "VDDIO_P1_CTRL_C7",
+      "domain": "VDDIO_P1",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "C9",
+      "pin": "VDDIO_P1_C9",
+      "domain": "VDDIO_P1",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "F7",
+      "pin": "VDDIO_F7",
+      "domain": "VDDIO",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    },
+    {
+      "ball": "L13",
+      "pin": "VDDIO_L13",
+      "domain": "VDDIO",
+      "capacitors": [
+        {
+          "nominal": {
+            "display": "100 nF",
+            "value": "100",
+            "unit": "nF"
+          }
+        },
+        {
+          "nominal": {
+            "display": "10 nF",
+            "value": "10",
+            "unit": "nF"
+          }
+        }
+      ],
+      "minimum_voltage_rating": {
+        "display": "10 V",
+        "value": "10",
+        "unit": "V"
+      },
+      "dielectric": "stable ceramic; exact orderable part/DC-bias qualification pending",
+      "source": "an238422 pp6-7 Fig2/Table2; exact4013 pin map pp30-38"
+    }
+  ],
+  "bulk_by_domain": [
+    {
+      "domain": "USB3V18",
+      "values_uF": [
+        10
+      ],
+      "voltage_rating_V": 10,
+      "source": "an238422 p7 Table2"
+    },
+    {
+      "domain": "V33",
+      "values_uF": [
+        10
+      ],
+      "voltage_rating_V": 10,
+      "source": "an238422 p7 Table2"
+    },
+    {
+      "domain": "VDDD",
+      "values_uF": [
+        22,
+        4.7
+      ],
+      "voltage_rating_V": 10,
+      "source": "an238422 p7 Table2"
+    },
+    {
+      "domain": "VDDIOQSPI",
+      "values_uF": [
+        10
+      ],
+      "voltage_rating_V": 10,
+      "source": "an238422 p7 Table2"
+    },
+    {
+      "domain": "VDDIOXTAL",
+      "values_uF": [],
+      "voltage_rating_V": 10,
+      "source": "an238422 p7 Table2"
+    },
+    {
+      "domain": "VDDIO_P0",
+      "values_uF": [
+        10
+      ],
+      "voltage_rating_V": 10,
+      "source": "an238422 p7 Table2"
+    },
+    {
+      "domain": "VDDIO_P1",
+      "values_uF": [
+        10
+      ],
+      "voltage_rating_V": 10,
+      "source": "an238422 p7 Table2"
+    },
+    {
+      "domain": "VDDIO",
+      "values_uF": [
+        10
+      ],
+      "voltage_rating_V": 10,
+      "source": "an238422 p7 Table2"
+    }
+  ],
+  "decoupling_topology": {
+    "preferred_side": "back near associated ball",
+    "source_locator": "an238422 p6 Fig2, p7 Table2",
+    "return": "short cap return trace/via to adjacent solidGND; short ICpowerpin->cap->solidpowerdistribution; preserve genuine feed witnesses and power/return loop",
+    "surface_only_required": false,
+    "cross_layer_allowed": "source-consistent bottom placement using qualified ordinary through vias; no universal numericdistance/inductance limit established",
+    "manufacturer_max_trace_length_mm": null,
+    "manufacturer_max_loop_inductance_nH": null,
+    "enforcement": "Source associations and explicit placement constraints; fresh physical supply and return witnesses required. Electrical loop and component qualification remain separate.",
+    "preserve_stronger_existing_contracts": true
+  },
+  "vccd_exception": {
+    "pins": [
+      "G7",
+      "G9"
+    ],
+    "direction": "internally generated1.1V output, no external rail or other load",
+    "cap_nominal_uF": "4.7",
+    "initial_tolerance": "\u00b120%",
+    "electrical_range_uF": [
+      "1.88",
+      "6.58"
+    ],
+    "source_locator": "exact4013 p20 section2.4.1, p38 Table12, p50 Fig7, p52 Table22; familykit sheet5",
+    "no_100n_plus_10n_requirement": true,
+    "proposal": "Common external VCCD node with one 4.7 uF capacitor; both G7 and G9 must be connected; no external supply or other load.",
+    "unresolved": "Table22 range not interpreted as universal two-cap sum limit; exactselected MLCCeffectivecapacitance pending",
+    "erc_model": "Explicit same-component parallel_power_group; each physical pin remains required. No internal-pad shortcut.",
+    "parallel_power_group": {
+      "per_pin_field": "parallel_power_group",
+      "type": "nonempty source-backed string; same component and power/output only",
+      "ERC": "collapse driver conflict only within equal nonempty group of same component; additional independent outputs still conflict",
+      "physical_graph": "all G7/G9 physical pads retain external connection obligations, verified actual copper and fresh witnesses"
+    }
+  },
+  "usb": {
+    "mode": "USB3.2Gen2x1 10Gb/s; integratedorientationmux; not Gen2x2",
+    "channel_receptacle_mapping": [
+      {
+        "channel": "TX1",
+        "positive_ball": "M5",
+        "negative_ball": "N5",
+        "positive_receptacle": "A2",
+        "negative_receptacle": "A3"
+      },
+      {
+        "channel": "RX1",
+        "positive_ball": "M3",
+        "negative_ball": "N3",
+        "positive_receptacle": "B11",
+        "negative_receptacle": "B10"
+      },
+      {
+        "channel": "TX2",
+        "positive_ball": "M7",
+        "negative_ball": "N7",
+        "positive_receptacle": "B2",
+        "negative_receptacle": "B3"
+      },
+      {
+        "channel": "RX2",
+        "positive_ball": "M9",
+        "negative_ball": "N9",
+        "positive_receptacle": "A11",
+        "negative_receptacle": "A10"
+      }
+    ],
+    "mapping_source": "exact4013 p33 Table10 +KIT_FX10_FMC_001_SCH sheet4 CYUSB4014FCAXI familyanalogy",
+    "tx_series_cap_nF": 100,
+    "rx_series_caps": false,
+    "cap_location": "near USB-C receptacle for cable-connected device; near PHY only samePCBhub/embeddedcontroller exception",
+    "cap_symmetry": true,
+    "intra_pair_max_skew_mm": "0.127",
+    "complete_path": "TX P/N total packageexit+allprecaptraces/vias+capacitorland/packagecontribution+allpostcaptraces/vias+connectorlaunch, perchannel; persegment0.127 alone is insufficient",
+    "electrical_target": {
+      "differential_ohms": 90,
+      "tolerance_percent": 5,
+      "locator": "an238422 p14"
+    },
+    "ground_coplanar_spacing_min_trace_width_multiple": 2,
+    "signal_reference": "solid adjacent GND along every segment; matched paired transitions/returnvias; no split/referencegap except deliberately reviewed pad antipad+nextsolidreference topology",
+    "local_antipads": "under widerUSBconnector/cap/ESDpads, sourcep14Fig6; geometry must retain nextsolidGNDreference; no globalplane split",
+    "polarity_swap_allowed": true,
+    "tx_rx_swap_allowed": false,
+    "max_trace_length_mm": "76.2",
+    "length_note": "source recommends <3in, includes full route; < not \u2264",
+    "qualification_pending": [
+      "USBGen2channel insertion/returnloss,jitter/eye,via/cap/ESD/connector launches,USB-IF compliance",
+      "Exact CC integratedmuxfirmware mapping and currentadmission implementation",
+      "CompleteTXcapacitorpackage path/electrical delay model; geometricrouteonly excludes internalpackage"
+    ]
+  },
+  "cc": {
+    "orientation_sensing": "Integrated CC voltage orientation sensing, exact datasheet p7.",
+    "external_termination": "AN238422 specifies external 5.1 kohm \u00b11% Rd per CC.",
+    "current_advertisement_decode": "No qualified exact current thresholds/API found; host admission implementation remains unresolved.",
+    "host_loading": "Any additional CC detector or termination requires loading review; GPIO pulls must not create unintended termination."
+  },
+  "escape_reference": {
+    "source": "fx10_kit",
+    "original_brd_sha256": "e19be5cf29b7922ec30895eaeb4ce1c2563ef54096aaa70fad18fd55619e0144",
+    "measurement_path": "evidence/fx10-kit-escape/measurements.json",
+    "measurement_sha256": "7f0428b6dce3cb4770bf9ff5db4b3fad09f58d4d990755a6f300688e96a019c7",
+    "typical_diagonal_offset_mm": "0.3328",
+    "local_via_pad_mm": "0.4064",
+    "local_via_drill_mm": "0.2032",
+    "via_technology": "ordinary through, original used padstacks have six copper layers",
+    "application": "Geometric reference, not an immutable routing macro or qualification certificate. Consumer retains its 0.45 mm / 0.20 mm fabrication rules; generic router proposes actual cell centres and validates clearances.",
+    "assembly_qualified": false
+  }
+}

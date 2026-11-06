@@ -1,0 +1,15 @@
+// 1.8 V rail from 3.3 V buck; thermal qualification required.
+part TLV75718PDRVR {
+    category = "digital_ldo";
+    footprint = "Package_SON:WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm";
+    source_url = "https://www.ti.com/lit/ds/symlink/tlv757p.pdf";
+    source_location = "SBVS307 DBV pin functions; input/output capacitance requirements";
+    source_checksum = "sha256:9f5e9602ed9366124dfee01dd773ceafca6b54c5c22cf3a7999453432c5cefb9";
+    pin IN { number = "6"; domains = "power"; directions = "input"; }
+    pin GND { number = "3"; domains = "ground"; directions = "input"; }
+    pin EN { number = "4"; domains = "digital"; directions = "input"; }
+    pin OUT { number = "1"; domains = "power"; directions = "output"; }
+    pin NC2 { number = "2"; connection = do_not_connect; }
+    pin NC5 { number = "5"; connection = do_not_connect; }
+    pin EP { number = "7"; domains = "ground"; directions = "input"; }
+}

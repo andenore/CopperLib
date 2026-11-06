@@ -1,0 +1,68 @@
+{
+  "THS4541IRGTR": {
+    "package": "driver",
+    "footprint": "Package_DFN_QFN:Texas_RGT0016A_VQFN-16-1EP_3x3mm_P0.5mm_EP1.45x1.45mm",
+    "source": {
+      "id": "fast_driver",
+      "url": "https://www.ti.com/lit/ds/symlink/ths4541.pdf",
+      "sha256": "89116b7887557237335675481ed80c5f3570b4d920d0b882393a877fb1796765",
+      "pages": 66
+    },
+    "locator": "SLOS375B pp3,35,50-51; RGT0016A land pattern",
+    "pins": {
+      "FBM": "1",
+      "INP": "2",
+      "INM": "3",
+      "FBP": "4",
+      "VP_5": "5",
+      "VP_6": "6",
+      "VP_7": "7",
+      "VP_8": "8",
+      "VOCM": "9",
+      "OUTP": "10",
+      "OUTM": "11",
+      "PD": "12",
+      "VN_13": "13",
+      "VN_14": "14",
+      "VN_15": "15",
+      "VN_16": "16",
+      "EP": "17"
+    },
+    "notes": "EP electrically isolated; tie to ground for heat spreading. Split-supply adaptation requires simulation and bench qualification.",
+    "internal_pad_groups": [
+      [
+        "1",
+        "11"
+      ],
+      [
+        "4",
+        "10"
+      ]
+    ],
+    "layout_contract": "parts/driver/layout-contract.json",
+    "footprint_inventory": {
+      "identifier": "Package_DFN_QFN:Texas_RGT0016A_VQFN-16-1EP_3x3mm_P0.5mm_EP1.45x1.45mm",
+      "sha256": "ed815418476b9c0e70c8f558fd4b905d6eb50aa9a234427b28091d920ac6bbb2",
+      "source": "Authored from TI SLOS375B PDF pp60-61, RGT0016A drawing4219032/A 02/2017",
+      "source_url": "https://www.ti.com/lit/ds/symlink/ths4541.pdf",
+      "source_sha256": "89116b7887557237335675481ed80c5f3570b4d920d0b882393a877fb1796765",
+      "qualified": false,
+      "unresolved": [
+        "Assembly/stencil process review",
+        "Thermal-via/temperature qualification",
+        "Per-pad solder_mask_margin is unsupported by the importer; native/project mask settings must be checked against TI NSMD allowance and fabrication registration"
+      ],
+      "authored_choices": [
+        "0.25 mm courtyard clearance from copper extrema"
+      ],
+      "dimensions_nm": {
+        "outer_land_length": 600000,
+        "outer_land_width": 240000,
+        "opposite_land_centers": 2800000,
+        "exposed_pad_side": 1450000,
+        "paste_window_side": 1340000,
+        "outer_pad_corner_radius": 50000
+      }
+    }
+  }
+}

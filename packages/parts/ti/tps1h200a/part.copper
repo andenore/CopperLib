@@ -1,0 +1,27 @@
+// TI TPS1H200AQDGNRQ1, 40-V 200-mOhm single-channel smart high-side switch,
+// DGN0008K HVSSOP-8 PowerPAD. SLVSEE0E (May 2026): pin functions p3,
+// ratings pp4-7, typical application pp22-23, land pattern p28.
+// IN and DIAG_EN have internal pull-downs (IN 150-400 kOhm), so the output is
+// off while the controller is in reset. VIH 1.8 V suits 3.3-V logic.
+// Current limit R_CL = 0.8 V x 2500 / I_limit (K_CL 2500; the worked example
+// p22 prints the factor as "22500" but its 1-kOhm/2-A result uses 2500).
+// DELAY to GND through C sets latch-off (t = 1.45 V x C / 4.5 uA after
+// 0.3-0.5 ms); the output then stays off until IN toggles.
+// The thermal pad may be grounded or left floating.
+part TPS1H200AQDGNRQ1 {
+    category = "power.switch.high_side";
+    manufacturer = "Texas Instruments";
+    footprint = "footprints/HVSSOP-8-1EP_3x3mm_P0.65mm_EP1.57x1.89mm.kicad_mod";
+    source_url = "https://www.ti.com/lit/ds/symlink/tps1h200a-q1.pdf";
+    source_location = "SLVSEE0E p3 pin functions; p4-7 ratings; p22-23 typical application; p28 DGN0008K land pattern";
+    source_checksum = "sha256:63c6e4bb4861029c21f0e9bd684ac833d0a905ea5586e08cb5d8234eff4dcb57";
+    pin IN { number = "1"; domains = "digital"; directions = "input"; voltage_min = 0V; voltage_max = 40V; }
+    pin DIAG_EN { number = "2"; domains = "digital"; directions = "input"; voltage_min = 0V; voltage_max = 40V; }
+    pin FAULT { number = "3"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; voltage_min = 0V; voltage_max = 7V; }
+    pin CL { number = "4"; domains = "analog"; directions = "passive"; voltage_min = 0V; voltage_max = 7V; }
+    pin DELAY { number = "5"; domains = "analog"; directions = "passive"; voltage_min = 0V; voltage_max = 7V; }
+    pin GND { number = "6"; domains = "ground"; directions = "input"; }
+    pin OUT { number = "7"; domains = "power"; directions = "output"; }
+    pin VS { number = "8"; domains = "power"; directions = "input"; voltage_min = 4V; voltage_max = 40V; }
+    pin EP { number = "9"; domains = "ground"; directions = "passive"; }
+}

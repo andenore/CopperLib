@@ -1,0 +1,26 @@
+// EP electrically isolated; tie to ground for heat spreading. Split-supply adaptation requires simulation and bench qualification.
+part THS4541IRGTR {
+    category = "driver";
+    internal_pad_groups = "1,11; 4,10";
+    footprint = "footprints/Texas_RGT0016A_VQFN-16-1EP_3x3mm_P0.5mm_EP1.45x1.45mm.kicad_mod";
+    source_url = "https://www.ti.com/lit/ds/symlink/ths4541.pdf";
+    source_location = "SLOS375B p3 RGT pin functions; p35 functional block and 8.3.1 feedback outputs; pp5-8 electrical; layout section; PDF pp60-61 RGT0016A drawing4219032/A 02/2017";
+    source_checksum = "sha256:89116b7887557237335675481ed80c5f3570b4d920d0b882393a877fb1796765";
+    pin FBM { number = "1"; domains = "analog"; directions = "output";  }
+    pin INP { number = "2"; domains = "analog"; directions = "input";  }
+    pin INM { number = "3"; domains = "analog"; directions = "input";  }
+    pin FBP { number = "4"; domains = "analog"; directions = "output";  }
+    pin VP_5 { number = "5"; domains = "power"; directions = "input";  }
+    pin VP_6 { number = "6"; domains = "power"; directions = "input";  }
+    pin VP_7 { number = "7"; domains = "power"; directions = "input";  }
+    pin VP_8 { number = "8"; domains = "power"; directions = "input";  }
+    pin VOCM { number = "9"; domains = "analog"; directions = "input";  }
+    pin OUTP { number = "10"; domains = "analog"; directions = "output";  }
+    pin OUTM { number = "11"; domains = "analog"; directions = "output";  }
+    pin PD { number = "12"; domains = "digital"; directions = "input";  }
+    pin VN_13 { number = "13"; domains = "power"; directions = "input";  }
+    pin VN_14 { number = "14"; domains = "power"; directions = "input";  }
+    pin VN_15 { number = "15"; domains = "power"; directions = "input";  }
+    pin VN_16 { number = "16"; domains = "power"; directions = "input";  }
+    pin EP { number = "17"; domains = "ground"; directions = "passive";  }
+}

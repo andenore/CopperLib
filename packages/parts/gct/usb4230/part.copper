@@ -1,0 +1,33 @@
+// Manufacturer-derived hybrid contact candidate; launch and assembly qualification remain open.
+part GCT_USB4230_03_A {
+    category = "usb";
+    footprint = "footprints/USB4230_03_A.kicad_mod";
+    source_url = "https://gct.co/files/drawings/USB4230.pdf";
+    source_location = "USB4230 Rev A, 21 August 2024: sheet1 pin table and mechanical dimensions; sheet2 recommended PCB layout, component-side view";
+    source_checksum = "sha256:7e8c58eee83ce4cd827b20c8065dd46e89dd81449186b1850a0d2c10c8c57014";
+    pin A1 { number = "A1"; domains = "ground"; directions = "passive";  }
+    pin A2 { number = "A2"; domains = "digital"; directions = "passive";  }
+    pin A3 { number = "A3"; domains = "digital"; directions = "passive";  }
+    pin A4 { number = "A4"; domains = "power"; directions = "passive";  }
+    pin A5 { number = "A5"; domains = "analog"; directions = "passive";  }
+    pin A6 { number = "A6"; domains = "digital"; directions = "passive";  }
+    pin A7 { number = "A7"; domains = "digital"; directions = "passive";  }
+    pin A8 { number = "A8"; domains = "analog"; directions = "passive";  }
+    pin A9 { number = "A9"; domains = "power"; directions = "passive";  }
+    pin A10 { number = "A10"; domains = "digital"; directions = "passive";  }
+    pin A11 { number = "A11"; domains = "digital"; directions = "passive";  }
+    pin A12 { number = "A12"; domains = "ground"; directions = "passive";  }
+    pin B1 { number = "B1"; domains = "ground"; directions = "passive";  }
+    pin B2 { number = "B2"; domains = "digital"; directions = "passive";  }
+    pin B3 { number = "B3"; domains = "digital"; directions = "passive";  }
+    pin B4 { number = "B4"; domains = "power"; directions = "passive";  }
+    pin B5 { number = "B5"; domains = "analog"; directions = "passive";  }
+    pin B6 { number = "B6"; domains = "digital"; directions = "passive";  }
+    pin B7 { number = "B7"; domains = "digital"; directions = "passive";  }
+    pin B8 { number = "B8"; domains = "analog"; directions = "passive";  }
+    pin B9 { number = "B9"; domains = "power"; directions = "passive";  }
+    pin B10 { number = "B10"; domains = "digital"; directions = "passive";  }
+    pin B11 { number = "B11"; domains = "digital"; directions = "passive";  }
+    pin B12 { number = "B12"; domains = "ground"; directions = "passive";  }
+    pin SHIELD { number = "S1"; domains = "ground"; directions = "passive";  }
+}

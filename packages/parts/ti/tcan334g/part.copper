@@ -3,6 +3,7 @@ part TCAN334G {
     category = "interface.can.transceiver";
     manufacturer = "Texas Instruments";
     footprint = "footprints/Package_SO.pretty/VSSOP-8_3x3mm_P0.65mm.kicad_mod";
+    model = "github.com/KiCad/kicad-packages3D/Package_SO.3dshapes/VSSOP-8_3x3mm_P0.65mm.step";
     source_document = "TCAN33x 3.3-V CAN Transceivers datasheet";
     source_revision = "SLLSEV1G";
     source_url = "https://www.ti.com/lit/ds/symlink/tcan332.pdf";

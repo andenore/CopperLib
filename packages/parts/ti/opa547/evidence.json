@@ -1,0 +1,52 @@
+{
+  "source_url": "https://www.ti.com/lit/ds/symlink/opa547.pdf",
+  "revision": "SBOS056F",
+  "locator": "Pin Configurations page 2: 7-Lead Stagger-Formed TO-220 (T)",
+  "package": "TI_KVT0007_OPA548:TI_KVT0007_OPA548",
+  "local_source_sha256": "82b5d94d1c84d1f7ebafb3c3a1015151493735a50a01b487633cef0513e32ee8",
+  "pins": [
+    [
+      1,
+      "INP",
+      "analog",
+      "input"
+    ],
+    [
+      2,
+      "INN",
+      "analog",
+      "input"
+    ],
+    [
+      3,
+      "ILIM",
+      "analog",
+      "input"
+    ],
+    [
+      4,
+      "VM",
+      "power",
+      "input"
+    ],
+    [
+      5,
+      "VP",
+      "power",
+      "input"
+    ],
+    [
+      6,
+      "OUT",
+      "analog",
+      "output"
+    ],
+    [
+      7,
+      "ES",
+      "analog",
+      "bidirectional"
+    ]
+  ],
+  "qualification": "Electrical pin contract only; pin- and package-compatible with OPA548T (stagger-formed TO-220-7, tab on V-), but 500 mA continuous instead of 3 A and current limit ILIM = 5000 x 4.75 V / (31.6 kOhm + RCL) instead of 15000 x 4.75 V / (13.75 kOhm + RCL). Reuses the OPA548 KVT land pattern; mandatory external heatsink referenced to VM. Heatsink clearance and thermal/SOA review pending."
+}

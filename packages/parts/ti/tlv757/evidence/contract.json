@@ -1,0 +1,29 @@
+{
+  "TLV75718PDRVR": {
+    "package": "digital_ldo",
+    "footprint": "Package_SON:WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm",
+    "source": {
+      "id": "digital_ldo",
+      "url": "https://www.ti.com/lit/ds/symlink/tlv757p.pdf",
+      "sha256": "9f5e9602ed9366124dfee01dd773ceafca6b54c5c22cf3a7999453432c5cefb9",
+      "pages": 41
+    },
+    "locator": "TLV757P DRV6 pin functions and package drawing; EP is ground",
+    "pins": {
+      "IN": "6",
+      "OUT": "1",
+      "GND": "3",
+      "EN": "4",
+      "NC2": "2",
+      "NC5": "5",
+      "EP": "7"
+    },
+    "notes": "1.8 V rail from 3.3 V buck; thermal qualification required.",
+    "footprint_inventory": {
+      "identifier": "Package_SON:WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm",
+      "sha256": "d1e2fc3516c96e3c858b32e79dc4d47fd9d15783c0320ed08aeec9ffbbae0937",
+      "source": "KiCad10.0 installed library; TI DRV0006 comparison required",
+      "qualified": false
+    }
+  }
+}

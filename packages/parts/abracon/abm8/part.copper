@@ -1,0 +1,11 @@
+// Load capacitors are provisional until installed stray capacitance is established.
+part ABM8_24MHZ {
+    category = "crystal";
+    footprint = "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm";
+    source_url = "https://abracon.com/Resonators/ABM8.pdf";
+    source_location = "ABM8 pin diagram; 24 MHz B2 18 pF load ordering code";
+    pin X1 { number = "1"; domains = "clock"; directions = "passive";  }
+    pin X2 { number = "3"; domains = "clock"; directions = "passive";  }
+    pin GND2 { number = "2"; domains = "ground"; directions = "passive";  }
+    pin GND4 { number = "4"; domains = "ground"; directions = "passive";  }
+}

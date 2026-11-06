@@ -1,0 +1,57 @@
+// CMOS only; do not use this pin contract in LVDS mode.
+part ADS4125IRGZT {
+    category = "adc";
+    footprint = "Package_DFN_QFN:Texas_RGZ0048A_VQFN-48-1EP_7x7mm_P0.5mm_EP5.15x5.15mm";
+    source_url = "https://www.ti.com/lit/ds/symlink/ads4125.pdf";
+    source_location = "SBAS520C pp6-7 CMOS map; pp14-15 timing; pp44-47 modes; p75 layout";
+    source_checksum = "sha256:498f77502b155979a037ae1c68d1b92f9724d8436c1313648f67f681b2c1a3f6";
+    pin AVDD_8 { number = "8"; domains = "power"; directions = "input"; voltage_min = 1.7 V; voltage_max = 1.9 V; }
+    pin AVDD_18 { number = "18"; domains = "power"; directions = "input"; voltage_min = 1.7 V; voltage_max = 1.9 V; }
+    pin AVDD_20 { number = "20"; domains = "power"; directions = "input"; voltage_min = 1.7 V; voltage_max = 1.9 V; }
+    pin AVDD_22 { number = "22"; domains = "power"; directions = "input"; voltage_min = 1.7 V; voltage_max = 1.9 V; }
+    pin AVDD_24 { number = "24"; domains = "power"; directions = "input"; voltage_min = 1.7 V; voltage_max = 1.9 V; }
+    pin AVDD_26 { number = "26"; domains = "power"; directions = "input"; voltage_min = 1.7 V; voltage_max = 1.9 V; }
+    pin DRVDD_2 { number = "2"; domains = "power"; directions = "input"; voltage_min = 1.7 V; voltage_max = 1.9 V; }
+    pin DRVDD_35 { number = "35"; domains = "power"; directions = "input"; voltage_min = 1.7 V; voltage_max = 1.9 V; }
+    pin AGND_9 { number = "9"; domains = "ground"; directions = "input";  }
+    pin AGND_12 { number = "12"; domains = "ground"; directions = "input";  }
+    pin AGND_14 { number = "14"; domains = "ground"; directions = "input";  }
+    pin AGND_17 { number = "17"; domains = "ground"; directions = "input";  }
+    pin AGND_19 { number = "19"; domains = "ground"; directions = "input";  }
+    pin AGND_25 { number = "25"; domains = "ground"; directions = "input";  }
+    pin DRGND_1 { number = "1"; domains = "ground"; directions = "input";  }
+    pin DRGND_36 { number = "36"; domains = "ground"; directions = "input";  }
+    pin DRGND_49 { number = "49"; domains = "ground"; directions = "input";  }
+    pin D0 { number = "37"; domains = "digital"; directions = "output";  }
+    pin D1 { number = "38"; domains = "digital"; directions = "output";  }
+    pin D2 { number = "39"; domains = "digital"; directions = "output";  }
+    pin D3 { number = "40"; domains = "digital"; directions = "output";  }
+    pin D4 { number = "41"; domains = "digital"; directions = "output";  }
+    pin D5 { number = "42"; domains = "digital"; directions = "output";  }
+    pin D6 { number = "43"; domains = "digital"; directions = "output";  }
+    pin D7 { number = "44"; domains = "digital"; directions = "output";  }
+    pin D8 { number = "45"; domains = "digital"; directions = "output";  }
+    pin D9 { number = "46"; domains = "digital"; directions = "output";  }
+    pin D10 { number = "47"; domains = "digital"; directions = "output";  }
+    pin D11 { number = "48"; domains = "digital"; directions = "output";  }
+    pin CLKP { number = "10"; domains = "clock"; directions = "input";  }
+    pin CLKM { number = "11"; domains = "clock"; directions = "input";  }
+    pin INP { number = "15"; domains = "analog"; directions = "input";  }
+    pin INM { number = "16"; domains = "analog"; directions = "input";  }
+    pin DFS { number = "6"; domains = "analog"; directions = "input";  }
+    pin SEN { number = "27"; domains = "digital"; directions = "input";  }
+    pin SDATA { number = "28"; domains = "digital"; directions = "input";  }
+    pin SCLK { number = "29"; domains = "digital"; directions = "input";  }
+    pin RESET { number = "30"; domains = "digital"; directions = "input";  }
+    pin OE { number = "7"; domains = "digital"; directions = "input";  }
+    pin RESERVED { number = "23"; domains = "digital"; directions = "input";  }
+    pin CLKOUT { number = "5"; domains = "clock,digital"; directions = "output";  }
+    pin VCM { number = "13"; domains = "analog"; directions = "output";  }
+    pin OVR_SDOUT { number = "3"; domains = "digital"; directions = "output";  }
+    pin NC_4 { number = "4"; connection = do_not_connect;  }
+    pin NC_21 { number = "21"; connection = do_not_connect;  }
+    pin NC_31 { number = "31"; connection = do_not_connect;  }
+    pin NC_32 { number = "32"; connection = do_not_connect;  }
+    pin NC_33 { number = "33"; connection = do_not_connect;  }
+    pin NC_34 { number = "34"; connection = do_not_connect;  }
+}

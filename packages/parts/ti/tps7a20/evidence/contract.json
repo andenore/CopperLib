@@ -1,0 +1,52 @@
+{
+  "TPS7A2018PDBVR": {
+    "package": "ldo18",
+    "footprint": "Package_TO_SOT_SMD:SOT-23-5",
+    "source": {
+      "id": "ldo",
+      "url": "https://www.ti.com/lit/ds/symlink/tps7a20.pdf",
+      "sha256": "b6c487d79ebed6dd43bf220b07fc5b3ecb9ee55d87e6daa2312acda6546046c0",
+      "pages": 63
+    },
+    "locator": "SBVS338H p4 DBV map; operating conditions and stability",
+    "pins": {
+      "IN": "1",
+      "GND": "2",
+      "EN": "3",
+      "NC": "4",
+      "OUT": "5"
+    },
+    "notes": "Fixed low-noise LDO; preserve effective input/output capacitance.",
+    "footprint_inventory": {
+      "identifier": "Package_TO_SOT_SMD:SOT-23-5",
+      "sha256": "684a94089f59798a46492dac8dd0242edfa4d915e76a210abdca369e4faa4f9b",
+      "source": "KiCad10.0 installed library; embedded descr/tags retained",
+      "qualified": false
+    }
+  },
+  "TPS7A2025PDBVR": {
+    "package": "ldo25",
+    "footprint": "Package_TO_SOT_SMD:SOT-23-5",
+    "source": {
+      "id": "ldo",
+      "url": "https://www.ti.com/lit/ds/symlink/tps7a20.pdf",
+      "sha256": "b6c487d79ebed6dd43bf220b07fc5b3ecb9ee55d87e6daa2312acda6546046c0",
+      "pages": 63
+    },
+    "locator": "SBVS338H p4 DBV map; operating conditions and stability",
+    "pins": {
+      "IN": "1",
+      "GND": "2",
+      "EN": "3",
+      "NC": "4",
+      "OUT": "5"
+    },
+    "notes": "Fixed low-noise LDO; preserve effective input/output capacitance.",
+    "footprint_inventory": {
+      "identifier": "Package_TO_SOT_SMD:SOT-23-5",
+      "sha256": "684a94089f59798a46492dac8dd0242edfa4d915e76a210abdca369e4faa4f9b",
+      "source": "KiCad10.0 installed library; embedded descr/tags retained",
+      "qualified": false
+    }
+  }
+}

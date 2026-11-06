@@ -1,0 +1,16 @@
+// RECOM R-78K12-1.0, 12-V 1-A non-isolated switching regulator, SIP3.
+// R-78K-1.0 datasheet Rev. 6-2025: selection guide p1 (15-36 V input), UVLO
+// p2 (on 13.0-13.5 V), protections p5 (continuous short-circuit protection,
+// automatic recovery), dimensions and pinning p7. Add a 27-uF electrolytic
+// across the input for hard plugging above 18 V (p2 note 1).
+part R78K12_1A {
+    category = "power.regulator.module";
+    manufacturer = "RECOM";
+    footprint = "footprints/RECOM_R78K_1A.kicad_mod";
+    source_url = "https://recom-power.com/pdf/Innoline/R-78K-1.0.pdf";
+    source_location = "R-78K-1.0 Rev. 6-2025 p1 selection guide; p2 absolute maximum ratings and UVLO; p5 protections; p7 dimension drawing and pinning";
+    source_checksum = "sha256:cd5d711b279b4585e38b052655d3a080323979ad400fc177381230f2b77783d7";
+    pin VIN { number = "1"; domains = "power"; directions = "input"; voltage_min = 15V; voltage_max = 36V; }
+    pin GND { number = "2"; domains = "ground"; directions = "input"; }
+    pin VOUT { number = "3"; domains = "power"; directions = "output"; }
+}

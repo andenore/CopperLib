@@ -1,0 +1,13 @@
+// Fixed low-noise LDO; preserve effective input/output capacitance.
+part TPS7A2025PDBVR {
+    category = "ldo25";
+    footprint = "Package_TO_SOT_SMD:SOT-23-5";
+    source_url = "https://www.ti.com/lit/ds/symlink/tps7a20.pdf";
+    source_location = "SBVS338H p4 DBV map; operating conditions and stability";
+    source_checksum = "sha256:b6c487d79ebed6dd43bf220b07fc5b3ecb9ee55d87e6daa2312acda6546046c0";
+    pin IN { number = "1"; domains = "power"; directions = "input";  }
+    pin GND { number = "2"; domains = "ground"; directions = "input";  }
+    pin EN { number = "3"; domains = "digital"; directions = "input";  }
+    pin NC { number = "4"; connection = do_not_connect;  }
+    pin OUT { number = "5"; domains = "power"; directions = "output";  }
+}

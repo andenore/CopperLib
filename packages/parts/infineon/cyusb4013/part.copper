@@ -1,0 +1,178 @@
+// Reusable source-bound support obligations: layout-contract.json (candidate1.0.0; notmachine-enforced).
+// Port0 narrow SDR pin assignment; GPIO mappings selected by firmware; unused balls cannot be connected without modeling.
+part CYUSB4013_FCAXI {
+    category = "fx10";
+    footprint = "footprints/FX10_FCA169.kicad_mod";
+    source_url = "https://www.infineon.com/dgdl/Infineon-CYUSB401x_EZ-USB_FX10_USB_10_Gbps_peripheral_controller-DataSheet-v02_00-EN.pdf?fileId=8ac78c8c956a0a4701959618c62d4947";
+    source_location = "002-40837 Rev C pp31-39 Tables9-12; p83 FCA169 drawing";
+    source_checksum = "sha256:ae766cd737acb84a7829da8579526cb6fca1031999510bfb3024c0d7bf9113ba";
+    pin P0D0_K2 { number = "K2"; domains = "digital"; directions = "input";  }
+    pin P0D1_J2 { number = "J2"; domains = "digital"; directions = "input";  }
+    pin P0D2_H2 { number = "H2"; domains = "digital"; directions = "input";  }
+    pin P0D3_G2 { number = "G2"; domains = "digital"; directions = "input";  }
+    pin P0D4_E2 { number = "E2"; domains = "digital"; directions = "input";  }
+    pin P0D5_D2 { number = "D2"; domains = "digital"; directions = "input";  }
+    pin P0D6_C2 { number = "C2"; domains = "digital"; directions = "input";  }
+    pin P0D7_B2 { number = "B2"; domains = "digital"; directions = "input";  }
+    pin P0D8_K1 { number = "K1"; domains = "digital"; directions = "input";  }
+    pin P0D9_F1 { number = "F1"; domains = "digital"; directions = "input";  }
+    pin P0D10_H1 { number = "H1"; domains = "digital"; directions = "input";  }
+    pin P0D11_G1 { number = "G1"; domains = "digital"; directions = "input";  }
+    pin P0D12_E1 { number = "E1"; domains = "digital"; directions = "input";  }
+    pin P0D13_D1 { number = "D1"; domains = "digital"; directions = "input";  }
+    pin P0D14_C1 { number = "C1"; domains = "digital"; directions = "input";  }
+    pin P0D15_B1 { number = "B1"; domains = "digital"; directions = "input";  }
+    pin P0CLK_A1 { number = "A1"; domains = "clock,digital"; directions = "input";  }
+    pin P0CTL0_K4 { number = "K4"; domains = "digital"; directions = "bidirectional";  }
+    pin P0CTL1_J4 { number = "J4"; domains = "digital"; directions = "bidirectional";  }
+    pin P0CTL2_H4 { number = "H4"; domains = "digital"; directions = "bidirectional";  }
+    pin P0CTL3_G4 { number = "G4"; domains = "digital"; directions = "bidirectional";  }
+    pin P0CTL4_F4 { number = "F4"; domains = "digital"; directions = "bidirectional";  }
+    pin P0CTL5_E4 { number = "E4"; domains = "digital"; directions = "bidirectional";  }
+    pin P0CTL6_D4 { number = "D4"; domains = "digital"; directions = "bidirectional";  }
+    pin P0CTL7_F2 { number = "F2"; domains = "digital"; directions = "bidirectional";  }
+    pin P0CTL8_J1 { number = "J1"; domains = "digital"; directions = "bidirectional";  }
+    pin P0CTL9_A2 { number = "A2"; domains = "digital"; directions = "bidirectional";  }
+    pin USB3RX1N_N3 { number = "N3"; domains = "digital"; directions = "bidirectional";  }
+    pin USB3RX1P_M3 { number = "M3"; domains = "digital"; directions = "bidirectional";  }
+    pin USB3TX1N_N5 { number = "N5"; domains = "digital"; directions = "bidirectional";  }
+    pin USB3TX1P_M5 { number = "M5"; domains = "digital"; directions = "bidirectional";  }
+    pin USB3TX2N_N7 { number = "N7"; domains = "digital"; directions = "bidirectional";  }
+    pin USB3TX2P_M7 { number = "M7"; domains = "digital"; directions = "bidirectional";  }
+    pin USB3RX2N_N9 { number = "N9"; domains = "digital"; directions = "bidirectional";  }
+    pin USB3RX2P_M9 { number = "M9"; domains = "digital"; directions = "bidirectional";  }
+    pin USBHSDP_N11 { number = "N11"; domains = "digital"; directions = "bidirectional";  }
+    pin USBHSDN_M11 { number = "M11"; domains = "digital"; directions = "bidirectional";  }
+    pin CC1_K13 { number = "K13"; domains = "analog"; directions = "input";  }
+    pin CC2_J13 { number = "J13"; domains = "analog"; directions = "input";  }
+    pin RESREF_K5 { number = "K5"; domains = "analog"; directions = "input";  }
+    pin VBUSDETECT_G5 { number = "G5"; domains = "analog"; directions = "input";  }
+    pin XTALIN_N13 { number = "N13"; domains = "clock"; directions = "passive";  }
+    pin XTALOUT_M13 { number = "M13"; domains = "clock"; directions = "passive";  }
+    pin XRES_K6 { number = "K6"; domains = "digital"; directions = "input";  }
+    pin P6_0_E11 { number = "E11"; domains = "digital"; directions = "bidirectional";  }
+    pin P6_1_E12 { number = "E12"; domains = "digital"; directions = "bidirectional";  }
+    pin P6_2_D13 { number = "D13"; domains = "digital"; directions = "bidirectional";  }
+    pin P6_3_D12 { number = "D12"; domains = "digital"; directions = "bidirectional";  }
+    pin P13_0_F11 { number = "F11"; domains = "digital"; directions = "bidirectional";  }
+    pin P11_2_K9 { number = "K9"; domains = "digital"; directions = "bidirectional";  }
+    pin P11_3_K10 { number = "K10"; domains = "digital"; directions = "bidirectional";  }
+    pin P11_4_K11 { number = "K11"; domains = "digital"; directions = "bidirectional";  }
+    pin P8_4_H10 { number = "H10"; domains = "digital"; directions = "bidirectional";  }
+    pin P8_5_H11 { number = "H11"; domains = "digital"; directions = "bidirectional";  }
+    pin P11_0_K7 { number = "K7"; domains = "digital"; directions = "bidirectional";  }
+    pin P11_1_K8 { number = "K8"; domains = "digital"; directions = "bidirectional";  }
+    pin VDDIO_P0_CTRL_E3 { number = "E3"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 3.63 V; }
+    pin VDDIO_P0_C3 { number = "C3"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 3.63 V; }
+    pin VDDIO_P0_G3 { number = "G3"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 3.63 V; }
+    pin VDDIO_P1_CTRL_C7 { number = "C7"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 3.63 V; }
+    pin VDDIO_P1_C9 { number = "C9"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 3.63 V; }
+    pin VDDIO_P1_C5 { number = "C5"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 3.63 V; }
+    pin VDDD_L11 { number = "L11"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 3.63 V; }
+    pin VDDD_M10 { number = "M10"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 3.63 V; }
+    pin VDDD_F9 { number = "F9"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 3.63 V; }
+    pin VDDIOXTAL_M12 { number = "M12"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 3.63 V; }
+    pin VDDIOQSPI_C11 { number = "C11"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 3.63 V; }
+    pin VDDIO_L13 { number = "L13"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 3.63 V; }
+    pin VDDIO_F7 { number = "F7"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 3.63 V; }
+    pin USB3V18_M8 { number = "M8"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 1.98 V; }
+    pin USB3V18_M4 { number = "M4"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 1.98 V; }
+    pin USB3V18_M6 { number = "M6"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 1.98 V; }
+    pin USB3V18_M2 { number = "M2"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 1.98 V; }
+    pin USB3V18_L5 { number = "L5"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 1.98 V; }
+    pin USB3V18_L3 { number = "L3"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 1.98 V; }
+    pin USB3V18_L7 { number = "L7"; domains = "power"; directions = "input"; voltage_min = 1.62 V; voltage_max = 1.98 V; }
+    pin V33_L10 { number = "L10"; domains = "power"; directions = "input"; voltage_min = 2.97 V; voltage_max = 3.63 V; }
+    pin V33_A3 { number = "A3"; domains = "power"; directions = "input"; voltage_min = 2.97 V; voltage_max = 3.63 V; }
+    pin V33_J3 { number = "J3"; domains = "power"; directions = "input"; voltage_min = 2.97 V; voltage_max = 3.63 V; }
+    pin VCCD_G7 { number = "G7"; domains = "power"; directions = "output"; parallel_power_group = "VCCD_CORE"; connection = required; }
+    pin VCCD_G9 { number = "G9"; domains = "power"; directions = "output"; parallel_power_group = "VCCD_CORE"; connection = required; }
+    pin VSS_L12 { number = "L12"; domains = "ground"; directions = "input";  }
+    pin VSS_F8 { number = "F8"; domains = "ground"; directions = "input";  }
+    pin VSS_H8 { number = "H8"; domains = "ground"; directions = "input";  }
+    pin VSS_L1 { number = "L1"; domains = "ground"; directions = "input";  }
+    pin VSS_L2 { number = "L2"; domains = "ground"; directions = "input";  }
+    pin VSS_L9 { number = "L9"; domains = "ground"; directions = "input";  }
+    pin VSS_L8 { number = "L8"; domains = "ground"; directions = "input";  }
+    pin VSS_G8 { number = "G8"; domains = "ground"; directions = "input";  }
+    pin VSS_D3 { number = "D3"; domains = "ground"; directions = "input";  }
+    pin VSS_F3 { number = "F3"; domains = "ground"; directions = "input";  }
+    pin VSS_H3 { number = "H3"; domains = "ground"; directions = "input";  }
+    pin VSS_K3 { number = "K3"; domains = "ground"; directions = "input";  }
+    pin VSS_C10 { number = "C10"; domains = "ground"; directions = "input";  }
+    pin VSS_C6 { number = "C6"; domains = "ground"; directions = "input";  }
+    pin VSS_C8 { number = "C8"; domains = "ground"; directions = "input";  }
+    pin VSS_B3 { number = "B3"; domains = "ground"; directions = "input";  }
+    pin VSS_C4 { number = "C4"; domains = "ground"; directions = "input";  }
+    pin VSS_N10 { number = "N10"; domains = "ground"; directions = "input";  }
+    pin VSS_L4 { number = "L4"; domains = "ground"; directions = "input";  }
+    pin VSS_N8 { number = "N8"; domains = "ground"; directions = "input";  }
+    pin VSS_N6 { number = "N6"; domains = "ground"; directions = "input";  }
+    pin VSS_N4 { number = "N4"; domains = "ground"; directions = "input";  }
+    pin VSS_N2 { number = "N2"; domains = "ground"; directions = "input";  }
+    pin VSS_L6 { number = "L6"; domains = "ground"; directions = "input";  }
+    pin VSS_N12 { number = "N12"; domains = "ground"; directions = "input";  }
+    pin VSS_C12 { number = "C12"; domains = "ground"; directions = "input";  }
+    pin UNUSED_A4 { number = "A4"; connection = optional;  }
+    pin UNUSED_A5 { number = "A5"; connection = optional;  }
+    pin UNUSED_A6 { number = "A6"; connection = optional;  }
+    pin UNUSED_A7 { number = "A7"; connection = optional;  }
+    pin UNUSED_A8 { number = "A8"; connection = optional;  }
+    pin UNUSED_A9 { number = "A9"; connection = optional;  }
+    pin UNUSED_A10 { number = "A10"; connection = optional;  }
+    pin UNUSED_A11 { number = "A11"; connection = optional;  }
+    pin UNUSED_A12 { number = "A12"; connection = optional;  }
+    pin UNUSED_A13 { number = "A13"; connection = optional;  }
+    pin UNUSED_B4 { number = "B4"; connection = optional;  }
+    pin UNUSED_B5 { number = "B5"; connection = optional;  }
+    pin UNUSED_B6 { number = "B6"; connection = optional;  }
+    pin UNUSED_B7 { number = "B7"; connection = optional;  }
+    pin UNUSED_B8 { number = "B8"; connection = optional;  }
+    pin UNUSED_B9 { number = "B9"; connection = optional;  }
+    pin UNUSED_B10 { number = "B10"; connection = optional;  }
+    pin UNUSED_B11 { number = "B11"; connection = optional;  }
+    pin UNUSED_B12 { number = "B12"; connection = optional;  }
+    pin UNUSED_B13 { number = "B13"; connection = optional;  }
+    pin UNUSED_C13 { number = "C13"; connection = optional;  }
+    pin UNUSED_D5 { number = "D5"; connection = optional;  }
+    pin UNUSED_D6 { number = "D6"; connection = optional;  }
+    pin UNUSED_D7 { number = "D7"; connection = optional;  }
+    pin UNUSED_D8 { number = "D8"; connection = optional;  }
+    pin UNUSED_D9 { number = "D9"; connection = optional;  }
+    pin UNUSED_D10 { number = "D10"; connection = optional;  }
+    pin UNUSED_D11 { number = "D11"; connection = optional;  }
+    pin UNUSED_E5 { number = "E5"; connection = optional;  }
+    pin UNUSED_E6 { number = "E6"; connection = optional;  }
+    pin UNUSED_E7 { number = "E7"; connection = optional;  }
+    pin UNUSED_E8 { number = "E8"; connection = optional;  }
+    pin UNUSED_E9 { number = "E9"; connection = optional;  }
+    pin UNUSED_E10 { number = "E10"; connection = optional;  }
+    pin UNUSED_E13 { number = "E13"; connection = optional;  }
+    pin UNUSED_F5 { number = "F5"; connection = optional;  }
+    pin UNUSED_F6 { number = "F6"; connection = optional;  }
+    pin UNUSED_F10 { number = "F10"; connection = optional;  }
+    pin UNUSED_F12 { number = "F12"; connection = optional;  }
+    pin UNUSED_F13 { number = "F13"; connection = optional;  }
+    pin UNUSED_G6 { number = "G6"; connection = optional;  }
+    pin UNUSED_G10 { number = "G10"; connection = optional;  }
+    pin UNUSED_G11 { number = "G11"; connection = optional;  }
+    pin UNUSED_G12 { number = "G12"; connection = optional;  }
+    pin UNUSED_G13 { number = "G13"; connection = optional;  }
+    pin UNUSED_H5 { number = "H5"; connection = optional;  }
+    pin UNUSED_H6 { number = "H6"; connection = optional;  }
+    pin UNUSED_H7 { number = "H7"; connection = optional;  }
+    pin UNUSED_H9 { number = "H9"; connection = optional;  }
+    pin UNUSED_H12 { number = "H12"; connection = optional;  }
+    pin UNUSED_H13 { number = "H13"; connection = optional;  }
+    pin UNUSED_J5 { number = "J5"; connection = optional;  }
+    pin UNUSED_J6 { number = "J6"; connection = optional;  }
+    pin UNUSED_J7 { number = "J7"; connection = optional;  }
+    pin UNUSED_J8 { number = "J8"; connection = optional;  }
+    pin UNUSED_J9 { number = "J9"; connection = optional;  }
+    pin UNUSED_J10 { number = "J10"; connection = optional;  }
+    pin UNUSED_J11 { number = "J11"; connection = optional;  }
+    pin UNUSED_J12 { number = "J12"; connection = optional;  }
+    pin UNUSED_K12 { number = "K12"; connection = optional;  }
+    pin UNUSED_M1 { number = "M1"; connection = optional;  }
+    pin UNUSED_N1 { number = "N1"; connection = optional;  }
+}

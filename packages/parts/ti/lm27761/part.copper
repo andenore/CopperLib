@@ -1,0 +1,17 @@
+// Negative regulator 1.22 V reference; flying, reservoir and output capacitors mandatory.
+part LM27761DSGR {
+    category = "negative";
+    footprint = "Package_SON:Texas_DSG0008A_WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm";
+    source_url = "https://www.ti.com/lit/ds/symlink/lm27761.pdf";
+    source_location = "SNVSA85D p3 Table4-1; pp12-17 support and layout";
+    source_checksum = "sha256:0724ce35e920e1350907de9f8a70f0e40257cff907fc0c9331609cf0267a6814";
+    pin VIN { number = "1"; domains = "power"; directions = "input";  }
+    pin GND { number = "2"; domains = "ground"; directions = "input";  }
+    pin CPOUT { number = "3"; domains = "power"; directions = "output";  }
+    pin VOUT { number = "4"; domains = "power"; directions = "output";  }
+    pin VFB { number = "5"; domains = "analog"; directions = "input";  }
+    pin EN { number = "6"; domains = "digital"; directions = "input";  }
+    pin C1M { number = "7"; domains = "power"; directions = "passive";  }
+    pin C1P { number = "8"; domains = "power"; directions = "passive";  }
+    pin EP { number = "9"; domains = "ground"; directions = "input";  }
+}
