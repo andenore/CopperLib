@@ -7,6 +7,8 @@ part COILCRAFT_0603USB_601MLC {
     category = "filter.common_mode";
     manufacturer = "Coilcraft";
     footprint = "Inductor_SMD:L_CommonModeChoke_Coilcraft_0603USB";
+    // Body height: 1.07 mm, as Coilcraft's 0603USB distributor listings give it.
+    height = 1.07 mm;
     source_document = "USB 3.0 Common Mode Choke 0603 (Document 406-1)";
     source_revision = "Revised 09/10/24";
     source_location = "Page 1: schematic and recommended land pattern";

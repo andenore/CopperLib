@@ -8,6 +8,8 @@ part SIM7670G_LNGV {
     category = "module.cellular.lte_cat1bis";
     manufacturer = "SIMCom Wireless Solutions";
     footprint = "footprints/SIM7670G_LNGV.kicad_mod";
+    // Body height: the SIM7670X spec's LCC+LGA package, 24.0 x 24.0 x 2.4 mm.
+    height = 2.4 mm;
     source_document = "SIMCom SIM7670X spec and SIM7672X Hardware Design";
     source_revision = "Supplier-linked SIM7670X spec; hardware V1.01 used-pin subset";
     source_url = "https://datasheet.lcsc.com/datasheet/pdf/ee03db1eecfc7b8f7e60fb0421704843.pdf?productCode=C45935408";

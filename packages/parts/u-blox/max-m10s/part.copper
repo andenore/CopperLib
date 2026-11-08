@@ -3,6 +3,9 @@ part MAX_M10S_00B {
     category = "module.gnss";
     manufacturer = "u-blox";
     footprint = "MAX_M10S:u-blox_MAX-M10S";
+    // Body height: the 9.7 x 10.1 x 2.5 mm LCC package (u-blox MAX-M10 series
+    // product page and distributor listings).
+    height = 2.5 mm;
     source_document = "MAX-M10S Data Sheet";
     source_revision = "UBX-20035208 R08";
     source_url = "https://content.u-blox.com/sites/default/files/MAX-M10S_DataSheet_UBX-20035208.pdf";
