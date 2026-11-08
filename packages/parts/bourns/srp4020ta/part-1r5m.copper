@@ -2,6 +2,9 @@ part SRP4020TA_1R5M {
     category = "passive.inductor";
     manufacturer = "Bourns";
     footprint = "footprints/Bourns_SRP4020TA.kicad_mod";
+    // Body height: the series' 2.0 mm maximum seated height (1.8 mm nominal),
+    // per Bourns' drawing and distributor listings.
+    height = 2.0 mm;
     source_document = "SRP4020TA Series Shielded Power Inductors";
     source_revision = "Official datasheet retrieved 2026-10-09";
     source_location = "Page1, 1R5M ratings and recommended layout";
