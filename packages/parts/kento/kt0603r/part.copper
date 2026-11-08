@@ -5,6 +5,9 @@ part KENTO_KT0603R {
     category = "optoelectronics.led";
     manufacturer = "Hubei KENTO Elec";
     footprint = "KENTO:KENTO_KT0603R";
+    // KiCad's generic 0603 LED body: same pad geometry, and its cathode mark
+    // (KiCad pad 1, -x) falls on this footprint's cathode (pad 2, -x).
+    model = "github.com/KiCad/kicad-packages3D/LED_SMD.3dshapes/LED_0603_1608Metric.step";
     source_document = "KENTO 0603-0.6 red LED specification supplied for KT-0603R / C2286";
     source_revision = "A.0, 2018-12-06";
     source_url = "https://jlcpcb.com/partdetail/C2286";

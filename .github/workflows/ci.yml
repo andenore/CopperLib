@@ -5,17 +5,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # CopperScript is the Rust `copper` binary; the Python package was removed.
       - name: Check out the pinned CopperScript compiler
         uses: actions/checkout@v4
         with:
           repository: andenore/CopperScript
-          ref: eb926375f2318ea15c89ec92873c3263af730609
+          ref: 842e1cddd58de7b7485f957e28cf31e2472e014e
           path: cache/ci/CopperScript
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            cache/ci/CopperScript/target
+          key: copper-842e1cddd58de7b7485f957e28cf31e2472e014e
+      - name: Build the copper compiler
+        working-directory: cache/ci/CopperScript
+        run: cargo build --release --locked -p copper
+      - run: echo "$GITHUB_WORKSPACE/cache/ci/CopperScript/target/release" >> "$GITHUB_PATH"
       - uses: actions/setup-python@v5
         with: {python-version: '3.11'}
-      - name: Install compiler and test dependencies
-        run: python -m pip install -e './cache/ci/CopperScript[test]'
+      - name: Install test dependencies
+        run: python -m pip install pytest
       - run: python -m pytest tests
+        env:
+          COPPER: copper
       - run: python packages/profiles/raspberry_pi/cm4/generate.py --check
       - run: copper check tests/fixtures/compiler_smoke.copper
       - run: copper compile tests/fixtures/compiler_smoke.copper --no-check -o work/compiler-smoke.json
