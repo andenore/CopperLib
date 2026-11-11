@@ -2,6 +2,8 @@
 // Used pins cross-checked against SIMCom-authored SIM7672X Hardware Design
 // V1.01 Tables4/5 and the exact C45935408 library. Unused multifunction pins
 // are not claimed equivalent between variants; they remain unconnected.
+// PWRKEY pull-up: SIM7672X Hardware Design V1.01 Table 11 (section 3.2.1,
+// p. 29) lists the pin as DI,PU; Figure 9 draws the pull-up inside the module.
 // Package geometry is transcribed from JLCEDA/EasyEDA Official Library.
 // https://lceda.cn/ https://easyeda.com (see README.md).
 part SIM7670G_LNGV {
@@ -14,7 +16,7 @@ part SIM7670G_LNGV {
     source_revision = "Supplier-linked SIM7670X spec; hardware V1.01 used-pin subset";
     source_url = "https://datasheet.lcsc.com/datasheet/pdf/ee03db1eecfc7b8f7e60fb0421704843.pdf?productCode=C45935408";
     source_checksum = "sha256:12d00aae02bc600ac678f8d478d86e099f3339f9a9a7e2837773e5d9489acb11";
-    pin PWRKEY { number = "1"; domains = "digital"; directions = "input"; voltage_max = 1.95V; }
+    pin PWRKEY { number = "1"; domains = "digital"; directions = "input"; voltage_max = 1.95V; internal_pull = "up"; }
     pin GND { number = "2"; domains = "ground"; directions = "input";  }
     pin UNUSED_3 { number = "3"; connection = do_not_connect; }
     pin UNUSED_4 { number = "4"; connection = do_not_connect; }
