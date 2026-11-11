@@ -1,4 +1,5 @@
 part B560C_13_F {
+    category = "semiconductor.diode.schottky";
     manufacturer = "Diodes Incorporated";
     footprint = "Diode_SMD:D_SMC";
     source_url = "https://www.lcsc.com/datasheet/C85100.pdf";
