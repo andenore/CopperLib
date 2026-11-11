@@ -2,6 +2,12 @@
 // SLLSEQ8D Rev D, pp. 3, 11-13: PORT low selects UFP; ADDR floating selects
 // GPIO; OUT1/OUT2 = low/low only for an attached 3-A-advertising source.
 // Internal dead-battery Rd means no separate 5.1-kOhm CC pull-downs are used.
+// Logic levels: SLLSEQ8D Rev D (REVISED MAY 2017), section 6.5 Electrical
+// Characteristics, "CONTROL PINS" rows (p. 5): VIL max 0.4 V (PORT, ADDR, EN_N),
+// VIH min VDD - 0.3 V (PORT, ADDR, EN_N), VOL max 0.4 V at IOL = 1.6 mA
+// (INT_N/OUT3, ID); SDA/OUT1 and SCL/OUT2 VOL 0.4 V at 1.6 mA (I2C rows, p. 6).
+// Worst case over the table's "operating free-air temperature range" and
+// VDD 2.7-5 V. ADDR (tri-level, left open here) is not annotated.
 part TUSB320LAI {
     category = "interface.usb_c.cc_controller";
     manufacturer = "Texas Instruments";
@@ -11,14 +17,14 @@ part TUSB320LAI {
     source_url = "https://www.ti.com/lit/ds/symlink/tusb320lai.pdf";
     pin CC1 { number = "1"; domains = "analog"; directions = "bidirectional"; traits = "usb_cc"; }
     pin CC2 { number = "2"; domains = "analog"; directions = "bidirectional"; traits = "usb_cc"; }
-    pin PORT { number = "3"; domains = "digital"; directions = "input"; }
+    pin PORT { number = "3"; domains = "digital"; directions = "input"; io_supply = VDD; vih = "VDD-0.3V"; vil = 0.4V; }
     pin VBUS_DET { number = "4"; domains = "analog"; directions = "input"; }
     pin ADDR { number = "5"; connection = do_not_connect; }
-    pin OUT3 { number = "6"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; connection = optional; }
-    pin OUT1 { number = "7"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; }
-    pin OUT2 { number = "8"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; }
-    pin ID { number = "9"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; connection = optional; }
+    pin OUT3 { number = "6"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; connection = optional; vol = 0.4V; }
+    pin OUT1 { number = "7"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; vol = 0.4V; }
+    pin OUT2 { number = "8"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; vol = 0.4V; }
+    pin ID { number = "9"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; connection = optional; vol = 0.4V; }
     pin GND { number = "10"; domains = "ground"; directions = "input"; }
-    pin EN_N { number = "11"; domains = "digital"; directions = "input"; }
+    pin EN_N { number = "11"; domains = "digital"; directions = "input"; io_supply = VDD; vih = "VDD-0.3V"; vil = 0.4V; }
     pin VDD { number = "12"; domains = "power"; directions = "input"; voltage_min = 2.7V; voltage_max = 5V; }
 }
