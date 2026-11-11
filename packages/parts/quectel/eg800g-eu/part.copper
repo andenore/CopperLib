@@ -12,6 +12,10 @@
 // Applied to the 1.8 V domain pins MAIN_RXD, MAIN_TXD, STATUS and NET_STATUS.
 // Not annotated: PWRKEY and RESET_N (own VILmax = 0.5 V rows, RESET_N in the
 // VBAT domain) and USIM_* (Tables 51-52 by card voltage, USIM_VDD rail).
+// PWRKEY pull-up: section 3.5.1 (p. 31) recommends an open-collector or
+// open-drain driver and its Figure 9 reference circuit has no external pull-up,
+// so the module holds the pin high itself (modelling inference; the document
+// gives no pull-up value).
 part EG800G_EU {
     category = "module.cellular.lte_cat1bis";
     manufacturer = "Quectel";
@@ -19,7 +23,7 @@ part EG800G_EU {
     source_document = "EG800G Series Hardware Design";
     source_revision = "V1.2";
     source_url = "https://developer.quectel.com/modules-cat/eg800g-series";
-    pin PWRKEY { number = "7"; domains = "digital"; directions = "input"; voltage_max = 1.9V; }
+    pin PWRKEY { number = "7"; domains = "digital"; directions = "input"; voltage_max = 1.9V; internal_pull = "up"; }
     pin GND { number = "10"; domains = "ground"; directions = "input"; }
     pin USIM_DATA { number = "11"; domains = "digital"; directions = "bidirectional"; }
     pin USIM_RST { number = "12"; domains = "digital"; directions = "output"; drive_modes = "push_pull"; }
