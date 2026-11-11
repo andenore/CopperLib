@@ -16,7 +16,7 @@ from pathlib import Path
 
 import pytest
 
-from copper_cli import audit_footprints, check, compile_board, device, part
+from copper_cli import audit_footprints, check, check_stubbed, compile_board, device, part
 
 ROOT = Path(__file__).resolve().parents[1]
 KICAD_FOOTPRINTS = Path(os.environ.get("KICAD10_FOOTPRINT_DIR", "/usr/share/kicad/footprints"))
@@ -431,12 +431,12 @@ def test_cphy_selection_bonds_trio_pads_and_deactivates_dphy_pairs(package, mode
     # One wire of a trio is half of a D-PHY pair, but the pairs are inactive in C-PHY mode.
     single = _chip_board(package, f"            net TRIO {{ U1.{trio_pins[0]}; }}",
                          modes=f"{mode_group}=CPHY")
-    assert check(single) == []
+    assert check_stubbed(single) == []
     every = "\n".join(f"            net T_{pin} {{ U1.{pin}; }}" for pin in trio_pins)
-    assert check(_chip_board(package, every, modes=f"{mode_group}=CPHY")) == []
+    assert check_stubbed(_chip_board(package, every, modes=f"{mode_group}=CPHY")) == []
     unmodeled = _chip_board(package, f"            net L23 {{ U1.{lane_two_three[0]}; }}",
                             modes=f"{mode_group}=CPHY")
-    assert [(item["code"], item["subject"]) for item in check(unmodeled)] == [
+    assert [(item["code"], item["subject"]) for item in check_stubbed(unmodeled)] == [
         ("UNMODELED_PIN", f"U1.{lane_two_three[0]}")]
 
 
@@ -503,14 +503,14 @@ def test_absolute_limits_lower_to_absolute_voltage_in_the_ir(package):
 def test_fully_connected_lanes_pass_erc(package):
     nets = "\n".join(f"            net {pin} {{ U1.{pin}; }}"
                      for pair in DPHY_PAIRS[package].values() for pin in pair)
-    assert check(_chip_board(package, nets)) == []
+    assert check_stubbed(_chip_board(package, nets)) == []
 
 
 @pytest.mark.parametrize(("package", "group"),
                          [(package, group) for package in sorted(PARTS) for group in DPHY_PAIRS[package]])
 def test_half_connected_lane_is_an_erc_error(package, group):
     for connected in DPHY_PAIRS[package][group]:
-        diagnostics = check(_chip_board(package, f"            net HALF {{ U1.{connected}; }}"))
+        diagnostics = check_stubbed(_chip_board(package, f"            net HALF {{ U1.{connected}; }}"))
         assert [(item["code"], item["subject"]) for item in diagnostics] == [
             ("INCOMPLETE_DIFFERENTIAL_PAIR", "U1")], connected
         assert f"group {group} " in diagnostics[0]["message"]
