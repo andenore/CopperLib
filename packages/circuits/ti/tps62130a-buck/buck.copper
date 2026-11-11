@@ -20,9 +20,9 @@ module TPS62130A_BUCK_2U2 {
     port VOUT: power_out;
     port GND: power_in;
 
-    component U: ti.TPS62130ARGTR;
+    component U: ti.TPS62130ARGTR { switching_frequency = 2.5MHz; }
     component L: coilcraft.XFL4020_222MEC;
-    component C_PVIN: passives.CAPACITOR { value = 10uF; footprint = "Capacitor_SMD:C_0805_2012Metric"; }
+    component C_PVIN: passives.CAPACITOR { value = 10uF; footprint = "Capacitor_SMD:C_0805_2012Metric"; role = decoupling; decouples = "U.PVIN_1"; }
     component C_AVIN: passives.CAPACITOR { value = 100nF; footprint = "Capacitor_SMD:C_0402_1005Metric"; }
     component C_SS: passives.CAPACITOR { value = 3.3nF; footprint = "Capacitor_SMD:C_0402_1005Metric"; }
     component C_OUT1: passives.CAPACITOR { value = 22uF; footprint = "Capacitor_SMD:C_0805_2012Metric"; }

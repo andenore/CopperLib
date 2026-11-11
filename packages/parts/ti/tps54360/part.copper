@@ -1,4 +1,9 @@
 part TPS54360DDAR {
+    category = "power.regulator.buck";
+    // SLVSBB4G electrical characteristics p7: RT-mode switching frequency range
+    // 100 kHz to 2500 kHz; the board fixes it with the RT resistor.
+    switching_frequency_min = 100kHz;
+    switching_frequency_max = 2500kHz;
     manufacturer = "Texas Instruments";
     footprint = "footprints/SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.71x3.7mm_ThermalVias.kicad_mod";
     // Same 3.9 x 4.9 mm SOIC-8 body as KiCad's model; its exposed pad (under the body) is 2.41 x 3.81 mm, not 2.71 x 3.7 mm.
@@ -6,13 +11,15 @@ part TPS54360DDAR {
     source_url = "https://www.ti.com/lit/ds/symlink/tps54360.pdf";
     source_location = "SLVSBB4G pins p4; DDA exposed-pad package addendum; six physical thermal drill lands retained";
     source_checksum = "sha256:c2743e51e9f180e3efd7afb2ce1ac792906576207f4e318f9b6075f3ab5c56a8";
-    pin BOOT { number = "1"; domains = "power,analog"; directions = "passive";  }
-    pin VIN { number = "2"; domains = "power"; directions = "input"; voltage_min = 4.5V; voltage_max = 60V; }
+    pin BOOT { number = "1"; domains = "power,analog"; directions = "passive"; emi_role = bootstrap; }
+    pin VIN { number = "2"; domains = "power"; directions = "input"; voltage_min = 4.5V; voltage_max = 60V; emi_role = hot_supply; }
     pin EN { number = "3"; domains = "analog"; directions = "input";  }
     pin RT { number = "4"; domains = "analog"; directions = "passive";  }
-    pin FB { number = "5"; domains = "analog"; directions = "input";  }
-    pin COMP { number = "6"; domains = "analog"; directions = "passive";  }
-    pin GND { number = "7"; domains = "ground"; directions = "input";  }
-    pin SW { number = "8"; domains = "power"; directions = "output";  }
+    pin FB { number = "5"; domains = "analog"; directions = "input"; emi_role = feedback; }
+    pin COMP { number = "6"; domains = "analog"; directions = "passive"; emi_role = feedback; }
+    pin GND { number = "7"; domains = "ground"; directions = "input"; emi_role = hot_return; }
+    // current_peak: high-side current limit threshold, typical (4.5 / 5.5 / 6.8 A over all VIN and temperatures).
+    // The data sheet specifies no SW edge time, so rise_time stays undeclared.
+    pin SW { number = "8"; domains = "power"; directions = "output"; emi_role = switch; current_peak = 5.5A; }
     pin EP { number = "9"; domains = "ground"; directions = "input"; connection = required; }
 }

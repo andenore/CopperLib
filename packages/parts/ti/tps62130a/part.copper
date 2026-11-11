@@ -3,26 +3,31 @@
 // The exposed pad is electrically bonded to ground and must be soldered.
 part TPS62130ARGTR {
     category = "power.regulator.buck";
+    // SLVSAG7F pin functions: FSW low selects 2.5 MHz, high 1.25 MHz (typical).
+    switching_frequency_min = 1.25MHz;
+    switching_frequency_max = 2.5MHz;
     manufacturer = "Texas Instruments";
     footprint = "Package_DFN_QFN:VQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm";
     source_document = "TPS6213x 3-V to 17-V, 3-A Step-Down Converter";
     source_revision = "SLVSAG7F Rev F";
     source_url = "https://www.ti.com/lit/ds/symlink/tps62130.pdf";
-    pin SW_1 { number = "1"; domains = "power"; directions = "output"; }
-    pin SW_2 { number = "2"; domains = "power"; directions = "passive"; }
-    pin SW_3 { number = "3"; domains = "power"; directions = "passive"; }
+    // current_peak: high-side MOSFET forward current limit ILIMF, typical (3.6 / 4.2 / 4.9 A at VIN = 12 V, 25 C).
+    // The data sheet specifies no SW edge time, so rise_time stays undeclared.
+    pin SW_1 { number = "1"; domains = "power"; directions = "output"; emi_role = switch; current_peak = 4.2A; }
+    pin SW_2 { number = "2"; domains = "power"; directions = "passive"; emi_role = switch; }
+    pin SW_3 { number = "3"; domains = "power"; directions = "passive"; emi_role = switch; }
     pin PG { number = "4"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; connection = optional; }
-    pin FB { number = "5"; domains = "analog"; directions = "input"; voltage_max = 7V; }
+    pin FB { number = "5"; domains = "analog"; directions = "input"; voltage_max = 7V; emi_role = feedback; }
     pin AGND { number = "6"; domains = "ground"; directions = "input"; }
     pin FSW { number = "7"; domains = "digital"; directions = "input"; }
     pin DEF { number = "8"; domains = "digital"; directions = "input"; }
     pin SS_TR { number = "9"; domains = "analog"; directions = "input"; }
     pin AVIN { number = "10"; domains = "power"; directions = "input"; voltage_min = 3V; voltage_max = 17V; }
-    pin PVIN_1 { number = "11"; domains = "power"; directions = "input"; voltage_min = 3V; voltage_max = 17V; }
-    pin PVIN_2 { number = "12"; domains = "power"; directions = "input"; voltage_min = 3V; voltage_max = 17V; }
+    pin PVIN_1 { number = "11"; domains = "power"; directions = "input"; voltage_min = 3V; voltage_max = 17V; emi_role = hot_supply; }
+    pin PVIN_2 { number = "12"; domains = "power"; directions = "input"; voltage_min = 3V; voltage_max = 17V; emi_role = hot_supply; }
     pin EN { number = "13"; domains = "digital"; directions = "input"; }
-    pin VOS { number = "14"; domains = "analog"; directions = "input"; voltage_max = 7V; }
-    pin PGND_1 { number = "15"; domains = "ground"; directions = "input"; }
-    pin PGND_2 { number = "16"; domains = "ground"; directions = "input"; }
+    pin VOS { number = "14"; domains = "analog"; directions = "input"; voltage_max = 7V; emi_role = feedback; }
+    pin PGND_1 { number = "15"; domains = "ground"; directions = "input"; emi_role = hot_return; }
+    pin PGND_2 { number = "16"; domains = "ground"; directions = "input"; emi_role = hot_return; }
     pin EP { number = "17"; domains = "ground"; directions = "input"; }
 }

@@ -1,5 +1,7 @@
 part TPS63020DSJR {
     category = "power.regulator.buck_boost";
+    // SLVS916I electrical characteristics: oscillator frequency 2200 / 2400 / 2600 kHz.
+    switching_frequency = 2400kHz;
     manufacturer = "Texas Instruments";
     footprint = "footprints/TI_DSJ0014_TPS63020.kicad_mod";
     source_document = "TPS6302x datasheet";
@@ -9,17 +11,19 @@ part TPS63020DSJR {
     source_checksum = "sha256:d117773bb7370fd79377bc70ce987eec3469ea5979547a09df52fca5f95b2e69";
     pin VINA { number = "1"; domains = "power"; directions = "input"; voltage_min = 1.8V; voltage_max = 5.5V; }
     pin GND { number = "2"; domains = "ground"; directions = "input"; }
-    pin FB { number = "3"; domains = "analog"; directions = "input"; }
+    pin FB { number = "3"; domains = "analog"; directions = "input"; emi_role = feedback; }
     pin VOUT_4 { number = "4"; domains = "power"; directions = "output"; }
     pin VOUT_5 { number = "5"; domains = "power"; directions = "passive"; }
-    pin L2_6 { number = "6"; domains = "power"; directions = "passive"; }
-    pin L2_7 { number = "7"; domains = "power"; directions = "passive"; }
-    pin L1_8 { number = "8"; domains = "power"; directions = "passive"; }
-    pin L1_9 { number = "9"; domains = "power"; directions = "passive"; }
-    pin VIN_10 { number = "10"; domains = "power"; directions = "input"; voltage_min = 1.8V; voltage_max = 5.5V; }
-    pin VIN_11 { number = "11"; domains = "power"; directions = "input"; voltage_min = 1.8V; voltage_max = 5.5V; }
+    pin L2_6 { number = "6"; domains = "power"; directions = "passive"; emi_role = switch; }
+    pin L2_7 { number = "7"; domains = "power"; directions = "passive"; emi_role = switch; }
+    // current_peak: average switch current limit ISW, typical (3500 / 4000 / 4500 mA at VIN = VINA = 3.6 V, 25 C);
+    // the data sheet gives no peak figure and no switch-node edge time.
+    pin L1_8 { number = "8"; domains = "power"; directions = "passive"; emi_role = switch; current_peak = 4A; }
+    pin L1_9 { number = "9"; domains = "power"; directions = "passive"; emi_role = switch; }
+    pin VIN_10 { number = "10"; domains = "power"; directions = "input"; voltage_min = 1.8V; voltage_max = 5.5V; emi_role = hot_supply; }
+    pin VIN_11 { number = "11"; domains = "power"; directions = "input"; voltage_min = 1.8V; voltage_max = 5.5V; emi_role = hot_supply; }
     pin EN { number = "12"; domains = "digital"; directions = "input"; }
     pin PS_SYNC { number = "13"; domains = "digital"; directions = "input"; }
     pin PG { number = "14"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; connection = optional; }
-    pin PGND { number = "15"; domains = "ground"; directions = "input"; }
+    pin PGND { number = "15"; domains = "ground"; directions = "input"; emi_role = hot_return; }
 }
