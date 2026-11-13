@@ -3,6 +3,19 @@
 // electrical profile. Ground lands follow Quectel's QuecOpen Reference Design
 // V1.1, page 3 (PDF page 8); JLCPCB/EasyEDA supplies geometry only. Its symbol
 // disagrees with the Quectel reference on several multifunction lands.
+// Logic levels: Quectel EG800G Series QuecOpen Hardware Design V1.2 (2024-11-26,
+// Chinese edition), section 6.4 Table 50 "1.8 V I/O requirements", p. 70: VIH min
+// 0.7 x VDDIO, VIL max 0.3 x VDDIO, VOH min 0.9 x VDDIO, VOL max 0.1 x VDDIO;
+// "VDDIO is the voltage domain of the module I/O pins". The document does not
+// name a pin for VDDIO; VDD_EXT (pin 24, the module's 1.8 V output, Vnom = 1.8 V)
+// is the only 1.8 V rail pin and is used as that reference (modelling inference).
+// Applied to the 1.8 V domain pins MAIN_RXD, MAIN_TXD, STATUS and NET_STATUS.
+// Not annotated: PWRKEY and RESET_N (own VILmax = 0.5 V rows, RESET_N in the
+// VBAT domain) and USIM_* (Tables 51-52 by card voltage, USIM_VDD rail).
+// PWRKEY pull-up: section 3.5.1 (p. 31) recommends an open-collector or
+// open-drain driver and its Figure 9 reference circuit has no external pull-up,
+// so the module holds the pin high itself (modelling inference; the document
+// gives no pull-up value).
 part EG800G_EU {
     category = "module.cellular.lte_cat1bis";
     manufacturer = "Quectel";
@@ -10,18 +23,18 @@ part EG800G_EU {
     source_document = "EG800G Series Hardware Design";
     source_revision = "V1.2";
     source_url = "https://developer.quectel.com/modules-cat/eg800g-series";
-    pin PWRKEY { number = "7"; domains = "digital"; directions = "input"; voltage_max = 1.9V; }
+    pin PWRKEY { number = "7"; domains = "digital"; directions = "input"; voltage_max = 1.9V; internal_pull = "up"; }
     pin GND { number = "10"; domains = "ground"; directions = "input"; }
     pin USIM_DATA { number = "11"; domains = "digital"; directions = "bidirectional"; }
     pin USIM_RST { number = "12"; domains = "digital"; directions = "output"; drive_modes = "push_pull"; }
     pin USIM_CLK { number = "13"; domains = "digital,clock"; directions = "output"; drive_modes = "push_pull"; }
     pin USIM_VDD { number = "14"; domains = "power"; directions = "output"; }
     pin RESET_N { number = "15"; domains = "digital"; directions = "input"; voltage_max = 1.9V; connection = optional; }
-    pin NET_STATUS { number = "16"; domains = "digital"; directions = "output"; drive_modes = "push_pull"; connection = optional; }
-    pin MAIN_RXD { number = "17"; domains = "digital"; directions = "input"; voltage_max = 1.9V; }
-    pin MAIN_TXD { number = "18"; domains = "digital"; directions = "output"; drive_modes = "push_pull"; voltage_max = 1.9V; }
+    pin NET_STATUS { number = "16"; domains = "digital"; directions = "output"; drive_modes = "push_pull"; connection = optional; io_supply = VDD_EXT; voh = "0.9*VDD_EXT"; vol = "0.1*VDD_EXT"; }
+    pin MAIN_RXD { number = "17"; domains = "digital"; directions = "input"; voltage_max = 1.9V; io_supply = VDD_EXT; vih = "0.7*VDD_EXT"; vil = "0.3*VDD_EXT"; }
+    pin MAIN_TXD { number = "18"; domains = "digital"; directions = "output"; drive_modes = "push_pull"; voltage_max = 1.9V; io_supply = VDD_EXT; voh = "0.9*VDD_EXT"; vol = "0.1*VDD_EXT"; }
     pin VDD_EXT { number = "24"; domains = "power"; directions = "output"; voltage_min = 1.7V; voltage_max = 1.9V; }
-    pin STATUS { number = "25"; domains = "digital"; directions = "output"; drive_modes = "push_pull"; voltage_max = 1.9V; }
+    pin STATUS { number = "25"; domains = "digital"; directions = "output"; drive_modes = "push_pull"; voltage_max = 1.9V; io_supply = VDD_EXT; voh = "0.9*VDD_EXT"; vol = "0.1*VDD_EXT"; }
     pin ANT_MAIN { number = "35"; domains = "rf"; directions = "bidirectional"; traits = "cellular_rf"; }
     pin VBAT_1 { number = "42"; domains = "power"; directions = "input"; voltage_min = 3.3V; voltage_max = 4.3V; }
     pin VBAT_2 { number = "43"; domains = "power"; directions = "input"; voltage_min = 3.3V; voltage_max = 4.3V; }

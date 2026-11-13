@@ -4,6 +4,8 @@ part STAMP_S3_SOCKET_RIGHT_WE {
     category = "connector.module.stamp_s3";
     manufacturer = "Wurth Elektronik";
     footprint = "footprints/WE_61300611821.kicad_mod";
+    // KiCad's generic 1x06 2.54 mm socket: same outline and 8.5 mm height as the drawing.
+    model = "github.com/KiCad/kicad-packages3D/Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x06_P2.54mm_Vertical.step";
     source_document = "M5StampS3 schematic v0.2, M1; Wurth WR-PHD 61300611821, 2024-04-10";
     source_location = "M1 pads 1,3,5,7,9,11,13,15,17 / 28,26,24,22,20,18; evidence/connector.json";
     source_url = "https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/522/Sch_M5StampS3_v0.2.pdf";

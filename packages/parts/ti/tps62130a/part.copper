@@ -8,6 +8,8 @@ part TPS62130ARGTR {
     switching_frequency_max = 2.5MHz;
     manufacturer = "Texas Instruments";
     footprint = "Package_DFN_QFN:VQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm";
+    // Same 3 x 3 mm QFN-16 body as KiCad's model; its exposed pad (under the body) is 1.7 x 1.7 mm, not 1.68 x 1.68 mm.
+    model = "github.com/KiCad/kicad-packages3D/Package_DFN_QFN.3dshapes/QFN-16-1EP_3x3mm_P0.5mm_EP1.7x1.7mm.step";
     source_document = "TPS6213x 3-V to 17-V, 3-A Step-Down Converter";
     source_revision = "SLVSAG7F Rev F";
     source_url = "https://www.ti.com/lit/ds/symlink/tps62130.pdf";

@@ -4,6 +4,9 @@ part SWD_HEADER {
     category = "connector.debug.swd";
     manufacturer = "Samtec";
     footprint = "Connector_Debug:FTSH-105-01-L-DV-007-K";
+    // Approximate: KiCad's 2x5 1.27 mm SMD header on the same grid and origin;
+    // its pads sit 0.24 mm further out and it still shows position 7.
+    model = "github.com/KiCad/kicad-packages3D/Connector_PinHeader_1.27mm.3dshapes/PinHeader_2x05_P1.27mm_Vertical_SMD.step";
     source_document = "FTSH vertical surface-mount recommended PCB layout, rev H; Arm Cortex-M Debug Connectors";
     source_url = "https://www.samtec.com/products/ftsh-105-01-l-dv-007-k";
     pin VREF { number = "1"; domains = "power"; directions = "input"; }

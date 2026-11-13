@@ -1,4 +1,4 @@
-from copper_cli import check, compile_board
+from copper_cli import check_stubbed, compile_board
 
 
 BOARD = """board Radio {
@@ -16,5 +16,5 @@ BOARD = """board Radio {
 
 
 def test_nrf_johanson_reference_circuit_is_reusable():
-    assert not check(BOARD)
+    assert not check_stubbed(BOARD)
     assert "rf.Nrf52832JohansonRf" in {item["name"] for item in compile_board(BOARD)["module_definitions"]}

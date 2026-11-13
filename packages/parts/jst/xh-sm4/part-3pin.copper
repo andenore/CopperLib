@@ -2,6 +2,9 @@ part JST_S3B_XH_SM4_TB {
     category = "connector.battery";
     manufacturer = "JST";
     footprint = "footprints/JST_S3B_XH_SM4_TB.kicad_mod";
+    // Side-entry housing, about 6 mm high per distributor listings; not yet
+    // checked against JST's drawing.
+    height = 6 mm;
     source_document = "JST XH connector catalogue";
     source_revision = "Official catalogue retrieved 2026-10-09";
     source_location = "SMT header page6; recommended board layout";

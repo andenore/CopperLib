@@ -22,6 +22,15 @@
     "rf_in_max_mdbm": 0,
     "rf_input_power_condition": "50 ohm continuous-wave source, not LTE coexistence performance"
   },
+  "digital_io_levels": {
+    "locator": "Table 14 Digital IO, p12 (footnote 22: TIMEPULSE is a 4 mA pad)",
+    "vil_max_mv": 630,
+    "vih_min_fraction_of_vio": "0.68",
+    "vol_max_mv": 400,
+    "voh_min_vio_minus_mv": 400,
+    "output_test_current_ma": 2,
+    "pins": ["TXD", "RXD", "TIMEPULSE", "EXTINT", "LNA_EN", "SDA", "SCL"]
+  },
   "integration_requirements": [
     "Do not drive PIOs with VCC and V_IO absent in hardware backup mode.",
     "Supply must deliver up to 100 mA startup current; indicative steady-state currents are typical, not guaranteed maxima.",
