@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: andenore/CopperScript
-          ref: 70faa1d4e4703a238634a668e11c420e99116757
+          ref: 9cb57e4fe4ae1a7ef2b3ec3b7fccd8d1a5b4494b
           path: cache/ci/CopperScript
       - uses: actions/cache@v4
         with:
@@ -18,7 +18,7 @@ jobs:
             ~/.cargo/registry
             ~/.cargo/git
             cache/ci/CopperScript/target
-          key: copper-70faa1d4e4703a238634a668e11c420e99116757
+          key: copper-9cb57e4fe4ae1a7ef2b3ec3b7fccd8d1a5b4494b
       - name: Build the copper compiler
         working-directory: cache/ci/CopperScript
         run: cargo build --release --locked -p copper
