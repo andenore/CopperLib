@@ -1,7 +1,35 @@
+// Simulation model (CopperScript sim block): an averaged DC-DC converter (no
+// switching ripple, no loop dynamics), from the R-78B-1.0 data sheet REV.: 4/2019,
+// https://recom-power.com/pdf/Innoline/R-78B-1.0.pdf,
+// sha256 31d83a8bc1c41fba79f00128b00dc963b0a17d7c15393fc39c2e3933c75eb2a6, read
+// 2026-11-20 (Ta = 25 C, 10 % minimum load unless stated):
+//   Selection Guide p. I-1: 6.5 V, 1.0 A, input 9.0 V to 32 V, efficiency 94 %
+//   at 9 V and 90 % at 32 V, full load; Basic Characteristics p. I-1: quiescent
+//   current 5 mA at 24 V; REGULATIONS p. I-3 (1.5 V to 6.5 V outputs): line
+//   regulation +/-0.2 % low line to high line, load regulation +/-0.4 % from
+//   10 % to 100 % load.
+// Derived: efficiency 90 %, the lower of the two full-load figures (the input
+//   current is then not underestimated); output_resistance 28.9 mohm = 0.4 % of
+//   6.5 V over 0.9 A; psrr 65 dB, the line regulation as a DC rejection: 13 mV
+//   over the 23 V input span; dropout 2.5 V, the minimum input less the output:
+//   the data sheet specifies nothing below 9 V and states no dropout.
+// Not stated, not modelled: start-up time, current-limit threshold (the short
+// circuit protection is continuous with automatic recovery), output ripple
+// (15 mVp-p, 20 MHz).
 part R78B6V5_1A {
  footprint = "RECOM_R78B_1A:RECOM_R78B_1A";
  source_url = "https://recom-power.com/pdf/Innoline/R-78B-1.0.pdf"; source_revision = "4/2019"; source_location = "I-1 selection and I-5 mechanical top-view footprint";
  pin VIN { number = "1"; domains = "power"; directions = "input"; }
  pin GND { number = "2"; domains = "ground"; directions = "input"; }
  pin VOUT { number = "3"; domains = "power"; directions = "output"; }
+
+ sim regulator {
+  in = VIN; out = VOUT; gnd = GND;
+  output_voltage = 6.5V;          // Selection Guide p. I-1
+  dropout = 2.5V;                 // derived, see above
+  output_resistance = 28.9mohm;   // derived from REGULATIONS p. I-3
+  psrr = 65dB;                    // derived from REGULATIONS p. I-3
+  quiescent_current = 5mA;        // Basic Characteristics p. I-1
+  efficiency = 90%;               // Selection Guide p. I-1, 32 V
+ }
 }

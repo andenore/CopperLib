@@ -1,3 +1,24 @@
+// Simulation model (CopperScript sim block), from the AP2112 data sheet DS39724
+// Rev. 2-2 (June 2017), https://www.diodes.com/assets/Datasheets/AP2112.pdf,
+// sha256 ef8d376f2ec356e29172eb9e053819a0ebdcc576dba7fc9ab0505c568427920f (the
+// file source_checksum names), read 2026-11-20. Typical values from the
+// AP2112-3.3 Electrical Characteristics table, p. 8 (VIN = 4.3 V,
+// CIN = COUT = 1 uF, TA = 25 C):
+//   output 3.3 V +/-1.5 %; dropout 250 mV at 600 mA (400 mV maximum); load
+//   regulation 0.2 %/A, 1 mA to 600 mA, so 6.6 mohm; PSRR 65 dB at 100 Hz and
+//   1 kHz (IOUT = 100 mA); quiescent current 55 uA at no load; EN high 1.5 V
+//   minimum, low 0.4 V maximum; start-up time 20 us (no load); output noise
+//   50 uVrms, 10 Hz to 100 kHz, no load.
+// Read from figures (approximate): "Output Voltage vs. Output Current" (p. 10)
+//   peaks at about 0.8 A before folding back to about 0.1 A at 0 V (ISHORT 50 mA,
+//   p. 8); "PSRR vs. Frequency" (p. 11, the 1.2 V option, no 3.3 V figure) flat
+//   at about 67 dB to 2 kHz, 62.7 dB at 10 kHz, 57.5 dB at 20 kHz.
+// Derived: psrr_corner 10 kHz, a single-pole fit to the 1.2 V option's figure at
+//   10 kHz and 20 kHz; voltage_noise 158 nV/rtHz = 50 uVrms over the 100 kHz
+//   band taken as white (no noise-density figure); enable_threshold 1.5 V, the
+//   guaranteed-on level (the model switches at one level). The fold-back to the
+//   short-circuit current is not modelled: the limit holds at 0.8 A.
+// No vendor SPICE model is published for this part.
 part AP2112K_3V3 {
     manufacturer = "Diodes Incorporated";
     footprint = "Package_TO_SOT_SMD:SOT-23-5";
@@ -9,4 +30,19 @@ part AP2112K_3V3 {
     pin EN { number = "3"; domains = "digital"; directions = "input";  }
     pin NC { number = "4"; domains = "analog"; directions = "passive"; connection = do_not_connect; }
     pin VOUT { number = "5"; domains = "power"; directions = "output";  }
+
+    sim regulator {
+        in = VIN; out = VOUT; gnd = GND; en = EN;
+        unmodelled = NC;
+        output_voltage = 3.3V;          // EC p. 8
+        dropout = 250mV;                // EC p. 8, 600 mA
+        output_resistance = 6.6mohm;    // EC p. 8, load regulation 0.2 %/A
+        psrr = 65dB;                    // EC p. 8, 100 Hz and 1 kHz
+        psrr_corner = 10kHz;            // derived from the PSRR figure, p. 11
+        output_current_limit = 800mA;   // read from the output current figure, p. 10
+        quiescent_current = 55uA;       // EC p. 8
+        enable_threshold = 1.5V;        // EC p. 8, EN high minimum
+        soft_start = 20us;              // EC p. 8, start-up time
+        voltage_noise = 158nV/rtHz;     // derived from EC p. 8, 50 uVrms
+    }
 }

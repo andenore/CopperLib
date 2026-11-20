@@ -1,7 +1,34 @@
+// Simulation model (CopperScript sim block): an averaged DC-DC converter (no
+// switching ripple, no loop dynamics), from the R-78E-1.0 data sheet REV.: 9/2024,
+// https://recom-power.com/pdf/Innoline/R-78E-1.0.pdf,
+// sha256 be80e68802d70d388186dd3621941352e4b530169908882647be59c641afd2dc, read
+// 2026-11-20 (Ta = 25 C, full load, Vin = 24 V):
+//   Selection Guide p. I-1: 3.3 V, 1.0 A, input 7 V to 28 V, efficiency 91 % at
+//   7 V and 84 % at 28 V, full load; Basic Characteristics p. I-1: quiescent
+//   current 1.5 mA; REGULATIONS p. I-2: line regulation +/-1.0 % maximum low
+//   line to high line, load regulation +/-1.5 % maximum from 10 % to 100 % load
+//   (no typical values).
+// Derived: efficiency 84 %, the lower of the two full-load figures;
+//   output_resistance 55 mohm = 1.5 % of 3.3 V over 0.9 A (a maximum: the data
+//   sheet gives no typical); psrr 56 dB, the maximum line regulation as a DC
+//   rejection: 33 mV over the 21 V input span; dropout 3.7 V, the minimum input
+//   less the output (no dropout is stated).
+// Not stated, not modelled: start-up time, current-limit threshold (continuous
+// short circuit protection, automatic recovery), output ripple (120 mVp-p max).
 part R78E3V3_1A {
  footprint = "RECOM_R78E_1A:RECOM_R78E_1A";
  source_url = "https://recom-power.com/pdf/Innoline/R-78E-1.0.pdf"; source_revision = "9/2024"; source_location = "Selection Guide and Dimension and Physical Characteristics";
  pin VIN { number = "1"; domains = "power"; directions = "input"; }
  pin GND { number = "2"; domains = "ground"; directions = "input"; }
  pin VOUT { number = "3"; domains = "power"; directions = "output"; }
+
+ sim regulator {
+  in = VIN; out = VOUT; gnd = GND;
+  output_voltage = 3.3V;          // Selection Guide p. I-1
+  dropout = 3.7V;                 // derived, see above
+  output_resistance = 55mohm;     // derived from REGULATIONS p. I-2, maximum
+  psrr = 56dB;                    // derived from REGULATIONS p. I-2
+  quiescent_current = 1.5mA;      // Basic Characteristics p. I-1
+  efficiency = 84%;               // Selection Guide p. I-1, 28 V
+ }
 }

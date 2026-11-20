@@ -1,3 +1,28 @@
+// Simulation models (CopperScript sim blocks), from the OPAx182 data sheet
+// SBOS936E (November 2019, revised August 2022), https://www.ti.com/lit/ds/symlink/opa2182.pdf,
+// sha256 5a08afa29fcebdb216bc5b6e7368a10c37deb26f31eb935fe88e7e92c50275c0, read 2026-11-20.
+// Typical values at TA = 25 C from 7.7 Electrical Characteristics (RL = 10 kohm
+// to VS/2; gain and CMRR rows at VS = +/-18 V; pp. 8-9):
+//   GBW 5 MHz at AV = 1000 (unity-gain bandwidth 3.6 MHz; p. 9); open-loop gain
+//   170 dB (p. 9); CMRR 168 dB (p. 8); PSRR 0.005 uV/V = 166 dB (p. 8); input
+//   impedance 0.1 Gohm || 3.7 pF differential, 60 Tohm || 2.3 pF common mode
+//   (p. 9); input bias current +/-50 pA, offset current +/-140 pA, offset
+//   voltage +/-0.45 uV (p. 8); voltage noise 5.7 nV/rtHz at 10 Hz to 10 kHz,
+//   current noise 165 fA/rtHz at 1 kHz (p. 8); slew rate 10 V/us (p. 9); output
+//   swing from either rail 20 mV typical, 110 mV maximum with RL = 10 kohm
+//   (p. 9); short-circuit current +/-65 mA (p. 9); quiescent current 0.85 mA per
+//   amplifier (p. 9). Supply 4.5 V to 36 V (7.3, p. 6).
+// Read from figures (approximate): Fig 7-14 (p. 13) CMRR 3 dB down at about
+//   0.4 Hz; -PSRR 3 dB down at about 0.03 Hz (134 dB at 1 Hz), +PSRR at about
+//   5 Hz; one psrr_corner serves both rails, the worse one's.
+// Zero-drift amplifier: no 1/f noise region (Fig 7-18, flat from 1 Hz), so no
+// voltage_noise_corner. Not modelled: the open-loop output impedance rises with
+// frequency from about 0.01 ohm at 200 Hz to 320 ohm at 1 MHz (Fig 7-24, EC
+// p. 9) with no flat region a single output_resistance could stand for, so the
+// block has none, and therefore no output_current_limit either.
+// Vendor model: TI's OPAx182 PSpice model, archive SBOMB13 (Rev. D, model
+// Final 1.2), member OPAx182.lib, .SUBCKT OPAX182 IN+ IN- VCC VEE OUT. Fetch it
+// with copper models fetch BOARD; it is never committed.
 part OPA2182IDR {
  footprint = "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm";
  source_url = "https://www.ti.com/lit/ds/symlink/opa2182.pdf"; source_revision = "SBOS936E"; source_location = "Table 6-2 Pin Functions: OPA2182; Figure 6-3 D package";
@@ -9,4 +34,51 @@ part OPA2182IDR {
  pin INB_N { number = "6"; domains = "analog"; directions = "input"; }
  pin OUTB { number = "7"; domains = "analog"; directions = "output"; }
  pin VP { number = "8"; domains = "power"; directions = "input"; }
+
+ sim opamp A {
+  inp = INA_P; inn = INA_N; out = OUTA; vp = VP; vn = VM;
+  gbw = 5MHz;                                 // 7.7 EC p. 9, AV = 1000
+  open_loop_gain = 170dB;                     // 7.7 EC p. 9
+  cmrr = 168dB;                               // 7.7 EC p. 8
+  cmrr_corner = 0.4Hz;                        // read from Fig 7-14
+  psrr = 166dB;                               // 7.7 EC p. 8
+  psrr_corner = 0.03Hz;                       // read from Fig 7-14, -PSRR
+  input_capacitance_common = 2.3pF;           // 7.7 EC p. 9
+  input_capacitance_differential = 3.7pF;     // 7.7 EC p. 9
+  input_resistance_common = 60000000Mohm;     // 60 Tohm, 7.7 EC p. 9
+  input_resistance_differential = 100Mohm;    // 0.1 Gohm, 7.7 EC p. 9
+  input_bias_current = 50pA;                  // 7.7 EC p. 8
+  input_offset_current = 140pA;               // 7.7 EC p. 8
+  input_offset_voltage = 0.45uV;              // 7.7 EC p. 8
+  voltage_noise = 5.7nV/rtHz;                 // 7.7 EC p. 8
+  current_noise = 165fA/rtHz;                 // 7.7 EC p. 8
+  slew_rate = 10V/us;                         // 7.7 EC p. 9
+  output_swing_from_rail = 110mV;             // 7.7 EC p. 9, maximum, RL = 10 kohm
+  quiescent_current = 0.85mA;                 // 7.7 EC p. 9, per amplifier
+ }
+ sim opamp B {
+  inp = INB_P; inn = INB_N; out = OUTB; vp = VP; vn = VM;
+  gbw = 5MHz; open_loop_gain = 170dB; cmrr = 168dB; cmrr_corner = 0.4Hz; psrr = 166dB; psrr_corner = 0.03Hz;
+  input_capacitance_common = 2.3pF; input_capacitance_differential = 3.7pF;
+  input_resistance_common = 60000000Mohm; input_resistance_differential = 100Mohm;
+  input_bias_current = 50pA; input_offset_current = 140pA; input_offset_voltage = 0.45uV;
+  voltage_noise = 5.7nV/rtHz; current_noise = 165fA/rtHz; slew_rate = 10V/us;
+  output_swing_from_rail = 110mV; quiescent_current = 0.85mA;
+ }
+ sim spice A {
+  source = "https://www.ti.com/lit/zip/SBOMB13";
+  sha256 = "640a926723f04476cde15b5a5afba7db546e55c103df193f041601222d1ae249";
+  member = "OPAx182.lib";
+  subckt = "OPAX182";
+  dialect = pspice;
+  terminals = INA_P, INA_N, VP, VM, OUTA;
+ }
+ sim spice B {
+  source = "https://www.ti.com/lit/zip/SBOMB13";
+  sha256 = "640a926723f04476cde15b5a5afba7db546e55c103df193f041601222d1ae249";
+  member = "OPAx182.lib";
+  subckt = "OPAX182";
+  dialect = pspice;
+  terminals = INB_P, INB_N, VP, VM, OUTB;
+ }
 }

@@ -1,4 +1,32 @@
 // 1.8 V rail from 3.3 V buck; thermal qualification required.
+//
+// Simulation models (CopperScript sim blocks), from the TLV757P data sheet
+// SBVS322C (October 2017, revised March 2024), https://www.ti.com/lit/ds/symlink/tlv757p.pdf,
+// sha256 d70a864b4e667722d5bcb7e38c8cc82f52d63f4ddbd9c71e5997efdb688008dc, read
+// 2026-11-20 (a newer file than the source_checksum below, which names
+// SBVS307). Typical values at TJ = 25 C from 5.5 Electrical Characteristics
+// (pp. 5-6; VIN = VOUT + 0.5 V, IOUT = 1 mA, CIN = COUT = 1 uF):
+//   output 1.8 V +/-1 %; dropout 650 mV at 1 A (1.8 V <= VOUT < 2.5 V, not
+//   DYD; 750 mV maximum to 85 C); load regulation 0.044 V/A for the DRV package
+//   (0.1 mA to 1 A), so 44 mohm; PSRR 52 dB at 1 kHz, 46 dB at 100 kHz, 52 dB
+//   at 1 MHz (VIN = VOUT + 1 V, IOUT = 50 mA); current limit 1.55 A (1.2 A
+//   minimum); ground current 25 uA at 1 mA; EN high 1 V, low 0.3 V; start-up
+//   time tSTR 550 us.
+// The rejection is one flat 52 dB: the data sheet's dip to 46 dB between about
+// 5 kHz and 100 kHz (Fig 5-1, the 3.3 V option) is not a single-pole roll-off
+// and is not modelled. No 1.8 V noise figure (Figs 5-6 and 5-7 give 1.2 V and
+// 3.3 V): no voltage_noise. The fold-back to the 755 mA short-circuit current
+// is not modelled.
+// Vendor model, not referenced: TI's unencrypted TLV75718P PSpice transient
+// model (https://www.ti.com/lit/zip/SBVM780, sha256
+// 9f47d7ebf3de0e8cd8d30ce2f57b4f9c5d5a1746e7f6b74ab4d79a149eecadf8, member
+// TLV75718P_TRANS.lib, .SUBCKT TLV75718P_TRANS EN GND VIN VOUT NC) holds a .IC
+// card inside its subcircuit, which CopperScript's SPICE reader rejects
+// (SIM078), so a sim spice block naming it would not load. Add it as
+//   sim spice { source = "https://www.ti.com/lit/zip/SBVM780"; sha256 = "...";
+//     member = "TLV75718P_TRANS.lib"; subckt = "TLV75718P_TRANS"; dialect = pspice;
+//     terminals = EN, GND, IN, OUT, NC2; unmodelled = NC5, EP; }
+// once the reader supports .IC.
 part TLV75718PDRVR {
     category = "digital_ldo";
     footprint = "Package_SON:WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm";
@@ -12,4 +40,17 @@ part TLV75718PDRVR {
     pin NC2 { number = "2"; connection = do_not_connect; }
     pin NC5 { number = "5"; connection = do_not_connect; }
     pin EP { number = "7"; domains = "ground"; directions = "input"; }
+
+    sim regulator {
+        in = IN; out = OUT; gnd = GND; en = EN;
+        unmodelled = NC2, NC5, EP;
+        output_voltage = 1.8V;          // 5.5 EC p. 5
+        dropout = 650mV;                // 5.5 EC p. 6, 1 A
+        output_resistance = 44mohm;     // 5.5 EC p. 5, DRV load regulation
+        psrr = 52dB;                    // 5.5 EC p. 6, 1 kHz
+        output_current_limit = 1.55A;   // 5.5 EC p. 5
+        quiescent_current = 25uA;       // 5.5 EC p. 5
+        enable_threshold = 1V;          // 5.5 EC p. 6, EN high
+        soft_start = 550us;             // 5.5 EC p. 6, tSTR
+    }
 }

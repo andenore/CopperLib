@@ -1,3 +1,28 @@
+// Simulation models (CopperScript sim blocks), from the OPAx277 data sheet
+// SBOS079C (March 1999, revised February 2023), https://www.ti.com/lit/ds/symlink/opa277.pdf,
+// sha256 8086c39a8c98d681e3949c9345c318f5d145c6510f5c7ade39f52e74023820b1, read 2026-11-20.
+// Typical values at TA = 25 C from 6.7 Electrical Characteristics (VS = 10 V to
+// 30 V, RL = 2 kohm; pp. 8-9), OPAx277UA grade where the table splits by grade:
+//   GBW 1 MHz (p. 9); open-loop gain 134 dB, RL = 2 kohm (140 dB at 10 kohm; p. 9);
+//   CMRR 140 dB (p. 8); PSRR 0.3 uV/V = 130 dB, VS = +/-2 V to +/-18 V (p. 8);
+//   input impedance 100 Mohm || 3 pF differential, 250 Gohm || 3 pF common mode
+//   (p. 8); input bias current +/-0.5 nA, offset current +/-0.5 nA, offset
+//   voltage +/-20 uV (p. 8); voltage noise 8 nV/rtHz at 100 Hz to 10 kHz and
+//   12 nV/rtHz at 10 Hz, current noise 0.2 pA/rtHz at 1 kHz (p. 8); slew rate
+//   0.8 V/us (p. 9); output swing (V-) + 0.5 V to (V+) - 1.2 V with RL = 10 kohm,
+//   limits (p. 9); short-circuit current +/-35 mA (p. 9); quiescent current
+//   790 uA per amplifier (p. 9).
+// Read from figures (approximate): Fig 6-2 (p. 10) CMRR 3 dB down at about 14 Hz;
+//   -PSR 3 dB down at about 2 Hz, +PSR at about 220 Hz; Fig 6-23 (p. 13) open-loop
+//   output impedance flat at about 2.4 ohm from 1 kHz to 5 kHz.
+// Derived: voltage_noise_corner 12.5 Hz from the table's 8 nV/rtHz and 12 nV/rtHz
+//   at 10 Hz (12^2 = 8^2 (1 + fc / 10 Hz)); Fig 6-3 reads lower at 10 Hz
+//   (8 nV/rtHz, corner 1 to 2 Hz). One psrr_corner serves both rails: the -PSR's
+//   2 Hz, the worse rail.
+// Vendor model: TI's OPAx277 PSpice model, archive SBOM063 (Rev. H, model
+// Final 1.4), member OPAx277.LIB, .SUBCKT OPAx277 IN+ IN- VCC VEE OUT. Fetch it
+// with copper models fetch BOARD; it is never committed. copper sim runs the
+// macro model unless --models vendor is given.
 part OPA2277UA {
  footprint = "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm";
  source_url = "https://www.ti.com/lit/ds/symlink/opa277.pdf"; source_revision = "SBOS079C"; source_location = "OPA2277 D package pin configuration";
@@ -9,4 +34,57 @@ part OPA2277UA {
  pin INB_N { number = "6"; domains = "analog"; directions = "input"; }
  pin OUTB { number = "7"; domains = "analog"; directions = "output"; }
  pin VP { number = "8"; domains = "power"; directions = "input"; }
+
+ sim opamp A {
+  inp = INA_P; inn = INA_N; out = OUTA; vp = VP; vn = VM;
+  gbw = 1MHz;                              // 6.7 EC p. 9
+  open_loop_gain = 134dB;                  // 6.7 EC p. 9, RL = 2 kohm
+  cmrr = 140dB;                            // 6.7 EC p. 8
+  cmrr_corner = 14Hz;                      // read from Fig 6-2
+  psrr = 130dB;                            // 6.7 EC p. 8, 0.3 uV/V
+  psrr_corner = 2Hz;                       // read from Fig 6-2, -PSR
+  input_capacitance_common = 3pF;          // 6.7 EC p. 8
+  input_capacitance_differential = 3pF;    // 6.7 EC p. 8
+  input_resistance_common = 250000Mohm;    // 250 Gohm, 6.7 EC p. 8
+  input_resistance_differential = 100Mohm; // 6.7 EC p. 8
+  input_bias_current = 0.5nA;              // 6.7 EC p. 8
+  input_offset_current = 0.5nA;            // 6.7 EC p. 8
+  input_offset_voltage = 20uV;             // 6.7 EC p. 8, UA grade
+  voltage_noise = 8nV/rtHz;                // 6.7 EC p. 8, 100 Hz to 10 kHz
+  voltage_noise_corner = 12.5Hz;           // derived from 6.7 EC, see above
+  current_noise = 0.2pA/rtHz;              // 6.7 EC p. 8, 1 kHz
+  slew_rate = 0.8V/us;                     // 6.7 EC p. 9
+  output_resistance = 2.4ohm;              // read from Fig 6-23
+  output_swing_from_positive_rail = 1.2V;  // 6.7 EC p. 9, limit, RL = 10 kohm
+  output_swing_from_negative_rail = 0.5V;  // 6.7 EC p. 9, limit, RL = 10 kohm
+  output_current_limit = 35mA;             // 6.7 EC p. 9, short circuit
+  quiescent_current = 790uA;               // 6.7 EC p. 9, per amplifier
+ }
+ sim opamp B {
+  inp = INB_P; inn = INB_N; out = OUTB; vp = VP; vn = VM;
+  gbw = 1MHz; open_loop_gain = 134dB; cmrr = 140dB; cmrr_corner = 14Hz; psrr = 130dB; psrr_corner = 2Hz;
+  input_capacitance_common = 3pF; input_capacitance_differential = 3pF;
+  input_resistance_common = 250000Mohm; input_resistance_differential = 100Mohm;
+  input_bias_current = 0.5nA; input_offset_current = 0.5nA; input_offset_voltage = 20uV;
+  voltage_noise = 8nV/rtHz; voltage_noise_corner = 12.5Hz; current_noise = 0.2pA/rtHz;
+  slew_rate = 0.8V/us; output_resistance = 2.4ohm;
+  output_swing_from_positive_rail = 1.2V; output_swing_from_negative_rail = 0.5V;
+  output_current_limit = 35mA; quiescent_current = 790uA;
+ }
+ sim spice A {
+  source = "https://www.ti.com/lit/zip/SBOM063";
+  sha256 = "44edf62f6fa8f7eacdb08e62ed5ff063e17a4149f54c7d7ab057ef831383f16d";
+  member = "OPAx277.LIB";
+  subckt = "OPAx277";
+  dialect = pspice;
+  terminals = INA_P, INA_N, VP, VM, OUTA;
+ }
+ sim spice B {
+  source = "https://www.ti.com/lit/zip/SBOM063";
+  sha256 = "44edf62f6fa8f7eacdb08e62ed5ff063e17a4149f54c7d7ab057ef831383f16d";
+  member = "OPAx277.LIB";
+  subckt = "OPAx277";
+  dialect = pspice;
+  terminals = INB_P, INB_N, VP, VM, OUTB;
+ }
 }

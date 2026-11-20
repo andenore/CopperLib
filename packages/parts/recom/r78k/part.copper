@@ -3,6 +3,21 @@
 // p2 (on 13.0-13.5 V), protections p5 (continuous short-circuit protection,
 // automatic recovery), dimensions and pinning p7. Add a 27-uF electrolytic
 // across the input for hard plugging above 18 V (p2 note 1).
+//
+// Simulation model (CopperScript sim block): an averaged DC-DC converter (no
+// switching ripple, no loop dynamics), from the same data sheet (R-78K-1.0 Rev. 6-2025; the PDF read
+// had the source_checksum's sha256), read 2026-11-20 (TAMB = 25 C, nominal VIN, full load):
+//   Selection Guide p. 1: 12 V, 1000 mA, input 15 V to 36 V, efficiency 95 % at
+//   15 V and 91 % at 36 V; Basic Characteristics p. 2: quiescent current 1 mA
+//   (maximum column), UVLO on at 13.0 V to 13.5 V; REGULATIONS p. 5: line
+//   regulation +/-0.5 % maximum low line to high line, load regulation 2.0 %
+//   typical, 0 % to 100 % load.
+// Derived: efficiency 91 %, the lower of the two figures; output_resistance
+//   0.24 ohm = 2.0 % of 12 V over 1 A; psrr 51 dB, the maximum line regulation
+//   as a DC rejection: 60 mV over the 21 V input span; dropout 3 V, the minimum
+//   input less the output (no dropout is stated; the UVLO is not modelled).
+// Not stated, not modelled: start-up time, current-limit threshold, output
+// ripple (75 mVp-p).
 part R78K12_1A {
     category = "power.regulator.module";
     manufacturer = "RECOM";
@@ -13,4 +28,14 @@ part R78K12_1A {
     pin VIN { number = "1"; domains = "power"; directions = "input"; voltage_min = 15V; voltage_max = 36V; }
     pin GND { number = "2"; domains = "ground"; directions = "input"; }
     pin VOUT { number = "3"; domains = "power"; directions = "output"; }
+
+    sim regulator {
+        in = VIN; out = VOUT; gnd = GND;
+        output_voltage = 12V;           // Selection Guide p. 1
+        dropout = 3V;                   // derived, see above
+        output_resistance = 0.24ohm;    // derived from REGULATIONS p. 5
+        psrr = 51dB;                    // derived from REGULATIONS p. 5
+        quiescent_current = 1mA;        // Basic Characteristics p. 2, maximum
+        efficiency = 91%;               // Selection Guide p. 1, 36 V
+    }
 }

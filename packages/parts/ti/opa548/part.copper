@@ -1,3 +1,28 @@
+// Simulation models (CopperScript sim blocks), from the OPA548 data sheet
+// SBOS070D (October 1997, revised December 2019), https://www.ti.com/lit/ds/symlink/opa548.pdf,
+// sha256 f6e9034778addcd8dffdf7bcd719f2f9698770b01c1783dc737063914d77adbe, read 2026-11-20.
+// Typical values from 6.5 Electrical Characteristics (pp. 5-6). Its header
+// states no supply; its rows are at VO = +/-25 V and 50 Vpp, and the Typical
+// Characteristics (6.6) are at TCASE = 25 C, VS = +/-30 V, E/S open:
+//   GBW 1 MHz, RL = 8 ohm; open-loop gain 98 dB, RL = 1 kohm; CMRR 95 dB; PSRR
+//   30 uV/V = 90.5 dB (VS = +/-4 V to +/-30 V); input impedance 10^7 ohm || 6 pF
+//   differential, 10^9 ohm || 4 pF common mode; input bias current -100 nA
+//   (positive into the inputs), offset current +/-5 nA, offset voltage +/-2 mV;
+//   voltage noise 90 nV/rtHz and current noise 200 fA/rtHz at 1 kHz; slew rate
+//   10 V/us (G = 1, 50 Vpp, RL = 8 ohm); output swing at IO = +/-3 A, minimum:
+//   (V+) - 4.1 V and (V-) + 3.7 V (typical 3.7 V and 3.3 V; at +/-0.6 A 2.1 V
+//   and 1.0 V typical); quiescent current 17 mA.
+// Read from figures (approximate): Figure 9 (p. 8) noise reaches sqrt(2) times
+//   the 86 nV/rtHz floor at about 24 Hz; Figure 7 (p. 8) CMRR 3 dB down at about
+//   800 Hz; Figure 8 (p. 8) -PSRR 3 dB down at about 65 Hz (from 87.5 dB), +PSRR
+//   at about 1.3 kHz; one psrr_corner serves both rails, the worse one's.
+// Not modelled: the current limit, set by the board's resistor from ILIM to V-
+// (0 to 5 A, 7.3.1 p. 11), with no open-loop output impedance in the data sheet
+// for an output_current_limit to act through; the E/S enable and status pin.
+// Vendor model: TI's OPA548 PSpice model, archive SBOM088 (Rev. C, model Final
+// 1.2), member OPA548.LIB, .SUBCKT OPA548 with the package's pin order
+// (+IN, -IN, ILIM, V-, V+, OUT, E/S). A check of the vendor model ties ILIM to
+// V- (copper sim --check-model OPA548T BOARD --tie ILIM=vn).
 part OPA548T {
  footprint = "TI_KVT0007_OPA548:TI_KVT0007_OPA548";
  source_url = "https://www.ti.com/lit/ds/symlink/opa548.pdf"; source_revision = "SBOS070D December 2019"; source_location = "Pin Functions page 3; KVT drawing MPZF004 4204912/A";
@@ -8,4 +33,37 @@ part OPA548T {
  pin VP { number = "5"; domains = "power"; directions = "input"; }
  pin OUT { number = "6"; domains = "analog"; directions = "output"; }
  pin ES { number = "7"; domains = "analog"; directions = "bidirectional"; }
+
+ sim opamp {
+  inp = INP; inn = INN; out = OUT; vp = VP; vn = VM;
+  unmodelled = ILIM, ES;
+  gbw = 1MHz;                                 // 6.5 EC p. 5, RL = 8 ohm
+  open_loop_gain = 98dB;                      // 6.5 EC p. 5, RL = 1 kohm
+  cmrr = 95dB;                                // 6.5 EC p. 5
+  cmrr_corner = 800Hz;                        // read from Figure 7
+  psrr = 90.5dB;                              // 6.5 EC p. 5, 30 uV/V
+  psrr_corner = 65Hz;                         // read from Figure 8, -PSRR
+  input_capacitance_common = 4pF;             // 6.5 EC p. 5
+  input_capacitance_differential = 6pF;       // 6.5 EC p. 5
+  input_resistance_common = 1000Mohm;         // 6.5 EC p. 5, 10^9 ohm
+  input_resistance_differential = 10Mohm;     // 6.5 EC p. 5, 10^7 ohm
+  input_bias_current = -100nA;                // 6.5 EC p. 5
+  input_offset_current = 5nA;                 // 6.5 EC p. 5
+  input_offset_voltage = 2mV;                 // 6.5 EC p. 5
+  voltage_noise = 90nV/rtHz;                  // 6.5 EC p. 5, 1 kHz
+  voltage_noise_corner = 24Hz;                // read from Figure 9
+  current_noise = 200fA/rtHz;                 // 6.5 EC p. 5, 1 kHz
+  slew_rate = 10V/us;                         // 6.5 EC p. 5
+  output_swing_from_positive_rail = 4.1V;     // 6.5 EC p. 5, minimum at 3 A
+  output_swing_from_negative_rail = 3.7V;     // 6.5 EC p. 5, minimum at -3 A
+  quiescent_current = 17mA;                   // 6.5 EC p. 6
+ }
+ sim spice {
+  source = "https://www.ti.com/lit/zip/SBOM088";
+  sha256 = "73860253212c29861f6dfb38b78fac611a729c765dc480fd7fc9abf8ad5acdbc";
+  member = "OPA548.LIB";
+  subckt = "OPA548";
+  dialect = pspice;
+  terminals = INP, INN, ILIM, VM, VP, OUT, ES;
+ }
 }

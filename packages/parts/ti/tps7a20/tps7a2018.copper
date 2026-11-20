@@ -1,4 +1,26 @@
 // Fixed low-noise LDO; preserve effective input/output capacitance.
+//
+// Simulation model (CopperScript sim block), from the TPS7A20 data sheet
+// SBVS338H (March 2020, revised July 2024), https://www.ti.com/lit/ds/symlink/tps7a20.pdf,
+// sha256 3b7c1495906b88f48223f21a9bba1aad2f1d90a673fc3394aa6b5b5ece52ff53, read
+// 2026-11-20 (the same revision as the source_checksum below, a different
+// file). Typical values at TJ = 25 C from 5.5 Electrical Characteristics
+// (pp. 6-7; VIN = VOUT + 0.3 V or 1.6 V, IOUT = 1 mA, CIN = COUT = 1 uF):
+//   accuracy +/-40 mV (DBV, VOUT < 2.8 V); load regulation 19 mV, 1 mA to
+//   300 mA (DBV), so 63.5 mohm; PSRR 95 dB at 100 Hz and 1 kHz, 75 dB at 10 kHz
+//   and 100 kHz, 45 dB at 1 MHz (IOUT = 20 mA, VIN = VOUT + 1 V); current limit
+//   520 mA (360 mA minimum; the table has no DBV row for VOUT >= 1.5 V, this is
+//   the DQN row's and the DBV VOUT < 1.5 V row's figure); ground current
+//   6.5 uA at no load; EN high 0.9 V, low 0.3 V; start-up time tSTR 750 us to
+//   95 % of VOUT (5.6 Switching Characteristics, p. 7).
+// Derived: psrr_corner 1 kHz, a single-pole fit from the table's 95 dB at 1 kHz
+//   to 75 dB at 10 kHz; above 10 kHz the model falls further (55 dB at
+//   100 kHz against the table's 75 dB). No noise figure for this output
+//   (Fig 5-65 is the 2.8 V option): no voltage_noise.
+// Vendor model: TI publishes one TPS7A20 PSpice transient model (archive
+// SBVM961, TPS7A20_ADJ_TRANS) whose output is a global parameter V_out the
+// netlist reads but does not define; CopperScript's reader sets only a
+// subcircuit's PARAMS:, so the model is not referenced here.
 part TPS7A2018PDBVR {
     category = "ldo18";
     footprint = "Package_TO_SOT_SMD:SOT-23-5";
@@ -10,4 +32,18 @@ part TPS7A2018PDBVR {
     pin EN { number = "3"; domains = "digital"; directions = "input";  }
     pin NC { number = "4"; connection = do_not_connect;  }
     pin OUT { number = "5"; domains = "power"; directions = "output";  }
+
+    sim regulator {
+        in = IN; out = OUT; gnd = GND; en = EN;
+        unmodelled = NC;
+        output_voltage = 1.8V;           // fixed option, 5.5 EC p. 6 (+/-40 mV)
+        dropout = 128mV;                 // Fig 5-31 p. 13, read, 300 mA (205 mV maximum, 5.5 EC p. 6)
+        output_resistance = 63.5mohm;     // 5.5 EC p. 6, load regulation
+        psrr = 95dB;                      // 5.5 EC p. 7, 100 Hz and 1 kHz
+        psrr_corner = 1kHz;               // derived, see above
+        output_current_limit = 520mA;     // 5.5 EC p. 7, see above
+        quiescent_current = 6.5uA;        // 5.5 EC p. 6
+        enable_threshold = 0.9V;          // 5.5 EC p. 7, EN high
+        soft_start = 750us;               // 5.6 p. 7, tSTR
+    }
 }

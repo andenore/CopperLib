@@ -1,3 +1,31 @@
+// Simulation models (CopperScript sim blocks), from the OPA547 data sheet
+// SBOS056F (January 2002, revised July 2005), https://www.ti.com/lit/ds/symlink/opa547.pdf,
+// sha256 82b5d94d1c84d1f7ebafb3c3a1015151493735a50a01b487633cef0513e32ee8, read 2026-11-20.
+// Typical values from the Electrical Characteristics table, p. 3 (TCASE = +25 C,
+// VS = +/-30 V, E/S pin open):
+//   GBW 1 MHz, RL = 50 ohm; open-loop gain 115 dB, RL = 1 kohm, f = 10 Hz;
+//   CMRR 95 dB; PSRR 10 uV/V = 100 dB (VS = +/-4 V to +/-30 V); input impedance
+//   10^7 ohm || 6 pF differential, 10^9 ohm || 4 pF common mode; input bias
+//   current -100 nA (positive into the inputs), offset current +/-5 nA, offset
+//   voltage +/-1 mV; voltage noise 90 nV/rtHz and current noise 200 fA/rtHz at
+//   1 kHz; slew rate 6 V/us (G = 1, 50 Vpp, RL = 50 ohm); output swing at
+//   IO = +/-0.5 A, minimum: (V+) - 2.2 V and (V-) + 1.6 V (typical 1.9 V and
+//   1.3 V; at +/-0.1 A 1.5 V and 0.8 V typical); quiescent current 10 mA.
+// Read from figures (approximate; Typical Characteristics pp. 4-6, figures
+//   without numbers): "Voltage Noise Density vs Frequency" reaches sqrt(2) times
+//   the 88 nV/rtHz floor at about 20 Hz; "Common-Mode Rejection vs Frequency"
+//   3 dB down at about 300 Hz; "Power Supply Rejection vs Frequency" -PSRR 3 dB
+//   down at about 24 Hz (from 93 dB), +PSRR at about 65 Hz; one psrr_corner
+//   serves both rails, the worse one's.
+// Not modelled: the current limit is set by the board's resistor from ILIM to
+// V- (0 to 750 mA, p. 8) and the data sheet gives no open-loop output impedance
+// for an output_current_limit to act through; the E/S enable and status pin.
+// Both are left unmodelled by the macro block.
+// Vendor model: TI's OPA547 PSpice model, archive SBOM087 (Rev. B, model Final
+// 1.1), member OPA547.LIB, .SUBCKT OPA547 with the package's pin order
+// (+IN, -IN, ILIM, V-, V+, OUT, E/S). Its ILIM pin sets the model's current
+// limit as on the part: a check of the vendor model ties it to V-
+// (copper sim --check-model OPA547T BOARD --tie ILIM=vn).
 part OPA547T {
  footprint = "TI_KVT0007_OPA548:TI_KVT0007_OPA548";
  source_url = "https://www.ti.com/lit/ds/symlink/opa547.pdf"; source_revision = "SBOS056F"; source_location = "Pin Configurations page 2: 7-Lead Stagger-Formed TO-220 (T)";
@@ -8,4 +36,37 @@ part OPA547T {
  pin VP { number = "5"; domains = "power"; directions = "input"; }
  pin OUT { number = "6"; domains = "analog"; directions = "output"; }
  pin ES { number = "7"; domains = "analog"; directions = "bidirectional"; }
+
+ sim opamp {
+  inp = INP; inn = INN; out = OUT; vp = VP; vn = VM;
+  unmodelled = ILIM, ES;
+  gbw = 1MHz;                                 // EC p. 3, RL = 50 ohm
+  open_loop_gain = 115dB;                     // EC p. 3, RL = 1 kohm
+  cmrr = 95dB;                                // EC p. 3
+  cmrr_corner = 300Hz;                        // read from the CMR figure, p. 5
+  psrr = 100dB;                               // EC p. 3, 10 uV/V
+  psrr_corner = 24Hz;                         // read from the PSR figure, p. 5, -PSRR
+  input_capacitance_common = 4pF;             // EC p. 3
+  input_capacitance_differential = 6pF;       // EC p. 3
+  input_resistance_common = 1000Mohm;         // EC p. 3, 10^9 ohm
+  input_resistance_differential = 10Mohm;     // EC p. 3, 10^7 ohm
+  input_bias_current = -100nA;                // EC p. 3
+  input_offset_current = 5nA;                 // EC p. 3
+  input_offset_voltage = 1mV;                 // EC p. 3
+  voltage_noise = 90nV/rtHz;                  // EC p. 3, 1 kHz
+  voltage_noise_corner = 20Hz;                // read from the noise figure, p. 4
+  current_noise = 200fA/rtHz;                 // EC p. 3, 1 kHz
+  slew_rate = 6V/us;                          // EC p. 3
+  output_swing_from_positive_rail = 2.2V;     // EC p. 3, minimum at 0.5 A
+  output_swing_from_negative_rail = 1.6V;     // EC p. 3, minimum at -0.5 A
+  quiescent_current = 10mA;                   // EC p. 3
+ }
+ sim spice {
+  source = "https://www.ti.com/lit/zip/SBOM087";
+  sha256 = "cf9e75c3b77761a7bf26af40b46c2e8809c88f96abfa870471b1216a30c0bc03";
+  member = "OPA547.LIB";
+  subckt = "OPA547";
+  dialect = pspice;
+  terminals = INP, INN, ILIM, VM, VP, OUT, ES;
+ }
 }
