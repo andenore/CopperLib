@@ -1,4 +1,12 @@
 part WE_7447797820 {
+    category = "passive.inductor.power";
+    // WE-PDF SMT Shielded Power Inductor, order code 7447797820, data sheet revision 003.008
+    // (2021-05-25), p1: description line "WE-PDF SMT Shielded Power Inductor"; electrical
+    // properties table: DC resistance 25.3 mohm typ. / 28.6 mohm max. at 20 C (esr uses the
+    // typical value), self-resonant frequency 28 MHz typ.
+    shielding = shielded;
+    esr = 0.0253ohm;
+    self_resonance = 28MHz;
     manufacturer = "Wurth Elektronik";
     footprint = "footprints/WE_PDF_1045.kicad_mod";
     source_url = "https://www.we-online.com/components/products/datasheet/7447797820.pdf";

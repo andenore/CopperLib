@@ -92,6 +92,12 @@ def check(source: str, pins: str = "off") -> list[dict]:
     return json.loads(_check(source, pins))["diagnostics"]
 
 
+def check_stubbed(source: str, pins: str = "off") -> list[dict]:
+    """`check` for a fixture whose signals end in single-pin stub nets: without
+    the UNDRIVEN_INPUT warning each stubbed input earns."""
+    return [item for item in check(source, pins) if item["code"] != "UNDRIVEN_INPUT"]
+
+
 def codes(diagnostics) -> set[tuple[str, str]]:
     return {(item["code"], item["subject"]) for item in diagnostics}
 

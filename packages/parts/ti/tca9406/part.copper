@@ -23,12 +23,12 @@ part TCA9406DCUR {
     source_location = "Pin Functions p. 5; ROC 6.3 p. 7; Sections 8.3.1, 8.3.5, 10; DCU0008A pp. 32-34";
     source_url = "https://www.ti.com/lit/ds/symlink/tca9406.pdf";
     source_checksum = "sha256:fdb80d682fbacd5ef18cbafc57e4d9375a295daa38da33721af6e055f8a7da61";
-    pin SDA_B { number = "1"; domains = "digital"; directions = "bidirectional"; drive_modes = "open_drain"; }
+    pin SDA_B { number = "1"; domains = "digital"; directions = "bidirectional"; drive_modes = "open_drain"; internal_pull = "up"; }
     pin GND { number = "2"; domains = "ground"; directions = "input"; }
     pin VCCA { number = "3"; domains = "power"; directions = "input"; voltage_min = 1.65V; voltage_max = 3.6V; }
-    pin SDA_A { number = "4"; domains = "digital"; directions = "bidirectional"; drive_modes = "open_drain"; }
-    pin SCL_A { number = "5"; domains = "digital"; directions = "bidirectional"; drive_modes = "open_drain"; }
+    pin SDA_A { number = "4"; domains = "digital"; directions = "bidirectional"; drive_modes = "open_drain"; internal_pull = "up"; }
+    pin SCL_A { number = "5"; domains = "digital"; directions = "bidirectional"; drive_modes = "open_drain"; internal_pull = "up"; }
     pin OE { number = "6"; domains = "digital"; directions = "input"; voltage_max = 5.5V; }
     pin VCCB { number = "7"; domains = "power"; directions = "input"; voltage_min = 2.3V; voltage_max = 5.5V; }
-    pin SCL_B { number = "8"; domains = "digital"; directions = "bidirectional"; drive_modes = "open_drain"; }
+    pin SCL_B { number = "8"; domains = "digital"; directions = "bidirectional"; drive_modes = "open_drain"; internal_pull = "up"; }
 }

@@ -10,6 +10,8 @@ part BQ24072TRGTR {
     category = "power.charger.li_ion";
     manufacturer = "Texas Instruments";
     footprint = "Package_DFN_QFN:VQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm";
+    // Same 3 x 3 mm QFN-16 body as KiCad's model; its exposed pad (under the body) is 1.7 x 1.7 mm, not 1.68 x 1.68 mm.
+    model = "github.com/KiCad/kicad-packages3D/Package_DFN_QFN.3dshapes/QFN-16-1EP_3x3mm_P0.5mm_EP1.7x1.7mm.step";
     source_document = "BQ24072T, BQ24075T, BQ24079T Standalone Linear Battery Chargers with Power Path";
     source_revision = "SLUS937C Rev C";
     source_location = "pp4-5 pin functions; pp8-9 EC; pp19-20 TS; p33 layout; RGT0016C appended pp41-43";

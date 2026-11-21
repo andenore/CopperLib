@@ -33,7 +33,8 @@ field). The consumer requires `kicad-packages3D` in its `copper.mod`; without it
 the compiler warns and uses a generated approximate body. `height` is set only
 from recorded evidence. Parts with neither keep the generated body, which is
 for fit and clearance review only. These fields need a CopperScript that
-supports them.
+supports them. [3D model coverage](3d-model-coverage.md) lists the
+parts that still need a manufacturer model.
 
 The standalone Johanson antenna and the nRF52832/Johanson RF circuit remain
 separate reusable definitions with canonical dependencies. Preserve the RF

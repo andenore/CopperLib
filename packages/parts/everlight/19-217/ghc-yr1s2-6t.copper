@@ -12,6 +12,8 @@ part EVERLIGHT_19_217_GHC_YR1S2_6T {
     category = "optoelectronics.led";
     manufacturer = "Everlight Electronics";
     footprint = "footprints/EVERLIGHT_19-217.kicad_mod";
+    // Body height from the 1.6 x 0.8 x 0.4 mm package size above.
+    height = 0.4 mm;
     source_document = "Everlight datasheet 19-217/GHC-YR1S2/6T, issue no. DSE-0025583";
     source_revision = "Rev.3, release date May.31.2022";
     source_url = "https://www.everlighteurope.com/custom/files/datasheets/DSE-0025583.pdf";

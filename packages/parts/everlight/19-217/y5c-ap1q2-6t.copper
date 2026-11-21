@@ -12,6 +12,8 @@ part EVERLIGHT_19_217_Y5C_AP1Q2_6T {
     category = "optoelectronics.led";
     manufacturer = "Everlight Electronics";
     footprint = "footprints/EVERLIGHT_19-217.kicad_mod";
+    // Body height from the 1.6 x 0.8 x 0.4 mm package size above.
+    height = 0.4 mm;
     source_document = "Everlight datasheet 19-217/Y5C-AP1Q2/6T, issue no. DSE-0025584";
     source_revision = "Rev.3, release date 21.Jul.2023";
     source_url = "https://www.everlighteurope.com/custom/files/datasheets/DSE-0025584.pdf";

@@ -12,6 +12,8 @@ part EVERLIGHT_19_217_BHC_ZL1M2RY_6T {
     category = "optoelectronics.led";
     manufacturer = "Everlight Electronics";
     footprint = "footprints/EVERLIGHT_19-217.kicad_mod";
+    // Body height from the 1.6 x 0.8 x 0.4 mm package size above.
+    height = 0.4 mm;
     source_document = "Everlight datasheet 19-217/BHC-ZL1M2RY/6T, issue no. DSE-0014124";
     source_revision = "Rev.5, release date May.31.2022";
     source_url = "https://www.everlighteurope.com/custom/files/datasheets/DSE-0014124.pdf";

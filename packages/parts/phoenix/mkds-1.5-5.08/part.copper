@@ -1,6 +1,7 @@
 part MKDS_1_5_2_5_08 {
     manufacturer = "Phoenix Contact";
     footprint = "footprints/Phoenix_MKDS_1_5_2_5_08.kicad_mod";
+    model = "github.com/KiCad/kicad-packages3D/TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal.step";
     source_url = "https://www.phoenixcontact.com/us/products/1715721/pdf";
     source_location = "1715721 MKDS 1,5/ 2-5,08 catalog PDF: pitch 5.08mm, hole 1.3mm, 0.9x0.9mm pins, 17.5A/400V nominal, drilling plan p7";
     source_checksum = "sha256:d1981a19f8ffb50e0756ccef53e80034ae80f0c21fb0e2172916cf34dc96cb98";

@@ -2,6 +2,8 @@
 part LM27761DSGR {
     category = "negative";
     footprint = "Package_SON:Texas_DSG0008A_WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm";
+    // The KiCad 10 Texas_DSG0008A footprint names a model the library does not ship; this is the same WSON-8 2 x 2 mm package.
+    model = "github.com/KiCad/kicad-packages3D/Package_SON.3dshapes/WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm.step";
     source_url = "https://www.ti.com/lit/ds/symlink/lm27761.pdf";
     source_location = "SNVSA85D p3 Table4-1; pp12-17 support and layout";
     source_checksum = "sha256:0724ce35e920e1350907de9f8a70f0e40257cff907fc0c9331609cf0267a6814";

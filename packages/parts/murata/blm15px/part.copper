@@ -3,6 +3,8 @@ part BLM15PX221SN1D {
     category = "passive.ferrite_bead";
     dc_power_path = "P1,P2";
     footprint = "footprints/BLM15PX_Kit0402.kicad_mod";
+    // Same EIA 0402 (1.0 x 0.5 mm) chip outline as KiCad's 0402 inductor model.
+    model = "github.com/KiCad/kicad-packages3D/Inductor_SMD.3dshapes/L_0402_1005Metric.step";
     source_url = "https://www.infineon.com/assets/row/public/documents/30/60/infineon-hardware-design-file-kit-fx10-fmc-001-pcbdesigndata-en.zip";
     source_location = "KIT_FX10_FMC_001 schematic 630-60643-01 Rev03 sheets5-8 FB1-FB7; 220 ohm at 100 MHz";
     source_checksum = "sha256:f6f5a93f8f8b90731fd13fd58611390bed9f10d11abf077f0b6dba052e533c79";

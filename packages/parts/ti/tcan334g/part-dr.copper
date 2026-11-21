@@ -1,3 +1,7 @@
+// Logic levels: TCAN33x datasheet SLLSEQ7F (REVISED MAY 2025), section 5.5
+// Electrical Characteristics (continued), p. 8: TXD, STB and SHDN VIH min 2 V and
+// VIL max 0.8 V; RXD VOH min 0.8 x VCC at IO = -2 mA and VOL max 0.4 V at
+// IO = 2 mA. Worst case over TJ -40 to 150 C and VCC 3.0 to 3.6 V.
 part TCAN334GDR {
     category = "interface.can.transceiver";
     manufacturer = "Texas Instruments";
@@ -5,12 +9,12 @@ part TCAN334GDR {
     source_document = "TCAN33x datasheet";
     source_revision = "SLLSEV1G";
     source_url = "https://www.ti.com/lit/ds/symlink/tcan332.pdf";
-    pin TXD { number = "1"; domains = "digital"; directions = "input"; }
+    pin TXD { number = "1"; domains = "digital"; directions = "input"; io_supply = VCC; vih = 2V; vil = 0.8V; }
     pin GND { number = "2"; domains = "ground"; directions = "input"; }
     pin VCC { number = "3"; domains = "power"; directions = "input"; voltage_min = 3V; voltage_max = 3.6V; }
-    pin RXD { number = "4"; domains = "digital"; directions = "output"; drive_modes = "push_pull"; }
-    pin SHDN { number = "5"; domains = "digital"; directions = "input"; }
+    pin RXD { number = "4"; domains = "digital"; directions = "output"; drive_modes = "push_pull"; io_supply = VCC; voh = "0.8*VCC"; vol = 0.4V; }
+    pin SHDN { number = "5"; domains = "digital"; directions = "input"; io_supply = VCC; vih = 2V; vil = 0.8V; }
     pin CANL { number = "6"; domains = "analog"; directions = "bidirectional"; traits = "can_bus"; }
     pin CANH { number = "7"; domains = "analog"; directions = "bidirectional"; traits = "can_bus"; }
-    pin STB { number = "8"; domains = "digital"; directions = "input"; }
+    pin STB { number = "8"; domains = "digital"; directions = "input"; io_supply = VCC; vih = 2V; vil = 0.8V; }
 }

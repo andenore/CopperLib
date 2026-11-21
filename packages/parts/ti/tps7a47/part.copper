@@ -1,5 +1,6 @@
 part TPS7A4700RGWR {
  footprint = "TI_RGW0020A:TI_RGW0020A";
+ model = "github.com/KiCad/kicad-packages3D/Package_DFN_QFN.3dshapes/Texas_RGW0020A_VQFN-20-1EP_5x5mm_P0.65mm_EP3.15x3.15mm.step";
  source_url = "https://www.ti.com/lit/ds/symlink/tps7a47.pdf"; source_revision = "SBVS204G May 2026"; source_location = "Table 4-1 and RGW0020A land pattern";
  pin OUT1 { number = "1"; domains = "power"; directions = "output"; }
  pin NC2 { number = "2"; domains = "analog"; directions = "input"; }

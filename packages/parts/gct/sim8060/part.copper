@@ -5,6 +5,8 @@ part SIM8060_6_0_14_00_A {
     category = "connector.card.sim";
     manufacturer = "GCT";
     footprint = "footprints/Connector_Card.pretty/nanoSIM_GCT_SIM8060-6-0-14-00.kicad_mod";
+    // Height above the board: 1.42 mm (0.056 in), as GCT's distributor listings give it.
+    height = 1.42 mm;
     pin VCC { number = "1"; domains = "power"; directions = "input"; }
     pin RST { number = "2"; domains = "digital"; directions = "input"; }
     pin CLK { number = "3"; domains = "digital,clock"; directions = "input"; }

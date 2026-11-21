@@ -42,6 +42,8 @@ for side, pins, count, y0 in [('left',left,9,-10.16),('right',right,6,-2.54)]:
          '    category = "connector.module.stamp_s3";',
          f'    manufacturer = "{maker}";',
          f'    footprint = "footprints/{name}.kicad_mod";',
+         f'    // KiCad\'s generic 1x{count:02} 2.54 mm socket: same outline and 8.5 mm height as the drawing.',
+         f'    model = "github.com/KiCad/kicad-packages3D/Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x{count:02}_P2.54mm_Vertical.step";',
          f'    source_document = "M5StampS3 schematic v0.2, M1; {drawing.format(n=count)}";',
          '    source_location = "M1 pads 1,3,5,7,9,11,13,15,17 / 28,26,24,22,20,18; evidence/connector.json";',
          f'    source_url = "{urls["Stamp-S3-schematic.pdf"]}";',

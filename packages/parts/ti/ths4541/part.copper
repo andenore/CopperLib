@@ -3,6 +3,8 @@ part THS4541IRGTR {
     category = "driver";
     internal_pad_groups = "1,11; 4,10";
     footprint = "footprints/Texas_RGT0016A_VQFN-16-1EP_3x3mm_P0.5mm_EP1.45x1.45mm.kicad_mod";
+    // Same 3 x 3 mm QFN-16 body as KiCad's model; its exposed pad (under the body) is 1.7 x 1.7 mm, not 1.45 x 1.45 mm.
+    model = "github.com/KiCad/kicad-packages3D/Package_DFN_QFN.3dshapes/QFN-16-1EP_3x3mm_P0.5mm_EP1.7x1.7mm.step";
     source_url = "https://www.ti.com/lit/ds/symlink/ths4541.pdf";
     source_location = "SLOS375B p3 RGT pin functions; p35 functional block and 8.3.1 feedback outputs; pp5-8 electrical; layout section; PDF pp60-61 RGT0016A drawing4219032/A 02/2017";
     source_checksum = "sha256:89116b7887557237335675481ed80c5f3570b4d920d0b882393a877fb1796765";

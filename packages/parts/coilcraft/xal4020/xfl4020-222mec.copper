@@ -8,6 +8,7 @@
 // 4.0-mm body sits inside the XAL4020's 4.3-mm courtyard.
 part XFL4020_222MEC {
     category = "passive.inductor.power";
+    shielding = shielded;
     manufacturer = "Coilcraft";
     footprint = "footprints/Inductor_SMD.pretty/L_Coilcraft_XAL4020-XXX.kicad_mod";
     // KiCad models the XAL4020; the XFL4020 shares its 4.0 x 4.0 mm outline.
