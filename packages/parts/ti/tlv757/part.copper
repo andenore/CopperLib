@@ -17,16 +17,10 @@
 // and is not modelled. No 1.8 V noise figure (Figs 5-6 and 5-7 give 1.2 V and
 // 3.3 V): no voltage_noise. The fold-back to the 755 mA short-circuit current
 // is not modelled.
-// Vendor model, not referenced: TI's unencrypted TLV75718P PSpice transient
-// model (https://www.ti.com/lit/zip/SBVM780, sha256
-// 9f47d7ebf3de0e8cd8d30ce2f57b4f9c5d5a1746e7f6b74ab4d79a149eecadf8, member
-// TLV75718P_TRANS.lib, .SUBCKT TLV75718P_TRANS EN GND VIN VOUT NC) holds a .IC
-// card inside its subcircuit, which CopperScript's SPICE reader rejects
-// (SIM078), so a sim spice block naming it would not load. Add it as
-//   sim spice { source = "https://www.ti.com/lit/zip/SBVM780"; sha256 = "...";
-//     member = "TLV75718P_TRANS.lib"; subckt = "TLV75718P_TRANS"; dialect = pspice;
-//     terminals = EN, GND, IN, OUT, NC2; unmodelled = NC5, EP; }
-// once the reader supports .IC.
+// Vendor model: TI's unencrypted TLV75718P PSpice transient model, archive
+// SBVM780, member TLV75718P_TRANS.lib, .SUBCKT TLV75718P_TRANS EN GND VIN VOUT
+// NC. It holds a .IC card inside its subcircuit, which the reader applies per
+// instance. Fetch it with copper models fetch BOARD; it is never committed.
 part TLV75718PDRVR {
     category = "digital_ldo";
     footprint = "Package_SON:WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm";
@@ -52,5 +46,14 @@ part TLV75718PDRVR {
         quiescent_current = 25uA;       // 5.5 EC p. 5
         enable_threshold = 1V;          // 5.5 EC p. 6, EN high
         soft_start = 550us;             // 5.5 EC p. 6, tSTR
+    }
+    sim spice {
+        source = "https://www.ti.com/lit/zip/SBVM780";
+        sha256 = "9f47d7ebf3de0e8cd8d30ce2f57b4f9c5d5a1746e7f6b74ab4d79a149eecadf8";
+        member = "TLV75718P_TRANS.lib";
+        subckt = "TLV75718P_TRANS";
+        dialect = pspice;
+        terminals = EN, GND, IN, OUT, NC2;
+        unmodelled = NC5, EP;
     }
 }

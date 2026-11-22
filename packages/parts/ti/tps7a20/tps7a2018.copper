@@ -18,9 +18,11 @@
 //   100 kHz against the table's 75 dB). No noise figure for this output
 //   (Fig 5-65 is the 2.8 V option): no voltage_noise.
 // Vendor model: TI publishes one TPS7A20 PSpice transient model (archive
-// SBVM961, TPS7A20_ADJ_TRANS) whose output is a global parameter V_out the
-// netlist reads but does not define; CopperScript's reader sets only a
-// subcircuit's PARAMS:, so the model is not referenced here.
+// SBVM961, member tps7a20-adj_trans.lib, .SUBCKT TPS7A20_ADJ_TRANS) whose
+// output is a global parameter V_out the netlist reads but does not define;
+// the block sets it to 1.8. The archive is not fetched automatically: download
+// it by hand and register it with copper models add BOARD FILE. It is never
+// committed.
 part TPS7A2018PDBVR {
     category = "ldo18";
     footprint = "Package_TO_SOT_SMD:SOT-23-5";
@@ -45,5 +47,14 @@ part TPS7A2018PDBVR {
         quiescent_current = 6.5uA;        // 5.5 EC p. 6
         enable_threshold = 0.9V;          // 5.5 EC p. 7, EN high
         soft_start = 750us;               // 5.6 p. 7, tSTR
+    }
+    sim spice {
+        sha256 = "4db279371817cb0873e103b03ddf26c6a5a1ff2c4672093c0037c940dc8c8fd2";
+        download = "TI TPS7A20 PSpice Transient Model, https://www.ti.com/lit/zip/SBVM961";
+        member = "tps7a20-adj_trans.lib";
+        subckt = "TPS7A20_ADJ_TRANS";
+        dialect = pspice;
+        terminals = IN, GND, EN, NC, OUT;
+        params = values { V_out = 1.8; };
     }
 }
