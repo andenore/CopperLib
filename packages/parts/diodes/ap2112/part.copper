@@ -18,6 +18,11 @@
 //   band taken as white (no noise-density figure); enable_threshold 1.5 V, the
 //   guaranteed-on level (the model switches at one level). The fold-back to the
 //   short-circuit current is not modelled: the limit holds at 0.8 A.
+// Data-sheet limits (datasheet entries, EC p. 8, read from the data sheet's text
+//   on 2026-11-22): output 98.5 % to 101.5 % of 3.3 V at 1 mA to 30 mA;
+//   quiescent current 80 uA maximum; load regulation 1 %/A maximum, so 33 mohm.
+//   The dropout limits are at 10 mA to 600 mA, where the check does not measure
+//   (its dropout is at 1 mA; the model's dropout does not depend on the current).
 // No vendor SPICE model is published for this part.
 part AP2112K_3V3 {
     manufacturer = "Diodes Incorporated";
@@ -44,5 +49,8 @@ part AP2112K_3V3 {
         enable_threshold = 1.5V;        // EC p. 8, EN high minimum
         soft_start = 20us;              // EC p. 8, start-up time
         voltage_noise = 158nV/rtHz;     // derived from EC p. 8, 50 uVrms
+        datasheet output_voltage { min = 3.2505V; max = 3.3495V; }  // EC p. 8, 1 mA to 30 mA
+        datasheet quiescent_current { max = 80uA; }                  // EC p. 8
+        datasheet output_resistance { max = 33mohm; }                // EC p. 8, 1 %/A
     }
 }

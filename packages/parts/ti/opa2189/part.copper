@@ -19,11 +19,18 @@
 // Derived: psrr_corner 0.0063 Hz puts the table's 166 dB at Fig 7-14's 122 dB at
 //   1 Hz (the -PSRR, the worse rail; +PSRR is 3 dB down at about 16 Hz).
 // Not modelled: the CMRR's fall with frequency. A single corner that meets the
-//   figure at 1 kHz (0.08 Hz from 168 dB, or 6.5 Hz from the figure's 130 dB
-//   plateau) leaves about 3 dB at the 14 MHz gain-bandwidth, where the macro
-//   model's common-mode error then feeds forward (copper sim --check-model: phase
-//   margin 110 degrees, follower bandwidth 33 MHz, slew rate 67 V/us), so the
-//   block keeps the flat 168 dB.
+//   figure's 86 dB at 1 kHz (0.08 Hz from 168 dB) still extrapolates to about
+//   3 dB at the 14 MHz gain-bandwidth, which widens the macro model's follower
+//   to 25 MHz (copper sim --check-model at 36 V, CopperScript I7; 14 MHz
+//   without the corner, 14.85 MHz in TI's model, which flattens at 35 dB from
+//   about 355 kHz). The block cannot state such a floor, so it keeps the flat
+//   168 dB.
+// Data-sheet limits (datasheet entries; 7.7 EC, OPA2189ID rows, VS = +/-18 V):
+//   offset 5 uV maximum (p. 9); PSRR 0.05 uV/V maximum, 146 dB (p. 9); CMRR
+//   146 dB minimum (p. 10); open-loop gain 150 dB minimum, RL = 10 kohm (p. 10);
+//   unity-gain bandwidth 8 MHz typical at AV = 1, the follower's (p. 10);
+//   quiescent current 1.7 mA maximum at 25 C (p. 11). Read from the data sheet's
+//   text, sha256 as above, on 2026-11-22.
 // Zero-drift amplifier: no 1/f noise region (Fig 7-18), so no voltage_noise_corner.
 // Vendor model: TI's OPAx189 PSpice model, archive SBOMAE9 (Rev. E, model
 // Final 1.2), member OPAx189.LIB, .SUBCKT OPAx189 IN+ IN- VCC VEE OUT. Fetch it
@@ -61,6 +68,12 @@ part OPA2189IDR {
   output_swing_from_rail = 110mV;             // 7.7 EC p. 11, maximum, RL = 10 kohm
   output_current_limit = 65mA;                // 7.7 EC p. 11, short circuit
   quiescent_current = 1.3mA;                  // 7.7 EC p. 11, per amplifier
+  datasheet input_offset_voltage { max = 5uV; }     // 7.7 EC p. 9, OPA2189ID
+  datasheet psrr { min = 146dB; }                   // 7.7 EC p. 9, 0.05 uV/V
+  datasheet cmrr { min = 146dB; }                   // 7.7 EC p. 10
+  datasheet open_loop_gain { min = 150dB; }         // 7.7 EC p. 10, RL = 10 kohm
+  datasheet follower_bandwidth { typ = 8MHz; }      // 7.7 EC p. 10, UGB at AV = 1
+  datasheet quiescent_current { max = 1.7mA; }      // 7.7 EC p. 11, 25 C
  }
  sim opamp B {
   inp = INB_P; inn = INB_N; out = OUTB; vp = VP; vn = VM;
@@ -71,6 +84,9 @@ part OPA2189IDR {
   voltage_noise = 5.2nV/rtHz; current_noise = 165fA/rtHz; slew_rate = 20V/us;
   output_resistance = 1.8ohm; output_swing_from_rail = 110mV; output_current_limit = 65mA;
   quiescent_current = 1.3mA;
+  datasheet input_offset_voltage { max = 5uV; } datasheet psrr { min = 146dB; } datasheet cmrr { min = 146dB; }
+  datasheet open_loop_gain { min = 150dB; } datasheet follower_bandwidth { typ = 8MHz; }
+  datasheet quiescent_current { max = 1.7mA; }
  }
  sim spice A {
   source = "https://www.ti.com/lit/zip/SBOMAE9";

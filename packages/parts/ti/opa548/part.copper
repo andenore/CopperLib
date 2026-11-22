@@ -16,6 +16,10 @@
 //   the 86 nV/rtHz floor at about 24 Hz; Figure 7 (p. 8) CMRR 3 dB down at about
 //   800 Hz; Figure 8 (p. 8) -PSRR 3 dB down at about 65 Hz (from 87.5 dB), +PSRR
 //   at about 1.3 kHz; one psrr_corner serves both rails, the worse one's.
+// Data-sheet limits (datasheet entries; 6.5 EC pp. 5-6, read from the data
+//   sheet's text, sha256 as above, on 2026-11-22): offset 10 mV maximum; PSRR
+//   100 uV/V maximum (80 dB); CMRR 80 dB minimum; open-loop gain 90 dB minimum,
+//   RL = 1 kohm; quiescent current 20 mA maximum.
 // Not modelled: the current limit, set by the board's resistor from ILIM to V-
 // (0 to 5 A, 7.3.1 p. 11), with no open-loop output impedance in the data sheet
 // for an output_current_limit to act through; the E/S enable and status pin.
@@ -57,6 +61,11 @@ part OPA548T {
   output_swing_from_positive_rail = 4.1V;     // 6.5 EC p. 5, minimum at 3 A
   output_swing_from_negative_rail = 3.7V;     // 6.5 EC p. 5, minimum at -3 A
   quiescent_current = 17mA;                   // 6.5 EC p. 6
+  datasheet input_offset_voltage { max = 10mV; }    // 6.5 EC p. 5
+  datasheet psrr { min = 80dB; }                    // 6.5 EC p. 5, 100 uV/V
+  datasheet cmrr { min = 80dB; }                    // 6.5 EC p. 5
+  datasheet open_loop_gain { min = 90dB; }          // 6.5 EC p. 5, RL = 1 kohm
+  datasheet quiescent_current { max = 20mA; }       // 6.5 EC p. 6
  }
  sim spice {
   source = "https://www.ti.com/lit/zip/SBOM088";
