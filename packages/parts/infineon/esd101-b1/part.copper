@@ -1,0 +1,23 @@
+// Infineon ESD101-B1-02EL: one-line bidirectional ESD diode, PG-TSLP-2-20
+// (1.0 x 0.6 mm). Data sheet ESD101-B1-02 Series, revision 1.4, 2017-10-26:
+//   Table 3: VRWM +/-5.5 V; trigger voltage 6.1 V min; holding voltage 6.1 V min,
+//     7.3 V typ at 1 mA (7.0 V typ at 10 mA); leakage < 0.1 nA typ, 20 nA max at 5.5 V.
+//   Table 4: line capacitance 0.2 pF max at 0 V, 1 MHz; 0.1 pF typ at 1 GHz;
+//     series inductance 0.4 nH (02EL).
+//   Table 5: clamping 18 V at 8 A and 30 V at 16 A (TLP, 100 ns); 9 V at 1 A (8/20 us).
+//   Table 2: IEC 61000-4-2 +/-12 kV contact, +/-14 kV air; IEC 61000-4-5 +/-2 A.
+//   Figure 14/15: package outline and footprint (TSLP-2-19, -20-PO / -FP V01).
+// Symmetric: either pin can be the line. The holding voltage stays above the working
+// voltage, so a source within +/-5.5 V cannot hold it on after a discharge.
+part ESD101_B1_02EL {
+    category = "protection.esd";
+    manufacturer = "Infineon";
+    footprint = "footprints/Infineon_TSLP-2-20.kicad_mod";
+    source_document = "ESD101-B1-02 Series data sheet";
+    source_revision = "Revision 1.4, 2017-10-26";
+    source_location = "Tables 2-5 pp3-5; Figures 14-15 p12 (TSLP-2-20 outline and footprint)";
+    source_url = "https://www.infineon.com/assets/row/public/documents/24/49/infineon-esd101-b1-datasheet-en.pdf";
+    source_checksum = "sha256:4ae27b75c8da081bb1a06f96bd638d019db3f38581b3e6ae580cbc5254d6c580";
+    pin IO { number = "1"; domains = "rf,analog,digital"; directions = "passive"; voltage_min = -5.5V; voltage_max = 5.5V; }
+    pin RETURN { number = "2"; domains = "ground"; directions = "passive"; }
+}
