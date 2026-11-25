@@ -1,0 +1,47 @@
+// LP5907MFX-2.5/NOPB: 250 mA ultra-low-noise LDO, fixed 2.5 V, SOT-23-5 (DBV).
+// Data sheet SNVS798 revision Q (April 2012, revised July 2025), TI HTML viewer read 2026-11-25.
+//   4 Table 4-2, SOT-23: 1 IN, 2 GND, 3 EN (active high), 4 N/C, 5 OUT.
+//   5.1: VIN and VEN -0.3 V to 6 V; VOUT -0.3 V to the lesser of VIN + 0.3 V or 6 V.
+//   5.3: VIN 2.2 V to 5.5 V; IOUT 0 to 250 mA.
+//   5.5, VIN = VOUT + 1 V, IOUT = 1 mA, CIN = COUT = 1 uF: output +/-2 %; load regulation
+//     0.001 %/mA (25 mohm at 2.5 V); quiescent current 12 uA typ (25 uA max) at no load;
+//     dropout 250 mV at 250 mA (SOT-23; 50 mV at 100 mA); current limit 250 to 500 mA;
+//     PSRR at 20 mA 90 dB at 100 Hz, 82 dB at 1 kHz, 65 dB at 10 kHz, 60 dB at 100 kHz;
+//     noise 6.5 uVRMS at 250 mA and 10 uVRMS at 1 mA, 10 Hz to 100 kHz; EN low below 0.4 V,
+//     high above 1.2 V; turn-on 80 us typ (150 us max) to 95 %; 230 ohm output discharge.
+//   5.6: output capacitor 0.7 to 10 uF with 5 to 500 mohm ESR; input capacitor 0.7 uF minimum.
+// Derived: psrr_corner 500 Hz fits 90 dB at 100 Hz, 84 dB at 1 kHz (82 listed) and 64 dB at
+//   10 kHz (65 listed); a single pole then falls to 44 dB at 100 kHz where the data sheet gives
+//   60 dB, so the model is pessimistic there. voltage_noise 20 nV/rtHz is the 6.5 uVRMS
+//   spread evenly over 100 kHz (white, no 1/f corner). The output discharge is not modelled.
+// The fixed 2.5 V option is not stated in the data sheet pages read; Mouser lists
+//   LP5907MFX-2.5/NOPB (5-SOT-23, 250 mA, -40 to 125 C).
+part LP5907MFX_2V5 {
+    category = "ldo25";
+    manufacturer = "Texas Instruments";
+    footprint = "Package_TO_SOT_SMD:SOT-23-5";
+    source_document = "LP5907 250mA, Low-Noise, Low-IQ LDO";
+    source_revision = "SNVS798Q";
+    source_location = "4 Table 4-2 pins; 5.1 ratings; 5.3 operating conditions; 5.5 electrical characteristics; 5.6 capacitors";
+    source_url = "https://www.ti.com/lit/ds/symlink/lp5907.pdf";
+    pin IN { number = "1"; domains = "power"; directions = "input"; absolute_max = 6V; }
+    pin GND { number = "2"; domains = "ground"; directions = "input"; }
+    pin EN { number = "3"; domains = "digital"; directions = "input"; vih = 1.2V; vil = 0.4V; absolute_max = 6V; }
+    pin NC { number = "4"; connection = do_not_connect; }
+    pin OUT { number = "5"; domains = "power"; directions = "output"; }
+
+    sim regulator {
+        in = IN; out = OUT; gnd = GND; en = EN;
+        unmodelled = NC;
+        output_voltage = 2.5V;           // fixed option, 5.5 (+/-2 %)
+        dropout = 250mV;                 // 5.5, at 250 mA (50 mV at 100 mA)
+        output_resistance = 25mohm;      // 5.5, load regulation 0.001 %/mA of 2.5 V
+        psrr = 90dB;                     // 5.5, 100 Hz
+        psrr_corner = 500Hz;             // derived, see above
+        output_current_limit = 250mA;    // 5.5, minimum of the 250 to 500 mA limit
+        quiescent_current = 12uA;        // 5.5, typical at no load
+        enable_threshold = 1.2V;         // 5.5, EN high
+        soft_start = 80us;               // 5.5, turn-on time typical
+        voltage_noise = 20nV/rtHz;       // derived, see above
+    }
+}
