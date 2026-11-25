@@ -1,0 +1,65 @@
+// OPA859: 1.8 GHz unity-gain-bandwidth FET-input amplifier, 8-pin WSON (DSG, 2 x 2 mm).
+// Data sheet SBOS852A (September 2018, revised May 2025), HTML viewer read 2026-11-25.
+//   5 Table 5-1: 1 FB (internally the output), 2 NC (do not connect), 3 IN-, 4 IN+,
+//     5 VS-, 6 OUT, 7 VS+, 8 PD (low = power off, high = normal); thermal pad to VS-.
+//   6.1: VS 5.5 V maximum; input and output voltage (VS-) - 0.5 V to (VS+) + 0.5 V;
+//     input current +/-10 mA continuous; output current +/-100 mA continuous.
+//   6.3: VS 3.3 V minimum, 5 V nominal, 5.25 V maximum.
+//   6.5, VS = 5 V (0 V to 5 V), unity gain, RL = 200 ohm, 25 C: small-signal bandwidth
+//     1.8 GHz (100 mVpp); gain-bandwidth product 900 MHz; slew rate 1150 V/us (2 V step);
+//     voltage noise 3.3 nV/rtHz at 1 MHz; open-loop gain 65 dB typ (60 dB min); offset
+//     +/-0.9 mV typ (5 mV max); bias current +/-0.5 pA typ (5 pA max); CMRR 84 dB typ;
+//     PSRR+ 74 dB, PSRR- 72 dB typ; input capacitance 0.62 pF common-mode and 0.2 pF
+//     differential; input resistance 1 Gohm; quiescent current 20.5 mA typ (24 mA max);
+//     common-mode input range: high 3.6 V typ (3.4 V min) and low 0.4 V typ, both from
+//     VS-; output high 3.95 V and low 1.1 V typ from VS- (RL = 200 ohm); linear output
+//     drive 76 mA typ; short-circuit current 105 mA typ; PD off below 0.65 V, on above
+//     1.5 V from VS-.
+//   8.3.3: about 63 degrees of phase margin as a unity-gain buffer.
+// Derived: second_pole 1.8 GHz puts 63 degrees of phase margin at the 900 MHz gain
+//   crossover (-90 - atan(900 / 1800) = -116.6 degrees), the data sheet's follower figure;
+//   the 1.8 GHz closed-loop bandwidth at G = 1 then follows from the loop. No open-loop
+//   output resistance is given (only 0.15 ohm closed loop at 1 MHz), so the transient
+//   current limit is left out. The 1/f corner of the voltage noise and the current noise
+//   are not in the text read, so they are not modelled. No vendor model is registered.
+// Common-mode range at a +/-2.5 V supply: VS- + 0.4 V to VS- + 3.4 V (3.6 V typ), i.e.
+//   -2.1 V to +0.9 V guaranteed (+1.1 V typical).
+// Footprint: KiCad Package_SON:Texas_DSG0008A_WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm.
+part OPA859IDSGR {
+    category = "amplifier.opamp";
+    manufacturer = "Texas Instruments";
+    footprint = "Package_SON:Texas_DSG0008A_WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm";
+    source_document = "OPA859 1.8GHz Unity-Gain Bandwidth, 3.3nV/rtHz, FET Input Amplifier";
+    source_revision = "SBOS852A";
+    source_location = "5 Table 5-1 pins; 6.1 ratings; 6.3 operating conditions; 6.5 electrical characteristics; 8.3.1-8.3.3 input protection, feedback pin, phase margin; 8.4.1 supplies";
+    source_url = "https://www.ti.com/lit/ds/symlink/opa859.pdf";
+
+    pin FB { number = "1"; domains = "analog"; directions = "output"; }
+    pin NC { number = "2"; connection = do_not_connect; }
+    pin INN { number = "3"; domains = "analog"; directions = "input"; absolute_min = "VN-0.5V"; absolute_max = "VP+0.5V"; current_max = 10mA; }
+    pin INP { number = "4"; domains = "analog"; directions = "input"; absolute_min = "VN-0.5V"; absolute_max = "VP+0.5V"; current_max = 10mA; }
+    pin VN { number = "5"; domains = "power"; directions = "input"; absolute_min = "VP-5.5V"; }
+    pin OUT { number = "6"; domains = "analog"; directions = "output"; current_max = 100mA; }
+    pin VP { number = "7"; domains = "power"; directions = "input"; absolute_max = "VN+5.5V"; }
+    pin PD { number = "8"; domains = "digital"; directions = "input"; }
+    pin EP { number = "9"; domains = "ground"; directions = "passive"; }
+
+    sim opamp {
+        inp = INP; inn = INN; out = OUT; vp = VP; vn = VN;
+        unmodelled = FB, NC, PD, EP;
+        gbw = 900MHz;                          // 6.5
+        second_pole = 1.8GHz;                  // derived from 8.3.3, see above
+        open_loop_gain = 65dB;                 // 6.5, typical
+        cmrr = 84dB;                           // 6.5, typical
+        psrr = 72dB;                           // 6.5, PSRR- (the lower)
+        input_capacitance_common = 0.62pF;     // 6.5
+        input_capacitance_differential = 0.2pF;
+        input_resistance_common = 1Gohm;       // 6.5
+        input_bias_current = 0.5pA;            // 6.5, typical
+        input_offset_voltage = 0.9mV;          // 6.5, typical
+        voltage_noise = 3.3nV/rtHz;            // 6.5, 1 MHz
+        slew_rate = 1150V/us;                  // 6.5
+        output_swing_from_rail = 1.1V;         // 6.5, VOL typical at 5 V (VOH is 1.05 V from VS+)
+        quiescent_current = 20.5mA;            // 6.5, typical at 5 V
+    }
+}
