@@ -10,4 +10,6 @@ Migrated from CopperProbeParts 0.1.6-candidate (`96dbd68`) with the definitions,
 
 The RGT0016A land in `footprints/` is authored from TI SLOS375B PDF pp60-61 (drawing 4219032/A); KiCad 10 has no RGT0016A footprint, so the reference now points at this copy instead of `Package_DFN_QFN:`.
 
+Simulation: `models/ths4541_behavioural.lib` is a behavioural SPICE macro model written for CopperLib from SLOS375B (not TI's TINA model), run through `sim spice`: 119 dB open-loop gain, 850 MHz gain-bandwidth, a 3 GHz second pole derived from Table 7-2, slew, rail swing, Vocm loop, input impedance and white voltage and current noise. Against 6.5 it is narrower and more peaked at low gain; the comparison is in `part.copper`.
+
 No production qualification is claimed. Prototype source facts only; land patterns, assembly, electrical and thermal qualification remain open as recorded in the contracts.

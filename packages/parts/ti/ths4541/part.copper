@@ -25,4 +25,30 @@ part THS4541IRGTR {
     pin VN_15 { number = "15"; domains = "power"; directions = "input";  }
     pin VN_16 { number = "16"; domains = "power"; directions = "input";  }
     pin EP { number = "17"; domains = "ground"; directions = "passive";  }
+
+    // Simulation model: a behavioural macro model written for CopperLib
+    // (models/ths4541_behavioural.lib, its figures and their sources in the
+    // file's header), not TI's TINA model. SLOS375B gives the open loop only
+    // as 119 dB with a dominant pole near 900 Hz and an 850 MHz single-pole
+    // projection (8.3.1); the second pole (3 GHz) is derived from Table 7-2's
+    // loop analysis: with the 0.85 pF input capacitance against RF || RG, its
+    // phase margins (59, 41 and 18 deg at 302, 380 and 457 MHz) leave 4 to
+    // 12 deg of further lag, a pole between 2.2 and 4.3 GHz. Checked
+    // (25 November 2026) in the 6.5 test circuit, RF = 402 ohm, RL = 499 ohm,
+    // Vocm open, +/-2.5 V, driven differentially with RG set for Table 7-1's
+    // noise gains 1.94, 2.85, 5.09 and 7.44 (G = 1, 2, 5, 10): -3 dB at
+    // 479, 400, 245 and 152 MHz against 6.5's 620, 500, 210 and 125 MHz;
+    // peaking 4.0 and 1.6 dB at G = 1 and 2, and an 18 % overshoot to a
+    // 100 mV step at G = 2 against 6.5's 10 %: the model is more peaked and
+    // narrower at low gain than the measured part. Output noise at G = 2 from
+    // the model alone 6.36 nV/rtHz differential, the hand figure from the
+    // 2.2 nV/rtHz and 1.9 pA/rtHz densities. PD (always on), the Vs+ and Vs-
+    // pins beside the first of each, and EP (isolated) are not modelled.
+    sim spice {
+        file = "models/ths4541_behavioural.lib";
+        subckt = "THS4541_BEHAVIOURAL";
+        dialect = pspice;
+        terminals = FBM, INP, INM, FBP, VP_5, VOCM, OUTP, OUTM, VN_13;
+        unmodelled = VP_6, VP_7, VP_8, PD, VN_14, VN_15, VN_16, EP;
+    }
 }

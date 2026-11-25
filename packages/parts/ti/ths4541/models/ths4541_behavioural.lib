@@ -1,0 +1,82 @@
+* THS4541 fully differential amplifier: a behavioural macro model written for
+* CopperLib in the PSpice dialect (VALUE, LIMIT, IF, I() probes,
+* R_NOISELESS). It is not TI's model. Figures from the THS4541 data sheet
+* SLOS375B (August 2014, revised February 2024),
+* https://www.ti.com/lit/ds/symlink/ths4541.pdf,
+* sha256 89116b7887557237335675481ed80c5f3570b4d920d0b882393a877fb1796765
+* (the part's source_checksum), typical values at 5 V, 25 C, section 6.5:
+*   open-loop gain     119 dB (1 mS into 891 kohm)
+*   gain-bandwidth     850 MHz, dominant pole about 900 Hz (8.3.1, p. 35)
+*   second pole        FP2, fitted to the -3 dB bandwidths of 6.5 at
+*                      G = 1, 2, 5 and 10 (RF = 402 ohm) and the 10 %
+*                      overshoot at G = 2; see the part file
+*   slew rate          1500 V/us, differential (the input stage limited)
+*   voltage noise      2.2 nV/rtHz differential, white (a 292 ohm thermal
+*                      resistor in IN+); its 100 kHz 1/f corner is not modelled
+*   current noise      1.9 pA/rtHz on each input, white (a 4.59 kohm thermal
+*                      resistor bootstrapped to its input, so it carries no
+*                      signal current); its 1 MHz 1/f corner is not modelled
+*   input              110 kohm || 0.85 pF differential; 10 uA bias current
+*                      out of each input (PNP inputs); common-mode range and
+*                      CMRR not modelled
+*   output             0.2 V from either rail (RL = 499 ohm); 1.5 ohm per
+*                      output, fitted to the 0.1 ohm closed-loop output
+*                      impedance at 10 MHz, G = 2; no current limit (8.3.1:
+*                      the part has none)
+*   common mode        Vocm sets the output average with gain 1 (0.982 in
+*                      6.5) through a 150 MHz pole (Vocm small-signal
+*                      bandwidth); 100 kohm to each rail and 1.2 pF set the
+*                      open-pin default to mid-supply (8.3.1; 6.5 gives
+*                      47 kohm || 1.2 pF)
+*   supply current     10.1 mA quiescent plus the output currents from the
+*                      rail that sources them; PSRR not modelled
+* FB+ and FB- are joined to OUT+ and OUT- inside (8.3.1: the RGT package's
+* feedback outputs). PD is not modelled: the part is always on.
+* Pins: FB-, IN+, IN-, FB+, Vs+, Vocm, OUT+, OUT-, Vs-.
+.SUBCKT THS4541_BEHAVIOURAL FBM INP INM FBP VP VOCM OUTP OUTM VN
+.PARAM GM=1M A0=891K GBW=850MEG FP2=3G SR=1500E6 RSW=0.2 RO=1.5 IQ=10.1M IB=10U
+.PARAM CP={GM/(2*PI*GBW)} IMAX={SR*CP}
+* Inputs: voltage noise, bootstrapped current noise, differential impedance, bias.
+R_EN INP N_INP 292
+R_INP INP N_BTP 4.59K
+E_BTP N_BTP 0 INP 0 1
+R_INM INM N_BTM 4.59K
+E_BTM N_BTM 0 INM 0 1
+R_DIFF N_INP INM R_NOISELESS 110K
+C_DIFF N_INP INM 0.85P
+I_BP VN INP {IB}
+I_BM VN INM {IB}
+* Differential stage: slew-limited transconductance into the dominant pole,
+* then the second pole.
+G_IN 0 N_P VALUE={LIMIT(GM*V(N_INP,INM), -IMAX, IMAX)}
+R_P N_P 0 R_NOISELESS {A0/GM}
+C_P N_P 0 {CP}
+E_P2 N_P2A 0 N_P 0 1
+R_P2 N_P2A N_P2 R_NOISELESS 1K
+C_P2 N_P2 0 {1/(2*PI*1K*FP2)}
+* Common mode: the Vocm pin's default divider and the common-mode loop's pole.
+R_CMT VP VOCM 100K
+R_CMB VOCM VN 100K
+C_VOCM VOCM 0 1.2P
+E_CMA N_CMA 0 VOCM 0 1
+R_CM N_CMA N_CM R_NOISELESS 1K
+C_CM N_CM 0 {1/(2*PI*1K*150MEG)}
+* Outputs: the common mode plus and minus half the differential, within the
+* swing limits, through the output resistance and a current sense each.
+E_OP N_OP 0 VALUE={LIMIT(V(N_CM)+V(N_P2)/2, V(VN)+RSW, V(VP)-RSW)}
+E_OM N_OM 0 VALUE={LIMIT(V(N_CM)-V(N_P2)/2, V(VN)+RSW, V(VP)-RSW)}
+R_OP N_OP N_SP R_NOISELESS {RO}
+V_SP N_SP OUTP 0
+R_OM N_OM N_SM R_NOISELESS {RO}
+V_SM N_SM OUTM 0
+R_FBP OUTP FBP R_NOISELESS 0.01
+R_FBM OUTM FBM R_NOISELESS 0.01
+* Supply currents: the quiescent current and each output's current from the
+* rail that sources it.
+G_Q VP VN VALUE={IQ}
+G_SRCP VP 0 VALUE={IF(I(V_SP) > 0, I(V_SP), 0)}
+G_SNKP 0 VN VALUE={IF(I(V_SP) < 0, -I(V_SP), 0)}
+G_SRCM VP 0 VALUE={IF(I(V_SM) > 0, I(V_SM), 0)}
+G_SNKM 0 VN VALUE={IF(I(V_SM) < 0, -I(V_SM), 0)}
+.MODEL R_NOISELESS RES (T_ABS=-273.15)
+.ENDS THS4541_BEHAVIOURAL
