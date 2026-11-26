@@ -1,0 +1,46 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "vishay.bzt52c6v2-e3-08",
+  "kind": "power",
+  "production_publishable": false,
+  "requirements": [
+    {
+      "id": "component-ratings",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review exact package, operating and absolute limits, voltage/current polarity and temperature."
+    },
+    {
+      "id": "layout-review",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review exact land patterns, all power/thermal contacts, gate loops and manufacturer layout."
+    },
+    {
+      "id": "current-capacity",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review actual peak/RMS current, copper, contacts, dissipation and fault-energy/SOA."
+    },
+    {
+      "id": "transient",
+      "stage": "simulation",
+      "algorithm": "external",
+      "description": "Validate startup, prebias, reverse input, disconnect and faults with actual parasitics; model gaps remain open."
+    },
+    {
+      "id": "prototype-power",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "Measure electrical/thermal behavior and failure response over actual operating extremes before release."
+    }
+  ],
+  "notes": "Cathode terminal2, anode1. VZ5.89..6.51V at5mA/25C, leakage100nA test voltage>2V, 300mW on stated FR4 footprint. A microamp charge-pump application requires leakage and hot/cold clamp review; transient clamp peak is not proven by nominal VZ. Verify actual VGS including layout inductance.",
+  "sources": [
+    {
+      "url": "https://www.vishay.com/docs/86342/bzt52_series.pdf",
+      "locator": "86342 Rev1.0 22-Dec-2022 pp1-2,5",
+      "sha256": "2db768d5a9fbccdca554c738052912127ecc9a128922fb44c956a7a37e1c1b72"
+    }
+  ]
+}

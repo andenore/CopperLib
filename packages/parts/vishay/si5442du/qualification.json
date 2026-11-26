@@ -1,0 +1,46 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "vishay.si5442du-t1-ge3",
+  "kind": "power",
+  "production_publishable": false,
+  "requirements": [
+    {
+      "id": "component-ratings",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review exact package, operating and absolute limits, voltage/current polarity and temperature."
+    },
+    {
+      "id": "layout-review",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review exact land patterns, all power/thermal contacts, gate loops and manufacturer layout."
+    },
+    {
+      "id": "current-capacity",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review actual peak/RMS current, copper, contacts, dissipation and fault-energy/SOA."
+    },
+    {
+      "id": "transient",
+      "stage": "simulation",
+      "algorithm": "external",
+      "description": "Validate startup, prebias, reverse input, disconnect and faults with actual parasitics; model gaps remain open."
+    },
+    {
+      "id": "prototype-power",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "Measure electrical/thermal behavior and failure response over actual operating extremes before release."
+    }
+  ],
+  "notes": "20V VDS, +/-8V VGS. 13.5mOhm maximum at1.8V is specified at25C/4A with <=300us/2% pulse test; this is not a guaranteed 9A continuous result. Evaluate actual hot pulse resistance, gate drive, SOA and thermal copper. Package current headline and transient thermal rating do not establish board current capacity. All source/drain lands need external copper; no internal-pad exemptions.",
+  "sources": [
+    {
+      "url": "https://www.vishay.com/docs/63233/si5442du.pdf",
+      "locator": "63233 RevB14-Oct-2013 pp1-2, appended73203 RevE21-Jul-2014, AN826/69948 p9",
+      "sha256": "0a584d751cfca649739d90ada02633e4dae9b466996d64dfc5699e9b60bcfdc3"
+    }
+  ]
+}

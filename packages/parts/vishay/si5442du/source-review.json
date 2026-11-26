@@ -1,0 +1,11 @@
+{
+  "sources": [
+    {
+      "url": "https://www.vishay.com/docs/63233/si5442du.pdf",
+      "locator": "63233 RevB14-Oct-2013 pp1-2, appended73203 RevE21-Jul-2014, AN826/69948 p9",
+      "sha256": "0a584d751cfca649739d90ada02633e4dae9b466996d64dfc5699e9b60bcfdc3"
+    }
+  ],
+  "footprint_review": "Manufacturer drawing rendered and visually checked; custom geometry follows cited land dimensions. Assembly stencil process remains consumer review.",
+  "notes": "20V VDS, +/-8V VGS. 13.5mOhm maximum at1.8V is specified at25C/4A with <=300us/2% pulse test; this is not a guaranteed 9A continuous result. Evaluate actual hot pulse resistance, gate drive, SOA and thermal copper. Package current headline and transient thermal rating do not establish board current capacity. All source/drain lands need external copper; no internal-pad exemptions."
+}

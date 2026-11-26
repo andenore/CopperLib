@@ -1,0 +1,49 @@
+{
+  "schema": "copperlib-local-physical-acceptance/v0.1",
+  "date": "2026-11-24",
+  "production_publishable": false,
+  "production_qualified": false,
+  "scope": "Fresh source-bound combined camera/CC isolated fixture; staged layout bytes unchanged. Full consumer qualification remains open.",
+  "layout_sha256": "8e75e372653734e0ce9743308ff735d85b355ae6dc795c00c72c8d154c870ff3",
+  "run_manifest_path": "CopperAssetTracker/lightgun/build/remaining-bypass-fixtures/build/native/20261124T164119Z-53608/run.json",
+  "run_manifest_sha256": "fcd89bf182e97d82904b6b3b57eb4dec5502fda063bd83a1d2d860296d142255",
+  "route_report_sha256": "6efdaa3034de92bf572da4659ffa52012a730c3a91488e48c8a7eb769f768321",
+  "native_drc_sha256": "827376ffd2dd3eb58ea49627c2743cabbd15e40c8b5600e7a8a6e3671eb7f662",
+  "compiler_sha256": "116e1d8814e0946b36c73c0548728a5ea55ca7bee1c86e36286761c81b0ad88c",
+  "input_binding": {
+    "status": "source-bound",
+    "manifest_schema": "copperscript-build/v1",
+    "macro_input": "macros/tusb320lai.copper",
+    "macro_sha256": "8e75e372653734e0ce9743308ff735d85b355ae6dc795c00c72c8d154c870ff3",
+    "fixture_sha256": "de312a764c6a11a1d4a87d79d6c5a8407ca1b0a99398ebf1283240613006fb16",
+    "fixture_lock_sha256": "1cb51f17c17a8b326b9900574e0242e5424f5720d4d017d28b86eb9f6c6aed43",
+    "note": "run.json captures source, lock, exact footprint and macro hashes; staged macro matches its captured input. Publication/import and full-board integration need fresh consumer validation."
+  },
+  "acceptance": {
+    "build_exit_code": 0,
+    "require_verified_intent": true,
+    "native_filled_drc": "pass",
+    "native_unconnected": 0,
+    "native_violations": 0,
+    "routed_ordinary_nets": 6,
+    "unrouted_ordinary_nets": 0,
+    "requirements_pass": 7,
+    "fixture_bypass_surface_connected": 2,
+    "fixture_bypass_total": 2,
+    "native_reconciled_explicit_findings": 2
+  },
+  "geometry": {
+    "consumer_max_positive_pad_distance_mm": 2,
+    "positive_pad_distance_mm": 1.505,
+    "chip_cap_additional_courtyard_gap_mm": 0.5,
+    "via_size_mm": 0.6,
+    "via_drill_mm": 0.3
+  },
+  "limitations": [
+    "Host owns CC/control escapes, IC ground, VBUS detection/protection, complete local return, operating mode and USB behavior. Controller supply lead is not a USB load path. Exact bypass/layout page capture and PDF hash remain open.",
+    "Fixture acceptance does not test every allowed rotation or the complete consumer.",
+    "Native DRC excludes courtyards, silkscreen, solder-mask bridges, library/schematic parity, length/skew/differential rules and footprint-forbidding keepouts. Placement and source contract checks are separate.",
+    "Two raw explicit-ground observations are reconciled by native fills; final native board has no opens or violations.",
+    "Current, thermal, assembly, supply integrity and EMI qualification remain open."
+  ]
+}

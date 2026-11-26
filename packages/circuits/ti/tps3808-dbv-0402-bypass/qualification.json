@@ -1,0 +1,41 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "ti.tps3808-dbv-0402-bypass",
+  "kind": "power",
+  "production_publishable": false,
+  "production_qualified": false,
+  "sources": [
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/tps3808.pdf",
+      "revision": "SBVS050N",
+      "locator": "DBV pin6 VDD and local bypass guidance",
+      "sha256": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "exact-binding",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Bind TPS3808G33DBVR and suitable 0402 bypass; preserve exact managed footprints, capacitor decoupling role and consumer positive-pad bound. Confirm capacitance, voltage rating and effective capacitance for actual rail."
+    },
+    {
+      "id": "host-ground-loop",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Host owns IC ground pin 2, signals and complete local return loop. Connect IC ground locally to continuous ground planes; macro owns only capacitor ground lead/via."
+    },
+    {
+      "id": "host-copper",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Require full consumer native filled-board DRC, surface bypass verification, plane connectivity and assembly review. Do not route other load or switch current through this local bypass branch."
+    },
+    {
+      "id": "qualification",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "SENSE/MR/CT/reset wiring and startup qualification; source PDF binary capture/hash and assembly review remain open."
+    }
+  ]
+}

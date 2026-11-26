@@ -1,0 +1,43 @@
+{
+  "schema": "copperlib-local-physical-acceptance/v0.1",
+  "date": "2026-11-24",
+  "production_publishable": false,
+  "production_qualified": false,
+  "scope": "Retained isolated fixture result; current macro bytes match probe and staged copies. Not fresh full-board validation.",
+  "layout_sha256": "a46a4f91e07a8e4664c1f351a63efc2b670c8126b910fc65ffb1884f38c8cf27",
+  "fixture_path": "CopperAssetTracker/lightgun/build/recoil-bypass-sot5-trial/board.copper",
+  "current_fixture_sha256": "f62952c2c9d8d1802ea02483001225f1d522a4ec4f2237c855733070a41d4762",
+  "route_report_path": "CopperAssetTracker/lightgun/build/recoil-bypass-sot5-trial/route.json",
+  "route_report_sha256": "65c01b5bb94569e4ab11c21be6e87d268e901c59b2dc6e9a4ab93ed79d4d4c96",
+  "native_summary_sha256": "410207f0a861d58a9f17e016a6f237829838561907a0c4c3988a79060c6f8334",
+  "current_compiler_sha256": "116e1d8814e0946b36c73c0548728a5ea55ca7bee1c86e36286761c81b0ad88c",
+  "report_semantic_source_digest": "28143e2edbc87b95fce6de849550b748ed677b2748340a71306ffb0b26af9fd0",
+  "input_binding": {
+    "status": "partial",
+    "fixture_probe_stage_macro_bytes": "identical",
+    "limitation": "Retained route-board report records semantic source_digest and source asset paths but has no build/run.json manifest capturing every input byte. Current file hashes do not independently reconstruct that historical execution. Require a source-bound consumer build before current integration acceptance."
+  },
+  "retained_acceptance": {
+    "native_filled_drc": "pass",
+    "native_unconnected": 0,
+    "native_violations": 0,
+    "unrouted_ordinary_nets": 0,
+    "requirements_pass": 10,
+    "bypass_surface_connected": 3,
+    "bypass_total": 3,
+    "native_reconciled_explicit_findings": 2
+  },
+  "geometry": {
+    "consumer_max_positive_pad_distance_mm": 2,
+    "positive_pad_distance_mm": 1.8825,
+    "chip_cap_courtyard_gap_mm": 0.54,
+    "via_size_mm": 0.6,
+    "via_drill_mm": 0.3
+  },
+  "limitations": [
+    "IC ground and signals are host-owned; whole-board routing and plane continuity remain open.",
+    "Fixture evidence does not qualify all permitted rotations in every consumer.",
+    "Source-capture and part-package qualification gaps remain as stated in layout.copper and qualification.json.",
+    "Host logic signals and unused pins, supply integrity, complete return path and EMI qualification remain open."
+  ]
+}

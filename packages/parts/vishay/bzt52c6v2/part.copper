@@ -1,0 +1,12 @@
+// Vishay's terminal convention is 1=A, 2=K (opposite generic KiCad diode).
+part BZT52C6V2_E3_08 {
+    manufacturer = "Vishay Semiconductors";
+    // Exact MPN = "BZT52C6V2-E3-08";
+    footprint = "footprints/BZT52_SOD123_Vishay.kicad_mod";
+    source_url = "https://www.vishay.com/docs/86342/bzt52_series.pdf";
+    source_location = "86342 Rev1.0 22-Dec-2022 p1 polarity/order code, p2 C6V2, p5 recommended pads";
+    source_checksum = "sha256:2db768d5a9fbccdca554c738052912127ecc9a128922fb44c956a7a37e1c1b72";
+    pin A { number = "1"; domains = "analog,power"; directions = "passive"; }
+    pin K { number = "2"; domains = "analog,power"; directions = "passive"; }
+}
+

@@ -1,0 +1,18 @@
+// Authored local bypass adaptation. Host owns IC ground and signal wiring.
+macro LVC1G11_0402_BYPASS {
+ source = { datasheet_url="https://www.ti.com/lit/ds/symlink/sn74lvc1g11.pdf"; datasheet_locator="SCES487J p13 bypass/layout; DBV0006A"; datasheet_sha256="05464c6cc1df6867150f87b4ce274f41f34e1f7135fc81174f5b9cef70e3d561"; adaptation="Authored local bypass branch; host routes IC ground and all signals."; };
+ unresolved=["Host IC ground return and filled plane continuity", "host signal routing, supply integrity and EMI qualification"];
+ anchor=U; required_layers=["F.Cu","In1.Cu","In2.Cu","B.Cu"]; allowed_rotations=[0 deg,90 deg,180 deg,270 deg]; internal_clearance=0.15mm;
+ net SUPPLY; net GROUND;
+ member U { footprint="github.com/KiCad/kicad-footprints/Package_TO_SOT_SMD.pretty/SOT-23-6.kicad_mod"; at=(0mm,0mm); rotation=0deg; }
+ member C { footprint="github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod"; at=(3.5mm,0mm); rotation=0deg; }
+ pad U."5"=SUPPLY; pad C."1"=SUPPLY; pad C."2"=GROUND;
+ track bypass_supply { net=SUPPLY; layer="F.Cu"; width=0.25mm; points=[U."5",C."1"]; }
+ track bypass_ground { net=GROUND; layer="F.Cu"; width=0.25mm; points=[C."2",(4.8mm,0mm)]; }
+ width_contract local_supply_branch { track=bypass_supply; minimum_width=0.25mm; purpose="control_supply"; evidence="Only chip-local bypass lead; host supply distribution attaches at capacitor port. TI SCES487J p13 bypass/layout. This scoped branch is not a rail distribution-width change."; }
+ width_contract local_bypass_return { track=bypass_ground; minimum_width=0.25mm; purpose="control_supply"; evidence="Only local bypass-capacitor current reaches its adjacent plane via; no host load-return distribution through this branch."; }
+ via bypass_return { net=GROUND; at=(4.8mm,0mm); size=0.6mm; drill=0.3mm; from_layer="F.Cu"; to_layer="B.Cu"; technology=none; }
+ port SUPPLY { net=SUPPLY; layer="F.Cu"; point=C."1"; pads=[U."5",C."1"]; }
+ plane_return bypass_plane { net=GROUND; layers=["In1.Cu","In2.Cu"]; pads=[C."2"]; contact capacitor { pad=C."2"; at=(4.8mm,0mm); } }
+}
+

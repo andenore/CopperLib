@@ -1,0 +1,17 @@
+// Current TPS3700DDCR library binding uses this exact SOT23-6 footprint.
+macro TPS3700_DDC_0402_BYPASS {
+ source={url="https://www.ti.com/lit/ds/symlink/tps3700.pdf";locator="DDC pin5 VDD and local bypass guidance";geometry_status="Authored from current managed SOT23-6 footprint binding; exact DDC assembly and source qualification remain open.";};
+ unresolved=["Host IC ground and complete bypass loop", "Analog divider placement, threshold/noise and fault behavior", "Source revision/hash and exact DDC assembly review"];
+ anchor=U; required_layers=["F.Cu","In1.Cu","In2.Cu","B.Cu"]; allowed_rotations=[0deg,90deg,180deg,270deg]; internal_clearance=0.15mm;
+ net SUPPLY;net GROUND;
+ member U {footprint="github.com/KiCad/kicad-footprints/Package_TO_SOT_SMD.pretty/SOT-23-6.kicad_mod";at=(0mm,0mm);rotation=0deg;}
+ member C {footprint="github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod";at=(3.5mm,0mm);rotation=0deg;}
+ pad U."5"=SUPPLY;pad C."1"=SUPPLY;pad C."2"=GROUND;
+ track bypass_supply {net=SUPPLY;layer="F.Cu";width=0.25mm;points=[U."5",C."1"];}
+ track bypass_ground {net=GROUND;layer="F.Cu";width=0.25mm;points=[C."2",(4.8mm,0mm)];}
+ width_contract local_supply_branch {track=bypass_supply;minimum_width=0.25mm;purpose="control_supply";evidence="Chip-local bypass branch only; host distribution attaches at capacitor port. Not a reduction of host rail width.";}
+ width_contract local_return_branch {track=bypass_ground;minimum_width=0.25mm;purpose="control_supply";evidence="Local bypass capacitor current only into adjacent ground via; host IC ground and load returns remain separate obligations.";}
+ via bypass_return {net=GROUND;at=(4.8mm,0mm);size=0.6mm;drill=0.3mm;from_layer="F.Cu";to_layer="B.Cu";technology=none;}
+ port SUPPLY {net=SUPPLY;layer="F.Cu";point=C."1";pads=[U."5",C."1"];}
+ plane_return bypass_plane {net=GROUND;layers=["In1.Cu","In2.Cu"];pads=[C."2"];contact capacitor {pad=C."2";at=(4.8mm,0mm);}}
+}

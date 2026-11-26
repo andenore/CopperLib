@@ -1,0 +1,47 @@
+{
+  "board_digest": "950a2ba3b3ad19b7dc8e529fe84d17b03ee1d74eb0f62d1ce774e5169f4d1ad4",
+  "decoupling": {
+    "late_completion": null,
+    "surface_connected": 0,
+    "total": 0
+  },
+  "fabrication_ready": false,
+  "issue_count": 0,
+  "issue_counts_by_stage": {},
+  "issues": [],
+  "native": {
+    "report_digest": "2d4e34e83f6a1a83e9f93981ef7ec2e165bb1d6fd10f0088d8162df42b5bf5a7",
+    "status": "pass",
+    "unconnected": 0,
+    "violations": 0
+  },
+  "native_reconciled_explicit_findings": 2,
+  "omitted_issue_count": 0,
+  "quality": {
+    "track_count": 35,
+    "track_length_nm": 56881264,
+    "via_count": 5
+  },
+  "report_path": "cache\\recoil-physical-review\\route-return.json",
+  "report_schema": "copperscript-route-board/v0.1",
+  "report_sha256": "b216f5706cc3b87b8a12c783236f28e6534cc3700c5141fb375c2d71f2345d0a",
+  "requirements": {
+    "complete": true,
+    "counts": {
+      "pass": 8
+    },
+    "status": "pass"
+  },
+  "routing": {
+    "complete": true,
+    "deferred_zone_nets": [
+      "GND"
+    ],
+    "native_fill_verified": true,
+    "routed_ordinary_net_count": 6,
+    "status": "pass",
+    "unrouted_ordinary_nets": []
+  },
+  "schema": "copperscript-engineering-summary/v0.1",
+  "scope": "projection of retained report; not fresh source/native verification or production approval"
+}

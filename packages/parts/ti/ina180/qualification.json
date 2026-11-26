@@ -1,0 +1,46 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "ti.ina180a1idbvr",
+  "kind": "power",
+  "production_publishable": false,
+  "requirements": [
+    {
+      "id": "component-ratings",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review exact package/source facts in part.copper and README, including input/output ratings and conditions."
+    },
+    {
+      "id": "layout-review",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review manufacturer reference, footprints, critical copper, returns, current capacity and thermal implementation."
+    },
+    {
+      "id": "transient",
+      "stage": "simulation",
+      "algorithm": "external",
+      "description": "Validate startup, switching, short circuit and interrupted load with actual parasitics; unsupported models remain open."
+    },
+    {
+      "id": "prototype-power",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "Measure waveform, temperature and fault response across operating extremes before release."
+    },
+    {
+      "id": "current-capacity",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review peak/RMS current, dissipation, contact and copper temperature rise, SOA and fault-energy capacity in the actual consumer circuit."
+    }
+  ],
+  "notes": "Pinout A, gain20 only. Kelvin sense, offset/gain/bias/headroom/filter stability and protection latency require consumer evidence.",
+  "sources": [
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/ina180.pdf",
+      "locator": "SBOS741H July 2022, p4 pinout A; pp7-8 ratings/gain",
+      "sha256": "d48a0e37dbd3afcfe053f740ba2ba30e94a05fa22cab2cbc5873651ac39bf1e6"
+    }
+  ]
+}

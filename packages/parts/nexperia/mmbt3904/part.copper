@@ -1,0 +1,11 @@
+// Exact package pin map; application qualification remains consumer-owned.
+part MMBT3904 {
+    manufacturer = "Nexperia";
+    footprint = "Package_TO_SOT_SMD:SOT-23";
+    source_url = "https://assets.nexperia.com/documents/data-sheet/MMBT3904.pdf";
+    source_location = "8 April 2026, p1 pinning; pp2-3 limits/characteristics";
+    pin B { number = "1"; domains = "analog"; directions = "input"; }
+    pin E { number = "2"; domains = "ground,analog"; directions = "passive"; }
+    pin C { number = "3"; domains = "analog,digital"; directions = "passive"; }
+}
+

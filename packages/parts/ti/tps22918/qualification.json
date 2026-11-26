@@ -1,0 +1,14 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "ti.tps22918",
+  "kind": "power",
+  "sources": [{"url": "https://www.ti.com/lit/ds/symlink/tps22918.pdf", "revision": "SLVSD76C Rev C", "locator": "sections 5, 6.3, 8.3, 10-11; Figure 32", "sha256": "1b28eb58003d28b18bf919a15734056f296a499bebee2bd493a1e4358c4dfb1c"}],
+  "requirements": [
+    {"id": "component-ratings", "stage": "design", "algorithm": "external", "description": "Review input/output/control voltages, capacitor effective values, CT/QOD selection, reverse current and thermal limits."},
+    {"id": "current-capacity", "stage": "design", "algorithm": "external", "description": "Review operating/inrush current and actual power/ground conductor capacity."},
+    {"id": "layout-review", "stage": "design", "algorithm": "external", "description": "Compare managed footprint land pattern and local bypass/power paths with DBV package and Figure 32."},
+    {"id": "transient", "stage": "simulation", "algorithm": "external", "description": "Check inrush and discharge with actual supply impedance and load capacitance."},
+    {"id": "prototype-power", "stage": "bench", "algorithm": "external", "description": "Measure switched rail rise/fall, reset/off behavior, parasitic powering through signals and temperature."}
+  ],
+  "production_publishable": false
+}

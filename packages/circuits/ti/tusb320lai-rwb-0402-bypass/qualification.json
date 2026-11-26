@@ -1,0 +1,47 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "ti.tusb320lai-rwb-0402-bypass",
+  "kind": "power",
+  "production_publishable": false,
+  "production_qualified": false,
+  "sources": [
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/tusb320lai.pdf",
+      "revision": "SLLSEQ8D Rev D",
+      "locator": "RWB pin12 VDD; exact bypass/layout page capture remains open",
+      "sha256": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "exact-binding",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Bind TUSB320LAI and the exact managed capacitor footprint. Preserve decoupling role/target VDD, selected capacitance and consumer positive-pad distance bound. Confirm effective capacitance, voltage rating and real part land pattern."
+    },
+    {
+      "id": "host-ground-loop",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Host owns IC ground pin 10 and complete local return. The macro owns only capacitor return copper/via. Review host planes and connections after refill."
+    },
+    {
+      "id": "current-and-function",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Host owns CC/control escapes, IC ground, VBUS detection/protection, complete local return, operating mode and USB behavior. Controller supply lead is not a USB load path. Exact bypass/layout page capture and PDF hash remain open."
+    },
+    {
+      "id": "full-consumer",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Require native filled-board DRC, bypass/plane verification and independent assembly, courtyard, solder-mask and silkscreen review in the full consumer. Isolated fixture is not full-board acceptance."
+    },
+    {
+      "id": "bench-qualification",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "Supply integrity, startup/transient behavior, thermal performance, EMI and all application-specific behavior remain unqualified."
+    }
+  ]
+}

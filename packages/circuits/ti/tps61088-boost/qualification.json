@@ -1,0 +1,71 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "ti.tps61088-four-layer-local-control",
+  "kind": "power",
+  "production_publishable": false,
+  "sources": [
+    {
+      "url": "https://www.ti.com/lit/ug/slvuaf2/slvuaf2.pdf",
+      "revision": "SLVUAF2 June 2015",
+      "locator": "Figure 7 p7 pin map, Figures 8-11 pp9-10 layout, section 2.2 current limit",
+      "sha256": "a957c5e8842e86d83037f8da9ccfcbebce7c61cfae7981ff1f6e63f3c00bf46a"
+    },
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/bq51050b.pdf",
+      "revision": "SLUSB42F; package drawing 4219071/A May 2017",
+      "locator": "PDF pp41-42 RHL0020A land/stencil drawing only, not electrical pin map",
+      "sha256": "6caa339988c57bbf8f787cea348546b9dd9463726ace4d1a6d97bf5bb375b36b"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "datasheet-package-review",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Archive exact SLVSCM8D datasheet bytes. RHL0020A land geometry separately reviewed against 4219071/A; confirm every pad-21 contact and stencil/thermal implementation in consumer."
+    },
+    {
+      "id": "component-ratings",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review source range, mode-dependent feedback/current-limit tolerances, actual switching frequency, effective MLCC capacitance, inductor L under current, RMS, saturation and temperature."
+    },
+    {
+      "id": "current-capacity",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review minimum copper/plating, every pad neckdown and via, pack, switch, connector and harness peak/RMS capacity. A calculated resistance is not ampacity."
+    },
+    {
+      "id": "layout-review",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review filled routed copper against TI EVM boost output hot-loop, quiet feedback/compensation, local decoupling, all parallel power contacts and ground/thermal paths."
+    },
+    {
+      "id": "vin-control-branch",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "SLVUAF2 section 2.1 and Figure 7 separate VIN pin9 control supply from the inductor power input through JP1. Preserve the dedicated input_sense/vin_entry/vin branch and local 100 nF ceramic VIN bypass (SLVSCM8D pin table p3, section 9.2.2.6 p17). input_sense alone has an authored 0.2 mm control_supply width allowance; input_main remains 2 mm. Verify startup and supply ripple with the actual return and bulk bank; quiescent current is not a transient-current bound. No main-power width exception or production qualification is implied."
+    },
+    {
+      "id": "output-port-access",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "The authored 1 mm output tail and OUTPUT port end at local (1.5,6.7) mm, 0.8 mm beyond the unchanged local-support boundary at y=5.9 mm. Verify exact host access at its actual width and clearance, including native ground refill. The intended 1 mm host track with 0.15 mm clearance requires 0.65 mm center offset. This tail extension changes no chip or capacitor-bank connection, gives no foreign-copper or protected-region permission, and does not qualify current or EMI performance."
+    },
+    {
+      "id": "transient",
+      "stage": "simulation",
+      "algorithm": "external",
+      "description": "Review exact configuration and validated models for stability, source/load transients, startup, current limit, shutdown pass-through and independent load disconnection."
+    },
+    {
+      "id": "prototype-power",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "Measure minimum source voltage, full duty envelope, switch/inductor currents, output excursions, startup/shutdown, fault behavior, EMI and temperatures with actual pack and enclosure."
+    }
+  ],
+  "notes": "Authored four-layer physical adaptation for TPS61088RHLR, SRP1265A-2R2M, selected passive footprints. Electrical parts and values remain consumer-owned. Six external PGND vias replace unsupported four-layer filled-capped via-in-pad process; thermal and current qualification is open. This circuit macro is not manufacturer-extracted CAD. The lower-right protected-region boundary is stepped inward outside the output-bulk courtyard; external GND return copper remains owned and clearance-checked. Adjacent same-net pads and vias require assembly and solder-mask review."
+}

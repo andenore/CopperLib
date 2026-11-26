@@ -1,0 +1,46 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "diodes.dmp6023le-13",
+  "kind": "power",
+  "production_publishable": false,
+  "requirements": [
+    {
+      "id": "component-ratings",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review exact package/source facts in part.copper and README, including input/output ratings and conditions."
+    },
+    {
+      "id": "layout-review",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review manufacturer reference, footprints, critical copper, returns, current capacity and thermal implementation."
+    },
+    {
+      "id": "transient",
+      "stage": "simulation",
+      "algorithm": "external",
+      "description": "Validate startup, switching, short circuit and interrupted load with actual parasitics; unsupported models remain open."
+    },
+    {
+      "id": "prototype-power",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "Measure waveform, temperature and fault response across operating extremes before release."
+    },
+    {
+      "id": "current-capacity",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review peak/RMS current, dissipation, contact and copper temperature rise, SOA and fault-energy capacity in the actual consumer circuit."
+    }
+  ],
+  "notes": "60V P-FET; ±20V gate; typical gate charge is not a guaranteed turnoff limit. Review both drain pads, source orientation, land pattern, SOA and thermal copper.",
+  "sources": [
+    {
+      "url": "https://www.diodes.com/datasheet/download/DMP6023LE.pdf",
+      "locator": "DS37199 Rev3-2 January2015, p1 top-view pinout; p2 ratings",
+      "sha256": "175824e1809b9ee239012a5704fd17ae29ec274f70cb3f451245b662f1964c59"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+// Exact package pin map; application qualification remains consumer-owned.
+part INA180A1IDBVR {
+    manufacturer = "Texas Instruments";
+    footprint = "Package_TO_SOT_SMD:SOT-23-5";
+    source_url = "https://www.ti.com/lit/ds/symlink/ina180.pdf";
+    source_location = "SBOS741H July 2022, p4 pinout A; pp7-8 ratings/gain";
+    source_checksum = "sha256:d48a0e37dbd3afcfe053f740ba2ba30e94a05fa22cab2cbc5873651ac39bf1e6";
+    pin OUT { number = "1"; domains = "analog"; directions = "output"; }
+    pin GND { number = "2"; domains = "ground"; directions = "input"; }
+    pin IN_P { number = "3"; domains = "analog"; directions = "input"; }
+    pin IN_N { number = "4"; domains = "analog"; directions = "input"; }
+    pin VS { number = "5"; domains = "power"; directions = "input"; voltage_min = 2.7V; voltage_max = 5.5V; }
+}
+

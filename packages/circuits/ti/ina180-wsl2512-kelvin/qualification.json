@@ -1,0 +1,13 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "ti.ina180-wsl2512-kelvin",
+  "kind": "power",
+  "production_publishable": false,
+  "sources": [{"url": "https://www.ti.com/lit/ds/symlink/ina180.pdf", "revision": "SBOS741H July 2022", "locator": "section9.4, pp27-28", "sha256": "d48a0e37dbd3afcfe053f740ba2ba30e94a05fa22cab2cbc5873651ac39bf1e6"}],
+  "requirements": [
+    {"id": "kelvin-layout", "stage": "design", "algorithm": "external", "description": "Inspect filled copper, source-return attachments and vias; exclude load current from narrow sense branches and quantify two-terminal shunt sensing error."},
+    {"id": "current-capacity", "stage": "design", "algorithm": "external", "description": "Review conductor, pad entry, via, shunt and FET capacity for normal 2A pulses and actual hard-short peaks; width alone is not ampacity."},
+    {"id": "transient", "stage": "simulation", "algorithm": "external", "description": "Verify switching ground bounce, sense response, overcurrent latency and short-circuit SOA using bound component models and routed geometry."},
+    {"id": "prototype-power", "stage": "bench", "algorithm": "external", "description": "Calibrate current readings, test overload/fault response and measure shunt/amplifier temperature and interference under the actual load."}
+  ]
+}

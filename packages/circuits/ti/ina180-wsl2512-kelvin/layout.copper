@@ -1,0 +1,72 @@
+// Authored local geometry, not vendor CAD or production qualification.
+macro INA180_WSL2512_KELVIN {
+    source = {
+        datasheet_url = "https://www.ti.com/lit/ds/symlink/ina180.pdf";
+        datasheet_locator = "SBOS741H July 2022, Layout Guidelines: Kelvin connection to shunt, close bypass and short sense traces";
+        datasheet_sha256 = "d48a0e37dbd3afcfe053f740ba2ba30e94a05fa22cab2cbc5873651ac39bf1e6";
+        shunt_url = "https://www.vishay.com/docs/30100/wsl.pdf";
+        shunt_locator = "30100 Rev23-Nov-2023 p2: WSL2512 7m to500m land pattern";
+        shunt_sha256 = "96c2dc89ae1e3039815ed6c41f566a6e9f6b53035f8e45ea2ada1697935a44dc";
+        adaptation = "Two-terminal 50mOhm shunt, inner-top land sensing, separate outer power entries; 4.1mm shunt/amplifier center spacing clears actual courtyards";
+    };
+    unresolved = ["2A pulse ampacity and fault-current/SOA", "actual filled-plane current paths and Kelvin extraction error", "thermal, noise and prototype calibration", "two-terminal shunt is not a four-terminal resistor"];
+    anchor = R;
+    required_layers = ["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"];
+    allowed_rotations = [0 deg, 90 deg, 180 deg, 270 deg];
+    internal_clearance = 0.15 mm;
+    net HIGH; net GROUND; net SUPPLY; net OUT;
+    member R { footprint = "github.com/andenore/CopperLib/packages/parts/vishay/wsl2512/footprints/WSL2512_7m_to_500m.kicad_mod"; at = (0 mm, 0 mm); rotation = 0 deg; }
+    member U { footprint = "github.com/KiCad/kicad-footprints/Package_TO_SOT_SMD.pretty/SOT-23-5.kicad_mod"; at = (0 mm, -4.1 mm); rotation = 0 deg; }
+    member C { footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod"; at = (3.25 mm, -5.5 mm); rotation = 0 deg; }
+    pad R."1" = HIGH; pad R."2" = GROUND;
+    pad U."1" = OUT; pad U."2" = GROUND; pad U."3" = HIGH; pad U."4" = GROUND; pad U."5" = SUPPLY;
+    pad C."1" = SUPPLY; pad C."2" = GROUND;
+    track high_power { net = HIGH; layer = "F.Cu"; width = 1 mm; points = [(-4.5 mm, 0 mm), R."1"]; }
+    track ground_power { net = GROUND; layer = "F.Cu"; width = 1 mm; points = [R."2", (4.2 mm, 0 mm)]; }
+    track ground_stitch { net = GROUND; layer = "F.Cu"; width = 1 mm; points = [(4.2 mm, 0 mm), (4.2 mm, 1 mm)]; }
+    via ground_return_a { net = GROUND; at = (4.2 mm, 0 mm); size = 0.6 mm; drill = 0.3 mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+    via ground_return_b { net = GROUND; at = (4.2 mm, 1 mm); size = 0.6 mm; drill = 0.3 mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+    plane_return shunt_ground {
+        net = GROUND; layers = ["In1.Cu", "In2.Cu"]; pads = [R."2", U."2", U."4", C."2"];
+        contact power_a { pad = R."2"; at = (4.2 mm, 0 mm); }
+    }
+    track sense_positive { net = HIGH; layer = "F.Cu"; width = 0.18 mm; points = [(-2.1 mm, -1.7 mm), (-1.1375 mm, -2.2 mm), U."3"]; }
+    track sense_negative { net = GROUND; layer = "F.Cu"; width = 0.18 mm; points = [(2.1 mm, -1.7 mm), (1.1375 mm, -2.2 mm), U."4"]; }
+    track quiet_ground { net = GROUND; layer = "F.Cu"; width = 0.18 mm; points = [U."4", (0.4 mm, -4.1 mm), U."2"]; }
+    track bypass_supply { net = SUPPLY; layer = "F.Cu"; width = 0.25 mm; points = [U."5", C."1"]; }
+    track bypass_return { net = GROUND; layer = "F.Cu"; width = 0.25 mm; points = [C."2", (3.73 mm, -4.1 mm), (0.4 mm, -4.1 mm)]; }
+    track output_escape { net = OUT; layer = "F.Cu"; width = 0.25 mm; points = [U."1", (-2.7 mm, -5.05 mm)]; }
+    protected_region private_sensing {
+        layers = ["F.Cu"];
+        vertices = [(-2.35 mm, -4.45 mm), (4.1 mm, -4.45 mm), (4.1 mm, -1.5 mm), (-2.35 mm, -1.5 mm)];
+        block_tracks = true; block_vias = true; block_zones = true;
+    }
+    protected_region bypass_return_only {
+        layers = ["F.Cu"];
+        vertices = [(3.35 mm, -6 mm), (4.1 mm, -6 mm), (4.1 mm, -4.4 mm), (3.35 mm, -4.4 mm)];
+        block_tracks = true; block_vias = true; block_zones = true;
+    }
+    width_contract positive_kelvin {
+        track = sense_positive; minimum_width = 0.18 mm; purpose = "output_sense";
+        evidence = "INA180 RevH section9.4 Kelvin input: only amplifier input current, separate from 1mm shunt load entry; private region excludes host copper.";
+    }
+    width_contract negative_kelvin {
+        track = sense_negative; minimum_width = 0.18 mm; purpose = "output_sense";
+        evidence = "INA180 RevH section9.4 Kelvin input and local analog return; shunt load current exits separate 1mm ground port.";
+    }
+    width_contract local_analog_return {
+        track = quiet_ground; minimum_width = 0.18 mm; purpose = "control_supply";
+        evidence = "Only INA180 supply/input/bypass return; not coil current. Protected region preserves separate shunt ground power entry.";
+    }
+    width_contract bypass_feed {
+        track = bypass_supply; minimum_width = 0.25 mm; purpose = "control_supply";
+        evidence = "Local INA180 100nF supply bypass, not host distribution; TI RevH section9.4.";
+    }
+    width_contract bypass_ground {
+        track = bypass_return; minimum_width = 0.25 mm; purpose = "control_supply";
+        evidence = "Local INA180 bypass return only; consumer plane/current review remains required.";
+    }
+    port HIGH { net = HIGH; layer = "F.Cu"; point = (-4.5 mm, 0 mm); pads = [R."1", U."3"]; }
+    port SUPPLY { net = SUPPLY; layer = "F.Cu"; point = C."1"; pads = [C."1", U."5"]; }
+    port OUT { net = OUT; layer = "F.Cu"; point = (-2.7 mm, -5.05 mm); pads = [U."1"]; }
+}

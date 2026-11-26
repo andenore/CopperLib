@@ -1,0 +1,41 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "ti.sn74lvc1g74-dcu-0402-bypass",
+  "kind": "power",
+  "production_publishable": false,
+  "production_qualified": false,
+  "sources": [
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/sn74lvc1g74.pdf",
+      "revision": "SCES794G",
+      "locator": "DCU pin8 VCC and local bypass guidance",
+      "sha256": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "exact-binding",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Bind SN74LVC1G74DCUR and suitable 0402 bypass; preserve exact managed footprints, capacitor decoupling role and consumer positive-pad bound. Confirm capacitance, voltage rating and effective capacitance for actual rail."
+    },
+    {
+      "id": "host-ground-loop",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Host owns IC ground pin 4, signals and complete local return loop. Connect IC ground locally to continuous ground planes; macro owns only capacitor ground lead/via."
+    },
+    {
+      "id": "host-copper",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Require full consumer native filled-board DRC, surface bypass verification, plane connectivity and assembly review. Do not route other load or switch current through this local bypass branch."
+    },
+    {
+      "id": "qualification",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "Latch reset/clock/arming behavior and startup qualification; source PDF binary capture/hash and assembly review remain open."
+    }
+  ]
+}

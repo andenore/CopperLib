@@ -1,0 +1,18 @@
+// JST XH catalogue, pp2,4,5. Canonical connector, without harness semantics.
+part JST_S6B_XH_A {
+    category = "connector.wire_to_board";
+    manufacturer = "JST";
+    footprint = "Connector_JST:JST_XH_S6B-XH-A_1x06_P2.50mm_Horizontal";
+    height = 6.1mm;
+    source_document = "JST XH connector catalogue";
+    source_revision = "Official catalogue retrieved 2026-11-22";
+    source_location = "p2 side-entry assembly; p4 housing; p5 S6B-XH-A body";
+    source_url = "https://www.jst-mfg.com/product/pdf/eng/eXH.pdf";
+    source_checksum = "sha256:9426b136902f11900825077535e5c65032b7fbc31ffb59c5e9e1f463bb20fb90";
+    pin P1 { number = "1"; domains = "digital"; directions = "passive"; }
+    pin P2 { number = "2"; domains = "digital"; directions = "passive"; }
+    pin P3 { number = "3"; domains = "digital"; directions = "passive"; }
+    pin P4 { number = "4"; domains = "digital"; directions = "passive"; }
+    pin P5 { number = "5"; domains = "digital"; directions = "passive"; }
+    pin P6 { number = "6"; domains = "digital"; directions = "passive"; }
+}

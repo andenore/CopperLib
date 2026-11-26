@@ -1,0 +1,15 @@
+// Exact 0.5ohm variant; consumer must retain value=0.5ohm.
+// At this resistance, the 1W family rating derates to0.8W at70C.
+part WSL2512R5000FEA {
+    category = "passive.resistor";
+    manufacturer = "Vishay";
+    footprint = "footprints/WSL2512_7m_to_500m.kicad_mod";
+    height = 0.889mm;
+    source_url = "https://www.vishay.com/docs/30100/wsl.pdf";
+    source_revision = "30100 20-Nov-2026";
+    source_location = "p1 value/tolerance/order and0.5ohm derating; p2 TCR,body and7m..500m lands; p3 pulse qualification";
+    source_checksum = "sha256:3edc90430580e47b09c77c70b47ac1afd876971e89b4783d243661e8ff6a1300";
+    dc_power_path = "P1,P2";
+    pin P1 { number = "1"; domains = "power"; directions = "passive"; }
+    pin P2 { number = "2"; domains = "power"; directions = "passive"; }
+}

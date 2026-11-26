@@ -1,0 +1,17 @@
+// Shared exact DBV VCC5 footprint for SN74LVC1G14 and SN74LVC1G17 only.
+macro LVC1G14_17_DBV_0402_BYPASS {
+ source = { inverter_url="https://www.ti.com/lit/ds/symlink/sn74lvc1g14.pdf"; inverter_locator="SCES218AA p13 bypass/layout; DBV0005A"; inverter_sha256="3d59568b16a2b7abb63d33ebe6f8ddd37e12dd3ca2616dd803872c509a583283"; buffer_url="https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf"; buffer_locator="SCES351Y p12 bypass/layout; DBV0005A"; buffer_sha256="ade19853307838593bd60d27ae4f6a026fc8a52935de8d5f487457b8214e050f"; adaptation="Authored local bypass lead; host owns IC ground and signals."; };
+ unresolved=["Host IC ground return and filled plane continuity", "host signal routing, supply integrity and EMI qualification"];
+ anchor=U; required_layers=["F.Cu","In1.Cu","In2.Cu","B.Cu"]; allowed_rotations=[0 deg,90 deg,180 deg,270 deg]; internal_clearance=0.15mm;
+ net SUPPLY; net GROUND;
+ member U { footprint="github.com/KiCad/kicad-footprints/Package_TO_SOT_SMD.pretty/SOT-23-5.kicad_mod"; at=(0mm,0mm); rotation=0deg; }
+ member C { footprint="github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod"; at=(3.5mm,-0.95mm); rotation=0deg; }
+ pad U."5"=SUPPLY; pad C."1"=SUPPLY; pad C."2"=GROUND;
+ track bypass_supply { net=SUPPLY; layer="F.Cu"; width=0.25mm; points=[U."5",C."1"]; }
+ track bypass_ground { net=GROUND; layer="F.Cu"; width=0.25mm; points=[C."2",(4.8mm,-0.95mm)]; }
+ width_contract local_supply_branch { track=bypass_supply; minimum_width=0.25mm; purpose="control_supply"; evidence="Chip-local bypass lead only; host supply distribution remains0.3mm and attaches at capacitor port. TI SCES218AA/SCES351Y bypass/layout guidance."; }
+ width_contract local_bypass_return { track=bypass_ground; minimum_width=0.25mm; purpose="control_supply"; evidence="Only local bypass-capacitor current reaches its adjacent plane via; no host load-return distribution through this branch."; }
+ via bypass_return { net=GROUND; at=(4.8mm,-0.95mm); size=0.6mm; drill=0.3mm; from_layer="F.Cu"; to_layer="B.Cu"; technology=none; }
+ port SUPPLY { net=SUPPLY; layer="F.Cu"; point=C."1"; pads=[U."5",C."1"]; }
+ plane_return bypass_plane { net=GROUND; layers=["In1.Cu","In2.Cu"]; pads=[C."2"]; contact capacitor { pad=C."2"; at=(4.8mm,-0.95mm); } }
+}

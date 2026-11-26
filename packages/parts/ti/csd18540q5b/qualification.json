@@ -1,0 +1,15 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "ti.csd18540q5b",
+  "kind": "power",
+  "production_publishable": false,
+  "sources": [{"url":"https://www.ti.com/lit/ds/symlink/csd18540q5b.pdf","revision":"SLPS488B April 2017","locator":"p1 pinning/ratings; p6 SOA; pp8-9 Q5B package and land/stencil","sha256":"2e43c4a2ac82af8a089be0a9e413282326f8d7857254ac07390b458deca854e0"}],
+  "requirements": [
+    {"id":"component-ratings","stage":"design","algorithm":"external","description":"Establish actual VGS/VDS/current envelope and required gate enhancement, not threshold voltage. Keep transient VGS inside +/-20V absolute limit with margin."},
+    {"id":"current-capacity","stage":"design","algorithm":"external","description":"Evaluate transient SOA and repetitive thermal dissipation including every source/drain contact, copper neck and cooling path; headline current/avalanche numbers are not application guarantees."},
+    {"id":"layout-review","stage":"design","algorithm":"external","description":"Review p9 copper, authored central stencil adaptation, all power contacts, local gate/source return and high-current loops. No internal-pad routing exemptions or physical macro are supplied."},
+    {"id":"transient","stage":"simulation","algorithm":"external","description":"Bound gate ringing, Miller coupling, turnoff overshoot and fault-current time history with actual layout and clamp behavior before comparing with SOA."},
+    {"id":"prototype-power","stage":"bench","algorithm":"external","description":"Measure VGS/VDS/current and thermal behavior in startup, normal pulses and controlled faults across operating extremes."}
+  ],
+  "notes":"Exact bare FET and source-backed copper, not a qualified driver. Pad9 is the locally numbered exposed drain. Power contacts require external routing."
+}

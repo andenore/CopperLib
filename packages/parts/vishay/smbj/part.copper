@@ -1,0 +1,11 @@
+// Exact package pin map; application qualification remains consumer-owned.
+part SMBJ15A {
+    manufacturer = "Vishay";
+    footprint = "Diode_SMD:D_SMB";
+    source_url = "https://www.vishay.com/docs/88392/smbj.pdf";
+    source_location = "88392 Rev09-Jan-2024, p1 SMBJ15A row and polarity";
+    source_checksum = "sha256:1b65b57a4311128068c1dec747bbb99f6846ae932d77fcfd39904cb2d7a5cd50";
+    pin K { number = "1"; domains = "power,analog"; directions = "passive"; }
+    pin A { number = "2"; domains = "power,analog"; directions = "passive"; }
+}
+

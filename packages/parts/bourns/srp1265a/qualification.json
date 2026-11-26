@@ -1,0 +1,15 @@
+{
+  "schema":"copperscript-engineering-contract/v0.1",
+  "id":"bourns.srp1265a-2r2m",
+  "kind":"power",
+  "production_publishable":false,
+  "sources":[{"url":"https://www.bourns.com/docs/Product-Datasheets/SRP1265A.pdf","revision":"Rev 06/24","locator":"p1 ratings/lead-frame outline/recommended layout; p2 L versus I","sha256":"30b470999b737a6350ce5b09a917a5f12090c2e0895a78ddc15285e3d44ec649"}],
+  "requirements":[
+    {"id":"component-ratings","stage":"design","algorithm":"external","description":"Review tolerance and L versus DC current, maximum DCR, actual switching losses and application temperature against exact source."},
+    {"id":"current-capacity","stage":"design","algorithm":"external","description":"Review both winding terminals and routed copper/vias for peak/RMS currents, copper thickness, temperature rise and voltage drop."},
+    {"id":"layout-review","stage":"design","algorithm":"external","description":"Review exact pad geometry, stencil, orientation and magnetic coupling to sensitive circuits against manufacturer outline and converter topology."},
+    {"id":"transient","stage":"simulation","algorithm":"external","description":"Validate converter current peaks, inductor current dependence and load/startup/fault transients with configured source and load."},
+    {"id":"prototype-power","stage":"bench","algorithm":"external","description":"Measure winding current and temperature under maximum permitted duty, source extremes and enclosure conditions."}
+  ],
+  "notes":"Bare inductor and source-derived land pattern. Datasheet current figures are not board ampacity or converter qualification."
+}

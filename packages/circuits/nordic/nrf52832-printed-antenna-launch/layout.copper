@@ -1,0 +1,187 @@
+// Nordic chip-side matching strokes plus authored antenna and HFXO support.
+// Geometry is an unqualified adaptation, not a complete vendor RF layout.
+macro NRF52832_QFAA_PRINTED_LAUNCH {
+    source = {
+        reference_url = "https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/reference-layouts/nrf52832qfaxreflayoutv11.zip";
+        reference_revision = "nRF52832 QFAx Reference Layout 1.1, QFAA LDO";
+        archive_sha256 = "21e37dcdd8e63d80825bb9e06462efdebe55b642f4e19c5f25c2d9a131e6e334";
+        gerber_entry = "nRF52832-QFAx Reference Layout 1_1/Production files/nRF52832-QFAA/nrf52832_qfaa.GTL";
+        gerber_sha256 = "5b553fba85d64dc9c0a6e74597e7ac99526ae5ff6dd7373d40feb4d58ec3e4ae";
+        adaptation = "Chip matching poses and strokes 0-7 from nrf52832-johanson-reference/managed-layout.copper; C3 pad identities reversed by rotating its symmetric footprint 180 degrees. EP-to-45 exit retained. Printed-antenna series-L/shunt-C launch, ground vias, 3225 crystal/load-capacitor geometry and VDD2/DEC3 support are authored adaptations, not vendor CAD. Oscillator routes are compact authored paths, not preserved autorouter output.";
+        oscillator_adaptation = "3225 four-pad crystal differs from the Nordic 2016 reference. Separate 0.18 mm F.Cu clock paths and short load branches; horizontal VDD2 bypass and an outward ground contact keep the two clock escapes open. Native geometry, startup margin, load capacitance, frequency, parasitics and ground-plane continuity require verification.";
+        production_publishable = false;
+    };
+    unresolved = ["four-layer RF field and ground-return qualification", "actual RF component Q, parasitics and tolerance", "assembled antenna and enclosure tuning", "authored HFXO/support geometry native clearance and connectivity verification", "3225 crystal load, frequency and startup-margin qualification", "remaining MCU decoupling and powered tests", "solderability and manufacturing review"];
+    anchor = U;
+    allowed_rotations = [90 deg];
+    required_layers = ["F.Cu", "B.Cu"];
+    // Extra courtyard gap only, as in the reference macro. Actual managed
+    // courtyards remain non-overlapping; host copper/hole rules still apply.
+    internal_clearance = 0 mm;
+    net raw;
+    net feed;
+    net antenna;
+    net ground;
+    net vdd;
+    net dec3;
+    net xc1;
+    net xc2;
+    member U {
+        footprint = "github.com/KiCad/kicad-footprints/Package_DFN_QFN.pretty/QFN-48-1EP_6x6mm_P0.4mm_EP4.2x4.2mm.kicad_mod";
+        at = (0 mm, 0 mm); rotation = 0 deg;
+    }
+    member C_CHIP {
+        footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod";
+        at = (4.191 mm, 0 mm); rotation = 90 deg;
+    }
+    member L_CHIP {
+        footprint = "github.com/KiCad/kicad-footprints/Inductor_SMD.pretty/L_0402_1005Metric.kicad_mod";
+        at = (5.6134 mm, 0.508 mm); rotation = 0 deg;
+    }
+    member L_MATCH {
+        footprint = "github.com/KiCad/kicad-footprints/Inductor_SMD.pretty/L_0402_1005Metric.kicad_mod";
+        at = (8.6 mm, -5.5 mm); rotation = 180 deg;
+    }
+    member C_MATCH {
+        footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod";
+        at = (8.2 mm, -4 mm); rotation = 0 deg;
+    }
+    // Authored support poses in the U-local frame. These preserve the
+    // selected managed package identities, not the reference crystal size.
+    member Y {
+        footprint = "github.com/KiCad/kicad-footprints/Crystal.pretty/Crystal_SMD_3225-4Pin_3.2x2.5mm.kicad_mod";
+        at = (2.95 mm, -8.4 mm); rotation = 90 deg;
+    }
+    member C_VDD2 {
+        footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod";
+        at = (2.95 mm, -5.05 mm); rotation = 90 deg;
+    }
+    member C_DEC3 {
+        footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod";
+        at = (5.03 mm, -1.87 mm); rotation = 0 deg;
+    }
+    member C_XC1 {
+        footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod";
+        at = (5.8 mm, -8.3 mm); rotation = 90 deg;
+    }
+    member C_XC2 {
+        footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod";
+        at = (2.1 mm, -11.5 mm); rotation = 180 deg;
+    }
+    pad U."30" = raw;
+    pad U."31" = ground;
+    pad U."45" = ground;
+    pad U."49" = ground;
+    pad C_CHIP."1" = raw;
+    pad C_CHIP."2" = ground;
+    pad L_CHIP."1" = raw;
+    pad L_CHIP."2" = feed;
+    pad L_MATCH."1" = antenna;
+    pad L_MATCH."2" = feed;
+    pad C_MATCH."1" = feed;
+    pad C_MATCH."2" = ground;
+    pad U."36" = vdd;
+    pad U."33" = dec3;
+    pad U."34" = xc1;
+    pad U."35" = xc2;
+    pad Y."1" = xc1;
+    pad Y."2" = ground;
+    pad Y."3" = xc2;
+    pad Y."4" = ground;
+    pad C_VDD2."1" = vdd;
+    pad C_VDD2."2" = ground;
+    pad C_DEC3."1" = dec3;
+    pad C_DEC3."2" = ground;
+    pad C_XC1."1" = xc1;
+    pad C_XC1."2" = ground;
+    pad C_XC2."1" = xc2;
+    pad C_XC2."2" = ground;
+
+    track raw_0 { net = raw; layer = "F.Cu"; width = 0.2286 mm; points = [(3.02514 mm, 0.20066 mm), (3.50012 mm, 0.20066 mm)]; }
+    track raw_1 { net = raw; layer = "F.Cu"; width = 0.2286 mm; points = [(3.50012 mm, 0.20066 mm), (3.81 mm, 0.51054 mm)]; }
+    track raw_2 { net = raw; layer = "F.Cu"; width = 0.2286 mm; points = [(3.81 mm, 0.51054 mm), (4.19862 mm, 0.51054 mm)]; }
+    track raw_3 { net = raw; layer = "F.Cu"; width = 0.508 mm; points = [(4.191 mm, 0.50546 mm), (5.08762 mm, 0.50546 mm)]; }
+    track ground_0 { net = ground; layer = "F.Cu"; width = 0.2286 mm; points = [(0.61722 mm, -0.2032 mm), (3.50012 mm, -0.2032 mm)]; }
+    track ground_1 { net = ground; layer = "F.Cu"; width = 0.2286 mm; points = [(3.50012 mm, -0.2032 mm), (3.78714 mm, -0.49022 mm)]; }
+    track ground_2 { net = ground; layer = "F.Cu"; width = 0.2286 mm; points = [(3.78714 mm, -0.49022 mm), (4.19862 mm, -0.49022 mm)]; }
+    track ground_ep { net = ground; layer = "F.Cu"; width = 0.2286 mm; points = [U."49", (0.61722 mm, -0.2032 mm)]; }
+    track ground_45 { net = ground; layer = "F.Cu"; width = 0.2286 mm; points = [U."49", (-1 mm, -1 mm), U."45"]; }
+
+    track feed_chip_neck { net = feed; layer = "F.Cu"; width = 0.18 mm; points = [L_CHIP."2", (7 mm, 0.508 mm)]; }
+    track feed_antenna_neck { net = feed; layer = "F.Cu"; width = 0.18 mm; points = [L_MATCH."2", (7.8 mm, -5.5 mm)]; }
+    track feed_cap_neck { net = feed; layer = "F.Cu"; width = 0.18 mm; points = [C_MATCH."1", (7.72 mm, -3.7 mm)]; }
+    track feed_tee { net = feed; layer = "F.Cu"; width = 0.35 mm; points = [(7.8 mm, -5.5 mm), (7.6 mm, -5.3 mm), (7.6 mm, -3.82 mm), (7.72 mm, -3.7 mm)]; }
+    track feed_branch { net = feed; layer = "F.Cu"; width = 0.35 mm; points = [(7.72 mm, -3.7 mm), (7.1 mm, -3.08 mm), (7.1 mm, 0.408 mm), (7 mm, 0.508 mm)]; }
+    track antenna_stub { net = antenna; layer = "F.Cu"; width = 0.29 mm; points = [L_MATCH."1", (9.4 mm, -5.5 mm)]; }
+    // Keep the authored ground contact outward from the chip, leaving the
+    // adjacent DEC3 and crystal escapes open. Reference strokes stay intact.
+    track chip_ground_via { net = ground; layer = "F.Cu"; width = 0.2286 mm; points = [C_CHIP."2", (4.961 mm, -0.48 mm)]; }
+    track match_ground_via { net = ground; layer = "F.Cu"; width = 0.18 mm; points = [C_MATCH."2", (8.68 mm, -3.25 mm)]; }
+    via chip_ground {
+        net = ground; at = (4.961 mm, -0.48 mm); size = 0.6 mm; drill = 0.3 mm;
+        from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; finish = "standard";
+    }
+    via match_ground {
+        net = ground; at = (8.68 mm, -3.25 mm); size = 0.6 mm; drill = 0.3 mm;
+        from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; finish = "standard";
+    }
+    // Owned local support copper prevents unrelated routes from forcing
+    // oscillator detours. Clock paths remain separate, with no signal vias.
+    track vdd2_bypass {
+        net = vdd; layer = "F.Cu"; width = 0.3 mm;
+        points = [U."36", C_VDD2."1"];
+    }
+    track dec3_bypass {
+        net = dec3; layer = "F.Cu"; width = 0.2 mm;
+        points = [U."33", (3.68 mm, -1 mm), C_DEC3."1"];
+    }
+    track xc1_to_crystal {
+        net = xc1; layer = "F.Cu"; width = 0.18 mm;
+        points = [U."34", (3.65 mm, -1.4 mm), (4.05 mm, -1.8 mm), (4.05 mm, -7.05 mm), Y."1"];
+    }
+    track xc1_load {
+        net = xc1; layer = "F.Cu"; width = 0.18 mm;
+        points = [Y."1", (5.28 mm, -7.3 mm), C_XC1."1"];
+    }
+    track xc2_to_crystal {
+        net = xc2; layer = "F.Cu"; width = 0.18 mm;
+        points = [U."35", (3.4 mm, -1.8 mm), (3.6 mm, -2 mm), (3.6 mm, -6 mm), (3.4 mm, -6.2 mm), (2.95 mm, -6.2 mm), (2.95 mm, -8.4 mm), (2.1 mm, -8.4 mm), Y."3"];
+    }
+    track xc2_load {
+        net = xc2; layer = "F.Cu"; width = 0.18 mm;
+        points = [Y."3", (2.1 mm, -10 mm), (2.58 mm, -10.48 mm), C_XC2."1"];
+    }
+    // This contact is below C_VDD2 in the supported 90-degree host pose,
+    // leaving the gap between crystal pad rows available to XC2.
+    track vdd2_ground_via {
+        net = ground; layer = "F.Cu"; width = 0.25 mm;
+        points = [C_VDD2."2", (2.2 mm, -5.53 mm)];
+    }
+    via vdd2_ground {
+        net = ground; at = (2.2 mm, -5.53 mm); size = 0.6 mm; drill = 0.3 mm;
+        from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; finish = "standard";
+    }
+    // Every exported ground root has owned copper. These short contacts
+    // also keep automatic stitching out of the two oscillator channels.
+    track dec3_ground_contact { net = ground; layer = "F.Cu"; width = 0.25 mm; points = [C_DEC3."2", (5.51 mm, -2.62 mm)]; }
+    track xc1_ground_contact { net = ground; layer = "F.Cu"; width = 0.25 mm; points = [C_XC1."2", (5.8 mm, -9.53 mm)]; }
+    track xc2_ground_contact { net = ground; layer = "F.Cu"; width = 0.25 mm; points = [C_XC2."2", (0.87 mm, -11.5 mm)]; }
+    track crystal_ground_2_contact { net = ground; layer = "F.Cu"; width = 0.25 mm; points = [Y."2", (4.8 mm, -9.5 mm)]; }
+    track crystal_ground_4_contact { net = ground; layer = "F.Cu"; width = 0.25 mm; points = [Y."4", (1.1 mm, -7.3 mm)]; }
+    via dec3_ground_stitch { net = ground; at = (5.51 mm, -2.62 mm); size = 0.6 mm; drill = 0.3 mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; finish = "standard"; }
+    via xc1_ground_stitch { net = ground; at = (5.8 mm, -9.53 mm); size = 0.6 mm; drill = 0.3 mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; finish = "standard"; }
+    via xc2_ground_stitch { net = ground; at = (0.87 mm, -11.5 mm); size = 0.6 mm; drill = 0.3 mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; finish = "standard"; }
+    via crystal_ground_2_stitch { net = ground; at = (4.8 mm, -9.5 mm); size = 0.6 mm; drill = 0.3 mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; finish = "standard"; }
+    via crystal_ground_4_stitch { net = ground; at = (1.1 mm, -7.3 mm); size = 0.6 mm; drill = 0.3 mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; finish = "standard"; }
+    port antenna { net = antenna; layer = "F.Cu"; point = (9.4 mm, -5.5 mm); pads = [L_MATCH."1"]; }
+    port chip_ground { net = ground; layer = "F.Cu"; point = U."45"; pads = [U."31", U."45", U."49", C_CHIP."2"]; }
+    port match_ground { net = ground; layer = "F.Cu"; point = C_MATCH."2"; pads = [C_MATCH."2"]; }
+    port vdd { net = vdd; layer = "F.Cu"; point = C_VDD2."1"; pads = [C_VDD2."1", U."36"]; }
+    // Distinct physical ground roots remain explicit host obligations.
+    port vdd2_ground { net = ground; layer = "F.Cu"; point = C_VDD2."2"; pads = [C_VDD2."2"]; }
+    port dec3_ground { net = ground; layer = "F.Cu"; point = C_DEC3."2"; pads = [C_DEC3."2"]; }
+    port xc1_ground { net = ground; layer = "F.Cu"; point = C_XC1."2"; pads = [C_XC1."2"]; }
+    port xc2_ground { net = ground; layer = "F.Cu"; point = C_XC2."2"; pads = [C_XC2."2"]; }
+    port crystal_ground_2 { net = ground; layer = "F.Cu"; point = Y."2"; pads = [Y."2"]; }
+    port crystal_ground_4 { net = ground; layer = "F.Cu"; point = Y."4"; pads = [Y."4"]; }
+}

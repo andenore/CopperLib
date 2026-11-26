@@ -1,0 +1,37 @@
+// Pin map is independently visible in TI SLVUAF2 Figure 7 (p7).
+// This bare part is not a qualified converter or a current-capacity guarantee.
+part TPS61088RHLR {
+    category = "power.regulator.boost";
+    manufacturer = "Texas Instruments";
+    footprint = "footprints/TI_RHL0020A_TPS61088.kicad_mod";
+    source_document = "TPS61088EVM-677 Evaluation Module";
+    source_revision = "SLVUAF2 June 2015";
+    source_location = "Figure 7 p7 pin map; Figure 8-11 pp9-10 reference layout";
+    source_url = "https://www.ti.com/lit/ug/slvuaf2/slvuaf2.pdf";
+    source_checksum = "sha256:a957c5e8842e86d83037f8da9ccfcbebce7c61cfae7981ff1f6e63f3c00bf46a";
+    // Frequency and peak current depend on host FSW/ILIM resistors and MODE.
+    pin VCC { number = "1"; domains = "power"; directions = "output"; }
+    pin EN { number = "2"; domains = "digital"; directions = "input"; }
+    pin FSW { number = "3"; domains = "analog"; directions = "passive"; }
+    pin SW_4 { number = "4"; domains = "power"; directions = "passive"; emi_role = switch; }
+    pin SW_5 { number = "5"; domains = "power"; directions = "passive"; emi_role = switch; }
+    pin SW_6 { number = "6"; domains = "power"; directions = "passive"; emi_role = switch; }
+    pin SW_7 { number = "7"; domains = "power"; directions = "passive"; emi_role = switch; }
+    pin BOOT { number = "8"; domains = "power"; directions = "passive"; }
+    pin VIN { number = "9"; domains = "power"; directions = "input"; voltage_min = 2.7V; voltage_max = 12V; }
+    pin SS { number = "10"; domains = "analog"; directions = "output"; }
+    // NC pins are grounded in the EVM reference. They carry no required current.
+    pin NC_11 { number = "11"; domains = "ground"; directions = "passive"; connection = optional; }
+    pin NC_12 { number = "12"; domains = "ground"; directions = "passive"; connection = optional; }
+    pin MODE { number = "13"; domains = "digital"; directions = "input"; connection = optional; }
+    // TI SLVA790A sections 2.1-2.2: the pulsed boost loop closes through VOUT/COUT/PGND.
+    // VIN is the control-supply input, not the boost hot-supply terminal.
+    pin VOUT_14 { number = "14"; domains = "power"; directions = "output"; voltage_max = 12.6V; emi_role = hot_supply; }
+    pin VOUT_15 { number = "15"; domains = "power"; directions = "passive"; emi_role = hot_supply; }
+    pin VOUT_16 { number = "16"; domains = "power"; directions = "passive"; emi_role = hot_supply; }
+    pin FB { number = "17"; domains = "analog"; directions = "input"; emi_role = feedback; }
+    pin COMP { number = "18"; domains = "analog"; directions = "output"; }
+    pin ILIM { number = "19"; domains = "analog"; directions = "passive"; }
+    pin AGND { number = "20"; domains = "ground"; directions = "input"; }
+    pin PGND { number = "21"; domains = "ground"; directions = "input"; emi_role = hot_return; }
+}

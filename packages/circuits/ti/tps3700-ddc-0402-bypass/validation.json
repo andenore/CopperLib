@@ -1,0 +1,43 @@
+{
+  "schema": "copperlib-local-physical-acceptance/v0.1",
+  "date": "2026-11-24",
+  "production_publishable": false,
+  "production_qualified": false,
+  "scope": "Retained isolated fixture result; current macro bytes match probe and staged copies. Not fresh full-board validation.",
+  "layout_sha256": "bbce264c23aea578d43033086c353853a8f304c6562d844527239dcf41d7c115",
+  "fixture_path": "CopperAssetTracker/lightgun/build/recoil-bypass-supervisor-trial/board.copper",
+  "current_fixture_sha256": "cc5fd1f970953dfa60897a04e4e92d091ccc0a79fbfccc684da733bb60871b83",
+  "route_report_path": "CopperAssetTracker/lightgun/build/recoil-bypass-supervisor-trial/route.json",
+  "route_report_sha256": "8901e009fa3ad321bdfb007b8019ea4590f78730488e5ce77e9aecc27827bd6f",
+  "native_summary_sha256": "1f3be0d7caf35beebb669383d7785e706ff955c40787536d113a7319d8dfebe6",
+  "current_compiler_sha256": "116e1d8814e0946b36c73c0548728a5ea55ca7bee1c86e36286761c81b0ad88c",
+  "report_semantic_source_digest": "0aa4316259542a1c3f20fdbbf1b87eaabd60283bb40e063409588129ecb08832",
+  "input_binding": {
+    "status": "partial",
+    "fixture_probe_stage_macro_bytes": "identical",
+    "limitation": "Retained route-board report records semantic source_digest and source asset paths but has no build/run.json manifest capturing every input byte. Current file hashes do not independently reconstruct that historical execution. Require a source-bound consumer build before current integration acceptance."
+  },
+  "retained_acceptance": {
+    "native_filled_drc": "pass",
+    "native_unconnected": 0,
+    "native_violations": 0,
+    "unrouted_ordinary_nets": 0,
+    "requirements_pass": 9,
+    "bypass_surface_connected": 3,
+    "bypass_total": 3,
+    "native_reconciled_explicit_findings": 2
+  },
+  "geometry": {
+    "consumer_max_positive_pad_distance_mm": 2,
+    "positive_pad_distance_mm": 1.8825,
+    "chip_cap_courtyard_gap_mm": 0.54,
+    "via_size_mm": 0.6,
+    "via_drill_mm": 0.3
+  },
+  "limitations": [
+    "IC ground and signals are host-owned; whole-board routing and plane continuity remain open.",
+    "Fixture evidence does not qualify all permitted rotations in every consumer.",
+    "Source-capture and part-package qualification gaps remain as stated in layout.copper and qualification.json.",
+    "The current part definition uses managed SOT-23-6 geometry. Exact DDC land-pattern/assembly review, source revision/hash, divider placement, threshold/noise and fault behavior remain open."
+  ]
+}

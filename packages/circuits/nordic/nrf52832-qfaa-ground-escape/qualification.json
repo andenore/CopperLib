@@ -1,0 +1,10 @@
+{
+  "production_publishable": false,
+  "scope": "Explicit top-layer QFAA EP49-to-pad45 ground escape only",
+  "geometry_origin": "Authored subset of sibling nrf52832-johanson-reference/managed-layout.copper track_8",
+  "unresolved": [
+    "Host native DRC and filled-ground continuity",
+    "Full Nordic support and RF layout qualification",
+    "Package thermal and assembly qualification"
+  ]
+}

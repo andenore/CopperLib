@@ -1,0 +1,20 @@
+// Exact TPS259470L: active current limit, FLT, thermal latch-off. Not TPS259474L.
+part TPS259470LRPWR {
+    manufacturer = "Texas Instruments";
+    footprint = "footprints/TI_RPW0010A_TPS25947.kicad_mod";
+    height = 1mm;
+    source_url = "https://www.ti.com/lit/ds/symlink/tps25947.pdf";
+    source_revision = "SLVSFC9C May 2026";
+    source_location = "Table4 p4 variant; Table5-1 p5 pin map; Table7-3 p38 faults; 4225183/A pp72-74 package";
+    source_checksum = "sha256:8f96de389903091650d4f462dcfad3210071c3ae7093623a7978f34baf8a65b4";
+    pin EN_UVLO { number = "1"; domains = "analog,digital"; directions = "input"; voltage_max = 5V; }
+    pin OVLO { number = "2"; domains = "analog"; directions = "input"; }
+    pin AUXOFF { number = "3"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; connection = optional; }
+    pin FLT_N { number = "4"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; }
+    pin IN { number = "5"; domains = "power"; directions = "input"; voltage_min = 2.7V; voltage_max = 23V; }
+    pin OUT { number = "6"; domains = "power"; directions = "output"; voltage_max = 23V; }
+    pin DVDT { number = "7"; domains = "analog"; directions = "passive"; connection = optional; }
+    pin GND { number = "8"; domains = "ground"; directions = "input"; }
+    pin ILM { number = "9"; domains = "analog"; directions = "passive"; }
+    pin ITIMER { number = "10"; domains = "analog"; directions = "passive"; connection = optional; }
+}

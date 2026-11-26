@@ -1,0 +1,18 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "actuators.coil-clamp-ph2",
+  "kind": "power",
+  "production_publishable": false,
+  "sources": [
+    {"url": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf", "revision": "PDF created 2026-01-27", "locator": "p1 ratings and p2 side-entry SMT lands", "sha256": "447624f4f2f7d37c58c1eaa7ee314ad757fe7aff48f6186491ef6f69fbc00b96"},
+    {"url": "https://www.diodes.com/assets/Datasheets/ds13005.pdf", "revision": "DS13005 Rev9-2", "locator": "B360A ratings and SMA package", "sha256": "a214b31206ba7e1fa6882b2da681b54d2afd6fe25ef216f8c201e8324329623e"},
+    {"url": "https://www.vishay.com/docs/88392/smbj.pdf", "revision": "88392 Rev09-Jan-2024", "locator": "SMBJ15A row, polarity and pulse ratings", "sha256": "1b65b57a4311128068c1dec747bbb99f6846ae932d77fcfd39904cb2d7a5cd50"}
+  ],
+  "requirements": [
+    {"id": "component-ratings", "stage": "design", "algorithm": "external", "description": "Verify exact coil, TVS pulse energy/repetition, diode reverse/current limits and connector/contacts/wire rating."},
+    {"id": "current-capacity", "stage": "design", "algorithm": "external", "description": "Review 1mm conductors, pad neckdowns and remaining host routes against actual copper thickness, pulse current and fault energy."},
+    {"id": "layout-review", "stage": "design", "algorithm": "external", "description": "Inspect complete coil/FET/harness loop and actual mating corridor; native macro DRC does not establish EMI or assembly suitability."},
+    {"id": "transient", "stage": "simulation", "algorithm": "external", "description": "Evaluate either-switch turnoff, negative coil-positive excursion, clamp overshoot and fault SOA including harness parasitics."},
+    {"id": "prototype-power", "stage": "bench", "algorithm": "external", "description": "Measure current-decay time, clamp voltage, repetitive temperature and hard-short behavior before qualification."}
+  ]
+}

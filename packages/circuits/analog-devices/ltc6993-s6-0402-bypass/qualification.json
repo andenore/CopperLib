@@ -1,0 +1,14 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "analog-devices.ltc6993-s6-0402-bypass",
+  "kind": "power",
+  "production_publishable": false,
+  "sources": [{"url": "https://www.analog.com/media/en/technical-documentation/data-sheets/ltc6993-6993-1-6993-2-6993-3-6993-4.pdf", "revision": "Rev F July 2025", "locator": "bypass recommendation and p26 S6 lands", "sha256": null, "capture_status": "Owning part reviewed primary PDF; binary hash unresolved"}],
+  "requirements": [
+    {"id": "exact-binding", "stage": "design", "algorithm": "external", "description": "Bind exact LTC6993IS6-1#TRMPBF, authored ADI S6 lands and 100nF 0402; retain decoupling role and 2mm positive-land distance constraint."},
+    {"id": "host-ground-and-timing", "stage": "design", "algorithm": "external", "description": "Host must connect IC pin2 to continuous ground planes locally and provide SET/DIV networks with short quiet wiring. Review actual IC-ground-to-capacitor-via return and timing/source obligations."},
+    {"id": "host-copper", "stage": "design", "algorithm": "external", "description": "Require native filled-board DRC, bypass surface verification, plane connectivity and 0.5mm additional courtyard gap; no switch/load current through local bypass branch."},
+    {"id": "source-capture", "stage": "design", "algorithm": "external", "description": "Capture and hash the exact primary ADI PDF; owning part currently records the binary source hash as unresolved."},
+    {"id": "timing-integrity", "stage": "bench", "algorithm": "external", "description": "Verify timing corners, startup/trigger sequencing, fault behavior and supply/switching interference in the assembled consumer; this macro does not qualify a hardware cutoff."}
+  ]
+}

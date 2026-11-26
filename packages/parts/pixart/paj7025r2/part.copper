@@ -1,0 +1,31 @@
+// Manufacturer datasheet v1.1, pages5,6,7,9. Footprint is a hand-solder carrier adaptation.
+part PAJ7025R2 {
+    category = "sensor.optical";
+    manufacturer = "PixArt Imaging";
+    footprint = "PixArt:PAJ7025R2_Vertical_HandSolder";
+    source_document = "PAJ7025R2 General Product Datasheet";
+    source_revision = "Version 1.1 | 29 Jan 2016 | 51000AEN";
+    source_location = "p5 pinout; p6 outline; p7 electrical; p9 application";
+    source_url = "https://www.epsglobal.com/Media-Library/EPSGlobal/Products/files/pixart/PAJ7025R2.pdf?ext=.pdf";
+    source_checksum = "sha256:4e541145d6361d6930466bef89af23bf7a552b340749f6e0c9a6fcd726add3e6";
+    pin G0 { number = "1"; domains = "digital"; directions = "passive"; connection = optional; }
+    pin G1 { number = "2"; domains = "digital"; directions = "passive"; connection = optional; }
+    pin G2 { number = "3"; domains = "digital"; directions = "passive"; connection = optional; }
+    pin G3 { number = "4"; domains = "digital"; directions = "passive"; connection = optional; }
+    pin G4 { number = "5"; domains = "digital"; directions = "passive"; connection = optional; }
+    pin G5 { number = "6"; domains = "digital"; directions = "passive"; connection = optional; }
+    pin G6 { number = "7"; domains = "digital"; directions = "passive"; connection = optional; }
+    pin G7 { number = "8"; domains = "digital"; directions = "passive"; connection = optional; }
+    pin G8 { number = "9"; domains = "digital"; directions = "passive"; connection = optional; }
+    pin CSB { number = "10"; domains = "digital"; directions = "input"; voltage_min = 0V; voltage_max = 3.6V; connection = required; }
+    pin SCK { number = "11"; domains = "digital"; directions = "input"; voltage_min = 0V; voltage_max = 3.6V; connection = required; }
+    pin MISO { number = "12"; domains = "digital"; directions = "output"; voltage_min = 0V; voltage_max = 3.6V; connection = required; }
+    pin MOSI { number = "13"; domains = "digital"; directions = "input"; voltage_min = 0V; voltage_max = 3.6V; connection = required; }
+    pin VSSD { number = "14"; domains = "ground"; directions = "input"; connection = required; }
+    pin CP_1 { number = "15"; domains = "digital"; directions = "passive"; connection = optional; }
+    pin CP_2 { number = "16"; domains = "digital"; directions = "passive"; connection = optional; }
+    pin VDDMA { number = "17"; domains = "power"; directions = "input"; voltage_min = 2V; voltage_max = 3.6V; connection = required; }
+    pin LED_FRT { number = "18"; domains = "digital"; directions = "passive"; connection = optional; }
+    pin LED_SIDE { number = "19"; domains = "digital"; directions = "passive"; connection = optional; }
+    pin VSSD_LED { number = "20"; domains = "ground"; directions = "input"; connection = required; }
+}

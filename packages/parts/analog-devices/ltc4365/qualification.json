@@ -1,0 +1,51 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "analog-devices.ltc4365its8",
+  "kind": "power",
+  "production_publishable": false,
+  "requirements": [
+    {
+      "id": "component-ratings",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review exact package, operating and absolute limits, voltage/current polarity and temperature."
+    },
+    {
+      "id": "layout-review",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review exact land patterns, all power/thermal contacts, gate loops and manufacturer layout."
+    },
+    {
+      "id": "current-capacity",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review actual peak/RMS current, copper, contacts, dissipation and fault-energy/SOA."
+    },
+    {
+      "id": "transient",
+      "stage": "simulation",
+      "algorithm": "external",
+      "description": "Validate startup, prebias, reverse input, disconnect and faults with actual parasitics; model gaps remain open."
+    },
+    {
+      "id": "prototype-power",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "Measure electrical/thermal behavior and failure response over actual operating extremes before release."
+    }
+  ],
+  "notes": "VIN operating minimum 2.5V is not a guaranteed gate-enhancement voltage. Gate-drive minimum is only tabulated at VIN=VOUT=5V or 12V..34V. Check low-VIN startup, VOUT prebias, shutdown, reverse VIN, gate clamps and MOSFET SOA. UV/SHDN negative sources require current limiting per RevB p4 Note3 and p7. Exact current RevB PDF hash remains unavailable; downloaded original 4365f independently verifies TS8 pin and land map.",
+  "sources": [
+    {
+      "url": "https://www.analog.com/media/en/technical-documentation/data-sheets/LTC4365.pdf",
+      "locator": "Rev B pp2-4,7,12-14,18",
+      "hash_status": "unavailable-current-PDF-binary; web text reviewed"
+    },
+    {
+      "url": "https://e2e.ti.com/cfs-file/__key/telligent-evolution-components-attachments/00-196-01-00-01-17-08-71/LTC4365.pdf",
+      "locator": "Linear Technology original 4365f pp2,15, not Rev B",
+      "sha256": "4d340e6292e5b0bae83228c6abb7dc4d48b3464b856f273e94e8c43b106f1161"
+    }
+  ]
+}

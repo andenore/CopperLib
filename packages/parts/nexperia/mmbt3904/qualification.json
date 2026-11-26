@@ -1,0 +1,46 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "nexperia.mmbt3904",
+  "kind": "power",
+  "production_publishable": false,
+  "requirements": [
+    {
+      "id": "component-ratings",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review exact package/source facts in part.copper and README, including input/output ratings and conditions."
+    },
+    {
+      "id": "layout-review",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review manufacturer reference, footprints, critical copper, returns, current capacity and thermal implementation."
+    },
+    {
+      "id": "transient",
+      "stage": "simulation",
+      "algorithm": "external",
+      "description": "Validate startup, switching, short circuit and interrupted load with actual parasitics; unsupported models remain open."
+    },
+    {
+      "id": "prototype-power",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "Measure waveform, temperature and fault response across operating extremes before release."
+    },
+    {
+      "id": "current-capacity",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review peak/RMS current, dissipation, contact and copper temperature rise, SOA and fault-energy capacity in the actual consumer circuit."
+    }
+  ],
+  "notes": "B1 E2 C3,40V VCEO,200mA collector. Review saturation, base drive, switching/storage, pulse current and temperature. Official source read through web; direct binary hash remains unresolved.",
+  "sources": [
+    {
+      "url": "https://assets.nexperia.com/documents/data-sheet/MMBT3904.pdf",
+      "locator": "8 April 2026, p1 pinning; pp2-3 limits/characteristics",
+      "sha256": null
+    }
+  ]
+}

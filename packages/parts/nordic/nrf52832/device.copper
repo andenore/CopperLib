@@ -24,14 +24,15 @@ device NRF52832 {
     pad P0_04 { domains = "digital,analog"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
     pad P0_05 { domains = "digital,analog"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
     pad P0_06 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO; voltage_max = 3.6V; }
-    pad P0_07 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_07 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO; }
     pad P0_08 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO; voltage_max = 3.6V; }
     pad P0_09 { domains = "digital"; directions = "bidirectional"; traits = "gpio,nfc"; power_domain = VDDIO; }
     pad P0_10 { domains = "digital"; directions = "bidirectional"; traits = "gpio,nfc"; power_domain = VDDIO; }
     pad P0_11 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
     pad P0_12 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
-    pad P0_13 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
-    pad P0_14 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    // GPIO PIN_CNF[n].DRIVE includes S0S1 and S0D1 for the SPI output alternatives.
+    pad P0_13 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_14 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO; }
     pad P0_15 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
     pad P0_16 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
     pad P0_17 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
@@ -43,8 +44,8 @@ device NRF52832 {
     pad P0_23 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
     pad P0_24 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
     pad P0_25 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
-    pad P0_26 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
-    pad P0_27 { domains = "digital"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_26 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO; }
+    pad P0_27 { domains = "digital"; directions = "bidirectional"; drive_modes = "push_pull,open_drain"; traits = "gpio"; power_domain = VDDIO; }
     pad P0_28 { domains = "digital,analog"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
     pad P0_29 { domains = "digital,analog"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
     pad P0_30 { domains = "digital,analog"; directions = "bidirectional"; traits = "gpio"; power_domain = VDDIO; }
@@ -56,4 +57,27 @@ device NRF52832 {
     peripheral UARTE0: uart { signal TX: output; signal RX: input; }
     mux P0_06: UARTE0.TX { selector = "PSEL.TXD=6"; }
     mux P0_08: UARTE0.RX { selector = "PSEL.RXD=8"; }
+    // Product Specification v1.9, TWIM: Master mode pin configuration and
+    // PSEL.SDA/PSEL.SCL. These are a supported subset of freely chosen GPIOs.
+    // S0D1 GPIO drive; external pull-ups required. Shared-instance ownership
+    // (SPI/SPIM/SPIS/TWI/TWIS) must also be enforced by the firmware.
+    peripheral TWIM0: i2c { signal SDA: open_drain; signal SCL: open_drain; }
+    mux P0_26: TWIM0.SDA { selector = "PSEL.SDA=26"; }
+    mux P0_27: TWIM0.SCL { selector = "PSEL.SCL=27"; }
+    // PS v1.9 TWI pin configuration/PSELSDA/PSELSCL: instance 1 is
+    // independent of SPI0. Non-EasyDMA TWI selection for this supported subset.
+    peripheral TWI1: i2c { signal SDA: open_drain; signal SCL: open_drain; }
+    mux P0_07: TWI1.SDA { selector = "PSELSDA=7"; }
+    mux P0_06: TWI1.SCL { selector = "PSELSCL=6"; }
+    // Product Specification v1.9, SPI master mode pin configuration: software-selected
+    // GPIOs, configured only while SPI disabled. CS is an ordinary GPIO.
+    peripheral SPI0: spi { signal SCK: output; signal MOSI: output; signal MISO: input; }
+    mux P0_27: SPI0.SCK { selector = "PSEL.SCK=27"; }
+    mux P0_26: SPI0.MOSI { selector = "PSEL.MOSI=26"; }
+    mux P0_25: SPI0.MISO { selector = "PSEL.MISO=25"; }
+    // Additional supported GPIO selections; retain the existing alternatives.
+    // P0.12-14 are outside the QFAA near-RADIO low-frequency recommended group.
+    mux P0_14: SPI0.SCK { selector = "PSEL.SCK=14"; }
+    mux P0_13: SPI0.MOSI { selector = "PSEL.MOSI=13"; }
+    mux P0_12: SPI0.MISO { selector = "PSEL.MISO=12"; }
 }

@@ -1,0 +1,17 @@
+// TS8 pin numbering differs from the DDB package. Do not substitute packages.
+part LTC4365ITS8_TRPBF {
+    manufacturer = "Analog Devices";
+    // Exact MPN = "LTC4365ITS8#TRPBF";
+    footprint = "footprints/LTC4365_TS8.kicad_mod";
+    source_url = "https://www.analog.com/media/en/technical-documentation/data-sheets/LTC4365.pdf";
+    source_location = "Rev B p2 TS8 top-view pinout; p3-4 electrical; p7 pin functions; p12-14 independent VIN/VOUT; p18 TS8 land pattern";
+    pin VIN { number = "1"; domains = "power,analog"; directions = "input"; }
+    pin UV { number = "2"; domains = "analog"; directions = "input"; }
+    pin OV { number = "3"; domains = "analog,ground"; directions = "input"; }
+    pin GND { number = "4"; domains = "ground"; directions = "passive"; }
+    pin SHDN { number = "5"; domains = "analog,digital"; directions = "input"; }
+    pin FAULT_N { number = "6"; domains = "digital"; directions = "output"; drive_modes = "open_drain"; }
+    pin VOUT { number = "7"; domains = "power,analog"; directions = "input"; }
+    pin GATE { number = "8"; domains = "analog"; directions = "output"; }
+}
+

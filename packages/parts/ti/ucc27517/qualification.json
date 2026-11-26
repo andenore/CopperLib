@@ -1,0 +1,46 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "ti.ucc27517dbvr",
+  "kind": "power",
+  "production_publishable": false,
+  "requirements": [
+    {
+      "id": "component-ratings",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review exact package/source facts in part.copper and README, including input/output ratings and conditions."
+    },
+    {
+      "id": "layout-review",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review manufacturer reference, footprints, critical copper, returns, current capacity and thermal implementation."
+    },
+    {
+      "id": "transient",
+      "stage": "simulation",
+      "algorithm": "external",
+      "description": "Validate startup, switching, short circuit and interrupted load with actual parasitics; unsupported models remain open."
+    },
+    {
+      "id": "prototype-power",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "Measure waveform, temperature and fault response across operating extremes before release."
+    },
+    {
+      "id": "current-capacity",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Review peak/RMS current, dissipation, contact and copper temperature rise, SOA and fault-energy capacity in the actual consumer circuit."
+    }
+  ],
+  "notes": "Pinout verified. Review VDD4.5–18V, bypass, UVLO, 3V3 input margins, gate-loop ringing and active turnoff timing.",
+  "sources": [
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/ucc27517.pdf",
+      "locator": "SLUSAY4D December 2014, pin functions and operating conditions",
+      "sha256": "6b7b8c088746010dfbce36367a03de3e971a91bd6fb705adad0c6258d44bf90c"
+    }
+  ]
+}

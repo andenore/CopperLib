@@ -1,0 +1,13 @@
+// Exact 2A variant; same manufacturer's 451 package and land pattern.
+part FUSE_0451002_MRL {
+    manufacturer = "Littelfuse";
+    footprint = "footprints/Littelfuse_0451.kicad_mod";
+    height = 2.94mm;
+    source_url = "https://www.lcsc.com/datasheet/C44479.pdf";
+    source_revision = "Littelfuse 451/453, 06/15/17; same facts cross-checked manufacturer GD12/01/25";
+    source_location = "p2 2.00A/002. row; p4 dimensions and 0451+002.+M+R+L ordering";
+    source_checksum = "sha256:e6a46c9a12645c68d2004d892bb8b370e3792708fd2d013c8108b7b00f059dd7";
+    dc_power_path = "P1,P2";
+    pin P1 { number = "1"; domains = "power"; directions = "passive"; }
+    pin P2 { number = "2"; domains = "power"; directions = "passive"; }
+}

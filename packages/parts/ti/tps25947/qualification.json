@@ -1,0 +1,15 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "ti.tps259470lrpwr",
+  "kind": "power",
+  "production_publishable": false,
+  "sources": [{"url":"https://www.ti.com/lit/ds/symlink/tps25947.pdf","revision":"SLVSFC9C May 2026; RPW0010A 4225183/A","locator":"Table5-1 p5; Table7-3 p38; sections8.3-8.4; package pp72-74","sha256":"8f96de389903091650d4f462dcfad3210071c3ae7093623a7978f34baf8a65b4"}],
+  "requirements": [
+    {"id":"component-ratings","stage":"design","algorithm":"external","description":"Review exact variant, programmable limits, capacitor effective values and terminal ratings; OUT negative excursions and IN-OUT differential need explicit bounds."},
+    {"id":"current-capacity","stage":"design","algorithm":"external","description":"Qualify all copper neckdowns, contacts and thermal paths for full-load and fault currents; after-device capacitors have unprotected stored energy."},
+    {"id":"layout-review","stage":"design","algorithm":"external","description":"Review package-local RPW copper and stencil, short power/return loops, local bypass, output clamp, ILM parasitics and noise isolation against section8.4. No physical macro is supplied."},
+    {"id":"transient","stage":"simulation","algorithm":"external","description":"Review start/stop, overload, hard-short and reverse-current transients with actual inductance. Typical fast-trip delay is not a guaranteed bound. FLT is not power-good and does not latch every initial fast trip."},
+    {"id":"prototype-power","stage":"bench","algorithm":"external","description":"Measure startup, fault/recovery waveforms, peak current, terminal overshoot and temperature across the intended envelope before approval."}
+  ],
+  "notes":"Standalone exact part; no qualified circuit or hard macro. Source-derived footprint and facts do not establish short-circuit survival or automatic-retry safety."
+}

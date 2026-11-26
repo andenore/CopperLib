@@ -1,0 +1,87 @@
+// Native layout regression probe; host resistors terminate ports for DRC only.
+// Not an electrical power design; instantiate within a managed consumer workspace.
+board BoostMacroProbe {
+ use library "tiny";
+ component HOST_INPUT: RESISTOR { value = 100kohm; footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod"; }
+ constraint fixed_placement(HOST_INPUT) { x=3mm; y=29mm; rotation=0; side=front; }
+ component HOST_ENABLE: RESISTOR { value = 100kohm; footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod"; }
+ constraint fixed_placement(HOST_ENABLE) { x=22.8mm; y=10mm; rotation=0; side=front; }
+ component HOST_OUTPUT: RESISTOR { value = 100kohm; footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod"; }
+ constraint fixed_placement(HOST_OUTPUT) { x=26.5mm; y=29mm; rotation=0; side=front; }
+
+ component C_INPUT1: CAPACITOR { footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod"; }
+ component C_OUTPUT1: CAPACITOR { footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_1210_3225Metric.kicad_mod"; }
+ import inductor "github.com/andenore/CopperLib/packages/parts/bourns/srp1265a";
+ component L: inductor.SRP1265A_2R2M;
+ import boost "github.com/andenore/CopperLib/packages/parts/ti/tps61088";
+ import layout "github.com/andenore/CopperLib/packages/circuits/ti/tps61088-boost";
+ build { fab_profile = "jlcpcb-four-layer"; placement { candidates = 1; } }
+ mechanical { outline rectangle { width = 60mm; height = 40mm; } rules { default_via_size=0.6mm; default_via_drill=0.3mm; } stackup { copper F.Cu { thickness=0.035mm; } dielectric PP1 { thickness=0.2104mm; er=4.4; } copper In1.Cu { thickness=0.0152mm; } dielectric CORE { thickness=1.065mm; er=4.6; } copper In2.Cu { thickness=0.0152mm; } dielectric PP2 { thickness=0.2104mm; er=4.4; } copper B.Cu { thickness=0.035mm; } } }
+ component U: boost.TPS61088RHLR;
+ component C_VCC: CAPACITOR { footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0603_1608Metric.kicad_mod"; }
+ component C_BOOT: CAPACITOR { footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod"; }
+ component C_INPUT_HF: CAPACITOR { footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod"; }
+ component C_OUTPUT_HF: CAPACITOR { footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0603_1608Metric.kicad_mod"; }
+ component C_SS: CAPACITOR { footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod"; }
+ component R_FSW: RESISTOR { footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod"; }
+ component R_ILIM: RESISTOR { footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod"; }
+ component R_FB_TOP: RESISTOR { footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod"; }
+ component R_FB_BOTTOM: RESISTOR { footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod"; }
+ component R_COMP: RESISTOR { footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod"; }
+ component C_COMP: CAPACITOR { footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod"; }
+ net VCC { U.VCC; C_VCC.1; }
+ net BOOT { U.BOOT; C_BOOT.1; }
+ net VIN { HOST_INPUT.1; C_INPUT1.1; L.A; U.VIN; C_INPUT_HF.1; }
+ net VOUT { HOST_OUTPUT.1; C_OUTPUT1.1; U.VOUT_14; U.VOUT_15; U.VOUT_16; C_OUTPUT_HF.1; R_FB_TOP.1; }
+ net SW { L.B; U.SW_4; U.SW_5; U.SW_6; U.SW_7; C_BOOT.2; R_FSW.2; }
+ net SS { U.SS; C_SS.1; }
+ net FSW { U.FSW; R_FSW.1; }
+ net ILIM { U.ILIM; R_ILIM.1; }
+ net FB { U.FB; R_FB_TOP.2; R_FB_BOTTOM.1; }
+ net COMP { U.COMP; R_COMP.1; }
+ net COMP_RC { R_COMP.2; C_COMP.1; }
+ net EN { HOST_ENABLE.1; U.EN; }
+ net GND { HOST_OUTPUT.2; HOST_ENABLE.2; HOST_INPUT.2; C_INPUT1.2; C_OUTPUT1.2; U.NC_11; U.NC_12; U.MODE; U.AGND; U.PGND; C_VCC.2; C_INPUT_HF.2; C_OUTPUT_HF.2; C_SS.2; R_ILIM.2; R_FB_BOTTOM.2; C_COMP.2; }
+ supply VIN { voltage=3.7V; external=true; } supply GND { voltage=0V; external=true; } supply EN { voltage=3.3V; external=true; }
+ constraint fixed_placement(U) { x=25mm; y=20mm; rotation=0; side=front; }
+ constraint copper_zone(GND) { layers="In1.Cu,In2.Cu"; island_policy=remove_all; pad_connection=solid; minimum_width=0.2mm; }
+
+ constraint max_distance(C_BOOT.1,U.BOOT) { distance=2mm; }
+ constraint max_distance(C_VCC.1,U.VCC) { distance=2mm; }
+ constraint max_distance(C_INPUT_HF.1,U.VIN) { distance=2mm; }
+ constraint max_distance(C_OUTPUT_HF.1,U.VOUT_14) { distance=2mm; }
+ constraint max_distance(R_FB_TOP.2,U.FB) { distance=2mm; }
+ constraint max_distance(C_INPUT1.1,L.A) { distance=4mm; }
+ constraint max_distance(C_OUTPUT1.1,U.VOUT_15) { distance=4mm; }
+ constraint max_distance(L.B,U.SW_4) { distance=5.5mm; }
+ physical_macro BOOST: layout.TPS61088_FOUR_LAYER_LOCAL_CONTROL {
+ member U = U;
+ member C_INPUT1 = C_INPUT1;
+ member C_OUTPUT1 = C_OUTPUT1;
+ member L = L;
+ member C_VCC = C_VCC;
+ member C_BOOT = C_BOOT;
+ member C_INPUT_HF = C_INPUT_HF;
+ member C_OUTPUT_HF = C_OUTPUT_HF;
+ member C_SS = C_SS;
+ member R_FSW = R_FSW;
+ member R_ILIM = R_ILIM;
+ member R_FB_TOP = R_FB_TOP;
+ member R_FB_BOTTOM = R_FB_BOTTOM;
+ member R_COMP = R_COMP;
+ member C_COMP = C_COMP;
+ net VCC = VCC;
+ net BOOT = BOOT;
+ net VIN = VIN;
+ net VOUT = VOUT;
+ net SW = SW;
+ net SS = SS;
+ net FSW = FSW;
+ net ILIM = ILIM;
+ net FB = FB;
+ net COMP = COMP;
+ net COMP_RC = COMP_RC;
+ net EN = EN;
+ net GND = GND;
+ }
+}

@@ -1,0 +1,13 @@
+part SRP1265A_2R2M {
+    category = "passive.inductor";
+    manufacturer = "Bourns";
+    footprint = "footprints/Bourns_SRP1265A.kicad_mod";
+    height = 6.5mm;
+    source_document = "SRP1265A Series Shielded Power Inductors";
+    source_revision = "Rev 06/24";
+    source_location = "p1 2R2M rating, lead-frame outline and recommended layout; p2 L versus I";
+    source_url = "https://www.bourns.com/docs/Product-Datasheets/SRP1265A.pdf";
+    source_checksum = "sha256:30b470999b737a6350ce5b09a917a5f12090c2e0895a78ddc15285e3d44ec649";
+    pin A { number = "1"; domains = "power,analog"; directions = "passive"; }
+    pin B { number = "2"; domains = "power,analog"; directions = "passive"; }
+}

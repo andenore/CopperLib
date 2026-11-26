@@ -1,0 +1,47 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "ti.tps22918-dbv-0603-bypass",
+  "kind": "power",
+  "production_publishable": false,
+  "production_qualified": false,
+  "sources": [
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/tps22918.pdf",
+      "revision": "SLVSD76C Rev C",
+      "locator": "pp20-21; sections 10-11; Figure 32",
+      "sha256": "1b28eb58003d28b18bf919a15734056f296a499bebee2bd493a1e4358c4dfb1c"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "exact-binding",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Bind TPS22918DBVR and the exact managed capacitor footprint. Preserve decoupling role/target VIN, selected capacitance and consumer positive-pad distance bound. Confirm effective capacitance, voltage rating and real part land pattern."
+    },
+    {
+      "id": "host-ground-loop",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Host owns IC ground pin 2 and complete local return. The macro owns only capacitor return copper/via. Review host planes and connections after refill."
+    },
+    {
+      "id": "current-and-function",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "The owned 0.25 mm C-positive to VIN lead carries the switched load and input-bypass current. Qualify actual load/inrush current, copper thickness, voltage drop and temperature rise. The control_supply classification is not a rating for full load-switch current. Host owns VOUT/output bypass, ON/CT/QOD, IC ground and complete load/return loop."
+    },
+    {
+      "id": "full-consumer",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Require native filled-board DRC, bypass/plane verification and independent assembly, courtyard, solder-mask and silkscreen review in the full consumer. Isolated fixture is not full-board acceptance."
+    },
+    {
+      "id": "bench-qualification",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "Supply integrity, startup/transient behavior, thermal performance, EMI and all application-specific behavior remain unqualified."
+    }
+  ]
+}

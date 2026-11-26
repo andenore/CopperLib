@@ -1,0 +1,42 @@
+{
+  "schema": "copperlib-local-physical-acceptance/v0.1",
+  "date": "2026-11-24",
+  "scope": "Two-macro isolated native routed fixture with exact source footprints; not whole-board qualification",
+  "production_publishable": false,
+  "layout_sha256": "99761c3630382f5564c7a469620663552c9d610e1a2a79b5de31b1c0ff6e0962",
+  "fixture_layouts": {
+    "packages/circuits/ti/sn74lvc1g11-0402-bypass": "0c59f9ce11b1ffd916f967cba153d26f30d9a1af97094abaca122ed11975db6f",
+    "packages/circuits/analog-devices/ltc6993-s6-0402-bypass": "99761c3630382f5564c7a469620663552c9d610e1a2a79b5de31b1c0ff6e0962"
+  },
+  "compiler_sha256": "116e1d8814e0946b36c73c0548728a5ea55ca7bee1c86e36286761c81b0ad88c",
+  "fixture_path": "CopperAssetTracker/lightgun/build/recoil-bypass-trial/board.copper",
+  "fixture_sha256": "91dbf50a2a3217ccaa561aa79eda8715012dd3e032fb297e8d19295847bb8211",
+  "route_report_path": "CopperAssetTracker/lightgun/build/recoil-bypass-trial/route-final.json",
+  "route_report_sha256": "7c061b7897d4f51172111b963801e7de7f846297f3c1d23a478c1ddf6b893acd",
+  "command": "copper route-board build/recoil-bypass-trial/board.copper --offline --layers 4 -o build/recoil-bypass-trial/routed-final.kicad_pcb --report build/recoil-bypass-trial/route-final.json",
+  "acceptance": {
+    "native_filled_drc": "pass",
+    "native_unconnected": 0,
+    "native_violations": 0,
+    "unrouted_ordinary_nets": 0,
+    "requirements_pass": 7,
+    "bypass_surface_connected": 2,
+    "bypass_total": 2,
+    "deferred_ground": "native fill verified",
+    "native_reconciled_explicit_findings": 2,
+    "host_supply_width_mm": 0.3,
+    "owned_supply_branch_mm": 0.25
+  },
+  "geometry": {
+    "consumer_max_positive_pad_distance_mm": 2,
+    "chip_cap_courtyard_gap_mm": 0.54,
+    "via_size_mm": 0.6,
+    "via_drill_mm": 0.3
+  },
+  "limitations": [
+    "IC ground is host-owned: actual short return loop and continuous plane review are required.",
+    "Exact capacitor value, effective capacitance, rail integrity, EMC and assembly need consumer verification.",
+    "Only isolated fixture placement/routing is accepted; allowed rotations are not separate whole-board qualification.",
+    "Timer primary PDF binary hash remains unresolved in owning part evidence."
+  ]
+}

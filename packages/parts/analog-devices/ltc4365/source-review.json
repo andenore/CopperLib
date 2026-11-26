@@ -1,0 +1,16 @@
+{
+  "sources": [
+    {
+      "url": "https://www.analog.com/media/en/technical-documentation/data-sheets/LTC4365.pdf",
+      "locator": "Rev B pp2-4,7,12-14,18",
+      "hash_status": "unavailable-current-PDF-binary; web text reviewed"
+    },
+    {
+      "url": "https://e2e.ti.com/cfs-file/__key/telligent-evolution-components-attachments/00-196-01-00-01-17-08-71/LTC4365.pdf",
+      "locator": "Linear Technology original 4365f pp2,15, not Rev B",
+      "sha256": "4d340e6292e5b0bae83228c6abb7dc4d48b3464b856f273e94e8c43b106f1161"
+    }
+  ],
+  "footprint_review": "Manufacturer drawing rendered and visually checked; custom geometry follows cited land dimensions. Assembly stencil process remains consumer review.",
+  "notes": "VIN operating minimum 2.5V is not a guaranteed gate-enhancement voltage. Gate-drive minimum is only tabulated at VIN=VOUT=5V or 12V..34V. Check low-VIN startup, VOUT prebias, shutdown, reverse VIN, gate clamps and MOSFET SOA. UV/SHDN negative sources require current limiting per RevB p4 Note3 and p7. Exact current RevB PDF hash remains unavailable; downloaded original 4365f independently verifies TS8 pin and land map."
+}

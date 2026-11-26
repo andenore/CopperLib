@@ -57,8 +57,10 @@ FOOTPRINTS = (
      {str(i) for i in range(1, 16)}, "9653d152a188e181c08251c6da1d92f2ada12dcbbd70155c282573f3d7d9a8b7"),
     ("parts/bourns/srp4020ta/footprints/Bourns_SRP4020TA.kicad_mod",
      {"1", "2"}, "7e935df9b692778b3917f1a5af0c7e239f542ddad6f37b13a5b6a94731603cb8"),
+    # JST eXH catalogue p3 datum review (2026-11-25; package README):
+    # F.Fab body y=-1.85..5.15 mm; pads, courtyard and origin are unchanged.
     ("parts/jst/xh-sm4/footprints/JST_S3B_XH_SM4_TB.kicad_mod",
-     {"1", "2", "3", "MP"}, "4e6035ec9b976bee0fd8117af3731dd427a3e945e104dab6418da488c203bc4c"),
+     {"1", "2", "3", "MP"}, "c7c373d46042fe3eb4b98c02264ae8702a9eb3e461801431406794fef8ec038e"),
     ("parts/jst/xh-sm4/footprints/JST_S4B_XH_SM4_TB.kicad_mod",
      {"1", "2", "3", "4", "MP"}, "4ae72bcb69bd23c7b925bc41b22672673e7daf6b3f40b4bfbce2245656cb7d83"),
 )

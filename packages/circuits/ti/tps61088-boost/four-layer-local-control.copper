@@ -1,0 +1,174 @@
+// Authored four-layer adaptation: local support, SRP1265A inductor and first input/output bank.
+macro TPS61088_FOUR_LAYER_LOCAL_CONTROL {
+ source = { url = "https://www.ti.com/lit/ug/slvuaf2/slvuaf2.pdf"; revision = "SLVUAF2 June 2015"; locator = "Figure 7 p7 schematic, Figures 8-11 pp9-10 layout"; sha256 = "a957c5e8842e86d83037f8da9ccfcbebce7c61cfae7981ff1f6e63f3c00bf46a"; geometry_status = "Authored local-control adaptation, not extracted TI CAD. Preserves chip-side support topology, output sense branching and switching/output pin joins. Owns SRP1265A inductor, one0805inputbulk andone1210outputbulk. Remaining banks, host power feed and load paths are host-owned."; };
+ unresolved = ["Host must route rated input feed and remaining VOUT bank/load paths through ports", "Local joins and output HF bypass do not qualify full pulse current or hot-loop area", "Host must preserve continuous internal ground planes. SixexternalPGNDvias are an authored4L fallback; current and thermal qualification remain mandatory, not manufacturer-equivalent via-in-pad", "Compensation, transients, EMI, temperature and assembly remain unqualified"];
+ anchor = U; allowed_rotations = [0 deg, 90 deg, 180 deg, 270 deg];
+ required_layers = ["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]; internal_clearance = 0.15mm;
+ net VCC;
+ net BOOT;
+ net VIN;
+ net VOUT;
+ net SW;
+ net SS;
+ net FSW;
+ net ILIM;
+ net FB;
+ net COMP;
+ net COMP_RC;
+ net EN;
+ net GND;
+ member U { footprint = "github.com/andenore/CopperLib/packages/parts/ti/tps61088/footprints/TI_RHL0020A_TPS61088.kicad_mod"; at = (0mm, 0mm); rotation = 0deg; }
+ member C_VCC { footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0603_1608Metric.kicad_mod"; at = (-0.75mm, -4.35mm); rotation = 90deg; }
+ member C_BOOT { footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod"; at = (-3.51mm, 1.65mm); rotation = 180deg; }
+ member C_INPUT_HF { footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod"; at = (-3.51mm, 2.9mm); rotation = 180deg; }
+ member C_OUTPUT_HF { footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0603_1608Metric.kicad_mod"; at = (3.85mm, 0.95mm); rotation = 0deg; }
+ member C_SS { footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod"; at = (-0.75mm, 3.8mm); rotation = 270deg; }
+ member R_FSW { footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod"; at = (-3.51mm, -1.65mm); rotation = 180deg; }
+ member R_ILIM { footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod"; at = (1.9mm, -3.8mm); rotation = 90deg; }
+ member R_FB_TOP { footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod"; at = (3.3mm, -0.55mm); rotation = 180deg; }
+ member R_FB_BOTTOM { footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod"; at = (5.35mm, -0.55mm); rotation = 0deg; }
+ member R_COMP { footprint = "github.com/KiCad/kicad-footprints/Resistor_SMD.pretty/R_0402_1005Metric.kicad_mod"; at = (3.3mm, -2.2mm); rotation = 0deg; }
+ member C_COMP { footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod"; at = (5.35mm, -2.2mm); rotation = 0deg; }
+ member L { footprint = "github.com/andenore/CopperLib/packages/parts/bourns/srp1265a/footprints/Bourns_SRP1265A.kicad_mod"; at = (-12mm,0mm); rotation = 0deg; }
+ member C_INPUT1 { footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod"; at = (-20.8mm,0mm); rotation = 90deg; }
+ member C_OUTPUT1 { footprint = "github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_1210_3225Metric.kicad_mod"; at = (4.7mm,3.8mm); rotation = 0deg; }
+ pad C_INPUT1."1" = VIN; pad C_INPUT1."2" = GND; pad C_OUTPUT1."1" = VOUT; pad C_OUTPUT1."2" = GND;
+ pad L."1" = VIN; pad L."2" = SW;
+ pad U."1" = VCC;
+ pad C_VCC."1" = VCC;
+ pad U."8" = BOOT;
+ pad C_BOOT."1" = BOOT;
+ pad U."9" = VIN;
+ pad C_INPUT_HF."1" = VIN;
+ pad U."14" = VOUT;
+ pad U."15" = VOUT;
+ pad U."16" = VOUT;
+ pad C_OUTPUT_HF."1" = VOUT;
+ pad R_FB_TOP."1" = VOUT;
+ pad U."4" = SW;
+ pad U."5" = SW;
+ pad U."6" = SW;
+ pad U."7" = SW;
+ pad C_BOOT."2" = SW;
+ pad R_FSW."2" = SW;
+ pad U."10" = SS;
+ pad C_SS."1" = SS;
+ pad U."3" = FSW;
+ pad R_FSW."1" = FSW;
+ pad U."19" = ILIM;
+ pad R_ILIM."1" = ILIM;
+ pad U."17" = FB;
+ pad R_FB_TOP."2" = FB;
+ pad R_FB_BOTTOM."1" = FB;
+ pad U."18" = COMP;
+ pad R_COMP."1" = COMP;
+ pad R_COMP."2" = COMP_RC;
+ pad C_COMP."1" = COMP_RC;
+ pad U."2" = EN;
+ pad U."11" = GND;
+ pad U."12" = GND;
+ pad U."13" = GND;
+ pad U."20" = GND;
+ pad U."21" = GND;
+ pad C_VCC."2" = GND;
+ pad C_INPUT_HF."2" = GND;
+ pad C_OUTPUT_HF."2" = GND;
+ pad C_SS."2" = GND;
+ pad R_ILIM."2" = GND;
+ pad R_FB_BOTTOM."2" = GND;
+ pad C_COMP."2" = GND;
+ track vcc { net = VCC; layer = "F.Cu"; width = 0.2mm; points = [U."1", C_VCC."1"]; }
+ track boot { net = BOOT; layer = "F.Cu"; width = 0.18mm; points = [U."8", C_BOOT."1"]; }
+ track vin { net = VIN; layer = "F.Cu"; width = 0.2mm; points = [U."9", (-2.4 mm, 2.65 mm), C_INPUT_HF."1"]; }
+ track vin_entry { net = VIN; layer = "F.Cu"; width = 0.2mm; points = [C_INPUT_HF."1", (-2.7 mm, 4.4 mm), (-5.2 mm, 4.4 mm)]; }
+ track ss { net = SS; layer = "F.Cu"; width = 0.18mm; points = [U."10", C_SS."1"]; }
+ track fsw { net = FSW; layer = "F.Cu"; width = 0.18mm; points = [U."3", R_FSW."1"]; }
+ track sw_join { net = SW; layer = "F.Cu"; width = 0.3mm; points = [U."4", U."5", U."6", U."7"]; }
+ track sw_branch { net = SW; layer = "F.Cu"; width = 2mm; points = [(-2.3 mm, 0 mm), L."2"]; }
+ track sw_boot { net = SW; layer = "F.Cu"; width = 0.18mm; points = [C_BOOT."2", (-4.02 mm, 0.1 mm), R_FSW."2"]; }
+ track ilim { net = ILIM; layer = "F.Cu"; width = 0.18mm; points = [U."19", (2.05 mm, -1.75 mm), (2.05 mm, -2.8 mm), R_ILIM."1"]; }
+ track comp { net = COMP; layer = "F.Cu"; width = 0.18mm; points = [U."18", (2.3 mm, -1.25 mm), R_COMP."1"]; }
+ track comp_rc { net = COMP_RC; layer = "F.Cu"; width = 0.18mm; points = [R_COMP."2", C_COMP."1"]; }
+ track fb { net = FB; layer = "F.Cu"; width = 0.18mm; points = [U."17", R_FB_TOP."2"]; }
+ track fb_divider { net = FB; layer = "F.Cu"; width = 0.18mm; points = [R_FB_TOP."2", (2.79 mm, -1.25 mm), (4.69 mm, -1.25 mm), R_FB_BOTTOM."1"]; }
+ track vout_join { net = VOUT; layer = "F.Cu"; width = 0.3mm; points = [U."14", U."15", U."16"]; }
+ track vout_hf { net = VOUT; layer = "F.Cu"; width = 1mm; points = [(2.1mm,0.25mm), C_OUTPUT_HF."1"]; }
+ track sense { net = VOUT; layer = "F.Cu"; width = 0.18mm; points = [R_FB_TOP."1", (3.81 mm, 0 mm), (2.7 mm, 0 mm), C_OUTPUT_HF."1"]; }
+ track vout_entry { net = VOUT; layer = "F.Cu"; width = 1mm; points = [C_OUTPUT_HF."1", C_OUTPUT1."1", (1.5mm,4.1mm), (1.5mm,6.7mm)]; }
+ track en { net = EN; layer = "F.Cu"; width = 0.18mm; points = [U."2", (-2.2 mm, -2.2 mm), (-2.2 mm, -6.6 mm)]; }
+ track agnd_tie { net = GND; layer = "F.Cu"; width = 0.2mm; points = [U."20", (0.75 mm, -1.4 mm), (0 mm, 0 mm)]; }
+ track ground_edge { net = GND; layer = "F.Cu"; width = 0.2mm; points = [U."13", U."12", (0.75 mm, 1.75 mm), U."11", (0.75 mm, 2.65 mm), (0 mm, 3 mm)]; }
+ track ground_spine { net = GND; layer = "F.Cu"; width = 0.5mm; points = [(0 mm, 0 mm), (0 mm, 3 mm)]; }
+ track agnd_ground { net = GND; layer = "F.Cu"; width = 0.2mm; points = [U."20", (0.95 mm, -3.2 mm)]; }
+ track vcc_ground { net = GND; layer = "F.Cu"; width = 0.2mm; points = [C_VCC."2", (-0.75 mm, -6.0 mm)]; }
+ track input_ground { net = GND; layer = "F.Cu"; width = 0.2mm; points = [C_INPUT_HF."2", (-4.3 mm, 3.6 mm)]; }
+ track output_ground { net = GND; layer = "F.Cu"; width = 0.2mm; points = [C_OUTPUT_HF."2", (5.4 mm, 0.95 mm)]; }
+ track ss_ground { net = GND; layer = "F.Cu"; width = 0.2mm; points = [C_SS."2", (-0.75 mm, 5.3 mm)]; }
+ track ilim_ground { net = GND; layer = "F.Cu"; width = 0.2mm; points = [R_ILIM."2", (1.9 mm, -5 mm)]; }
+ track fb_ground { net = GND; layer = "F.Cu"; width = 0.2mm; points = [R_FB_BOTTOM."2", (6.7 mm, -0.55 mm)]; }
+ track comp_ground { net = GND; layer = "F.Cu"; width = 0.2mm; points = [C_COMP."2", (6.7 mm, -2.2 mm)]; }
+ via agnd_return { net = GND; at = (0.95 mm, -3.2 mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ via vcc_return { net = GND; at = (-0.75 mm, -6.0 mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ via input_return { net = GND; at = (-4.3 mm, 3.6 mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ via output_return { net = GND; at = (5.4 mm, 0.95 mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ via ss_return { net = GND; at = (-0.75 mm, 5.3 mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ via ilim_return { net = GND; at = (1.9 mm, -5 mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ via fb_return { net = GND; at = (6.7 mm, -0.55 mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ via comp_return { net = GND; at = (6.7 mm, -2.2 mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ via ep_return { net = GND; at = (0 mm, 3 mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ port INPUT { net = VIN; layer = "F.Cu"; point = (-20.8mm,2.6mm); pads = [U."9", C_INPUT_HF."1", L."1", C_INPUT1."1"]; }
+ port OUTPUT { net = VOUT; layer = "F.Cu"; point = (1.5mm,6.7mm); pads = [U."14", U."15", U."16", C_OUTPUT_HF."1", R_FB_TOP."1", C_OUTPUT1."1"]; }
+ port ENABLE { net = EN; layer = "F.Cu"; point = (-2.2 mm, -6.6 mm); pads = [U."2"]; }
+ polygon output_collector { net = VOUT; layer = "F.Cu"; vertices = [(1.35mm,-0.37mm),(2.2mm,-0.37mm),(2.2mm,0.87mm),(1.35mm,0.87mm)]; }
+ polygon switch_collector { net = SW; layer = "F.Cu"; vertices = [(-2.5mm,-0.87mm),(-1.35mm,-0.87mm),(-1.35mm,0.87mm),(-2.5mm,0.87mm)]; }
+ track input_main { net = VIN; layer = "F.Cu"; width = 2mm; points = [(-20.8mm,2.6mm),C_INPUT1."1",L."1"]; }
+ via input_sense_entry { net = VIN; at = (-20mm,0mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ via input_sense_return { net = VIN; at = (-5.2mm,4.4mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ track input_sense { net = VIN; layer = "B.Cu"; width = 0.2mm; points = [(-20mm,0mm),(-20mm,4.4mm),(-5.2mm,4.4mm)]; }
+ protected_region switch_trunk { layers = ["F.Cu"]; vertices = [(-8.2mm,-1.2mm),(-4.7mm,-1.2mm),(-4.7mm,1.2mm),(-8.2mm,1.2mm)]; block_tracks = true; block_vias = true; block_zones = true; }
+ track thermal_top { net = GND; layer = "F.Cu"; width = 0.5mm; points = [(0mm,0mm),(0.25mm,-2.9mm)]; }
+ via thermal_top_return { net = GND; at = (0.25mm,-2.9mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ track thermal_bottom { net = GND; layer = "F.Cu"; width = 0.5mm; points = [(0mm,0mm),(0.7mm,3mm)]; }
+ via thermal_bottom_return { net = GND; at = (0.7mm,3mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ track input_bulk_ground { net = GND; layer = "F.Cu"; width = 0.6mm; points = [C_INPUT1."2",(-22.2mm,-0.95mm)]; }
+ via input_bulk_return { net = GND; at = (-22.2mm,-0.95mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ track output_bulk_ground_a { net = GND; layer = "F.Cu"; width = 0.6mm; points = [C_OUTPUT1."2",(7.4mm,3.2mm)]; }
+ via output_bulk_return_a { net = GND; at = (7.4mm,3.2mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ track output_bulk_ground_b { net = GND; layer = "F.Cu"; width = 0.6mm; points = [C_OUTPUT1."2",(7.4mm,2.2mm)]; }
+ via output_bulk_return_b { net = GND; at = (7.4mm,2.2mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ width_contract input_main_width { track = input_main; minimum_width = 2mm; purpose = "main_power"; evidence = "Authored input-bank-to-inductor supply path, minimum2mm; pulse/RMS copper and temperature qualification remains required."; }
+ track thermal_north_spread { net = GND; layer = "F.Cu"; width = 0.5mm; points = [(0.25mm,-2.9mm),(0.95mm,-3.2mm),(0.95mm,-4mm)]; }
+ via thermal_north_return { net = GND; at = (0.95mm,-4mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ track thermal_south_spread { net = GND; layer = "F.Cu"; width = 0.5mm; points = [(0mm,3mm),(0.7mm,3mm),(1.4mm,3mm)]; }
+ via thermal_south_return { net = GND; at = (1.4mm,3mm); size = 0.6mm; drill = 0.3mm; from_layer = "F.Cu"; to_layer = "B.Cu"; technology = none; }
+ track pgnd_north_left { net = GND; layer = "F.Cu"; width = 0.2mm; points = [(-0.275mm,-2.15mm),(-0.275mm,-2.65mm),(0.25mm,-2.9mm)]; }
+ track pgnd_north_right { net = GND; layer = "F.Cu"; width = 0.2mm; points = [(0.275mm,-2.15mm),(0.275mm,-2.65mm),(0.25mm,-2.9mm)]; }
+ track pgnd_south_left { net = GND; layer = "F.Cu"; width = 0.2mm; points = [(-0.275mm,2.15mm),(-0.275mm,2.65mm),(0mm,3mm)]; }
+ track pgnd_south_right { net = GND; layer = "F.Cu"; width = 0.2mm; points = [(0.275mm,2.15mm),(0.275mm,2.65mm),(0.7mm,3mm)]; }
+ plane_return ground_plane { net = GND; layers = ["In1.Cu", "In2.Cu"]; pads = [C_INPUT1."2", C_OUTPUT1."2", U."11", U."12", U."13", U."20", U."21", C_VCC."2", C_INPUT_HF."2", C_OUTPUT_HF."2", C_SS."2", R_ILIM."2", R_FB_BOTTOM."2", C_COMP."2"];
+ contact input_bulk { pad = C_INPUT1."2"; at = (-22.2mm,-0.95mm); }
+ contact output_bulk { pad = C_OUTPUT1."2"; at = (7.4mm,3.2mm); }
+ contact agnd { pad = U."20"; at = (0.95 mm, -3.2 mm); }
+ contact vcc { pad = C_VCC."2"; at = (-0.75 mm, -6.0 mm); }
+ contact input { pad = C_INPUT_HF."2"; at = (-4.3 mm, 3.6 mm); }
+ contact output { pad = C_OUTPUT_HF."2"; at = (5.4 mm, 0.95 mm); }
+ contact ss { pad = C_SS."2"; at = (-0.75 mm, 5.3 mm); }
+ contact ilim { pad = R_ILIM."2"; at = (1.9 mm, -5 mm); }
+ contact fb { pad = R_FB_BOTTOM."2"; at = (6.7 mm, -0.55 mm); }
+ contact comp { pad = C_COMP."2"; at = (6.7 mm, -2.2 mm); }
+ contact ep { pad = U."21"; at = (0 mm, 3 mm); }
+ }
+ protected_region local_support { layers = ["F.Cu"]; vertices = [(-5mm,-6.4mm),(7.9mm,-6.4mm),(7.9mm,2mm),(6.8mm,2mm),(6.8mm,5.9mm),(-5mm,5.9mm)]; block_tracks = true; block_vias = true; block_zones = true; }
+ width_contract vcc_width { track = vcc; minimum_width = 0.2mm; purpose = "control_supply"; evidence = "Authored chip-local branch adapted from TI SLVUAF2; not a main power-current capacity claim. Host wide copper and load/thermal qualification mandatory."; }
+ width_contract vin_width { track = vin; minimum_width = 0.2mm; purpose = "control_supply"; evidence = "Authored chip-local branch adapted from TI SLVUAF2; not a main power-current capacity claim. Host wide copper and load/thermal qualification mandatory."; }
+ width_contract vin_entry_width { track = vin_entry; minimum_width = 0.2mm; purpose = "control_supply"; evidence = "Authored chip-local branch adapted from TI SLVUAF2; not a main power-current capacity claim. Host wide copper and load/thermal qualification mandatory."; }
+ width_contract input_sense_width { track = input_sense; minimum_width = 0.2mm; purpose = "control_supply"; evidence = "TI SLVUAF2 section 2.1 and Figure 7 separate the VIN pin9 IC control supply through JP1 from the inductor power input. This authored B.Cu branch feeds only VIN and its local bypass through vin_entry/vin; input_main remains 2mm and carries the inductor input current. The 0.2mm width is an authored branch allowance, not a TI-prescribed width or startup/current/EMI qualification."; }
+ width_contract sw_join_width { track = sw_join; minimum_width = 0.3mm; purpose = "pin_entry"; evidence = "Authored chip-local branch adapted from TI SLVUAF2; not a main power-current capacity claim. Host wide copper and load/thermal qualification mandatory."; }
+ width_contract sw_branch_width { track = sw_branch; minimum_width = 2mm; purpose = "main_power"; evidence = "Authored main inductor-to-SW collector path, minimum 2mm. Pulse/RMS current, voltage drop and thermal qualification remain required."; }
+ width_contract sw_boot_width { track = sw_boot; minimum_width = 0.18mm; purpose = "pin_entry"; evidence = "Authored chip-local branch adapted from TI SLVUAF2; not a main power-current capacity claim. Host wide copper and load/thermal qualification mandatory."; }
+ width_contract vout_join_width { track = vout_join; minimum_width = 0.3mm; purpose = "pin_entry"; evidence = "Authored chip-local branch adapted from TI SLVUAF2; not a main power-current capacity claim. Host wide copper and load/thermal qualification mandatory."; }
+ width_contract vout_hf_width { track = vout_hf; minimum_width = 1mm; purpose = "main_power"; evidence = "Authored main output path from the VOUT collector through the local output capacitors to the host port, minimum 1mm. Pulse/RMS current, voltage drop and thermal qualification remain required."; }
+ width_contract sense_width { track = sense; minimum_width = 0.18mm; purpose = "output_sense"; evidence = "Authored chip-local branch adapted from TI SLVUAF2; not a main power-current capacity claim. Host wide copper and load/thermal qualification mandatory."; }
+ width_contract vout_entry_width { track = vout_entry; minimum_width = 1mm; purpose = "main_power"; evidence = "Authored main output path from the VOUT collector through the local output capacitors to the host port, minimum 1mm. Pulse/RMS current, voltage drop and thermal qualification remain required."; }
+ width_contract en_width { track = en; minimum_width = 0.18mm; purpose = "enable"; evidence = "Authored chip-local branch adapted from TI SLVUAF2; not a main power-current capacity claim. Host wide copper and load/thermal qualification mandatory."; }
+}

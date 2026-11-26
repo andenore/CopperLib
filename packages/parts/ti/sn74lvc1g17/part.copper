@@ -1,0 +1,16 @@
+// DBV only. NC is conservatively left disconnected.
+part SN74LVC1G17DBVR {
+    category = "logic.buffer.schmitt";
+    manufacturer = "Texas Instruments";
+    footprint = "Package_TO_SOT_SMD:SOT-23-5";
+    source_document = "SN74LVC1G17 Single Schmitt-Trigger Buffer";
+    source_revision = "SCES351Y Rev Y, October 2025";
+    source_location = "p3 DBV pins; pp5-7 recommended operating conditions, Schmitt thresholds and Ioff; p12 bypass/layout; DBV0005A drawing";
+    source_url = "https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf";
+    source_checksum = "sha256:ade19853307838593bd60d27ae4f6a026fc8a52935de8d5f487457b8214e050f";
+    pin NC { number = "1"; connection = do_not_connect; }
+    pin A { number = "2"; domains = "digital"; directions = "input"; }
+    pin GND { number = "3"; domains = "ground"; directions = "input"; }
+    pin Y { number = "4"; domains = "digital"; directions = "output"; }
+    pin VCC { number = "5"; domains = "power"; directions = "input"; voltage_min = 1.65V; voltage_max = 5.5V; }
+}

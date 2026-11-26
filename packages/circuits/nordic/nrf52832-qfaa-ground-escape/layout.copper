@@ -1,0 +1,35 @@
+// Narrow extraction of the library's authored Nordic-reference ground exit.
+// This is a copper connection, not a silicon-internal pad equivalence.
+macro NRF52832_QFAA_EP_GROUND_ESCAPE {
+    source = {
+        reference_url = "https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/reference-layouts/nrf52832qfaxreflayoutv11.zip";
+        reference_revision = "nRF52832 QFAx Reference Layout 1.1, QFAA LDO";
+        archive_sha256 = "21e37dcdd8e63d80825bb9e06462efdebe55b642f4e19c5f25c2d9a131e6e334";
+        adaptation = "Subset of nrf52832-johanson-reference/managed-layout.copper track_8: authored EP49 to pad45 escape only; no via or RF geometry";
+    };
+    unresolved = ["host pad45 connection to filled GND plane", "complete Nordic RF and decoupling reference layout", "package thermal performance and assembly qualification"];
+    anchor = U;
+    required_layers = ["F.Cu"];
+    allowed_rotations = [0 deg, 90 deg, 180 deg, 270 deg];
+    internal_clearance = 0.15 mm;
+    net ground;
+    member U {
+        footprint = "github.com/KiCad/kicad-footprints/Package_DFN_QFN.pretty/QFN-48-1EP_6x6mm_P0.4mm_EP4.2x4.2mm.kicad_mod";
+        at = (0 mm, 0 mm);
+        rotation = 0 deg;
+    }
+    pad U."49" = ground;
+    pad U."45" = ground;
+    track ep_exit {
+        net = ground;
+        layer = "F.Cu";
+        width = 0.2286 mm;
+        points = [U."49", (-1 mm, -1 mm), U."45"];
+    }
+    port ground {
+        net = ground;
+        layer = "F.Cu";
+        point = U."45";
+        pads = [U."49", U."45"];
+    }
+}

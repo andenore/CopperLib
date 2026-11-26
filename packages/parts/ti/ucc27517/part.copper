@@ -1,0 +1,14 @@
+// Exact package pin map; application qualification remains consumer-owned.
+part UCC27517DBVR {
+    manufacturer = "Texas Instruments";
+    footprint = "Package_TO_SOT_SMD:SOT-23-5";
+    source_url = "https://www.ti.com/lit/ds/symlink/ucc27517.pdf";
+    source_location = "SLUSAY4D December 2014, pin functions and operating conditions";
+    source_checksum = "sha256:6b7b8c088746010dfbce36367a03de3e971a91bd6fb705adad0c6258d44bf90c";
+    pin VDD { number = "1"; domains = "power"; directions = "input"; voltage_min = 4.5V; voltage_max = 18V; }
+    pin GND { number = "2"; domains = "ground"; directions = "input"; }
+    pin IN_P { number = "3"; domains = "digital"; directions = "input"; }
+    pin IN_N { number = "4"; domains = "digital"; directions = "input"; }
+    pin OUT { number = "5"; domains = "digital"; directions = "output"; }
+}
+

@@ -1,0 +1,14 @@
+{
+  "part":"WSL2512R5000FEA",
+  "source":{"url":"https://www.vishay.com/docs/30100/wsl.pdf","revision":"30100 20-Nov-2026","sha256":"3edc90430580e47b09c77c70b47ac1afd876971e89b4783d243661e8ff6a1300","locators":"p1 ordering and note2; p2 TCR/dimensions/lands; p3 pulse reference and load-life test"},
+  "resistance_ohm":0.5,
+  "tolerance_percent":1,
+  "tcr_ppm_per_c":75,
+  "tcr_characterized_temperature_c":[-55,155],
+  "continuous_power_at_70c_w":0.8,
+  "body_height_max_mm":0.889,
+  "shared_footprint":"Existing WSL2512_7m_to_500m,1.65x3.68mm lands,4.06mm inner gap, unchanged. No existing Kelvin macro ownership is transferred to a ballast instance.",
+  "production_publishable":false,
+  "qualification":"Pulse-capable metal-strip construction supports prototype selection. Datasheet directs pulse qualification to https://www.vishay.com/en/resistors/power-metal-strip-calculator/ ; no application pulse energy rating or survival is claimed here.",
+  "remaining":["Application pulse energy and duration over temperature and repetition","Thermal and copper rating","Transient rail ceiling and resistor minimum resistance including life effects","Failure-mode and fault coordination"]
+}

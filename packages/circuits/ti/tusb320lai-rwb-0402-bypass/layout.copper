@@ -1,0 +1,18 @@
+// Temporary fixture; default member-edge clearance is 0.25mm.
+// Exact managed courtyards have 0.5mm added separation at this pose.
+macro TUSB320LAI_RWB_0402_BYPASS {
+ source={url="https://www.ti.com/lit/ds/symlink/tusb320lai.pdf";revision="SLLSEQ8D";locator="RWB pin12 VDD and local bypass";geometry_status="Authored from exact managed Texas_X2QFN-12 and 0402 footprints; not qualification.";};
+ unresolved=["Host IC ground and complete bypass loop", "CC signal escape, USB behavior and assembly qualification"];
+ anchor=U;required_layers=["F.Cu","In1.Cu","In2.Cu","B.Cu"];allowed_rotations=[0deg,90deg,180deg,270deg];internal_clearance=0.15mm;
+ net SUPPLY;net GROUND;
+ member U {footprint="github.com/KiCad/kicad-footprints/Package_DFN_QFN.pretty/Texas_X2QFN-12_1.6x1.6mm_P0.4mm.kicad_mod";at=(0mm,0mm);rotation=0deg;}
+ member C {footprint="github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod";at=(-0.6mm,-2.81mm);rotation=90deg;}
+ pad U."12"=SUPPLY;pad C."1"=SUPPLY;pad C."2"=GROUND;
+ track bypass_supply {net=SUPPLY;layer="F.Cu";width=0.25mm;points=[U."12",C."1"];}
+ track bypass_ground {net=GROUND;layer="F.Cu";width=0.25mm;points=[C."2",(-0.6mm,-4.06mm)];}
+ width_contract local_supply_branch {track=bypass_supply;minimum_width=0.25mm;purpose="control_supply";evidence="Chip-local bypass branch; host distribution attaches at capacitor port. Host rail width remains unchanged.";}
+ width_contract local_return_branch {track=bypass_ground;minimum_width=0.25mm;purpose="control_supply";evidence="Local bypass capacitor current into adjacent ground via; host IC ground is a separate obligation.";}
+ via bypass_return {net=GROUND;at=(-0.6mm,-4.06mm);size=0.6mm;drill=0.3mm;from_layer="F.Cu";to_layer="B.Cu";technology=none;}
+ port SUPPLY {net=SUPPLY;layer="F.Cu";point=C."1";pads=[U."12",C."1"];}
+ plane_return bypass_plane {net=GROUND;layers=["In1.Cu","In2.Cu"];pads=[C."2"];contact capacitor {pad=C."2";at=(-0.6mm,-4.06mm);}}
+}

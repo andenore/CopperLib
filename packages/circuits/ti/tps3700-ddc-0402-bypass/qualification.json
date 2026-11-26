@@ -1,0 +1,41 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "ti.tps3700-ddc-0402-bypass",
+  "kind": "power",
+  "production_publishable": false,
+  "production_qualified": false,
+  "sources": [
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/tps3700.pdf",
+      "revision": null,
+      "locator": "DDC pin5 VDD and local bypass guidance",
+      "sha256": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "exact-binding",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Bind TPS3700DDCR and suitable 0402 bypass; preserve exact managed footprints, capacitor decoupling role and consumer positive-pad bound. Confirm capacitance, voltage rating and effective capacitance for actual rail."
+    },
+    {
+      "id": "host-ground-loop",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Host owns IC ground pin 2, signals and complete local return loop. Connect IC ground locally to continuous ground planes; macro owns only capacitor ground lead/via."
+    },
+    {
+      "id": "host-copper",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Require full consumer native filled-board DRC, surface bypass verification, plane connectivity and assembly review. Do not route other load or switch current through this local bypass branch."
+    },
+    {
+      "id": "qualification",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "The current part definition uses managed SOT-23-6 geometry. Exact DDC land-pattern/assembly review, source revision/hash, divider placement, threshold/noise and fault behavior remain open."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "ti.ucc27517-dbv-0402-bypass",
+  "kind": "power",
+  "production_publishable": false,
+  "production_qualified": false,
+  "sources": [
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/ucc27517.pdf",
+      "revision": "SLUSAY4D December 2014",
+      "locator": "DBV pins and bypass/layout guidance",
+      "sha256": "6b7b8c088746010dfbce36367a03de3e971a91bd6fb705adad0c6258d44bf90c"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "exact-binding",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Bind UCC27517DBVR and suitable 0402 bypass; preserve exact managed footprints, capacitor decoupling role and consumer positive-pad bound. Confirm capacitance, voltage rating and effective capacitance for actual rail."
+    },
+    {
+      "id": "host-ground-loop",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Host owns IC ground pin 2, signals and complete local return loop. Connect IC ground locally to continuous ground planes; macro owns only capacitor ground lead/via."
+    },
+    {
+      "id": "host-copper",
+      "stage": "design",
+      "algorithm": "external",
+      "description": "Require full consumer native filled-board DRC, surface bypass verification, plane connectivity and assembly review. Do not route other load or switch current through this local bypass branch."
+    },
+    {
+      "id": "qualification",
+      "stage": "bench",
+      "algorithm": "external",
+      "description": "Host must provide the additional bulk capacitor, short driver-ground/gate-current return, output/gate wiring and pulse-current, ripple, transient and thermal qualification."
+    }
+  ]
+}

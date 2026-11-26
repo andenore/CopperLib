@@ -1,0 +1,10 @@
+{
+  "part": "SN74LVC1G17DBVR",
+  "source_url": "https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf",
+  "revision": "SCES351Y Rev Y, October 2025",
+  "source_sha256": "ade19853307838593bd60d27ae4f6a026fc8a52935de8d5f487457b8214e050f",
+  "locators": ["p3 DBV pins", "pp5-7 electrical characteristics", "p12 bypass/layout", "DBV0005A drawing"],
+  "pin_map": {"NC": "1", "A": "2", "GND": "3", "Y": "4", "VCC": "5"},
+  "production_publishable": false,
+  "remaining": ["consumer pinned land-pattern review", "host startup and fault review", "prototype verification"]
+}

@@ -1,0 +1,20 @@
+// All externally required power contacts remain independently routed.
+part CSD18540Q5B {
+    manufacturer = "Texas Instruments";
+    footprint = "footprints/TI_Q5B_CSD18540.kicad_mod";
+    height = 1.05mm;
+    source_url = "https://www.ti.com/lit/ds/symlink/csd18540q5b.pdf";
+    source_revision = "SLPS488B April 2017";
+    source_location = "p1 top-view terminal diagram and limits; p6 SOA; pp8-9 Q5B and PCB/stencil pattern";
+    source_checksum = "sha256:2e43c4a2ac82af8a089be0a9e413282326f8d7857254ac07390b458deca854e0";
+    pin S1 { number = "1"; domains = "power,ground,analog"; directions = "passive"; }
+    pin S2 { number = "2"; domains = "power,ground,analog"; directions = "passive"; }
+    pin S3 { number = "3"; domains = "power,ground,analog"; directions = "passive"; }
+    pin G { number = "4"; domains = "digital,analog"; directions = "input"; }
+    pin D5 { number = "5"; domains = "power,analog"; directions = "passive"; }
+    pin D6 { number = "6"; domains = "power,analog"; directions = "passive"; }
+    pin D7 { number = "7"; domains = "power,analog"; directions = "passive"; }
+    pin D8 { number = "8"; domains = "power,analog"; directions = "passive"; }
+    // Local number9 names the unnumbered exposed drain contact shown on p1.
+    pin D_PAD { number = "9"; domains = "power,analog"; directions = "passive"; }
+}

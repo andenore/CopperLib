@@ -1,0 +1,17 @@
+// Exact I-grade S6 variant: rising-edge trigger, non-retriggerable.
+// Resistor-programmed timing and POL/DIV selection are host obligations.
+part LTC6993IS6_1_TRMPBF {
+    category = "timing.monostable.non_retriggerable";
+    manufacturer = "Analog Devices";
+    footprint = "footprints/ADI_S6_TSOT23_6.kicad_mod";
+    source_document = "LTC6993-1/LTC6993-2/LTC6993-3/LTC6993-4";
+    source_revision = "Rev F, July 2025";
+    source_location = "p2 S6 pinout/orderable I grade; pp4-5 timing limits; pp12-15 DIV and startup; S6 package drawing";
+    source_url = "https://www.analog.com/media/en/technical-documentation/data-sheets/ltc6993-6993-1-6993-2-6993-3-6993-4.pdf";
+    pin TRIG { number = "1"; domains = "digital"; directions = "input"; }
+    pin GND { number = "2"; domains = "ground"; directions = "input"; }
+    pin SET { number = "3"; domains = "analog"; directions = "passive"; }
+    pin DIV { number = "4"; domains = "analog"; directions = "input"; }
+    pin VPLUS { number = "5"; domains = "power"; directions = "input"; voltage_min = 2.25V; voltage_max = 5.5V; }
+    pin OUT { number = "6"; domains = "digital"; directions = "output"; }
+}

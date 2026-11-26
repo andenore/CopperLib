@@ -1,0 +1,32 @@
+// Coil-local series diode/TVS clamp. Mating direction of J at rotation0 is +Y.
+macro COIL_CLAMP_PH2 {
+    source = {
+        connector_url = "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf";
+        connector_locator = "p2 side-entry SMT land pattern; p1 2A rating with AWG24; package-owned reviewed lands";
+        diode_url = "https://www.diodes.com/assets/Datasheets/ds13005.pdf";
+        diode_locator = "DS13005 Rev9-2, B360A SMA cathode band";
+        tvs_url = "https://www.vishay.com/docs/88392/smbj.pdf";
+        tvs_locator = "88392 Rev09-Jan-2024, SMBJ15A polarity and pulse ratings";
+        adaptation = "Authored coil-local cathode-to-cathode B360A/SMBJ15A loop; 1mm copper, connector signal pads approached from board interior; not vendor CAD";
+    };
+    unresolved = ["2A coil pulse and hard-short conductor/connector qualification", "coil inductance, clamp energy/repetition and transient overshoot", "actual harness/mating corridor and ground-plane fill", "FET SOA and physical current-decay timing"];
+    anchor = J;
+    required_layers = ["F.Cu"];
+    allowed_rotations = [0 deg, 90 deg, 180 deg, 270 deg];
+    internal_clearance = 0.15 mm;
+    net PLUS; net MINUS; net CLAMP; net GROUND;
+    member J { footprint = "github.com/andenore/CopperLib/packages/parts/jst/ph-s2b-sm4/footprints/JST_PH_S2B-PH-SM4-TB_1x02-1MP_P2.00mm_Horizontal.kicad_mod"; at = (0 mm, 0 mm); rotation = 0 deg; }
+    member TVS { footprint = "github.com/KiCad/kicad-footprints/Diode_SMD.pretty/D_SMB.kicad_mod"; at = (-2.6 mm, -9.1 mm); rotation = 270 deg; }
+    member D { footprint = "github.com/KiCad/kicad-footprints/Diode_SMD.pretty/D_SMA.kicad_mod"; at = (2.6 mm, -9.1 mm); rotation = 270 deg; }
+    pad J."1" = PLUS; pad J."2" = MINUS; pad J."MP" = GROUND;
+    pad TVS."1" = CLAMP; pad TVS."2" = PLUS;
+    pad D."1" = CLAMP; pad D."2" = MINUS;
+    track plus_clamp { net = PLUS; layer = "F.Cu"; width = 1 mm; points = [J."1", (-1 mm, -4.85 mm), TVS."2"]; }
+    track minus_clamp { net = MINUS; layer = "F.Cu"; width = 1 mm; points = [J."2", (1 mm, -4.85 mm), D."2"]; }
+    track common_cathodes { net = CLAMP; layer = "F.Cu"; width = 1 mm; points = [TVS."1", (-2.6 mm, -11.6 mm), (2.6 mm, -11.6 mm), D."1"]; }
+    track mounting_tabs { net = GROUND; layer = "F.Cu"; width = 0.5 mm; points = [(-3.35 mm, 2.9 mm), (3.35 mm, 2.9 mm)]; }
+    port PLUS { net = PLUS; layer = "F.Cu"; point = TVS."2"; pads = [J."1", TVS."2"]; }
+    port MINUS { net = MINUS; layer = "F.Cu"; point = D."2"; pads = [J."2", D."2"]; }
+    port GROUND { net = GROUND; layer = "F.Cu"; point = (-3.35 mm, 2.9 mm); pads = [J."MP"]; }
+}
+

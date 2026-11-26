@@ -1,0 +1,32 @@
+{
+  "schema": "copperlib-local-physical-acceptance/v0.1",
+  "date": "2026-11-24",
+  "scope": "Isolated two-macro fixture; not whole-board validation or production qualification",
+  "production_publishable": false,
+  "layout_sha256": "97f5bcab13c37759b854e7406b8a56267ce923cc9c96390793801ce7d299472d",
+  "compiler_sha256": "116e1d8814e0946b36c73c0548728a5ea55ca7bee1c86e36286761c81b0ad88c",
+  "fixture_path": "cache/recoil-physical-review/board.copper",
+  "fixture_sha256": "f236e253a0d9737aa4ae721a105cdfaeabb035179434d1323e1fa0733d86107e",
+  "route_report_path": "cache/recoil-physical-review/route-return.json",
+  "route_report_sha256": "b216f5706cc3b87b8a12c783236f28e6534cc3700c5141fb375c2d71f2345d0a",
+  "commands": [
+    "copper compile-macro <macro-copy-with-fixture-manifest> --offline -o <asset.json>",
+    "copper route-board cache/recoil-physical-review/board.copper --offline --layers 4 -o cache/recoil-physical-review/routed-return.kicad_pcb --report cache/recoil-physical-review/route-return.json"
+  ],
+  "acceptance": {
+    "compile_macro": "pass; four verified inputs",
+    "native_filled_drc": "pass",
+    "native_unconnected": 0,
+    "native_violations": 0,
+    "unrouted_ordinary_nets": 0,
+    "requirements_pass": 8,
+    "deferred_net": "GND; native fill verified",
+    "native_reconciled_explicit_findings": 2
+  },
+  "limitations": [
+    "Fixture checks geometry and connectivity; production qualification remains false.",
+    "Host must bind exact members and preserve private Kelvin copper and mating corridor.",
+    "Actual power-path capacity, filled-plane return distribution, thermal, EMI and short-circuit SOA remain open.",
+    "Macro protected regions require consumer review in exported filled copper."
+  ]
+}

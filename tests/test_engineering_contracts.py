@@ -16,6 +16,9 @@ CONTRACTS = (
     "packages/parts/ti/bq24072t/qualification.json",
     "packages/antennas/taoglas/fxub16-07-0150aq/qualification.json",
     "packages/antennas/taoglas/fxp611-07-0092c/qualification.json",
+    "packages/parts/analog-devices/ltc4365/qualification.json",
+    "packages/parts/vishay/si5442du/qualification.json",
+    "packages/parts/vishay/bzt52c6v2/qualification.json",
 )
 
 

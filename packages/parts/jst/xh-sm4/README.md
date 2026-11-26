@@ -20,3 +20,32 @@ The four-pin pattern has larger tab lands. Retain these credits.
 
 Body drawings were visually checked; exact manufacturer land-pattern and
 assembly signoff remain pending. Do not substitute a through-hole XH footprint.
+
+## Three-pin body registration review (2026-11-25)
+
+The three-pin land sizes match the catalogue p3 recommendation: signal
+1.3 x 4.5 mm and mounting 1.8 x 3.9 mm. The 6.5/11 mm longitudinal
+dimensions start at the mounting-pad outer edge, not the dashed plastic edge.
+The plastic mating face is 0.2 mm inward. A nominal datum at local y=5.35 mm
+places mounting-pad centres at y=3.40 mm and signal centres at y=-3.40 mm;
+retained supplier lands at +/-3.40868 mm differ by +/-0.00868 mm. The
+nominal x centres are signals -2.5/0/2.5 and mounts +/-5.7 mm; retained
+coordinates differ by at most 0.00064 mm. Catalogue dimensions are reference
+values, not a complete tolerance or solder-process qualification.
+
+The 12.5 x 7 mm body therefore spans local x[-6.25,6.25], y[-1.85,5.15].
+F.Fab is registered to that envelope; pads, courtyard and footprint origin
+are unchanged. The nominal body-envelope centre is (0,1.65), not the
+footprint origin. The mated housing reaches y=7.95 (2.8 mm beyond the face,
+from p3's 12.8-3-7 dimensions). Height 6 mm is an assembled reference;
+wire-axis z, insertion service space and cable bend radius remain separate.
+This review does not qualify the four-pin package's different mounting lands.
+
+CPL exports use the footprint origin; changing F.Fab does not shift the
+assembly coordinate. Do not assume the body-envelope centre or a copper
+centroid is the supplier's pick datum. Review C161860's exact placement,
+pin 1 and rotation in the assembler preview before release. This package
+has no verified supplier-specific placement-offset contract. If origin
+recentring becomes necessary, rebase all footprint geometry and compensate
+consumer placements together, then regenerate and validate; do not just
+move the component or manually edit a generated CPL.

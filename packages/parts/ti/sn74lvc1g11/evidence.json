@@ -1,0 +1,10 @@
+{
+  "part": "SN74LVC1G11DBVR",
+  "source_url": "https://www.ti.com/lit/ds/symlink/sn74lvc1g11.pdf",
+  "revision": "SCES487J Rev J, November 2026",
+  "source_sha256": "05464c6cc1df6867150f87b4ce274f41f34e1f7135fc81174f5b9cef70e3d561",
+  "locators": ["p3 Table4-1", "pp4-6 electrical and switching conditions", "p13 layout", "DBV0006A drawing"],
+  "pin_map": {"A": "1", "GND": "2", "B": "3", "Y": "4", "VCC": "5", "C": "6"},
+  "production_publishable": false,
+  "remaining": ["consumer pinned land-pattern review", "host signal-edge and startup review", "prototype verification"]
+}

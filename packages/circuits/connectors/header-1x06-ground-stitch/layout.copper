@@ -1,0 +1,43 @@
+// Authored ground-plane contact pattern for the managed 2.54 mm header.
+// Pin 2 must be ground. This is not a manufacturer-qualified layout.
+macro HEADER_1X06_PIN2_GROUND_STITCH {
+    source = {
+        adaptation = "Two 0.6/0.3 mm through-vias, 1.6 mm either side of pin 2, with 0.25 mm surface necks; consumer must verify fill, clearance and solderability";
+    };
+    unresolved = ["host filled-plane continuity and thermal spokes", "assembly solderability and connector selection"];
+    anchor = J;
+    required_layers = ["F.Cu", "B.Cu"];
+    allowed_rotations = [0 deg, 90 deg, 180 deg, 270 deg];
+    internal_clearance = 0.15 mm;
+    net ground;
+    member J {
+        footprint = "github.com/KiCad/kicad-footprints/Connector_PinHeader_2.54mm.pretty/PinHeader_1x06_P2.54mm_Vertical.kicad_mod";
+        at = (0 mm, 0 mm);
+        rotation = 0 deg;
+    }
+    pad J."2" = ground;
+    track left_neck {
+        net = ground; layer = "F.Cu"; width = 0.25 mm;
+        points = [J."2", (-1.6 mm, 2.54 mm)];
+    }
+    track right_neck {
+        net = ground; layer = "F.Cu"; width = 0.25 mm;
+        points = [J."2", (1.6 mm, 2.54 mm)];
+    }
+    via left_stitch {
+        net = ground; at = (-1.6 mm, 2.54 mm);
+        size = 0.6 mm; drill = 0.3 mm;
+        from_layer = "F.Cu"; to_layer = "B.Cu";
+        technology = none; finish = "standard";
+    }
+    via right_stitch {
+        net = ground; at = (1.6 mm, 2.54 mm);
+        size = 0.6 mm; drill = 0.3 mm;
+        from_layer = "F.Cu"; to_layer = "B.Cu";
+        technology = none; finish = "standard";
+    }
+    port ground {
+        net = ground; layer = "F.Cu"; point = J."2";
+        pads = [J."2"];
+    }
+}

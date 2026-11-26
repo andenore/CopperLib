@@ -1,0 +1,16 @@
+{
+  "schema": "copperscript-engineering-contract/v0.1",
+  "id": "ti.tps61088",
+  "kind": "power",
+  "production_publishable": false,
+  "sources": [{"url":"https://www.ti.com/lit/ug/slvuaf2/slvuaf2.pdf","revision":"SLVUAF2 June 2015","locator":"Figure 7 p7 pin map, Figures 8-11 pp9-10 layout, section 2.2 current limit","sha256":"a957c5e8842e86d83037f8da9ccfcbebce7c61cfae7981ff1f6e63f3c00bf46a"},{"url":"https://www.ti.com/lit/ds/symlink/bq51050b.pdf","revision":"SLUSB42F; package drawing 4219071/A May 2017","locator":"PDF pp41-42 RHL0020A land/stencil drawing only, not electrical pin map","sha256":"6caa339988c57bbf8f787cea348546b9dd9463726ace4d1a6d97bf5bb375b36b"}],
+  "requirements": [
+    {"id":"datasheet-package-review","stage":"design","algorithm":"external","description":"Archive exact SLVSCM8D datasheet bytes. RHL0020A land geometry separately reviewed against 4219071/A; confirm every pad-21 contact and stencil/thermal implementation in consumer."},
+    {"id":"component-ratings","stage":"design","algorithm":"external","description":"Review source range, mode-dependent feedback/current-limit tolerances, actual switching frequency, effective MLCC capacitance, inductor L under current, RMS, saturation and temperature."},
+    {"id":"current-capacity","stage":"design","algorithm":"external","description":"Review minimum copper/plating, every pad neckdown and via, pack, switch, connector and harness peak/RMS capacity. A calculated resistance is not ampacity."},
+    {"id":"layout-review","stage":"design","algorithm":"external","description":"Review filled routed copper against TI EVM boost output hot-loop, quiet feedback/compensation, local decoupling, all parallel power contacts and ground/thermal paths."},
+    {"id":"transient","stage":"simulation","algorithm":"external","description":"Review exact configuration and validated models for stability, source/load transients, startup, current limit, shutdown pass-through and independent load disconnection."},
+    {"id":"prototype-power","stage":"bench","algorithm":"external","description":"Measure minimum source voltage, full duty envelope, switch/inductor currents, output excursions, startup/shutdown, fault behavior, EMI and temperatures with actual pack and enclosure."}
+  ],
+  "notes":"Bare synchronous boost part; no qualified circuit/macro. No true output disconnect. EVM configuration is not a universally qualified operating point. Full Rev D datasheet archive remains open."
+}

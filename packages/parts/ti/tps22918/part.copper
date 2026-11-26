@@ -1,0 +1,17 @@
+// SLVSD76C, section 5 pin table, section 6.3 and sections 10-11.
+part TPS22918DBVR {
+    category = "power.load_switch";
+    manufacturer = "Texas Instruments";
+    footprint = "Package_TO_SOT_SMD:SOT-23-6";
+    source_document = "TPS22918 5.5-V, 2-A Load Switch";
+    source_revision = "SLVSD76C Rev C";
+    source_location = "p3 pin functions; p4 recommended conditions; pp20-21 layout";
+    source_url = "https://www.ti.com/lit/ds/symlink/tps22918.pdf";
+    source_checksum = "sha256:1b28eb58003d28b18bf919a15734056f296a499bebee2bd493a1e4358c4dfb1c";
+    pin VIN { number = "1"; domains = "power"; directions = "input"; voltage_min = 1V; voltage_max = 5.5V; connection = required; }
+    pin GND { number = "2"; domains = "ground"; directions = "input"; connection = required; }
+    pin ON { number = "3"; domains = "digital"; directions = "input"; voltage_min = 0V; voltage_max = 5.5V; connection = required; }
+    pin CT { number = "4"; domains = "analog"; directions = "passive"; connection = optional; }
+    pin QOD { number = "5"; domains = "analog"; directions = "passive"; connection = optional; }
+    pin VOUT { number = "6"; domains = "power"; directions = "output"; voltage_max = 5.5V; connection = required; }
+}

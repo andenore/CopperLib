@@ -1,0 +1,16 @@
+part SN74LVC1G11DBVR {
+    category = "logic.and.3input";
+    manufacturer = "Texas Instruments";
+    footprint = "Package_TO_SOT_SMD:SOT-23-6";
+    source_document = "SN74LVC1G11 Single 3-Input Positive-AND Gate";
+    source_revision = "SCES487J Rev J, November 2026";
+    source_location = "p3 DBV pin map; pp4-6 operating conditions, timing and Ioff; p13 bypass/layout; DBV0006A package drawing";
+    source_url = "https://www.ti.com/lit/ds/symlink/sn74lvc1g11.pdf";
+    source_checksum = "sha256:05464c6cc1df6867150f87b4ce274f41f34e1f7135fc81174f5b9cef70e3d561";
+    pin A { number = "1"; domains = "digital"; directions = "input"; }
+    pin GND { number = "2"; domains = "ground"; directions = "input"; }
+    pin B { number = "3"; domains = "digital"; directions = "input"; }
+    pin Y { number = "4"; domains = "digital"; directions = "output"; }
+    pin VCC { number = "5"; domains = "power"; directions = "input"; voltage_min = 1.65V; voltage_max = 5.5V; }
+    pin C { number = "6"; domains = "digital"; directions = "input"; }
+}

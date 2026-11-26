@@ -1,0 +1,17 @@
+// Exact current DCU VSSOP-8 geometry; VCC is pin8, ground is host-owned pin4.
+macro LVC1G74_DCU_0402_BYPASS {
+ source={url="https://www.ti.com/lit/ds/symlink/sn74lvc1g74.pdf";revision="SCES794G";locator="DCU pin8 VCC and local bypass guidance";geometry_status="Authored from exact managed VSSOP-8_2.3x2mm_P0.5mm; not vendor CAD or qualification.";};
+ unresolved=["Host IC ground and complete bypass loop", "Latch reset/clock/arming behavior and startup qualification", "Source binary capture/hash and assembly review"];
+ anchor=U; required_layers=["F.Cu","In1.Cu","In2.Cu","B.Cu"]; allowed_rotations=[0deg,90deg,180deg,270deg]; internal_clearance=0.15mm;
+ net SUPPLY;net GROUND;
+ member U {footprint="github.com/KiCad/kicad-footprints/Package_SO.pretty/VSSOP-8_2.3x2mm_P0.5mm.kicad_mod";at=(0mm,0mm);rotation=0deg;}
+ member C {footprint="github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod";at=(3.7mm,-0.75mm);rotation=0deg;}
+ pad U."8"=SUPPLY;pad C."1"=SUPPLY;pad C."2"=GROUND;
+ track bypass_supply {net=SUPPLY;layer="F.Cu";width=0.25mm;points=[U."8",C."1"];}
+ track bypass_ground {net=GROUND;layer="F.Cu";width=0.25mm;points=[C."2",(5mm,-0.75mm)];}
+ width_contract local_supply_branch {track=bypass_supply;minimum_width=0.25mm;purpose="control_supply";evidence="Chip-local bypass branch only; host distribution attaches at capacitor port. Not a reduction of host rail width.";}
+ width_contract local_return_branch {track=bypass_ground;minimum_width=0.25mm;purpose="control_supply";evidence="Local bypass capacitor current only into adjacent ground via; host IC ground and load returns remain separate obligations.";}
+ via bypass_return {net=GROUND;at=(5mm,-0.75mm);size=0.6mm;drill=0.3mm;from_layer="F.Cu";to_layer="B.Cu";technology=none;}
+ port SUPPLY {net=SUPPLY;layer="F.Cu";point=C."1";pads=[U."8",C."1"];}
+ plane_return bypass_plane {net=GROUND;layers=["In1.Cu","In2.Cu"];pads=[C."2"];contact capacitor {pad=C."2";at=(5mm,-0.75mm);}}
+}

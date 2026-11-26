@@ -1,0 +1,8 @@
+// Bare PCB feed anchor for CopperScript-generated trace antennas. This is
+// authored geometry, not a purchased RF component or a tuned radiator.
+part AntennaFeed {
+    category = "antenna-feed";
+    assembled = false;
+    footprint = "antenna-feed.kicad_mod";
+    pin FEED { number = "1"; domains = "rf"; directions = "passive"; }
+}

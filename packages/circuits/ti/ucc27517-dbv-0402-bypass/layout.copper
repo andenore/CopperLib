@@ -1,0 +1,17 @@
+// Temporary geometry prototype; no qualification or board integration claimed.
+macro UCC27517_DBV_0402_BYPASS {
+ source = { datasheet_url="https://www.ti.com/lit/ds/symlink/ucc27517.pdf"; datasheet_locator="SLUSAY4D December2014, DBV pins and bypass/layout guidance"; datasheet_sha256="6b7b8c088746010dfbce36367a03de3e971a91bd6fb705adad0c6258d44bf90c"; adaptation="Authored capacitor-to-VDD branch; host owns driver ground, gate-drive loop, bulk capacitor and signals."; };
+ unresolved=["Host driver ground/gate return loop and additional bulk capacitor", "gate-current pulse, supply ripple, thermal and transient qualification"];
+ anchor=U; required_layers=["F.Cu","In1.Cu","In2.Cu","B.Cu"]; allowed_rotations=[0 deg,90 deg,180 deg,270 deg]; internal_clearance=0.15mm;
+ net SUPPLY; net GROUND;
+ member U { footprint="github.com/KiCad/kicad-footprints/Package_TO_SOT_SMD.pretty/SOT-23-5.kicad_mod"; at=(0mm,0mm); rotation=0deg; }
+ member C { footprint="github.com/KiCad/kicad-footprints/Capacitor_SMD.pretty/C_0402_1005Metric.kicad_mod"; at=(-3.5mm,-0.95mm); rotation=180deg; }
+ pad U."1"=SUPPLY; pad C."1"=SUPPLY; pad C."2"=GROUND;
+ track bypass_supply { net=SUPPLY; layer="F.Cu"; width=0.25mm; points=[U."1",C."1"]; }
+ track bypass_ground { net=GROUND; layer="F.Cu"; width=0.25mm; points=[C."2",(-4.8mm,-0.95mm)]; }
+ width_contract local_supply_branch { track=bypass_supply; minimum_width=0.25mm; purpose="control_supply"; evidence="Chip-local VDD bypass lead only; host distribution remains 1mm and attaches at capacitor port. UCC27517 supply-bypass intent; pulse-current and gate-loop qualification remains open."; }
+ width_contract local_bypass_return { track=bypass_ground; minimum_width=0.25mm; purpose="control_supply"; evidence="Only local capacitor return into adjacent plane via. Host driver ground and gate-current return require separate short routing; not a load-current distribution path."; }
+ via bypass_return { net=GROUND; at=(-4.8mm,-0.95mm); size=0.6mm; drill=0.3mm; from_layer="F.Cu"; to_layer="B.Cu"; technology=none; }
+ port SUPPLY { net=SUPPLY; layer="F.Cu"; point=C."1"; pads=[U."1",C."1"]; }
+ plane_return bypass_plane { net=GROUND; layers=["In1.Cu","In2.Cu"]; pads=[C."2"]; contact capacitor { pad=C."2"; at=(-4.8mm,-0.95mm); } }
+}

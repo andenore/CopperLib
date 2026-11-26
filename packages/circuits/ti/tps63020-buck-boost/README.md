@@ -55,3 +55,16 @@ dependency pins. Structured source evidence and unresolved obligations remain.
 JSON snapshots and the former generator remain historical compatibility inputs,
 not code executed while resolving a Copper definition. These exports remain
 experimental and unqualified.
+
+## Four-layer local output control with inductor placement
+
+`TPS63020_FOUR_LAYER_LOCAL_OUTPUT_WITH_INDUCTOR` retains the authored local
+feedback/output control copper and adds the exact SRP4020TA land pattern as
+member `L`, at `(0,5.4)` mm and rotation180 relative to `U`. With host U at90,
+L is5.4mm to its right at270; each switch-pad distance is3.926mm. This avoids
+requiring a0.5mm placement grid to discover the narrow legal inductor pose.
+No new switch traces are implied: the host routes both switch nets and must
+review input/output loops, power current, thermal spreading and native fills.
+Bind all existing local-output-control members/nets plus `L`. This four-layer
+variant is distinct from the older six-layer assets above. It is an authored
+adaptation, not manufacturer CAD or a qualified power stage.

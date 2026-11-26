@@ -1,0 +1,12 @@
+// Exact package pin map; application qualification remains consumer-owned.
+part DMP6023LE_13 {
+    manufacturer = "Diodes Incorporated";
+    footprint = "Package_TO_SOT_SMD:SOT-223-3_TabPin2";
+    source_url = "https://www.diodes.com/datasheet/download/DMP6023LE.pdf";
+    source_location = "DS37199 Rev3-2 January2015, p1 top-view pinout; p2 ratings";
+    source_checksum = "sha256:175824e1809b9ee239012a5704fd17ae29ec274f70cb3f451245b662f1964c59";
+    pin G { number = "1"; domains = "analog"; directions = "input"; }
+    pin D { number = "2"; domains = "power,analog"; directions = "passive"; }
+    pin S { number = "3"; domains = "power,analog"; directions = "passive"; }
+}
+

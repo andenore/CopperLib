@@ -1,0 +1,11 @@
+{
+  "sources": [
+    {
+      "url": "https://www.vishay.com/docs/86342/bzt52_series.pdf",
+      "locator": "86342 Rev1.0 22-Dec-2022 pp1-2,5",
+      "sha256": "2db768d5a9fbccdca554c738052912127ecc9a128922fb44c956a7a37e1c1b72"
+    }
+  ],
+  "footprint_review": "Manufacturer drawing rendered and visually checked; custom geometry follows cited land dimensions. Assembly stencil process remains consumer review.",
+  "notes": "Cathode terminal2, anode1. VZ5.89..6.51V at5mA/25C, leakage100nA test voltage>2V, 300mW on stated FR4 footprint. A microamp charge-pump application requires leakage and hot/cold clamp review; transient clamp peak is not proven by nominal VZ. Verify actual VGS including layout inductance."
+}

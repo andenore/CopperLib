@@ -1,0 +1,27 @@
+// ST DS12814 Rev 4, June 2024: Table 1 pins; Table 3 supply limits;
+// section 7.1 Mode 1 wiring; LGA-14 package. I2C Mode 1 subset only.
+// Host must strap CS high and SA0 low/high; SDx/SCx go to GND or VDDIO.
+// Pin 10 stays unconnected; pin 11 may be unconnected or tied to VDDIO.
+part LSM6DSOXTR {
+    category = "sensor.imu";
+    manufacturer = "STMicroelectronics";
+    footprint = "footprints/LSM6DSOX_LGA14_ST.kicad_mod";
+    height = 0.86mm;
+    source_document = "LSM6DSOX datasheet";
+    source_revision = "DS12814 Rev 4, June 2024";
+    source_url = "https://www.st.com/resource/en/datasheet/lsm6dsox.pdf";
+    pin SDO_SA0 { number = "1"; domains = "digital"; directions = "input"; io_supply = VDDIO; }
+    pin SDX { number = "2"; domains = "digital"; directions = "input"; io_supply = VDDIO; }
+    pin SCX { number = "3"; domains = "digital"; directions = "input"; io_supply = VDDIO; }
+    pin INT1 { number = "4"; domains = "digital"; directions = "output"; drive_modes = "push_pull,open_drain"; io_supply = VDDIO; connection = optional; }
+    pin VDDIO { number = "5"; domains = "power"; directions = "input"; voltage_min = 1.62V; voltage_max = 3.6V; }
+    pin GND_6 { number = "6"; domains = "ground"; directions = "input"; }
+    pin GND_7 { number = "7"; domains = "ground"; directions = "input"; }
+    pin VDD { number = "8"; domains = "power"; directions = "input"; voltage_min = 1.71V; voltage_max = 3.6V; }
+    pin INT2 { number = "9"; domains = "digital"; directions = "output"; drive_modes = "push_pull,open_drain"; io_supply = VDDIO; connection = optional; }
+    pin OCS_AUX { number = "10"; connection = do_not_connect; }
+    pin SDO_AUX { number = "11"; connection = optional; domains = "digital"; directions = "passive"; }
+    pin CS { number = "12"; domains = "digital"; directions = "input"; io_supply = VDDIO; }
+    pin SCL { number = "13"; domains = "digital"; directions = "input"; io_supply = VDDIO; }
+    pin SDA { number = "14"; domains = "digital"; directions = "bidirectional"; drive_modes = "open_drain"; io_supply = VDDIO; }
+}

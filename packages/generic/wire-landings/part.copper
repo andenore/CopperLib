@@ -1,0 +1,11 @@
+// Exact package pin map; application qualification remains consumer-owned.
+part SOLDERWIRE_1P5SQMM_2WAY {
+    assembled = false;
+    manufacturer = "Generic PCB wire landing";
+    footprint = "footprints/SolderWire_1P5sqmm_2way.kicad_mod";
+    source_url = "https://gitlab.com/kicad/libraries/kicad-footprints";
+    source_location = "Managed KiCad footprint; assembly feature, not a purchased component";
+    pin P1 { number = "1"; domains = "power,analog,ground"; directions = "passive"; }
+    pin P2 { number = "2"; domains = "power,analog,ground"; directions = "passive"; }
+}
+

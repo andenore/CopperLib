@@ -1,0 +1,17 @@
+// DBV (SOT-23-5) variant only. Schmitt thresholds depend on VCC; this definition
+// does not invent one universal VIH/VIL pair. Review Table5.5 for actual rails.
+part SN74LVC1G14DBVR {
+    category = "logic.inverter.schmitt";
+    manufacturer = "Texas Instruments";
+    footprint = "Package_TO_SOT_SMD:SOT-23-5";
+    source_document = "SN74LVC1G14 Single Schmitt-Trigger Inverter";
+    source_revision = "SCES218AA Rev AA, October 2025";
+    source_location = "pp3-4 DBV pin map; pp6-7 operating conditions and Ioff; p13 bypass/layout; appended DBV0005A land pattern";
+    source_url = "https://www.ti.com/lit/ds/symlink/sn74lvc1g14.pdf";
+    source_checksum = "sha256:3d59568b16a2b7abb63d33ebe6f8ddd37e12dd3ca2616dd803872c509a583283";
+    pin NC { number = "1"; connection = do_not_connect; }
+    pin A { number = "2"; domains = "digital"; directions = "input"; }
+    pin GND { number = "3"; domains = "ground"; directions = "input"; }
+    pin Y { number = "4"; domains = "digital"; directions = "output"; }
+    pin VCC { number = "5"; domains = "power"; directions = "input"; voltage_min = 1.65V; voltage_max = 5.5V; }
+}

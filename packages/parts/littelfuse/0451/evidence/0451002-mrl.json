@@ -1,0 +1,12 @@
+{
+  "part": "0451002.MRL",
+  "manufacturer": "Littelfuse",
+  "sources": [
+    {"url":"https://www.lcsc.com/datasheet/C44479.pdf","revision":"Manufacturer-authored 06/15/17","sha256":"e6a46c9a12645c68d2004d892bb8b370e3792708fd2d013c8108b7b00f059dd7","locator":"p2 2A row; p4 dimensions and ordering","cached_path":"cache/organ-reva/fuse.pdf"},
+    {"url":"https://www.littelfuse.com/assetdocs/fuse-451-and-453-datasheet?assetguid=533cd5cc-956c-4243-867f-6ab5a62f6ba1","revision":"GD12/01/25","locator":"p1 opening times; p2 2A row; p3 derating; p4 ordering/package","review":"Browser primary-source read, same facts; direct download403, no fabricated checksum"}
+  ],
+  "facts": {"rated_current_a":2,"rated_voltage_v":125,"nominal_cold_resistance_ohm":0.0367,"nominal_melting_i2t_a2s":0.530,"i2t_condition":"calculated at8ms","interrupting_a_at_32vdc":300,"body_mm":{"length":6.10,"length_tolerance":0.20,"width":2.69,"height":2.69,"width_height_tolerance":0.25},"maximum_height_mm":2.94,"opening_time_max_s_at_200_percent":5,"continuous_derating_fraction":0.25},
+  "footprint_review":"Existing managed 451 lands1.96x3.15mm at+/-2.45mm:6.86mmoutside and2.94mmgap; drawing2.95mmgap is rounded0.01mm differently. Nonpolar terminals locally numbered1/2. Reused without changing10A variant geometry.",
+  "production_publishable":false,
+  "remaining":["Fuse current/temperature derating and startup/charge pulse endurance","Clearing I2t and prospective short-current coordination with downstream copper and pack protection","Voltage drop at charge/discharge current; 0.0367ohm is nominal cold resistance, not maximum"]
+}

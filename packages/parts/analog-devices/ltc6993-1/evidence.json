@@ -1,0 +1,48 @@
+{
+  "part": "LTC6993IS6_1_TRMPBF",
+  "mpn": "LTC6993IS6-1#TRMPBF",
+  "source_url": "https://www.analog.com/media/en/technical-documentation/data-sheets/ltc6993-6993-1-6993-2-6993-3-6993-4.pdf",
+  "revision": "Rev F, July 2025",
+  "source_sha256": null,
+  "source_capture_status": "web PDF reviewed; binary download unresolved",
+  "locators": [
+    "p2 S6 pinout and I-grade ordering",
+    "pp4-5 electrical characteristics",
+    "pp12-15 timing, DIV and startup",
+    "S6 package drawing"
+  ],
+  "pin_map": {
+    "TRIG": "1",
+    "GND": "2",
+    "SET": "3",
+    "DIV": "4",
+    "VPLUS": "5",
+    "OUT": "6"
+  },
+  "trigger": "rising-edge, non-retriggerable",
+  "production_publishable": false,
+  "remaining": [
+    "binary source hash",
+    "consumer assembly/paste-process review",
+    "host timing/arming/fault and startup review",
+    "prototype timing and fault-injection verification"
+  ],
+  "footprint": {
+    "native_check": "6 pads; footprint audit passed without warnings",
+    "annotations": "body, courtyard and silkscreen authored; no 3D model",
+    "path": "footprints/ADI_S6_TSOT23_6.kicad_mod",
+    "inner_gap_mm": 1.4,
+    "pad_size_mm": [
+      1.22,
+      0.62
+    ],
+    "pitch_mm": 0.95,
+    "row_centres_x_mm": [
+      -1.31,
+      1.31
+    ],
+    "origin": "authored from ADI S6 recommended solder-pad layout, Rev F p26, 05-08-1636",
+    "outer_span_mm": 3.84,
+    "sha256": "31bd01896d698f7b8731b42b2f505c382385c8766f90ac030069c3db48ebbc02"
+  }
+}
